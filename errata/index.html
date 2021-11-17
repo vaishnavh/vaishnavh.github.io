@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <meta content='Errata - Vaishnavh Nagarajan' name='title' />
+    <meta content='Errata - Vaishnavh Nagarajan' name='og:title' />
+    <title>Vaishnavh Nagarajan</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-55182625-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-55182625-3');
+</script>
+
+
+<link href='../images/fav.ico' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Teko|Dosis:400,800|Economica|Josefin+Sans|Oswald|Indie+Flower|Pacifico|Roboto' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='../stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='../stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='../stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='../javascripts/jquery.js' type='text/javascript'></script>
+<script src='../javascripts/pd.js' type='text/javascript'></script>
+<script src='../javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+<meta content="" property="fb:app_id" />
+
+  <meta content='.' property='og:url' />
+  <meta content="Welcome to my personal website!" property='og:description' />
+  <meta content="blog" property="og:type" />
+
+<!-- - -->
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=604714799556697";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<!-- for mathjax support -->
+
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" } },
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    processEscapes: true
+    });
+  </script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- for mathjax support -->
+
+
+
+  </head>
+  <body>
+    <header>
+<!--<br><p>Vaishnavh Nagarajan</p>-->
+</header>
+    <div id='container'>
+      <div class="content">
+          <section class='post'>
+            <h1>Errata</h1>
+            <h3 id="deterministic-pac-bayesian-generalization-bounds-for-deep-networks-via-generalizing-noise-resilience"><a id="pac-bayes">Deterministic PAC-Bayesian generalization bounds for deep networks via generalizing noise-resilience</a></h3>
+
+<ol>
+  <li>
+    <p>In Footnote 1, the variance should be specified as \(1/H\) and not \(1/{\sqrt{H}}\).</p>
+  </li>
+  <li>
+    <p>In Equation (2), the \(\forall l\) in the second line must be a \(\exists l\). The correct equation is:</p>
+  </li>
+</ol>
+
+\[\require{color} 
+ \begin{align}
+&amp;{\text{if }} \forall q &lt; r, \forall l, \rho_{q,l}(\mathcal{W},\mathbf{x},y) &gt; 0 \text{ then} \\
+&amp; \; \;  \; Pr_{\mathcal{U} \sim \mathcal{N}(0,\sigma^2 I)} \Big[ 
+{
+\colorbox{yellow}{$\exists l$}  \; |\rho_{r,l}(\mathcal{W}+\mathcal{U},{\mathbf{x},y}) - \rho_{r,l}(\mathcal{W},{\mathbf{x},y}) | &gt; \frac{\Delta_{r,l}(\sigma)}{2}
+ }
+ \; \; \text{ and } \\
+&amp; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; { \forall q {&lt;} r,  \forall l \; \;  |\rho_{q,l}(\mathcal{W}+\mathcal{U},{\mathbf{x},y}) - \rho_{q,l}(\mathcal{W},{\mathbf{x},y}) |{&lt;} \frac{\Delta_{q,l}(\sigma)}{2} } \Big]  \leq \frac{1}{(R+1)\sqrt{m}}.
+\end{align}\]
+
+<p>The same correction holds good for similar equations in the proof of Theorem 3.1.</p>
+
+<h3 id="uniform-convergence-may-be-unable-to-explain-generalization"><a id="uc">Uniform convergence may be unable to explain generalization</a></h3>
+
+<ol>
+  <li>Definition 3.1 uses the term “generalization <em>error</em>” when it is ideally supposed to be referred to as “generalization <em>gap</em>”. The term “generalization error” conventionally refers to the error rate of a classifier in expectation over test data. “Generalization gap” conventionally refers to the gap between the test error and the training error. In the specific case of interpolating models (where training error is zero), both these quantities would numerically evaluate to the same value. Nevertheless, in a general setting, these two quantities are two separate concepts.</li>
+</ol>
+
+
+          </section>
+        </div>
+    </div>
+    <footer>
+
+  <br />
+  <script type="text/javascript" language="javascript">
+  <!--
+  // Email obfuscator script 2.1 by Tim Williams, University of Arizona
+  // Random encryption key feature by Andrew Moulden, Site Engineering Ltd
+  // This code is freeware provided these four comment lines remain intact
+  // A wizard to generate this code is at http://www.jottings.com/obfuscator/
+  //-->
+  </script><noscript>My first name AT cs DOT cmu DOT edu</noscript>
+
+					<br />
+					<br />
+  Built with Jekyll using Scribble.
+  <br>
+  <img src="../images/scribble2.png" alt="scribble" /> 
+</footer>
+  </body>
+</html>
