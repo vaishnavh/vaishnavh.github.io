@@ -242,6 +242,8 @@ hr {
   border-bottom: 1px dotted #CCC;
   margin: 25px 0; }
 
+
+
 ul.posts, ul.posts li {
   margin: 0;
   padding: 0;
@@ -397,3 +399,109 @@ blockquote { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 
 pre { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
 strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
 
+li { padding: 0 5px;  margin-left: 20px;}
+
+.navigation {
+  width: 100%;
+  border-bottom: 1px solid black;
+  text-align: right;
+  position: relative;
+  font-family: Futura;
+
+  .logo {
+    a { 
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 30px;
+      font-weight: 700;
+      padding: 20px;
+      border-right: 1px solid black;
+      font-family: "IM Fell English SC", Georgia, serif;    
+      color: black;
+
+    } 
+  }
+
+}
+
+.link {
+  display: inline-block;
+  padding: 15px 0px;
+  margin: 2px 25px;
+  position: relative;
+  text-decoration: none;
+  color: #0f0f0f;
+  font-weight: 200;
+  font-size: 20px;
+  font-family: IM Fell French Canon, Georgia, serif;  
+  
+  .bar {
+    width: 100%;
+    display: inline-block;
+    border-bottom: 5px solid black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 300ms;
+  }
+  
+  &:hover {
+    .bar {
+      opacity: 1;
+      bottom: 5px;
+    }
+  }
+}
+
+.subheading {
+  font-family: "Garamond"; 
+  font-weight: 600; 
+  font-size: 22;
+}
+
+.subsubheading {
+  font-family: "IM Fell DW Pica", Georgia, serif; 
+  text-transform: uppercase;
+  font-size: 15;
+}
+
+.papertitle {
+  color: black; 
+  font-family: "Garamond";  
+  font-size: 16;
+  font-weight:600;
+}
+
+.conference {
+  color: black; 
+  font-family: "IM Fell English", Georgia, serif;  
+  font-size: 14;
+}
+
+.blogname {
+  color: black; 
+  font-family: "IM Fell DW Pica", Georgia, serif;  
+  font-weight: 100; 
+  font-size: 17;
+}
+
+.myhighlight {
+  color: #ff7133;
+  font-weight: 700;
+  font-size: 15;
+  font-family: "IM Fell DW Pica";
+}
+
+.blogtitle {
+  color: black; 
+  font-family: "IM Fell DW Pica", Georgia, serif;  
+  font-weight: 400; 
+  font-size: 25;
+}
+
+.blogbody {
+  color: black; 
+  font-family: "IM Fell DW Pica", Georgia, serif;  
+}
