@@ -456,8 +456,9 @@ li { padding: 0 5px;  margin-left: 20px;}
 }
 
 .subheading {
-  font-family: "Garamond"; 
-  font-weight: 600; 
+  font-family: "EB Garamond";
+  font-weight: 200; 
+  font-weight: bold;
   font-size: 22;
 }
 
@@ -469,7 +470,7 @@ li { padding: 0 5px;  margin-left: 20px;}
 
 .papertitle {
   color: black; 
-  font-family: "Garamond";  
+  font-family: "EB Garamond"; 
   font-size: 16;
   font-weight:600;
 }
