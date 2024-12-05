@@ -77,15 +77,6 @@
 <!-- for mathjax support -->
 
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    TeX: { equationNumbers: { autoNumber: "AMS" } },
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-    });
-  </script>
-  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
 
 <!-- for mathjax support -->
 
@@ -121,42 +112,11 @@
 </nav>
           <section class='post'>
             <h1></h1>
-            <div class="subheading"> Errata </div>
+            <div class="subheading">Notes</div>
 
-<p style="margin:5px;"></p>
-
-<h3 id="deterministic-pac-bayesian-generalization-bounds-for-deep-networks-via-generalizing-noise-resilience"><span class="papertitle"><a id="pac-bayes">Deterministic PAC-Bayesian generalization bounds for deep networks via generalizing noise-resilience</a></span></h3>
-
-<ol>
-  <li>
-    <p>In Footnote 1, the variance should be specified as \(1/H\) and not \(1/{\sqrt{H}}\).</p>
-  </li>
-  <li>
-    <p>In Equation (2), the \(\forall l\) in the second line must be a \(\exists l\). The correct equation is:</p>
-  </li>
-</ol>
-
-\[\require{color} 
- \begin{align}
-&amp;{\text{if }} \forall q &lt; r, \forall l, \rho_{q,l}(\mathcal{W},\mathbf{x},y) &gt; 0 \text{ then} \\
-&amp; \; \;  \; Pr_{\mathcal{U} \sim \mathcal{N}(0,\sigma^2 I)} \Big[ 
-{
-\colorbox{yellow}{$\exists l$}  \; |\rho_{r,l}(\mathcal{W}+\mathcal{U},{\mathbf{x},y}) - \rho_{r,l}(\mathcal{W},{\mathbf{x},y}) | &gt; \frac{\Delta_{r,l}(\sigma)}{2}
- }
- \; \; \text{ and } \\
-&amp; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; { \forall q {&lt;} r,  \forall l \; \;  |\rho_{q,l}(\mathcal{W}+\mathcal{U},{\mathbf{x},y}) - \rho_{q,l}(\mathcal{W},{\mathbf{x},y}) |{&lt;} \frac{\Delta_{q,l}(\sigma)}{2} } \Big]  \leq \frac{1}{(R+1)\sqrt{m}}.
-\end{align}\]
-
-<p>The same correction holds good for similar equations in the proof of Theorem 3.1.</p>
-
-<p><br /></p>
-
-<h3 id="uniform-convergence-may-be-unable-to-explain-generalization"><span class="papertitle"><a id="uc">Uniform convergence may be unable to explain generalization</a></span></h3>
-
-<ol>
-  <li>Definition 3.1 uses the term “generalization <em>error</em>” when it is ideally supposed to be referred to as “generalization <em>gap</em>”. The term “generalization error” conventionally refers to the error rate of a classifier in expectation over test data. “Generalization gap” conventionally refers to the gap between the test error and the training error. In the specific case of interpolating models (where training error is zero), both these quantities would numerically evaluate to the same value. Nevertheless, in a general setting, these two quantities are two separate concepts.</li>
-</ol>
-
+<ul>
+  
+</ul>
 
           </section>
         </div>
