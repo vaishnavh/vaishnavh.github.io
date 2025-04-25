@@ -389,73 +389,16 @@ img {
 .paging .right {
   margin-left: 320px; }
   
-/*h1 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-h2 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-h3 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-b { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-body { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-pre { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
-*/
-
-/*h1 { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-h2 { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-h3 { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-b { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-body { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-pre { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
-
-*/
-
-/*  h1 { font-family: "Libre Caslon Text", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-h2 { font-family: "Libre Caslon Text", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-h3 { font-family: "Libre Caslon Text", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: "Libre Caslon Text", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-b { font-family: "Libre Caslon Text", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-body { font-family: "Libre Caslon Text", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { font-family: "Libre Caslon Text", serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-pre { font-family: "Libre Caslon Text", serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
-*/
-/*
-h1 { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-h2 { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-h3 { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-b { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-body { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-pre { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
-
-*/
-/*
 h1 { font-family: "EB Garamond", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
 h2 { font-family: "EB Garamond", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
 h3 { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; } 
+p { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
 b { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
 body { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
 blockquote { font-family: "EB Garamond", serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
 pre { font-family: "EB Garamond", serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
-*/
+strong { font-family: "EB Garamond", serif;   font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
 
-
-h1 { font-family: "Jost", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-h2 { font-family: "Jost", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-h3 { font-family: "Jost", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: "Jost", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; } 
-b { font-family: "Jost", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-body { font-family: "Jost", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { font-family: "Jost", serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-pre { font-family: "Jost", serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
 
 
 
@@ -477,7 +420,8 @@ li { padding: 0 5px;  margin-left: 20px;}
       font-weight: 700;
       padding: 20px;
       border-right: 1px solid black;
-      font-family: "IM Fell English SC", Georgia, serif;    
+      font-family: "IM Fell Great Primer", Georgia, serif; 
+      /* "EB Garamond", serif;  */  
       color: black;
 
     } 
@@ -494,7 +438,7 @@ li { padding: 0 5px;  margin-left: 20px;}
   color: #0f0f0f;
   font-weight: 200;
   font-size: 20px;
-  font-family: IM Fell French Canon, Georgia, serif;  
+  font-family: IM Fell Great Primer, Georgia, serif;  
   
   .bar {
     width: 100%;
@@ -517,21 +461,21 @@ li { padding: 0 5px;  margin-left: 20px;}
 
 .subheading {
 /*  font-family: "EB Garamond";*/
-font-family: "IM Fell DW Pica", Georgia, serif; 
+font-family: "EB Garamond", serif; 
   font-weight: 400; 
   font-optical-sizing: auto;
   font-size: 22;
 }
 
 .subsubheading {
-  font-family: "IM Fell DW Pica", Georgia, serif; 
+  font-family: "EB Garamond", serif; 
   text-transform: uppercase;
   font-size: 15;
 }
 
 .papertitle {
   color: black; 
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "EB Garamond", serif;
   /*  font-family: "EB Garamond", serif;*/
 /*font-style: italic;*/
   font-optical-sizing: auto; 
@@ -541,13 +485,13 @@ font-family: "IM Fell DW Pica", Georgia, serif;
 
 .conference {
   color: black; 
-  font-family: "IM Fell Great Primer", Georgia, serif; 
+  font-family: "EB Garamond", serif; 
   font-size: 15;
 }
 
 .blogname {
   color: black; 
-  font-family: "IM Fell DW Pica", Georgia, serif;  
+  font-family: "EB Garamond", serif;  
   font-weight: 100; 
   font-size: 17;
 }
@@ -556,24 +500,24 @@ font-family: "IM Fell DW Pica", Georgia, serif;
   color: #ff7133;
   font-weight: 700;
   font-size: 15;
-  font-family: "IM Fell DW Pica";
+  font-family: "IM Fell Great Primer";
 }
 
 .blogtitle {
   color: black; 
-  font-family: "IM Fell DW Pica", Georgia, serif;  
+  font-family: "EB Garamond", serif;  
   font-weight: 400; 
   font-size: 25;
 }
 
 .blogbody {
   color: black; 
-  font-family: "IM Fell DW Pica", Georgia, serif;  
+  font-family: "EB Garamond", serif;  
   font-style: italic;
 }
 
 .blogbody
-  p { font-family: "IM Fell DW Pica", Georgia, serif; 
+  p { font-family: "EB Garamond", serif; 
     font-size: 14px; font-style: 
     normal; font-variant: normal; 
     font-weight: 500; 
@@ -581,19 +525,17 @@ font-family: "IM Fell DW Pica", Georgia, serif;
   li {
     font-style: normal;
   }
-  strong { font-family: "IM Fell DW Pica", Georgia, serif; sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
-  h1 { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-  h2 { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-  h3 { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;}
-    b { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-  body { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-  blockquote { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-  pre { font-family: "IM Fell DW Pica", Georgia, serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-
-
-  /*strong {
-    font-family: "IM Fell DW Pica", Georgia, serif; 
+  strong { font-family: "EB Garamond", serif; sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
+  h1 { font-family: "EB Garamond", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
+  h2 { font-family: "EB Garamond", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
+  h3 { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;}
+    b { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
+  body { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
+  blockquote { font-family: "EB Garamond", serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
+  pre { font-family: "EB Garamond", serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+  strong {
+    font-family: "EB Garamond", serif; 
     font-weight: 800; 
-  }*/
+  }
 
 
