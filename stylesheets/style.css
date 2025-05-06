@@ -23,6 +23,7 @@
         --logo-color: black;    /* Light mode logo color */
   --blogname-color: black;
   --blogtitle-color: black;
+  --logo-border-color: black;
 }
 
 
@@ -47,6 +48,7 @@
         --logo-color: #eee;       /* New variable for logo color */
   --blogname-color: #eee;
   --blogtitle-color: #eee;
+  --logo-border-color: #eee;
 }
 
   
@@ -562,6 +564,7 @@ li { padding: 0 5px;  margin-left: 20px;}
   font-family: Futura;
   display: flex; /* Add flex container */
   justify-content: flex-end; /* Align items to the right by default */
+    align-items: flex-end; /* Change to flex-end */
 }
 
 .navigation .logo { /* More specific selector */
@@ -571,15 +574,15 @@ li { padding: 0 5px;  margin-left: 20px;}
     left: 0;
     font-size: 30px;
     font-weight: 700;
-    padding: 20px;
-    border-right: 1px solid black;
+    padding: 7px;
+/*    border-right: 1px solid var(--logo-border-color);;*/
     font-family: "IM Fell Great Primer", Georgia, serif;
     color: var(--logo-color); /* Apply logo color variable */
   }
 }
 
 .navigation-item { /* Style for each navigation link */
-  padding: 15px; /* Add some spacing */
+  padding: 0px; /* Add some spacing */
 }
 
 .navigation-item a { /* Style for the links themselves */
@@ -587,38 +590,60 @@ li { padding: 0 5px;  margin-left: 20px;}
   color: black; /* Set link color */
 }
 
-/* Media query for smaller screens (example) */
+
+/* Media query for smaller screens */
 @media (max-width: 768px) {
   .navigation {
-    flex-direction: column; /* Make it vertical on smaller screens */
-    align-items: stretch; /* Take up full width of the screen */
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 10px 0;
+    margin: 0;
   }
-  .menu { /* Target the container of your links */
-    display: flex;
-    flex-direction: column; /* Stack the links vertically */
-    align-items: stretch; /* Make links take full width */
-  }
-  .menu a { /* Target the link elements */
-    text-align: left; /* Center the text */
-    padding: 15px; /* Add spacing */
-    border-top: 1px solid #eee; /* Add a separator */
-  }
-  .menu a:first-child {
-    border-top: none; /* Remove top border for the first item */
-  }
+
   .navigation .logo {
-    position: static; /* Remove absolute positioning on mobile */
-    margin-bottom: 50px; /* Add some space below the logo */
-    text-align: center; /* Center the logo text */
+    position: static;
+    margin-bottom: 20px;
+    width: 100%;
+    display: block;
+    padding: 0;
   }
 
   .navigation .logo a {
-    border-right: none; /* Remove the border on mobile */
-    padding: 10px; /* Adjust logo padding */
-    display: block; /* Make the logo link take full width */
+    border-right: none;
+    padding: 10px 0;
+    display: block;
+    margin: 0;
+    width: auto;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0;
+    margin: 10px 0 0 0; /* Add top margin */
+    width: 100%;
+  }
+
+  .menu a {
+    padding: 15px 0;
+    display: block;
+    text-align: left;
+    margin: 0;
+    border-top: 1px solid #eee;
+    width: 100%;
+  }
+
+  .menu a:first-child {
+    border-top: none;
+  }
+
+  #theme-toggle-button {
+    text-align: left; /* Ensure left alignment */
   }
 }
-
 
 .link {
   display: inline-block;
@@ -782,8 +807,8 @@ li, ol, ul {
   border: none;
   color: var(--nav-text-color);
   font-size: 1.2em;      /* Adjust icon size */
-  padding: 10px 15px;   /* Adjust padding */
-  margin: 2px 25px;
+  padding: 10px 0px;   /* Adjust padding */
+  margin: 10px 0px;
   cursor: pointer;
   transition: color 0.3s ease;
 }
