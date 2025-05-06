@@ -7,7 +7,7 @@
   --text-color: #303030;      /* Dark text */
   --container-background: #fff; /* Container background */
   --container-border: #eee;    /* Container border */
-  --link-color: #269;         /* Default link color */
+  --link-color: #663925;         /* Default link color */
   --block-border: #efefef;    /* Block border color */
   --blockquote-background: #f9f9f9; /* Blockquote background */
   --blockquote-text: #606060;   /* Blockquote text */
@@ -24,6 +24,7 @@
   --blogname-color: black;
   --blogtitle-color: black;
   --logo-border-color: black;
+  --highlight-color: #B86A50;
 }
 
 
@@ -32,7 +33,7 @@
   --text-color: #eee;          /* Light text */
   --container-background: #1e1e1e; /* Dark container background */
   --container-border: #333;      /* Dark container border */
-  --link-color: #bb86fc;       /* Dark mode link color (adjust as desired) */
+  --link-color: #D2B48C;       /* Dark mode link color (adjust as desired) */
   --block-border: #333;       /* Dark block border */
   --blockquote-background: #252525; /* Dark blockquote background */
   --blockquote-text: #ccc;     /* Dark blockquote text */
@@ -49,6 +50,7 @@
   --blogname-color: #eee;
   --blogtitle-color: #eee;
   --logo-border-color: #eee;
+  --highlight-color: #B86A50;
 }
 
   
@@ -555,6 +557,25 @@ strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-siz
 
 li { padding: 0 5px;  margin-left: 20px;}
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: var(--heading-color); /* Apply to all headings */
+}
+
+
+.subheading {
+    color: var(--heading-color); /* Consistent with other headings */
+}
+
+.subsubheading {
+    color: var(--heading-color); /* Consistent with other headings */
+}
+
 .navigation {
   width: 100%;
 /*  border-bottom: 1px solid black;*/
@@ -714,7 +735,7 @@ font-family: "IM Fell Great Primer", Georgia, serif;
 }
 
 .myhighlight {
-  color: #ff7133;
+  color: var(--highlight-color);
   font-weight: 700;
   font-size: 15;
   font-family: "IM Fell Great Primer";
@@ -729,6 +750,7 @@ font-family: "IM Fell Great Primer", Georgia, serif;
 /*  text-align: center;*/
   line-height: 1.5em;
   margin-bottom: 60px;
+  color: var(--highlight-color);
 }
 
 .blogbody {
@@ -746,12 +768,34 @@ font-family: "IM Fell Great Primer", Georgia, serif;
   li {
     font-style: normal;
   }
-  strong { font-family: "IM Fell Great Primer", Georgia, serif; sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
-  h1 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-  h2 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-  h3 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;}
-    b { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-  body { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
+  strong { font-family: "IM Fell Great Primer", Georgia, serif; 
+    sans-serif; font-size: 15px; font-style: normal; 
+    font-variant: normal; font-weight: 600; line-height: 20px; 
+    color: var(--highlight-color)} 
+  /*strong {
+    font-family: "IM Fell Great Primer", Georgia, serif; 
+    font-weight: bold; 
+    font-size: 15px; font-style: normal; font-variant: normal; 
+    font-weight: 600;
+  }*/
+
+  h1 { font-family: "IM Fell Great Primer", Georgia, serif;  
+    font-size: 24px; font-style: normal; font-variant: normal; 
+    font-weight: 700; line-height: 26.4px;
+    color: var(--highlight-color); } 
+  h2 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; 
+    line-height: 18px; color: var(--highlight-color); } 
+  h3 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; 
+    font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;
+     color: var(--highlight-color); }
+  b { font-family: "IM Fell Great Primer", Georgia, serif;  
+    font-size: 14px; font-style: normal; font-variant: 
+    normal; font-weight: 400; line-height: 20px; 
+  color: var(--highlight-color);} 
+  body { font-family: "IM Fell Great Primer", Georgia, serif;  
+    font-size: 14px; font-style: normal; font-variant: 
+    normal; font-weight: 400; line-height: 20px; 
+  } 
   blockquote { font-family: "IM Fell Great Primer", Georgia, serif;  
     font-size: 21px; font-style: normal; font-variant: 
     normal; font-weight: 400; line-height: 30px; 
@@ -762,32 +806,9 @@ font-family: "IM Fell Great Primer", Georgia, serif;
     line-height: 18.5714px; 
     background: var(--pre-background);
 }
-  strong {
-    font-family: "IM Fell Great Primer", Georgia, serif; 
-    font-weight: bold; 
-    font-size: 15px; font-style: normal; font-variant: normal; 
-    font-weight: 600;
-  }
+  
 
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    color: var(--heading-color); /* Apply to all headings */
-}
-
-
-.subheading {
-    color: var(--heading-color); /* Consistent with other headings */
-}
-
-.subsubheading {
-    color: var(--heading-color); /* Consistent with other headings */
-}
 
 
 li, ol, ul {
