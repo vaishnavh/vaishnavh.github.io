@@ -467,6 +467,18 @@ li { padding: 0 5px;  margin-left: 20px;}
   text-align: right;
   position: relative;
   font-family: Futura;
+  display: flex;
+  justify-content: space-around; /* Distributes items evenly */
+  /* Media query for smaller screens (example) */
+  @media (max-width: 768px) {
+    .navigation {
+      flex-direction: column; /* Make it vertical on smaller screens */
+      align-items: stretch; /* Take up full width of the screen */
+    }
+    .navigation-item {
+      text-align: center; /* Center the text */
+    }
+  }
 
   .logo {
     a { 
