@@ -500,8 +500,29 @@ li { padding: 0 5px;  margin-left: 20px;}
     flex-direction: column; /* Make it vertical on smaller screens */
     align-items: stretch; /* Take up full width of the screen */
   }
-  .navigation-item {
-    text-align: center; /* Center the text */
+  .menu { /* Target the container of your links */
+    display: flex;
+    flex-direction: column; /* Stack the links vertically */
+    align-items: stretch; /* Make links take full width */
+  }
+  .menu a { /* Target the link elements */
+    text-align: left; /* Center the text */
+    padding: 15px; /* Add spacing */
+    border-top: 1px solid #eee; /* Add a separator */
+  }
+  .menu a:first-child {
+    border-top: none; /* Remove top border for the first item */
+  }
+  .navigation .logo {
+    position: static; /* Remove absolute positioning on mobile */
+    margin-bottom: 50px; /* Add some space below the logo */
+    text-align: center; /* Center the logo text */
+  }
+
+  .navigation .logo a {
+    border-right: none; /* Remove the border on mobile */
+    padding: 10px; /* Adjust logo padding */
+    display: block; /* Make the logo link take full width */
   }
 }
 
