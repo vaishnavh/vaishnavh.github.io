@@ -1,3 +1,54 @@
+:root {
+
+ }
+
+[data-theme="light"] {
+  --background-color: #fdf5e6;  /* Light background */
+  --text-color: #303030;      /* Dark text */
+  --container-background: #fff; /* Container background */
+  --container-border: #eee;    /* Container border */
+  --link-color: #269;         /* Default link color */
+  --block-border: #efefef;    /* Block border color */
+  --blockquote-background: #f9f9f9; /* Blockquote background */
+  --blockquote-text: #606060;   /* Blockquote text */
+  --pre-background: #39382e;   /* Pre background */
+  --hr-color: #CCC;          /* HR color */
+  --nav-text-color: #0f0f0f;   /* Navigation text */
+  --nav-border-color: black;
+      --heading-color: #444;
+    --paragraph-color: #444;
+    --papertitle-color: black;
+    --conference-color: black;
+    --list-item-color: #303030;
+        --logo-color: black;    /* Light mode logo color */
+  --blogname-color: black;
+  --blogtitle-color: black;
+}
+
+
+[data-theme="dark"] {
+    --background-color: #1f1a12;  /* Dark background */
+  --text-color: #eee;          /* Light text */
+  --container-background: #1e1e1e; /* Dark container background */
+  --container-border: #333;      /* Dark container border */
+  --link-color: #bb86fc;       /* Dark mode link color (adjust as desired) */
+  --block-border: #333;       /* Dark block border */
+  --blockquote-background: #252525; /* Dark blockquote background */
+  --blockquote-text: #ccc;     /* Dark blockquote text */
+  --pre-background: #202020;   /* Dark pre background */
+  --hr-color: #555;          /* Dark HR color */
+  --nav-text-color: #eee;       /* Dark navigation text */
+  --nav-border-color: #555;
+    --heading-color: #eee;      /* General heading color */
+    --paragraph-color: #eee;
+    --papertitle-color: #eee;   /* Color for paper titles */
+    --conference-color: #ccc;   /* Color for conference names */
+    --list-item-color: #eee;    /* Color for list items */
+        --logo-color: #eee;       /* New variable for logo color */
+  --blogname-color: #eee;
+  --blogtitle-color: #eee;
+}
+
   
 h1, h2, h3, h4, h5, strong, b {
   font-weight: 600; }
@@ -5,7 +56,7 @@ h1, h2, h3, h4, h5, strong, b {
 html, body {
   height: 100%; }
 
-body {
+/*body {
   background: #f9f9f9;
   color: #303030;
 font-family: 'Roboto', sans-serif;
@@ -15,7 +66,20 @@ font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: -40px; }
   body, body * {
-    -webkit-font-smoothing: antialiased; }
+    -webkit-font-smoothing: antialiased; }*/
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  padding: 0;
+  margin: -40px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
 
 img {
   border: none; }
@@ -85,7 +149,7 @@ font-family: 'Pacifico', cursive;    font-size: 1.5em;
   color: #444
   }
 
-footer {
+/*footer {
   width: 100%;
   max-width: 600px;
   line-height: 2em;
@@ -94,6 +158,19 @@ footer {
   text-align: center; }
   footer * {
     color: #797979; }
+*/
+
+footer {
+  width: 100%;
+  max-width: 600px;
+  line-height: 2em;
+  margin: auto;
+  padding-bottom: 30px;
+  text-align: center;
+  display: flex;         /* Add flexbox to the footer */
+  flex-direction: column; /* Stack footer elements vertically */
+  align-items: center;    /* Center elements horizontally */
+}
 
 	
 h1, h2, h3, h4, h5, h6 {
@@ -117,10 +194,10 @@ h1, h2, h3, h4, h5, h6 {
   box-sizing: border-box;
   width: 100%;
   max-width: 90%;
-  background: #fff;
+/*  background: #fff;*/
   margin: 10px auto 20px;
   border-radius: 7px;
-  border: 1px solid #eee;
+/*  border: 1px solid #eee;*/
   position: relative; }
   #container:before, #container:after {
     content: " ";
@@ -128,8 +205,13 @@ h1, h2, h3, h4, h5, h6 {
   #container:after {
     clear: both; }
   #container .block {
-    border-top: 1px solid #efefef;
-    border-bottom: 1px solid #efefef;
+/*    border-top: 1px solid #efefef;*/
+/*    border-bottom: 1px solid #efefef;*/
+  background: var(--container-background);
+  border: 1px solid var(--container-border);
+  color: var(--text-color); /* Inherit text color */
+  border-top: 1px solid var(--block-border);
+  border-bottom: 1px solid var(--block-border);
     padding: 30px 40px 24px;
     text-align: center; 
 	font-weight:bold;}
@@ -156,6 +238,8 @@ h1, h2, h3, h4, h5, h6 {
       *vertical-align: auto;
       height: 20px;
       overflow: hidden; }
+
+
 	
 	  
 .content {
@@ -171,7 +255,8 @@ h1, h2, h3, h4, h5, h6 {
 
 a, .as-link {
   text-decoration: none;
-  color: #269;
+/*  color: #269;*/
+color: var(--link-color);
   line-height: 1.4em;
   display: inline-block;
   vertical-align: baseline;
@@ -239,8 +324,10 @@ a, .as-link {
 
 hr {
   border: 0;
-  border-bottom: 1px dotted #CCC;
-  margin: 25px 0; }
+/*  border-bottom: 1px dotted #CCC;*/
+  margin: 25px 0; 
+  border-bottom: 1px dotted var(--hr-color);
+}
 
 
 
@@ -406,9 +493,14 @@ h3 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font
 p { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
 b { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
 body { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
+blockquote { 
+  font-family: "IM Fell Great Primer", Georgia, serif;  
+  font-size: 21px; font-style: normal; 
+  font-variant: normal; font-weight: 400; line-height: 30px; } 
 pre { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "IM Fell Great Primer", Georgia, serif;   font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
+strong { font-family: "IM Fell Great Primer", Georgia, serif;   
+  font-size: 15px; font-style: normal; font-variant: normal; 
+  font-weight: 600; line-height: 20px; } 
 
 
 
@@ -463,7 +555,8 @@ li { padding: 0 5px;  margin-left: 20px;}
 
 .navigation {
   width: 100%;
-  border-bottom: 1px solid black;
+/*  border-bottom: 1px solid black;*/
+    border-bottom: 1px solid var(--nav-border-color);
   text-align: right;
   position: relative;
   font-family: Futura;
@@ -481,7 +574,7 @@ li { padding: 0 5px;  margin-left: 20px;}
     padding: 20px;
     border-right: 1px solid black;
     font-family: "IM Fell Great Primer", Georgia, serif;
-    color: black;
+    color: var(--logo-color); /* Apply logo color variable */
   }
 }
 
@@ -533,7 +626,8 @@ li { padding: 0 5px;  margin-left: 20px;}
   margin: 2px 25px;
   position: relative;
   text-decoration: none;
-  color: #0f0f0f;
+/*  color: #0f0f0f;*/
+    color: var(--nav-text-color);
   font-weight: 200;
   font-size: 20px;
   font-family: IM Fell Great Primer, Georgia, serif;  
@@ -572,7 +666,7 @@ font-family: "IM Fell Great Primer", Georgia, serif;
 }
 
 .papertitle {
-  color: black; 
+    color: var(--papertitle-color); /* Style paper titles */
   font-family: "IM Fell Great Primer", Georgia, serif;
   /*  font-family: "EB Garamond", serif;*/
 /*font-style: italic;*/
@@ -582,13 +676,13 @@ font-family: "IM Fell Great Primer", Georgia, serif;
 }
 
 .conference {
-  color: black; 
+    color: var(--conference-color); /* Style conference names */
   font-family: "IM Fell Great Primer", Georgia, serif; 
-  font-size: 15;
+  font-size: 14;
 }
 
 .blogname {
-  color: black; 
+  color: var(--blogname-color); 
   font-family: "IM Fell Great Primer", Georgia, serif;  
   font-weight: 100; 
   font-size: 17;
@@ -602,7 +696,7 @@ font-family: "IM Fell Great Primer", Georgia, serif;
 }
 
 .blogtitle {
-  color: black; 
+  color: var(--blogtitle-color); 
   font-family: "IM Fell Great Primer", Georgia, serif;  
   font-weight: 800; 
   font-size: 25;
@@ -633,11 +727,99 @@ font-family: "IM Fell Great Primer", Georgia, serif;
   h3 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;}
     b { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
   body { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-  blockquote { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-  pre { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+  blockquote { font-family: "IM Fell Great Primer", Georgia, serif;  
+    font-size: 21px; font-style: normal; font-variant: 
+    normal; font-weight: 400; line-height: 30px; 
+    color: var(--blockquote-text);
+  background: var(--blockquote-background);
+} 
+  pre { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; 
+    line-height: 18.5714px; 
+    background: var(--pre-background);
+}
   strong {
     font-family: "IM Fell Great Primer", Georgia, serif; 
-    font-weight: 800; 
+    font-weight: bold; 
+    font-size: 15px; font-style: normal; font-variant: normal; 
+    font-weight: 600;
   }
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: var(--heading-color); /* Apply to all headings */
+}
+
+
+.subheading {
+    color: var(--heading-color); /* Consistent with other headings */
+}
+
+.subsubheading {
+    color: var(--heading-color); /* Consistent with other headings */
+}
+
+
+li, ol, ul {
+    color: var(--list-item-color); /* Style list items */
+    padding: 0 5px;
+    margin-left: 20px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#theme-toggle-button {
+  background: none;
+  border: none;
+  color: var(--nav-text-color);
+  font-size: 1.2em;      /* Adjust icon size */
+  padding: 10px 15px;   /* Adjust padding */
+  margin: 2px 25px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#theme-toggle-button:hover {
+  color: var(--link-color);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+
+
+
+/* Font Awesome Styles */
+.font-awesome-icons i.fa-linkedin {
+  font-family: "Font Awesome 6 Brands"; /* Correct font-family */
+  font-size: 20px;                     /* Your desired size */
+  color: var(--text-color);             /* Or your preferred color */
+  font-style: normal;                   /* Reset italics */
+  font-weight: 400;                     /* Or 'normal' */
+  display: inline-block;                /* Prevent layout issues */
+  text-rendering: auto;                 /* Optimize rendering */
+  -webkit-font-smoothing: antialiased;   /* Improve appearance */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-awesome-icons i { /* General Font Awesome reset */
+  font-variant: normal;                 /* Reset font variants */
+}
+
 
 
