@@ -33,7 +33,7 @@
   --text-color: #eee;          /* Light text */
   --container-background: #1e1e1e; /* Dark container background */
   --container-border: #333;      /* Dark container border */
-  --link-color: #D2B48C;       /* Dark mode link color (adjust as desired) */
+  --link-color: #B86A50;       /* Dark mode link color (adjust as desired) */
   --block-border: #333;       /* Dark block border */
   --blockquote-background: #252525; /* Dark blockquote background */
   --blockquote-text: #ccc;     /* Dark blockquote text */
@@ -50,7 +50,7 @@
   --blogname-color: #eee;
   --blogtitle-color: #eee;
   --logo-border-color: #eee;
-  --highlight-color: #B86A50;
+  --highlight-color: #D2B48C;
 }
 
   
