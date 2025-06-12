@@ -35,7 +35,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-<link href='https://fonts.googleapis.com/css?family=IM Fell DW Pica|IM Fell DW Pica SC|IM Fell English|IM Fell English SC|IM Fell French Canon|IM Fell Great Primer|IM Fell Great Primer IT' rel='stylesheet'>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+
+
+
+
+<link href='https://fonts.googleapis.com/css?family=IM Fell DW Pica|IM Fell DW Pica SC|IM Fell English|IM Fell English SC|IM Fell French Canon|IM Fell Great Primer|IM Fell Great Primer IT|IM Fell Double Pica|Libre Caslon Text|Jost' rel='stylesheet'>
 
 
 <!--<link href='http://fonts.googleapis.com/css?family=Teko|Dosis:400,800|Economica|Josefin+Sans|Oswald|Indie+Flower|Pacifico|Roboto' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' /> -->
@@ -48,7 +59,7 @@
 <script src='/javascripts/basics.js' type='text/javascript'></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <!-- - -->
-<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
 <meta content='text/html; charset=utf-8' http-equiv='content-type' />
 <meta content="http://muan.co/images/og.png" property="og:image" />
 <meta content="" property="fb:app_id" />
@@ -90,6 +101,7 @@
   <div class="navigation">
     <div class="logo"><a href="/home/index.html">Vaishnavh Nagarajan</a></div>
     <div class="menu">
+
   
     <a href="/home/index.html"  class="link">
       <div class="title">
@@ -103,21 +115,40 @@
     </div>
     </a>
   
+    <a href="/blog/index.html"  class="link">
+      <div class="title">
+      Blog
     </div>
+    </a>
+  
+    </div>
+    <button id="theme-toggle-button" class="font-awesome-icons">
+        <i id="theme-toggle-icon" class="fas fa-moon"></i>  <span class="visually-hidden">Toggle Dark Mode</span>
+      </button>
   </div>
 </nav>
           <section class='post'>
             <h1></h1>
-            <div class="subheading">Posts</div>
+            <div class="subheading">Posts on here</div>
 
 <ul>
   
     <li>
-      <span class="blogname"><a href="/2024/05/15/test//index.html">Test</a></span> (15 May 2024)  
-      <p>This is a test post.</p>
+      <span class="blogname"><a href="/blog/history-of-science/index.html">Why PhD students should read the history of science</a> (29 Apr 2025)  </span>
+      <!-- <p>Here’s a secret that I accidentally discovered during my PhD: consuming history-of-science content is an efficient way to hone your emotional maturity as a researcher.
+You’ll notice, even as you read two random pages from the history of science, the pages have an uncanny resemblance to each other, and to the one you’re writing. Here are some patterns:</p>
 
+ -->
     </li>
   
+</ul>
+
+<div class="subheading">Posts from elsewhere</div>
+
+<ul>
+  <li>
+      <span class="blogname"><a href="https://locuslab.github.io/2019-07-09-uniform-convergence/">Locuslab blogpost</a> with code on &ldquo;Uniform convergence may be unable to explain generalization"(July 2019)</span>
+  </li>
 </ul>
 
           </section>
@@ -135,11 +166,81 @@
   //-->
   </script><noscript>first name AT google DOT com</noscript>
 
+
+
 					<br />
 					<br />
   Built with Jekyll using Scribble.
   <br>
   <img src="/images/scribble2.png " alt="scribble" /> 
 </footer>
+    <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleButton = document.getElementById('theme-toggle-button');
+    const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+
+    console.log('DOMContentLoaded fired');
+    console.log('themeToggleButton:', themeToggleButton);
+    console.log('body:', body);
+    console.log('currentTheme:', currentTheme);
+
+    const initializeTheme = () => {
+      const themeToggleButton = document.getElementById('theme-toggle-button');
+      const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
+      if (!themeToggleButton) {
+        console.error('Dark mode toggle element not found!');
+        return;
+      }
+
+      console.log('initializeTheme called, themeToggleButton:', themeToggleButton);
+
+      // Set initial theme based on local storage
+      if (currentTheme === 'light') {
+        body.setAttribute('data-theme', 'light');
+        themeToggleIcon.classList.remove('fa-sun');   // Switch to sun icon
+        themeToggleIcon.classList.add('fa-moon');
+        console.log('Setting light theme initially');
+      } else {
+        body.setAttribute('data-theme', 'dark');  // Default to dark
+        themeToggleIcon.classList.remove('fa-moon');   // Switch to moon icon
+        themeToggleIcon.classList.add('fa-sun');
+        console.log('Setting default dark theme');
+      }
+
+      // Add event listener for toggle change
+      themeToggleButton.addEventListener('click', function() {
+        console.log('Toggle clicked');
+        if (body.getAttribute('data-theme') === 'dark') {
+          body.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+          themeToggleIcon.classList.remove('fa-sun');   // Switch to sun icon
+          themeToggleIcon.classList.add('fa-moon');
+        } else {
+          body.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          themeToggleIcon.classList.remove('fa-moon');   // Switch to moon icon
+          themeToggleIcon.classList.add('fa-sun');
+        }
+        console.log('body.getAttribute("data-theme"):', body.getAttribute('data-theme'));
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('readystatechange', function() {
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+          initializeTheme();
+        }
+      });
+      console.log('readyState is loading, adding readystatechange listener');
+    } else {
+      initializeTheme();
+      console.log('readyState is not loading, calling initializeTheme directly');
+    }
+  });
+</script>
+
+
   </body>
 </html>
