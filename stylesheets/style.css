@@ -54,34 +54,23 @@
 }
 
   
-h1, h2, h3, h4, h5, strong, b {
-  font-weight: 600; }
-
 html, body {
   height: 100%; }
 
-/*body {
-  background: #f9f9f9;
-  color: #303030;
-font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 19px;
-  padding: 0;
-  margin: -40px; }
-  body, body * {
-    -webkit-font-smoothing: antialiased; }*/
+
 
 body {
   background: var(--background-color);
   color: var(--text-color);
-  font-family: 'Roboto', sans-serif;
+  font-family: "IM Fell Great Primer", Georgia, serif; /* Make sure this is the desired global body font */
   font-weight: 400;
-  font-size: 13px;
-  line-height: 19px;
+  font-size: 14px; /* Set a consistent base font size for p and li */
+  line-height: 20px; /* Consistent line height */
   padding: 0;
-  margin: -40px;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  margin: -40px; /* Adjust if this causes issues with full screen width */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased; /* Keep this for smoother fonts */
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -153,16 +142,7 @@ font-family: 'Pacifico', cursive;    font-size: 1.5em;
   color: #444
   }
 
-/*footer {
-  width: 100%;
-  max-width: 600px;
-  line-height: 2em;
-  margin: auto;
-  padding-bottom: 30px;
-  text-align: center; }
-  footer * {
-    color: #797979; }
-*/
+
 
 footer {
   width: 100%;
@@ -176,49 +156,42 @@ footer {
   align-items: center;    /* Center elements horizontally */
 }
 
-	
-h1, h2, h3, h4, h5, h6 {
-  margin: 10px auto;
-  font-family: "OpenSans-Bold", Helvetica, Arial, sans-serif;
-  text-rendering: optimizelegibility;
-  line-height: 1.2em;
-  font-weight: bold;
-}	
 
 
-	
+  
 #container {
-      text-align: justify;
-
-  *zoom: 1;
-    font-size: 1em;
-	  color: #444
+  text-align: justify;
+  *zoom: 1; /* Keep for older IE */
+  font-size: 1em;
+  /* color: #444; <-- DELETE THIS LINE */
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   max-width: 90%;
-/*  background: #fff;*/
+  /* background: #fff; <-- DELETE THIS LINE */
   margin: 10px auto 20px;
   border-radius: 7px;
-/*  border: 1px solid #eee;*/
-  position: relative; }
-  #container:before, #container:after {
-    content: " ";
-    display: table; }
-  #container:after {
-    clear: both; }
-  #container .block {
-/*    border-top: 1px solid #efefef;*/
-/*    border-bottom: 1px solid #efefef;*/
-  background: var(--container-background);
-  border: 1px solid var(--container-border);
+  /* border: 1px solid #eee; <-- DELETE THIS LINE */
+  position: relative;
+}
+#container:before, #container:after {
+  content: " ";
+  display: table; }
+#container:after {
+  clear: both; }
+#container .block {
+  /* border-top: 1px solid #efefef; <-- DELETE THIS LINE */
+  /* border-bottom: 1px solid #efefef; <-- DELETE THIS LINE */
+  background: var(--container-background); /* Use variable */
+  border: 1px solid var(--container-border); /* Use variable */
   color: var(--text-color); /* Inherit text color */
-  border-top: 1px solid var(--block-border);
-  border-bottom: 1px solid var(--block-border);
-    padding: 30px 40px 24px;
-    text-align: center; 
-	font-weight:bold;}
+  border-top: 1px solid var(--block-border); /* Use variable */
+  border-bottom: 1px solid var(--block-border); /* Use variable */
+  padding: 30px 40px 24px;
+  text-align: center;
+  font-weight:bold;
+}
     #container .block:first-child, #container .block + .block {
       border-top: 0; }
     #container .block:last-child {
@@ -244,8 +217,8 @@ h1, h2, h3, h4, h5, h6 {
       overflow: hidden; }
 
 
-	
-	  
+  
+    
 .content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -259,8 +232,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a, .as-link {
   text-decoration: none;
-/*  color: #269;*/
-color: var(--link-color);
+  color: var(--link-color);
   line-height: 1.4em;
   display: inline-block;
   vertical-align: baseline;
@@ -328,7 +300,6 @@ color: var(--link-color);
 
 hr {
   border: 0;
-/*  border-bottom: 1px dotted #CCC;*/
   margin: 25px 0; 
   border-bottom: 1px dotted var(--hr-color);
 }
@@ -480,101 +451,270 @@ img {
 .paging .right {
   margin-left: 320px; }
   
-/*h1 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-h2 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-h3 { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-b { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-body { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-pre { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
-*/
-
-h1 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-h2 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-h3 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-b { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-body { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { 
-  font-family: "IM Fell Great Primer", Georgia, serif;  
-  font-size: 21px; font-style: normal; 
-  font-variant: normal; font-weight: 400; line-height: 30px; } 
-pre { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "IM Fell Great Primer", Georgia, serif;   
-  font-size: 15px; font-style: normal; font-variant: normal; 
-  font-weight: 600; line-height: 20px; } 
 
 
 
-/*  h1 { font-family: "Libre Caslon Text", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-h2 { font-family: "Libre Caslon Text", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-h3 { font-family: "Libre Caslon Text", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: "Libre Caslon Text", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-b { font-family: "Libre Caslon Text", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-body { font-family: "Libre Caslon Text", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { font-family: "Libre Caslon Text", serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-pre { font-family: "Libre Caslon Text", serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
-*/
-/*
-h1 { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-h2 { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-h3 { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-b { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-body { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-pre { font-family: "IM Fell French Canon", Georgia, serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
 
-*/
-/*
-h1 { font-family: "EB Garamond", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-h2 { font-family: "EB Garamond", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-h3 { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; } 
-b { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-body { font-family: "EB Garamond", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { font-family: "EB Garamond", serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-pre { font-family: "EB Garamond", serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
-*/
+/* ==================================================================== */
+/* Consolidated Headings, Paragraphs, and Typography Base */
+/* This replaces all your separate h1, h2, p, b, body, blockquote, pre, strong definitions */
+/* ==================================================================== */
 
-/*
-h1 { font-family: "Jost", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
-h2 { font-family: "Jost", serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 18px; } 
-h3 { font-family: "Jost", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;} 
-p { font-family: "Jost", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 20px; } 
-b { font-family: "Jost", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-body { font-family: "Jost", serif;  font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } 
-blockquote { font-family: "Jost", serif;  font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } 
-pre { font-family: "Jost", serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
-strong { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; font-size: 15px; font-style: normal; font-variant: normal; font-weight: 600; line-height: 20px; } 
+/* Global Body Font */
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: "IM Fell Great Primer", Georgia, serif; /* Primary font for body */
+  font-weight: 400; /* Default weight for body text */
+  font-size: 14px; /* Set a consistent base font size for p and li */
+  line-height: 20px; /* Consistent line height */
+  padding: 0;
+  margin: -40px; /* Adjust if this causes issues with full screen width */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased; /* Keep this for smoother fonts */
+  -moz-osx-font-smoothing: grayscale;
+}
 
-*/
+/* Global Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin: 10px auto;
+  font-family: "IM Fell Great Primer", Georgia, serif; /* Use the primary font */
+  text-rendering: optimizelegibility;
+  line-height: 1.2em;
+  color: var(--heading-color);
+  font-style: normal; /* Ensure no unwanted italics */
+  font-variant: normal; /* Ensure no unwanted variants */
+}
+h1 { font-size: 24px; font-weight: 700; line-height: 26.4px; }
+h2 { font-size: 24px; font-weight: 500; line-height: 18px; }
+h3 { font-size: 20px; font-weight: 500; line-height: 20px; } /* Adjusted font-size for h3 */
+h4 { font-size: 18px; font-weight: 500; } /* Added consistent sizes for h4-h6 if used */
+h5 { font-size: 16px; font-weight: 500; }
+h6 { font-size: 14px; font-weight: 500; }
 
-li { padding: 0 5px;  margin-left: 20px;}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+/* Paragraphs, Bold, Strong */
 p {
-    color: var(--heading-color); /* Apply to all headings */
+  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--paragraph-color); /* Apply paragraph color variable */
+}
+b {
+  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700; /* Bold weight */
+  line-height: 20px;
+  color: var(--text-color); /* Use text color, or specific bold color if you want */
+}
+strong {
+  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-size: 15px; /* Use 15px as you had it */
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 600; /* Use 600 as you had it for strong */
+  line-height: 20px;
+  color: var(--strong-color); /* Apply strong color variable */
+  text-shadow: var(--strong-shadow); /* Apply strong shadow variable */
+}
+
+/* Blockquote and Pre */
+blockquote {
+  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+  color: var(--blockquote-text);
+  background: var(--blockquote-background);
+}
+pre {
+  font-family: "IM Fell Great Primer", Georgia, serif; /* Consider a monospace font here */
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5714px;
+  background: var(--pre-background);
+}
+
+/* Lists */
+li, ol, ul {
+    color: var(--list-item-color); /* Apply list item color variable */
+    padding: 0 5px;
+    margin-left: 20px;
+}
+
+.myhighlight {
+  color: var(--highlight-color);
+  font-weight: 700;
+  font-size: 15;
+  font-family: "IM Fell Great Primer";
 }
 
 
 .subheading {
     color: var(--heading-color); /* Consistent with other headings */
+    font-family: "IM Fell Great Primer", Georgia, serif; 
+  font-weight: 400; 
+  font-optical-sizing: auto;
+  font-size: 22;
 }
 
 .subsubheading {
+    font-family: "IM Fell Great Primer", Georgia, serif; 
+  text-transform: uppercase;
+  font-size: 15;
     color: var(--heading-color); /* Consistent with other headings */
 }
+
+.conference {
+    color: var(--conference-color); /* Style conference names */
+  font-family: "IM Fell Great Primer", Georgia, serif; 
+  font-size: 14;
+}
+
+.papertitle {
+    color: var(--papertitle-color); /* Style paper titles */
+  font-family: "IM Fell Great Primer", Georgia, serif;
+  /*  font-family: "EB Garamond", serif;*/
+/*font-style: italic;*/
+  font-optical-sizing: auto; 
+  font-size: 16;
+  font-weight:600;
+}
+
+
+/* ==================================================================== */
+/* Blog-Specific Overrides (if needed) */
+/* ==================================================================== */
+.blogbody {
+  color: var(--paragraph-color); /* Inherit color from paragraph variable */
+  font-family: "IM Fell Great Primer", Georgia, serif; /* Set base font for blogbody content */
+  font-style: normal; /* Ensure normal font style by default */
+}
+
+.blogbody p {
+  /* Only define properties here that are DIFFERENT from the global p */
+  font-weight: 500; /* Keep this if you want blog paragraphs to be bolder than default */
+}
+.blogbody li {
+  font-style: normal; /* Keep if specific to lists in blogbody */
+}
+.blogbody strong {
+  font-family: "IM Fell Great Primer", Georgia, serif; /* Ensure font is correct */
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 600; /* As per your initial strong setting */
+  line-height: 20px;
+  color: var(--highlight-color); /* Apply highlight color variable */
+  text-shadow: var(--strong-shadow); /* Apply strong shadow variable */
+}
+/*
+If you want blogbody strong to be *even bolder* than global strong, then:
+.blogbody strong {
+    font-weight: 800;
+    color: var(--highlight-color);
+}
+*/
+
+
+/* Applying Instrument Serif to blog post headings */
+.blogbody h1,
+.blogbody h2,
+.blogbody h3,
+.blogbody h4,
+.blogbody h5,
+.blogbody h6 {
+  font-weight: 800;
+  font-style: italic;
+  color: var(--highlight-color); /* Use highlight color for these headings */
+  /* Only include font-size, font-weight, line-height if they differ from global h1-h6 */
+}
+
+.blogbody h1 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 26.4px;
+}
+.blogbody h2 {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 18px;
+}
+.blogbody h3 {
+    font-size: 20px; /* Use 20px as you had it */
+    font-weight: 800;
+    line-height: 20px;
+}
+/* Add h4, h5, h6 for blogbody if needed */
+
+.blogbody b {
+  /* Only define properties here that are DIFFERENT from the global b */
+  color: var(--highlight-color); /* Apply highlight color variable */
+}
+
+.blogbody strong {
+  /* Only define properties here that are DIFFERENT from the global b */
+  color: var(--highlight-color); /* Apply highlight color variable */
+  font-style: italic;
+}
+
+.blogbody blockquote {
+  /* Only define properties here that are DIFFERENT from the global blockquote */
+  color: var(--blockquote-text); /* Ensure variables are used */
+  background: var(--blockquote-background); /* Ensure variables are used */
+}
+
+.blogbody pre {
+  /* Only define properties here that are DIFFERENT from the global pre */
+  background: var(--pre-background); /* Ensure variables are used */
+}
+
+
+.bloghighlight {
+  font-weight: 800;
+  font-size: 15;
+  font-family: "IM Fell Great Primer";
+  font-style: italic;
+}
+
+
+
+.blogname {
+  color: var(--blogname-color); 
+  font-family: "IM Fell Great Primer", Georgia, serif;  
+  font-weight: 100; 
+  font-size: 17;
+}
+
+
+
+.blogtitle {
+  color: var(--blogtitle-color); 
+  font-family: "IM Fell Great Primer", Georgia, serif;  
+  font-weight: 800; 
+  font-size: 25;
+  font-style: italic;
+/*  text-transform: uppercase;*/
+/*  text-align: center;*/
+  line-height: 1.5em;
+  margin-bottom: 60px;
+  color: var(--highlight-color);
+}
+
+/* ==================================================================== */
+/* End Consolidated Typography */
+/* ==================================================================== */
+
+
 
 .navigation {
   width: 100%;
@@ -697,125 +837,8 @@ p {
   }
 }
 
-.subheading {
-/*  font-family: "EB Garamond";*/
-font-family: "IM Fell Great Primer", Georgia, serif; 
-  font-weight: 400; 
-  font-optical-sizing: auto;
-  font-size: 22;
-}
-
-.subsubheading {
-  font-family: "IM Fell Great Primer", Georgia, serif; 
-  text-transform: uppercase;
-  font-size: 15;
-}
-
-.papertitle {
-    color: var(--papertitle-color); /* Style paper titles */
-  font-family: "IM Fell Great Primer", Georgia, serif;
-  /*  font-family: "EB Garamond", serif;*/
-/*font-style: italic;*/
-  font-optical-sizing: auto; 
-  font-size: 16;
-  font-weight:600;
-}
-
-.conference {
-    color: var(--conference-color); /* Style conference names */
-  font-family: "IM Fell Great Primer", Georgia, serif; 
-  font-size: 14;
-}
-
-.blogname {
-  color: var(--blogname-color); 
-  font-family: "IM Fell Great Primer", Georgia, serif;  
-  font-weight: 100; 
-  font-size: 17;
-}
-
-.myhighlight {
-  color: var(--highlight-color);
-  font-weight: 700;
-  font-size: 15;
-  font-family: "IM Fell Great Primer";
-}
-
-.blogtitle {
-  color: var(--blogtitle-color); 
-  font-family: "IM Fell Great Primer", Georgia, serif;  
-  font-weight: 800; 
-  font-size: 25;
-/*  text-transform: uppercase;*/
-/*  text-align: center;*/
-  line-height: 1.5em;
-  margin-bottom: 60px;
-  color: var(--highlight-color);
-}
-
-.blogbody {
-  color: black; 
-  font-family: "IM Fell Great Primer", Georgia, serif;  
-  font-style: italic;
-}
-
-.blogbody
-  p { font-family: "IM Fell Great Primer", Georgia, serif; 
-    font-size: 14px; font-style: 
-    normal; font-variant: normal; 
-    font-weight: 500; 
-    line-height: 20px; } 
-  li {
-    font-style: normal;
-  }
-  strong { font-family: "IM Fell Great Primer", Georgia, serif; 
-    sans-serif; font-size: 15px; font-style: normal; 
-    font-variant: normal; font-weight: 600; line-height: 20px; 
-    color: var(--highlight-color)} 
-  /*strong {
-    font-family: "IM Fell Great Primer", Georgia, serif; 
-    font-weight: bold; 
-    font-size: 15px; font-style: normal; font-variant: normal; 
-    font-weight: 600;
-  }*/
-
-  h1 { font-family: "IM Fell Great Primer", Georgia, serif;  
-    font-size: 24px; font-style: normal; font-variant: normal; 
-    font-weight: 700; line-height: 26.4px;
-    color: var(--highlight-color); } 
-  h2 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 24px; font-style: normal; font-variant: normal; font-weight: 500; 
-    line-height: 18px; color: var(--highlight-color); } 
-  h3 { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 14px; font-style: normal; 
-    font-variant: normal; font-weight: 500; line-height: 20px; font-size:20;
-     color: var(--highlight-color); }
-  b { font-family: "IM Fell Great Primer", Georgia, serif;  
-    font-size: 14px; font-style: normal; font-variant: 
-    normal; font-weight: 400; line-height: 20px; 
-  color: var(--highlight-color);} 
-  body { font-family: "IM Fell Great Primer", Georgia, serif;  
-    font-size: 14px; font-style: normal; font-variant: 
-    normal; font-weight: 400; line-height: 20px; 
-  } 
-  blockquote { font-family: "IM Fell Great Primer", Georgia, serif;  
-    font-size: 21px; font-style: normal; font-variant: 
-    normal; font-weight: 400; line-height: 30px; 
-    color: var(--blockquote-text);
-  background: var(--blockquote-background);
-} 
-  pre { font-family: "IM Fell Great Primer", Georgia, serif;  font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; 
-    line-height: 18.5714px; 
-    background: var(--pre-background);
-}
-  
 
 
-
-
-li, ol, ul {
-    color: var(--list-item-color); /* Style list items */
-    padding: 0 5px;
-    margin-left: 20px;
-}
 
 .menu {
   display: flex;
