@@ -1,8 +1,66 @@
 <html>
   <head>
-    <meta content=' - Vaishnavh Nagarajan' name='title' />
-    <meta content=' - Vaishnavh Nagarajan' name='og:title' />
-    <title>Vaishnavh Nagarajan</title>
+    
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/noErrors.js", "Safe.js", "html.js"], /* Ensure 'html.js' is here */
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreHtmlClass: 'no-mathjax',
+      skipTags: ["script","noscript","style","textarea","pre","code","a"]
+    },
+    "HTML-CSS": {
+      availableFonts: ["TeX"],
+      linebreaks: { automatic: true },
+      // --- KEY CHANGE 1: Enable linebreaks for HTML-CSS output ---
+      linebreaks: { automatic: true },
+      // --- KEY CHANGE 2: Define custom styles using CSS variables ---
+      styles: {
+        ".MathJax_Display": { // For display equations
+          "background-color": "var(--mathjax-highlight-background)", // Default is transparent
+          "color": "var(--mathjax-highlight-text)" // Default is black/white
+        },
+        ".MathJax_Display .MathJax_Math span": { // Target text within display equations
+            "background-color": "inherit !important", /* Prevents MathJax from forcing background */
+            "color": "var(--mathjax-highlight-text)" /* Ensure text color applies if you highlight entire blocks */
+        },
+        ".MathJax_Display .MathJax_Math": {
+            "background-color": "inherit !important",
+        },
+        ".MathJax_SVG_Display": { // For SVG output (if enabled)
+            "background-color": "var(--mathjax-highlight-background)",
+            "color": "var(--mathjax-highlight-text)"
+        },
+        ".MathJax_SVG_Display svg": {
+            "background-color": "inherit",
+        },
+        ".MathJax_SVG_Display .mjx-chtml": {
+            "background-color": "inherit",
+        },
+        /* Define a custom class for highlighting within equations */
+        ".highlighted-math": {
+            "background-color": "var(--mathjax-highlight-background) !important",
+            "color": "var(--mathjax-highlight-text) !important",
+            "padding": "0.1em 0.3em", /* Add some padding around the highlight */
+            "border-radius": "0.2em" /* Slightly rounded corners */
+        }
+      }
+    },
+    TeX: {
+    Macros: { // Define custom LaTeX commands here
+      highlightmath: ['{\\htmlclass{highlighted-math}{\\text{#1}}}', 1], // #1 means it takes one argument
+      }
+    },
+    SVG: { linebreaks: { automatic: true } }, // Enable linebreaks for SVG output as well
+    menuSettings: { zoom: "Double-Click" }
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <meta content='Errata - Vaishnavh Nagarajan' property='og:title' />
+    <title>Errata - Vaishnavh Nagarajan</title>
     <!--
 <script type='text/javascript'>
   //<![CDATA[
@@ -83,21 +141,6 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-<!-- for mathjax support -->
-
-
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    TeX: { equationNumbers: { autoNumber: "AMS" } },
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    processEscapes: true
-    });
-  </script>
-  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-
-<!-- for mathjax support -->
-
 
 
   </head>
@@ -107,8 +150,7 @@
 </header>
     <div id='container'>
       <div class="content">
-
-            <nav>
+                    <nav>
 
   <div class="navigation">
     <div class="logo"><a href="/home/index.html">Vaishnavh Nagarajan</a></div>
@@ -139,13 +181,10 @@
       </button>
   </div>
 </nav>
-          <section class='post'>
-            <h1></h1>
-            <div class="subheading"> Errata </div>
-
-<p style="margin:5px;"></p>
-
-<h3 id="deterministic-pac-bayesian-generalization-bounds-for-deep-networks-via-generalizing-noise-resilience"><span class="papertitle"><a id="pac-bayes">Deterministic PAC-Bayesian generalization bounds for deep networks via generalizing noise-resilience</a></span></h3>
+        <section class='blog-post'>
+          <br><br>
+          <div class="blogtitle">Errata</div>
+          <div class="blogbody"><h3 id="deterministic-pac-bayesian-generalization-bounds-for-deep-networks-via-generalizing-noise-resilience"><span class="papertitle"><a id="pac-bayes">Deterministic PAC-Bayesian generalization bounds for deep networks via generalizing noise-resilience</a></span></h3>
 
 <ol>
   <li>
@@ -161,7 +200,7 @@
 &amp;{\text{if }} \forall q &lt; r, \forall l, \rho_{q,l}(\mathcal{W},\mathbf{x},y) &gt; 0 \text{ then} \\
 &amp; \; \;  \; Pr_{\mathcal{U} \sim \mathcal{N}(0,\sigma^2 I)} \Big[ 
 {
-\colorbox{yellow}{$\exists l$}  \; |\rho_{r,l}(\mathcal{W}+\mathcal{U},{\mathbf{x},y}) - \rho_{r,l}(\mathcal{W},{\mathbf{x},y}) | &gt; \frac{\Delta_{r,l}(\sigma)}{2}
+\colorbox{silver}{$\color{black}  \exists l$}  \; |\rho_{r,l}(\mathcal{W}+\mathcal{U},{\mathbf{x},y}) - \rho_{r,l}(\mathcal{W},{\mathbf{x},y}) | &gt; \frac{\Delta_{r,l}(\sigma)}{2}
  }
  \; \; \text{ and } \\
 &amp; \; \; \; \; \; \; \; \; \; \; \; \; \; \; \; { \forall q {&lt;} r,  \forall l \; \;  |\rho_{q,l}(\mathcal{W}+\mathcal{U},{\mathbf{x},y}) - \rho_{q,l}(\mathcal{W},{\mathbf{x},y}) |{&lt;} \frac{\Delta_{q,l}(\sigma)}{2} } \Big]  \leq \frac{1}{(R+1)\sqrt{m}}.
@@ -177,9 +216,43 @@
   <li>Definition 3.1 uses the term “generalization <em>error</em>” when it is ideally supposed to be referred to as “generalization <em>gap</em>”. The term “generalization error” conventionally refers to the error rate of a classifier in expectation over test data. “Generalization gap” conventionally refers to the gap between the test error and the training error. In the specific case of interpolating models (where training error is zero), both these quantities would numerically evaluate to the same value. Nevertheless, in a general setting, these two quantities are two separate concepts.</li>
 </ol>
 
+</div>
+        </section>
+      </div>
+          <!-- <div class="block">
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_x"></a>
+<a class="a2a_button_google_gmail"></a>
+<a class="a2a_button_threads"></a>
+<a class="a2a_button_hacker_news"></a>
+<a class="a2a_button_linkedin"></a>
+<a class="a2a_button_reddit"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_mastodon"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+</div> -->
+       <div class="block">
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://localhost:4000/home/errata/';
+      this.page.identifier = 'http://localhost:4000/home/errata/';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://vaishnavh.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div> 
 
-          </section>
-        </div>
+
+ 
+
     </div>
     <footer>
 
@@ -267,7 +340,6 @@
     }
   });
 </script>
-
-
+<script src="/assets/js/footnotes.js"></script>
   </body>
 </html>

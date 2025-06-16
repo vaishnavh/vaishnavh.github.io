@@ -38,6 +38,8 @@
   --blockquote-hover-text: #454545; /* Adding variable for blockquote hover text */
   --blockquote-hover-border: #b8cec7; /* Adding variable for blockquote hover border */
   --blockquote-line-color: #d0dfda; /* Adding variable for blockquote line color */
+  --mathjax-highlight-background: #4A3C2A; /* Darker, slightly muted highlight background for dark mode */
+  --mathjax-highlight-text: #eee;        /* Text color for highlight in dark mode */
 }
 
 [data-theme="light"] {
@@ -76,6 +78,8 @@
   --blockquote-hover-text: #454545;
   --blockquote-hover-border: #b8cec7;
   --blockquote-line-color: #d0dfda;
+    --mathjax-highlight-background: #F0E68C; /* Khaki or similar muted yellow for light mode */
+  --mathjax-highlight-text: #303030;     
 }
 
 /* ==========================================================================
