@@ -254,7 +254,7 @@ footer {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1200px; /* Default wider width for main pages */
+  max-width: 1000px; /* Default wider width for main pages */
   margin: 10px auto 20px;
   border-radius: 7px;
   border: 1px solid var(--container-border); /* Transparent */
@@ -474,6 +474,77 @@ section.post li .highlight, section > p li .highlight {
 section.post li p, section > p li p {
   margin-bottom: 5px;
 }
+
+
+/* --- NEW STYLES FOR YOUR MAIN PAGE INTRO SECTION --- */
+
+/* --- NEW STYLES FOR YOUR MAIN PAGE PROFILE SECTION --- */
+.main-profile-section {
+  display: flex; /* Makes it a flex container */
+  flex-wrap: wrap; /* Allows columns to wrap below each other on smaller screens */
+  align-items: flex-start; /* Aligns items to the top of the container */
+  justify-content: space-between; /* Pushes columns to ends, or adds space between */
+  gap: 30px; /* Space between the columns */
+  margin-bottom: 30px; /* Space below this entire section */
+  padding: 0 20px; /* Add internal padding for this section to match .content's side padding */
+}
+
+.profile-text-column {
+  flex: 2 1 60%; /* Allows this column to grow (2), shrink (1), and has a base width of 60% */
+  min-width: 300px; /* Prevents text from becoming too narrow before wrapping */
+  /* Remove any conflicting padding/margin from here */
+}
+
+.profile-image-column {
+  flex: 1 0 300px; /* Allows it to grow (1), not shrink below 300px, base width 300px */
+  max-width: 300px; /* Max width for the image column (adjust as needed) */
+  /* This setup should allow the text to be on the left and image on the right */
+  /* Remove any conflicting padding/margin from here */
+}
+.profile-image-column img {
+  display: block; /* Removes extra space below image */
+  width: 70%; /* Makes the image fill its container */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 10px; /* Optional styling */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+/* Ensure that .intro-text and .research-interests-section within profile-text-column are also well-behaved */
+.intro-text, .research-interests-section {
+  margin-bottom: 20px; /* Add some space between intro-text and research-interests */
+}
+.intro-text:last-child, .research-interests-section:last-child {
+  margin-bottom: 0; /* No margin after the last one */
+}
+
+.intro-section {
+  display: flex; /* Use flexbox for image and text layout */
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+  align-items: flex-start; /* Align items to the top of the flex container */
+  gap: 30px; /* Space between image and text */
+  margin-bottom: 30px; /* Space below this intro section */
+}
+
+.intro-image {
+  flex: 0 0 auto; /* Don't grow, don't shrink, size based on content */
+  width: 250px; /* Adjust as needed - this is the max width of the image wrapper */
+  /* Remove any existing padding/margin from the image itself */
+}
+.intro-image img {
+  display: block; /* Remove extra space below image */
+  width: 100%; /* Make image fill its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Add some styling */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+.intro-text {
+  flex: 1 1 auto; /* Allow text to grow and shrink */
+  min-width: 300px; /* Ensure text doesn't get too narrow before wrapping */
+  /* Remove any excessive padding from here */
+  padding-left: 0; /* Ensure no unwanted padding */
+}
+
 
 /* ==========================================================================
    6. Blog Body Overrides (for detailed typography within blog posts)
@@ -897,4 +968,38 @@ section.post li p, section > p li p {
     text-align: left;
     margin-left: 0;
   }
+
+
+  /* --- Mobile Specific Styles for Intro Section --- */
+.main-profile-section {
+    flex-direction: column; /* Stack columns vertically on mobile */
+    align-items: center; /* Center content horizontally */
+    gap: 20px; /* Adjust vertical gap */
+    padding: 0 15px; /* Adjust section padding for mobile */
+  }
+  .profile-text-column, .profile-image-column {
+    flex: 0 0 auto; /* Remove flex growing/shrinking */
+    width: 100%; /* Take full width */
+    max-width: 300px; /* Limit image/text block width if they get too wide */
+    text-align: center; /* Center text column content */
+  }
+  .profile-text-column p, .profile-text-column .subheading {
+      text-align: center; /* Ensure text within column is centered */
+  }
+  .profile-image-column img {
+    width: 100%; /* Make image fill its column */
+    max-width: 200px; /* Example max width for image on small screens */
+    margin: 0 auto; /* Center the image */
+  }
+  /* Social icons might need explicit centering if they are not block elements */
+  .intro-text p {
+    display: flex; /* Make it a flex container */
+    justify-content: center; /* Center content horizontally */
+    flex-wrap: wrap; /* Allow icons to wrap if space is limited */
+  }
+  .intro-text p a, .intro-text p svg {
+    margin: 5px; /* Add some space between icons */
+  }
+
+
 }
