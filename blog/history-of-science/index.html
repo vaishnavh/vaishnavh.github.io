@@ -310,8 +310,26 @@
     console.log('body:', body);
     console.log('currentTheme:', currentTheme);
 
+    // Define disqus_config globally or within a scope accessible by DISQUS.reset
+    // A more robust way is to make it a named function or a property of window
+    // so DISQUS.reset can find it.
+   // so DISQUS.reset can find it.
+    window.disqus_config = function () {
+      this.page.url = 'http://localhost:4000/blog/history-of-science/';
+      this.page.identifier = 'http://localhost:4000/blog/history-of-science/';
 
+      // Get the current theme from your body's data-theme attribute
+      var disqusTheme = localStorage.getItem('theme');
 
+      // Set the Disqus theme based on your site's current theme
+      if (currentThemeForDisqus === 'light') {
+        this.page.display_thread_theme = 'light';
+      } else {
+        this.page.display_thread_theme = 'dark';
+      }
+    };
+
+    
     const initializeTheme = () => {
       const themeToggleButton = document.getElementById('theme-toggle-button');
       const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
@@ -350,6 +368,20 @@
           themeToggleIcon.classList.add('fa-sun');
         }
         console.log('body.getAttribute("data-theme"):', body.getAttribute('data-theme'));
+
+        // --- NEW: Reset Disqus theme after the site theme changes ---
+        if (typeof DISQUS !== 'undefined') { // Check if Disqus is loaded
+          DISQUS.reset({
+            reload: true, // This tells Disqus to reload the embed
+            config: function () {
+              // Re-run the configuration to apply the new theme
+              // This relies on window.disqus_config being accessible
+              window.disqus_config.call(this);
+            }
+          });
+          console.log('Disqus reset initiated with new theme.');
+        }
+        // --- END NEW ---
       });
     };
 
