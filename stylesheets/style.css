@@ -8,10 +8,10 @@
   --text-color: #eee;
   --container-background: transparent;
   --container-border: transparent;
-  --block-border: transparent;
+  --block-border: #D2B48C;
   --link-color: #B86A50;
   --blockquote-background: #252525;
-  --blockquote-text: #ccc;
+  --blockquote-text: #D2B48C;
   --pre-background: #202020;
   --hr-color: #555;
   --nav-text-color: #eee;
@@ -48,10 +48,10 @@
   --text-color: #303030;
   --container-background: transparent;
   --container-border: transparent;
-  --block-border: transparent;
-  --link-color: #663925;
+  --block-border: #663925;
+  --link-color: #B86A50;
   --blockquote-background: #f9f9f9;
-  --blockquote-text: #606060;
+  --blockquote-text: #663925;
   --pre-background: #39382e;
   --hr-color: #CCC;
   --nav-text-color: #0f0f0f;
@@ -65,7 +65,7 @@
   --blogname-color: black;
   --blogtitle-color: black;
   --logo-border-color: black;
-  --highlight-color: #B86A50;
+  --highlight-color: #663925; 
   --strong-color: #000;
   --strong-shadow: none;
   --tooltip-background: #fdf5e6;
@@ -137,7 +137,7 @@ p {
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 25px;
   color: var(--paragraph-color);
 }
 
@@ -166,13 +166,13 @@ strong {
 blockquote {
   margin: 0;
   font-family: "IM Fell Great Primer", Georgia, serif;
-  font-size: 21px;
-  font-style: normal;
-  font-variant: normal;
+  font-size: 21px; /* Default size, will be overridden by more specific rules */
+  font-style: italic;
   font-weight: 400;
   line-height: 30px;
   color: var(--blockquote-text);
   background: var(--blockquote-background);
+  /* Do NOT set font-style: normal !important; here */
 }
 
 /* Preformatted text (e.g., code blocks) */
@@ -439,45 +439,6 @@ section.post em strong, section > p em strong {
   background-color: var(--em-strong-bg); /* Using variable */
   padding: 0 2px;
 }
-section.post blockquote, section > p blockquote {
-  -webkit-transition: all, 0.3s;
-  -moz-transition: all, 0.3s;
-  -ms-transition: all, 0.3s;
-  -o-transition: all, 0.3s;
-  transition: all, 0.3s;
-  color: var(--blockquote-text); /* Using variable */
-  background: var(--blockquote-background); /* Using variable */
-  position: relative;
-  overflow: hidden;
-  display: block;
-  padding: 15px 60px;
-}
-section.post blockquote:hover, section > p blockquote:hover {
-  color: var(--blockquote-hover-text); /* Using variable */
-}
-section.post blockquote:hover:before, section > p blockquote:hover:before {
-  color: var(--blockquote-hover-border); /* Using variable */
-}
-section.post blockquote:before, section > p blockquote:after { /* Combined */
-  content: "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
-  font-size: 24px;
-  overflow: hidden;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  line-height: 0.4em;
-  word-break: break-all;
-  color: var(--blockquote-line-color); /* Using variable */
-  display: block;
-  width: 7px !important;
-  white-space: normal;
-}
-section.post li .highlight, section > p li .highlight {
-  padding: 0 10px;
-}
-section.post li p, section > p li p {
-  margin-bottom: 5px;
-}
 
 
 /* --- NEW STYLES FOR YOUR MAIN PAGE INTRO SECTION --- */
@@ -510,7 +471,8 @@ section.post li p, section > p li p {
   width: 70%; /* Makes the image fill its container */
   height: auto; /* Maintains aspect ratio */
   border-radius: 10px; /* Optional styling */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+  /* Optional shadow */
 }
 
 /* Ensure that .intro-text and .research-interests-section within profile-text-column are also well-behaved */
@@ -565,21 +527,17 @@ section.post li p, section > p li p {
   /* Ensure no negative margins here */
 }
 
-.blogbody {
+.blogbody li, p {
   color: var(--paragraph-color); /* Inherit color from paragraph variable */
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-style: normal;
+  font-size: 17px;
 }
 
-.blogbody p {
-  font-weight: 500;
-}
-.blogbody li {
-  font-style: normal;
-}
+
 .blogbody strong {
   font-family: "IM Fell Great Primer", Georgia, serif;
-  font-size: 15px;
+  font-size: 17px;
   font-style: normal;
   font-variant: normal;
   font-weight: 600;
@@ -587,6 +545,8 @@ section.post li p, section > p li p {
   color: var(--highlight-color);
   text-shadow: var(--strong-shadow);
 }
+
+
 
 /* Blog Post Headings (IM Fell Great Primer, italic, highlight color) */
 .blogbody h1,
@@ -604,13 +564,63 @@ section.post li p, section > p li p {
 .blogbody h3 { font-size: 20px; font-weight: 800; line-height: 20px; }
 
 .blogbody b { color: var(--highlight-color); }
+
+
+.blogbody li .highlight, .blogbody > p li .highlight {
+  padding: 0 10px;
+}
+.blogbody li p, .blogbody > p li p {
+  margin-bottom: 5px;
+}
+
+
+
+
+
 .blogbody blockquote {
-  color: var(--blockquote-text);
+  -webkit-transition: all, 0.3s;
+  -moz-transition: all, 0.3s;
+  -ms-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  transition: all, 0.3s;
+
+  /* --- Boxed Look & Theming --- */
   background: var(--blockquote-background);
+  border: 3px solid var(--block-border);
+  border-radius: 3px;
+  padding: 20px 30px;
+  margin: 2em auto;
+  max-width: 75%;
+  display: block;
+  font-family: "IM Fell Great Primer", Georgia, serif;
+
+  font-style: italic; /* Keep this here to ensure it's italic, even if default is not */
+  /* --- Existing Position/Overflow for the triangle pseudo-elements --- */
+  position: relative;
+  overflow: hidden;
 }
-.blogbody pre {
-  background: var(--pre-background);
+
+
+.blogbody blockquote p {
+  color: var(--blockquote-text);
+  font-weight: 800;
+  font-size: 17px;
 }
+
+
+.blogbody blockquote strong {
+  font-family: "IM Fell Great Primer SC", Georgia, serif;
+  font-variant-caps: small-caps; /* For small caps effect */
+  font-weight: 700; /* Ensure it's bold if you want it */
+  color: var(--highlight-color); /* You can use your highlight color or a new one */
+  /* Add any other styles you want for strong text within blockquotes here */
+  /* For example, if you wanted a slight background: */
+  /* background-color: rgba(255, 255, 0, 0.1); */
+  /* padding: 0 2px; */
+  /* border-radius: 3px; */
+}
+
+
 
 /* ==========================================================================
    7. Specific Component Styles
@@ -660,7 +670,7 @@ section.post li p, section > p li p {
   color: var(--blogtitle-color);
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-weight: 800;
-  font-size: 25;
+  font-size: 40;
   font-style: italic; /* Added italic for blog title */
   line-height: 1.5em;
   margin-bottom: 60px;
@@ -1007,3 +1017,5 @@ section.post li p, section > p li p {
 
 
 }
+
+
