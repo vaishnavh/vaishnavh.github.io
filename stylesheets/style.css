@@ -11,7 +11,7 @@
   --block-border: #D2B48C;
   --link-color: #B86A50;
   --blockquote-background: #252525;
-  --blockquote-text: #D2B48C;
+  --blockquote-text: #eee;
   --pre-background: #202020;
   --hr-color: #555;
   --nav-text-color: #eee;
@@ -51,7 +51,7 @@
   --block-border: #663925;
   --link-color: #B86A50;
   --blockquote-background: #f9f9f9;
-  --blockquote-text: #663925;
+  --blockquote-text: #303030;
   --pre-background: #39382e;
   --hr-color: #CCC;
   --nav-text-color: #0f0f0f;
@@ -559,8 +559,8 @@ section.post em strong, section > p em strong {
   color: var(--highlight-color);
   font-weight: 800;
 }
-.blogbody h1 { font-size: 24px; font-weight: 700; line-height: 26.4px; }
-.blogbody h2 { font-size: 24px; font-weight: 800; line-height: 18px; }
+.blogbody h1 { font-size: 24px; font-weight: 700; line-height: 35px; }
+.blogbody h2 { font-size: 24px; font-weight: 800; line-height: 35px; }
 .blogbody h3 { font-size: 20px; font-weight: 800; line-height: 20px; }
 
 .blogbody b { color: var(--highlight-color); }
@@ -610,7 +610,6 @@ section.post em strong, section > p em strong {
 
 .blogbody blockquote strong {
   font-family: "IM Fell Great Primer SC", Georgia, serif;
-  font-variant-caps: small-caps; /* For small caps effect */
   font-weight: 700; /* Ensure it's bold if you want it */
   color: var(--highlight-color); /* You can use your highlight color or a new one */
   /* Add any other styles you want for strong text within blockquotes here */
@@ -618,6 +617,15 @@ section.post em strong, section > p em strong {
   /* background-color: rgba(255, 255, 0, 0.1); */
   /* padding: 0 2px; */
   /* border-radius: 3px; */
+}
+
+
+.bq-title {
+  color: var(--highlight-color);
+  font-weight: 700;
+  font-size: 15;
+  font-family: "IM Fell Great Primer";
+  font-variant-caps: small-caps; /* For small caps effect */
 }
 
 
@@ -663,7 +671,7 @@ section.post em strong, section > p em strong {
   color: var(--blogname-color);
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-weight: 800;
-  font-size: 17;
+  font-size: 22px;
   font-style: italic;
 }
 .blogtitle {

@@ -233,7 +233,7 @@
 </div>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 </div> -->
-       <div class="block">
+      <!--  <div class="block">
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
@@ -249,9 +249,25 @@
   </script>
   <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div> 
-
+ -->
 
  
+
+<div class="block">
+  <div id="disqus_thread"></div>
+  <script>
+    // The original Disqus embed script. We now rely on the global disqus_config
+    // defined above, and the reset logic in the theme toggler.
+    // Ensure this script still runs to initially load Disqus.
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://vaishnavh.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
 
     </div>
     <footer>
