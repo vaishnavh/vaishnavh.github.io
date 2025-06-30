@@ -13,7 +13,7 @@
   --blockquote-background: #252525;
   --blockquote-text: #eee;
   --pre-background: #202020;
-  --hr-color: #555;
+  --hr-color: #D2B48C;
   --nav-text-color: #eee;
   --nav-border-color: #555;
   --heading-color: #eee;
@@ -53,7 +53,7 @@
   --blockquote-background: #f9f9f9;
   --blockquote-text: #303030;
   --pre-background: #39382e;
-  --hr-color: #CCC;
+  --hr-color: #663925;
   --nav-text-color: #0f0f0f;
   --nav-border-color: black;
   --heading-color: #444;
@@ -227,6 +227,15 @@ hr {
   border-bottom: 1px dotted var(--hr-color);
 }
 
+/* New: Thicker solid line for section breaks */
+.hr-section-break {
+  border: 0; /* Reset default border */
+  margin: 40px 0; /* More vertical space for a section break */
+  border-bottom: 3px solid var(--hr-color); /* Thicker and solid */
+  /* You can even change the color if you want, e.g.:
+  border-bottom: 3px solid var(--highlight-color); */
+}
+
 /* ==========================================================================
    4. Global Layout & Components
    ========================================================================== */
@@ -340,8 +349,8 @@ a, .as-link {
   transition: color 0.3s;
 }
 a:hover, .as-link:hover { /* Consolidated hover for all links */
-  color: #1d5884; /* Consider variable: var(--link-hover-color) */
-  text-decoration: none;
+  color: var(--link-hover-color); /* Consider variable:  */
+  text-decoration: underline;
   background-image: none; /* Remove any background image underline */
 }
 a.main:hover, .as-link.main:hover { /* If specific .main hover needs unique style */
@@ -410,11 +419,12 @@ section.post ul ul, section.post ul ol, section.post ol ul, section.post ol ol {
   padding: 0;
 }
 section.post h1 { /* Overrides global h1 for posts */
-  text-transform: uppercase;
-  text-align: center;
+  text-align: left;
   line-height: 1.5em;
   margin-bottom: 60px;
+  font-family: "IM Fell Great Primer SC", Georgia, serif;
 }
+
 section.post h1 .date {
   color: var(--post-date-color); /* Using variable */
   font-size: 10px;
@@ -668,18 +678,20 @@ section.post em strong, section > p em strong {
   font-size: 14;
 }
 .blogname {
-  color: var(--blogname-color);
+  color: var(--highlight-color);
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-weight: 800;
-  font-size: 22px;
+  font-size: 18px;
   font-style: italic;
 }
+
+
 .blogtitle {
   color: var(--blogtitle-color);
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer SC", Georgia, serif;
   font-weight: 800;
   font-size: 40;
-  font-style: italic; /* Added italic for blog title */
+  /*font-style: italic; */
   line-height: 1.5em;
   margin-bottom: 60px;
   color: var(--highlight-color);
@@ -923,6 +935,69 @@ section.post em strong, section > p em strong {
   font-size: 10;
 }
 
+
+.post-navigation {
+  display: flex;
+  justify-content: space-between; /* Puts previous on left, next on right */
+  align-items: center;
+  margin-top: 40px; /* Space above navigation */
+  padding: 15px 0;
+  border-top: 1px dotted var(--hr-color); /* A subtle separator */
+  font-family: "IM Fell Great Primer", Georgia, serif;
+  color: var(--nav-text-color);
+}
+
+.post-navigation a {
+  text-decoration: none;
+  color: var(--link-color); /* Use your link color */
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1.1em;
+}
+
+.post-navigation a:hover {
+  background-color: rgba(var(--link-color-rgb, 184, 106, 80), 0.1); /* Subtle hover background */
+  color: var(--link-hover-color, #1d5884);
+}
+
+.post-navigation .left-arrow {
+  text-align: left;
+}
+
+.post-navigation .right-arrow {
+  text-align: right;
+}
+
+
+/* Styling for the nested series parts list */
+ul.posts .series-parts-list {
+  list-style-type: disc; /* Use bullets for parts */
+  margin-left: 30px; /* Indent the list */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0; /* Remove default padding */
+}
+
+ul.posts .series-parts-list li {
+  margin-bottom: 3px; /* Smaller margin between parts */
+  padding: 0;
+  color: var(--highlight-color); /* Inherit color */
+  font-weight: 800;
+}
+
+ul.posts .series-parts-list li a {
+  font-size: 17px; /* Slightly smaller font for parts */
+  color: var(--highlight-color);
+  text-decoration: none;
+  display: inline; /* Keep links inline within the list item */
+}
+
+ul.posts .series-parts-list li a:hover {
+  text-decoration: underline;
+  color: var(--link-hover-color, #1d5884);
+}
+
 /* ==========================================================================
    13. Media Queries (Mobile Overrides)
    ========================================================================== */
@@ -949,6 +1024,7 @@ section.post em strong, section > p em strong {
     text-align: left;
     padding: 10px 0;
     margin: 0;
+    padding-left: 15px; /* Adjust this value as needed for desired space */
   }
   .navigation .logo {
     position: static;
@@ -991,6 +1067,15 @@ section.post em strong, section > p em strong {
     margin-left: 0;
   }
 
+  .post-navigation {
+    flex-direction: column; /* Stack vertically */
+    align-items: stretch; /* Stretch links to full width */
+    gap: 10px; /* Space between links */
+  }
+  .post-navigation a {
+    text-align: center;
+    padding: 10px;
+  }
 
   /* --- Mobile Specific Styles for Intro Section --- */
 .main-profile-section {
@@ -1025,5 +1110,6 @@ section.post em strong, section > p em strong {
 
 
 }
+
 
 
