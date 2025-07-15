@@ -518,6 +518,23 @@ section.post em strong, section > p em strong {
   padding-left: 0; /* Ensure no unwanted padding */
 }
 
+/* Add this new rule for paragraphs within research-interests-section */
+.research-interests-section p {
+  font-size: 14px; /* Set your desired font size here, e.g., 16px */
+  line-height: 1.6em; /* Adjust line height for readability */
+  color: var(--paragraph-color); /* Ensure it uses your desired paragraph color */
+  font-weight: 400; /* Or whatever weight you want for this text */
+  font-style: normal; /* Ensure it's not italic if you want it normal */
+}
+
+/* You might also want to apply this to .intro-text if its paragraphs have the same issue */
+.intro-text p {
+  font-size: 14px; /* Example: Match the size for consistency */
+  line-height: 1.6em;
+  color: var(--paragraph-color);
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* --- Styling for the Research Papers List --- */
 .research-papers-list {
