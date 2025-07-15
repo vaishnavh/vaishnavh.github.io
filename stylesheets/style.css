@@ -14,6 +14,7 @@
   --blockquote-text: #eee;
   --pre-background: #202020;
   --hr-color: #D2B48C;
+  --light-hr-color: #555;
   --nav-text-color: #eee;
   --nav-border-color: #555;
   --heading-color: #eee;
@@ -54,6 +55,7 @@
   --blockquote-text: #303030;
   --pre-background: #39382e;
   --hr-color: #663925;
+  --light-hr-color: #663925;
   --nav-text-color: #0f0f0f;
   --nav-border-color: black;
   --heading-color: #444;
@@ -224,7 +226,7 @@ ul.posts .datetime {
 hr {
   border: 0;
   margin: 25px 0;
-  border-bottom: 1px dotted var(--hr-color);
+  border-bottom: 1px solid var(--light-hr-color);
 }
 
 /* New: Thicker solid line for section breaks */
@@ -393,11 +395,6 @@ a.big-button.blue:hover, .as-link.big-button.blue:hover { background: #789; }
 a.big-button.green, .as-link.big-button.green { border-color: #ddeed0; background: #696; }
 a.big-button.green:hover, .as-link.big-button.green:hover { background: #797; }
 
-hr {
-  border: 0;
-  margin: 25px 0;
-  border-bottom: 1px dotted var(--hr-color);
-}
 
 /* ==========================================================================
    5.  Post Specific Styles
@@ -519,6 +516,42 @@ section.post em strong, section > p em strong {
   min-width: 300px; /* Ensure text doesn't get too narrow before wrapping */
   /* Remove any excessive padding from here */
   padding-left: 0; /* Ensure no unwanted padding */
+}
+
+
+/* --- Styling for the Research Papers List --- */
+.research-papers-list {
+  list-style-type: square; /* Example: Use square bullets */
+  list-style-position: outside; /* Bullet points outside the content block */
+  margin-left: 0; /* Reset default margin if needed */
+  padding-left: 25px; /* Adjust overall indentation of the list from the left */
+  margin-top: 20px; /* Space above the entire list */
+  margin-bottom: 20px; /* Space below the entire list */
+}
+
+/* Styling for individual list items (each paper entry) */
+.research-papers-list li {
+  margin-bottom: 15px; /* Space between each paper entry */
+  padding: 5px 0; /* Add a bit of vertical padding within each list item */
+  /* Remove any conflicting padding-left/margin-left that might be inherited from global li rules */
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Optional: Further refine the look of papertitle and conference within this list */
+.research-papers-list .papertitle {
+  display: block; /* Make the title take its own line */
+  font-size: 15px; /* Adjust font size if needed */
+  margin-bottom: 3px; /* Space between title and conference */
+  color: var(--papertitle-color); /* Use your existing variable */
+  font-weight: 600; /* Ensure it's bold */
+}
+
+.research-papers-list .conference {
+  display: block; /* Make the conference take its own line */
+  font-size: 13px; /* Adjust font size if needed */
+  color: var(--conference-color); /* Use your existing variable */
+  font-style: italic; /* Example: Make conference details italic */
 }
 
 
