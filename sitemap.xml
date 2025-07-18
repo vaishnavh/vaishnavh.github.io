@@ -17,6 +17,9 @@
 <loc>http://localhost:4000/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/talks/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/home/VaishnavhNagarajanResume.pdf</loc>
 <lastmod>2025-07-15T00:32:46-07:00</lastmod>
 </url>
@@ -85,6 +88,14 @@
 <lastmod>2022-05-20T11:21:20-07:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/home/talks/downscaling_llm_poster.pdf</loc>
+<lastmod>2025-07-18T15:45:14-07:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/home/talks/downscaling_llm_slides.pdf</loc>
+<lastmod>2025-07-18T15:48:39-07:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/home/talks/gan-stability-cmu.pdf</loc>
 <lastmod>2022-05-20T11:21:20-07:00</lastmod>
 </url>
@@ -119,6 +130,10 @@
 <url>
 <loc>http://localhost:4000/home/talks/ood_poster.pdf</loc>
 <lastmod>2022-05-20T11:21:20-07:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/home/talks/ood_slides.pdf</loc>
+<lastmod>2021-11-16T08:41:16-08:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/home/talks/simons-talk.pdf</loc>
