@@ -41,6 +41,8 @@
   --blockquote-line-color: #d0dfda; /* Adding variable for blockquote line color */
   --mathjax-highlight-background: #4A3C2A; /* Darker, slightly muted highlight background for dark mode */
   --mathjax-highlight-text: #eee;        /* Text color for highlight in dark mode */
+  --main-page-fontsize: 18px;
+  --main-page-subheading-fontsize: 28px;
 }
 
 [data-theme="light"] {
@@ -81,7 +83,9 @@
   --blockquote-hover-border: #b8cec7;
   --blockquote-line-color: #d0dfda;
     --mathjax-highlight-background: #F0E68C; /* Khaki or similar muted yellow for light mode */
-  --mathjax-highlight-text: #303030;     
+  --mathjax-highlight-text: #303030;   
+  --main-page-fontsize: 18px;
+  --main-page-subheading-fontsize: 28px;
 }
 
 /* ==========================================================================
@@ -135,7 +139,7 @@ h6 { font-size: 14px; font-weight: 500; }
 /* Paragraphs */
 p {
   font-family: "IM Fell Great Primer", Georgia, serif;
-  font-size: 14px;
+  font-size: 18px;
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
@@ -146,7 +150,7 @@ p {
 /* Bold and Strong text */
 b {
   font-family: "IM Fell Great Primer", Georgia, serif;
-  font-size: 14px;
+  font-size: 18px;
   font-style: normal;
   font-variant: normal;
   font-weight: 700;
@@ -269,7 +273,7 @@ footer {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1000px; /* Default wider width for main pages */
+  max-width: 1200px; /* Default wider width for main pages */
   margin: 10px auto 20px;
   border-radius: 7px;
   border: 1px solid var(--container-border); /* Transparent */
@@ -400,6 +404,8 @@ a.big-button.green:hover, .as-link.big-button.green:hover { background: #797; }
    5.  Post Specific Styles
    ========================================================================== */
 
+
+
 section.post {
   max-width: 800px; /* Specific width for blog posts */
   margin: 0 auto;   /* Centers section.post within its parent */
@@ -438,7 +444,7 @@ section.post iframe, section.post img {
 }
 
 section.post, section > p { /* This rule is problematic, p will inherit its own rule */
-  font-size: 14px; /* Redundant if p is already 14px */
+  font-size: var(--main-page-fontsize); /* Redundant if p is already 14px */
   line-height: 1.6em; /* Different from global p's line-height */
   max-width: 100%;
 }
@@ -520,7 +526,7 @@ section.post em strong, section > p em strong {
 
 /* Add this new rule for paragraphs within research-interests-section */
 .research-interests-section p {
-  font-size: 14px; /* Set your desired font size here, e.g., 16px */
+  font-size: var(--main-page-fontsize); /* Set your desired font size here, e.g., 16px */
   line-height: 1.6em; /* Adjust line height for readability */
   color: var(--paragraph-color); /* Ensure it uses your desired paragraph color */
   font-weight: 400; /* Or whatever weight you want for this text */
@@ -534,41 +540,6 @@ section.post em strong, section > p em strong {
   color: var(--paragraph-color);
   font-weight: 400;
   font-style: normal;
-}
-
-/* --- Styling for the Research Papers List --- */
-.research-papers-list {
-  list-style-type: square; /* Example: Use square bullets */
-  list-style-position: outside; /* Bullet points outside the content block */
-  margin-left: 0; /* Reset default margin if needed */
-  padding-left: 25px; /* Adjust overall indentation of the list from the left */
-  margin-top: 20px; /* Space above the entire list */
-  margin-bottom: 20px; /* Space below the entire list */
-}
-
-/* Styling for individual list items (each paper entry) */
-.research-papers-list li {
-  margin-bottom: 15px; /* Space between each paper entry */
-  padding: 5px 0; /* Add a bit of vertical padding within each list item */
-  /* Remove any conflicting padding-left/margin-left that might be inherited from global li rules */
-  margin-left: 0;
-  padding-left: 0;
-}
-
-/* Optional: Further refine the look of papertitle and conference within this list */
-.research-papers-list .papertitle {
-  display: block; /* Make the title take its own line */
-  font-size: 15px; /* Adjust font size if needed */
-  margin-bottom: 3px; /* Space between title and conference */
-  color: var(--papertitle-color); /* Use your existing variable */
-  font-weight: 600; /* Ensure it's bold */
-}
-
-.research-papers-list .conference {
-  display: block; /* Make the conference take its own line */
-  font-size: 13px; /* Adjust font size if needed */
-  color: var(--conference-color); /* Use your existing variable */
-  font-style: italic; /* Example: Make conference details italic */
 }
 
 
@@ -697,21 +668,21 @@ section.post em strong, section > p em strong {
 .myhighlight {
   color: var(--highlight-color);
   font-weight: 700;
-  font-size: 15;
+  font-size: var(--main-page-fontsize);
   font-family: "IM Fell Great Primer";
 }
 
 .subheading {
   font-family: "IM Fell Great Primer", Georgia, serif;
-  font-weight: 400;
+  font-weight: 800;
   font-optical-sizing: auto;
-  font-size: 22;
+  font-size: var(--main-page-subheading-fontsize);
   color: var(--heading-color);
 }
 .subsubheading {
   font-family: "IM Fell Great Primer", Georgia, serif;
   text-transform: uppercase;
-  font-size: 15;
+  font-size: 18;
   color: var(--heading-color);
 }
 
@@ -719,19 +690,19 @@ section.post em strong, section > p em strong {
   color: var(--papertitle-color);
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-optical-sizing: auto;
-  font-size: 16;
+  font-size: var(--main-page-fontsize);
   font-weight: 600;
 }
 .conference {
   color: var(--conference-color);
   font-family: "IM Fell Great Primer", Georgia, serif;
-  font-size: 14;
+  font-size: var(--main-page-fontsize);
 }
 .blogname {
   color: var(--highlight-color);
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-weight: 800;
-  font-size: 18px;
+  font-size: var(--main-page-fontsize);
   font-style: italic;
 }
 
@@ -813,7 +784,9 @@ section.post em strong, section > p em strong {
   opacity: 1;
   bottom: 5px;
 }
-
+.link .title {
+  font-weight: bold; 
+}
 /* General Menu Container */
 .menu { /* This block was duplicated; keeping one here */
   display: flex;
