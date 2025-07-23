@@ -63,7 +63,7 @@
   --heading-color: #444;
   --paragraph-color: #444;
   --papertitle-color: black;
-  --conference-color: black;
+  --conference-color: #636363;
   --list-item-color: #303030;
   --logo-color: black;
   --blogname-color: black;
@@ -446,6 +446,7 @@ section.post iframe, section.post img {
 section.post, section > p { /* This rule is problematic, p will inherit its own rule */
   font-size: var(--main-page-fontsize); /* Redundant if p is already 14px */
   line-height: 1.6em; /* Different from global p's line-height */
+  font-weight: 800;
   max-width: 100%;
 }
 section.post em strong, section > p em strong {
@@ -529,7 +530,7 @@ section.post em strong, section > p em strong {
   font-size: var(--main-page-fontsize); /* Set your desired font size here, e.g., 16px */
   line-height: 1.6em; /* Adjust line height for readability */
   color: var(--paragraph-color); /* Ensure it uses your desired paragraph color */
-  font-weight: 400; /* Or whatever weight you want for this text */
+  font-weight: 800; /* Or whatever weight you want for this text */
   font-style: normal; /* Ensure it's not italic if you want it normal */
 }
 
@@ -562,6 +563,7 @@ section.post em strong, section > p em strong {
   color: var(--paragraph-color); /* Inherit color from paragraph variable */
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-style: normal;
+  font-weight: 800;
   font-size: 17px;
 }
 
@@ -572,7 +574,7 @@ section.post em strong, section > p em strong {
   font-style: normal;
   font-variant: normal;
   font-weight: 600;
-  line-height: 20px;
+  line-height: 25px;
   color: var(--highlight-color);
   text-shadow: var(--strong-shadow);
 }
@@ -691,7 +693,7 @@ section.post em strong, section > p em strong {
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-optical-sizing: auto;
   font-size: var(--main-page-fontsize);
-  font-weight: 600;
+  font-weight: 800;
 }
 .conference {
   color: var(--conference-color);
