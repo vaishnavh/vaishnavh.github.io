@@ -679,7 +679,7 @@ section.post em strong, section > p em strong {
   font-weight: 800;
   font-optical-sizing: auto;
   font-size: var(--main-page-subheading-fontsize);
-  color: var(--heading-color);
+  color: var(--highlight-color)
 }
 .subsubheading {
   font-family: "IM Fell Great Primer", Georgia, serif;
