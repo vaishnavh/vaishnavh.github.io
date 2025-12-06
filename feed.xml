@@ -7,6 +7,60 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Research philosophy</title>
+        <description>&lt;hr /&gt;
+
+&lt;p&gt;In this pompous post, I share my approach to doing research, and my strong opinions on how I aspire to be a researcher. My values are shaped by what I’ve &lt;a href=&quot;/blog/history-of-science/&quot;&gt;read&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;I seek simple, insightful results unburdened by mathematical obfuscation. This means pursuing minimal abstractions, example and counterexamples, vivid intuition, clarity and depth of thought and nuanced argumentation.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I believe that researchers should be publishing significantly less. I have published about a paper a year; I wish it was less frequent.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Peer review is a form of taxation. If you publish more, you should review more, while ensuring that your reviews are of high quality. The System Is Broken™ in part because everyone’s publishing more without paying their fair share of taxes (and also because there’s more of everyone).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I care about clear and accessible communication. I enjoy spending an unhealthy amount of time on making my &lt;a href=&quot;/talks&quot;&gt;talks&lt;/a&gt; and writing my papers. This is a constant learning process. (However, I find this generally underemphasized.)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Similarly, I enjoy the detective work that goes behind cataloging an exhaustive related work section. If there are missing citations in my work, please reach out to me so I can rectify it! (Again, this part of paper-writing is simply glossed over.)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I enjoy conversations with students, particularly conversations with technical depth where I learn something and feel challenged.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I  believe that science must be done and truth must be sought collaboratively with compassion and good faith, building on each other’s works and strengths.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Science is more subjective than it is made out to be. We must embrace this with humility, a trait that is unfortunately punished.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;At this point in my field, the only form of external validation that matters to me is when others tangibly build on my work, or if someone enjoyed reading my work. All other metrics (including citations, publications, awards and fellowships I’ve listed elsewhere on this site) have become utterly meaningless.&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Byte-sized dissemination of research on twitter has been a terrible idea for science (but I do it anyway). It has encouraged reductive and combative interactions. &lt;sup id=&quot;fnref:1:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Footnotes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Yes, that’s hypocritical! But also see the &lt;a href=&quot;https://en.wikipedia.org/wiki/Tu_quoque&quot;&gt;Tu quoque&lt;/a&gt; fallacy. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:1:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 05 Dec 2025 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/blog/research-philosophy/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/research-philosophy/</guid>
+      </item>
+    
+      <item>
         <title>Why PhD students should read the history of science</title>
         <description>&lt;p&gt;Here’s a secret I accidentally discovered during my PhD: consuming history-of-science content is a powerful way to nurture your emotional maturity as a researcher.&lt;/p&gt;
 

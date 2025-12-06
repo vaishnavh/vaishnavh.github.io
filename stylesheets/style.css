@@ -8,7 +8,7 @@
   --text-color: #eee;
   --container-background: transparent;
   --container-border: transparent;
-  --block-border: #D2B48C;
+  --block-border: #ffffff;
   --link-color: #B86A50;
   --blockquote-background: #252525;
   --blockquote-text: #eee;
@@ -619,7 +619,7 @@ section.post em strong, section > p em strong {
 
   /* --- Boxed Look & Theming --- */
   background: var(--blockquote-background);
-  border: 3px solid var(--block-border);
+  border: 0px solid var(--block-border);
   border-radius: 3px;
   padding: 20px 30px;
   margin: 2em auto;
@@ -642,7 +642,7 @@ section.post em strong, section > p em strong {
 
 
 .blogbody blockquote strong {
-  font-family: "IM Fell Great Primer SC", Georgia, serif;
+  font-family: "IM Fell Great Primer", Georgia, serif;
   font-weight: 700; /* Ensure it's bold if you want it */
   color: var(--highlight-color); /* You can use your highlight color or a new one */
   /* Add any other styles you want for strong text within blockquotes here */
