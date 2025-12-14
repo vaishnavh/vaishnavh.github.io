@@ -1,8 +1,8 @@
 <html>
   <head>
     
-    <meta content='Research philosophy - Vaishnavh Nagarajan' property='og:title' />
-    <title>Research philosophy - Vaishnavh Nagarajan</title>
+    <meta content='FAQ: Pitfalls of Next-Token Prediction - Vaishnavh Nagarajan' property='og:title' />
+    <title>FAQ: Pitfalls of Next-Token Prediction - Vaishnavh Nagarajan</title>
     <!--
 <script type='text/javascript'>
   //<![CDATA[
@@ -66,9 +66,9 @@
 <meta content="http://muan.co/images/og.png" property="og:image" />
 <meta content="" property="fb:app_id" />
 
-  <meta content='/blog/research-philosophy/' property='og:url' />
-  <meta content="In this post, I pompously share my thoughts on how I aspire to be a researcher amidst the rat race that is AI/ML rese..." property='og:description' />
-  <meta content="article" property="og:type" />
+  <meta content='http://localhost:4000' property='og:url' />
+  <meta content="Welcome to my personal website!" property='og:description' />
+  <meta content="blog" property="og:type" />
 
 <!-- - -->
 
@@ -131,51 +131,65 @@
 </nav>
         <section class='blog-post'>
           <br><br>
-          <div class="blogtitle">Research philosophy</div>
+          <div class="blogtitle">FAQ: Pitfalls of Next-Token Prediction</div>
 
 
-        <div class="blogbody"><hr />
+        <div class="blogbody"><p>Below, I address some of the often asked questions about our findings in this paper<sup id="fnref:pitfalls" role="doc-noteref"><a href="#fn:pitfalls" class="footnote" rel="footnote">1</a></sup></p>
 
-<p>In this post, I pompously share my thoughts on how I aspire to be a researcher amidst the rat race that is AI/ML research. My hope is that junior researchers who hold similar ideas and have faced the challenges that come with holding them, feel some sense of support from reading this. I’m always happy to chat more about navigating these challenges.</p>
+<p><strong>Q. I gave this problem to my favorite language model and it easily solved it.</strong></p>
 
-<ol>
-  <li>
-    <p>I seek simple, insightful results unburdened by mathematical obfuscation. This means pursuing minimal abstractions, example and counterexamples, vivid intuition, clarity and depth of thought and nuanced argumentation.</p>
-  </li>
-  <li>
-    <p>Researchers should be publishing significantly less. I have published about a paper a year; I wish it was less frequent.</p>
-  </li>
-  <li>
-    <p>Peer review is a form of taxation. If you publish more, you should review more, while ensuring that your reviews are of high quality. The System Is Broken™ in part because everyone’s publishing more without paying their fair share of taxes (and also because there’s more of everyone).</p>
-  </li>
-  <li>
-    <p>I care about clear and accessible communication. I enjoy spending an unhealthy amount of time on making my <a href="/talks">talks</a> and writing my papers. This is a constant learning process.</p>
-  </li>
-  <li>
-    <p>I enjoy the detective work that goes behind cataloging an extensive, well-organized related work section. It’s a satisfying process. If there are missing citations in my work, please reach out to me so I can rectify it!</p>
-  </li>
-  <li>
-    <p>I  believe that science must be done and truth must be sought collaboratively with compassion and good faith, building on each other’s works and strengths.</p>
-  </li>
-  <li>
-    <p>Science is more subjective than it is made out to be. We must embrace this with humility.</p>
-  </li>
-  <li>
-    <p>At this point in my field, the only form of external validation that matters to me is when others tangibly build on my work, or if someone enjoyed reading my work. All other metrics (including citations, publications, awards, talk invitations and fellowships I’ve listed elsewhere on this site) have become utterly meaningless.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-  </li>
-  <li>
-    <p>Byte-sized dissemination of research on twitter has been a terrible idea for science (but I do it anyway). It has encouraged reductive and combative interactions. <sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
-  </li>
-</ol>
+<p>A. Our result is not meant to be interpreted that way. Imagine there is a skill we want in the future but this is not covered in our current generation models; imagine that your solution is to collect many demonstrations of said skill and teach it to the model using next-token training. Are you guaranteed that the model will learn it this way? This is what we give some insight into.</p>
 
-<p>My values are shaped by what I’ve <a href="/blog/history-of-science/">read</a>.</p>
+<p><strong>Q. Next-token training may not solve this task. But wouldn’t reinforcement learning or chain-of-thought come to the rescue?</strong></p>
 
-<p><strong>Footnotes</strong></p>
+<p>A. Totally! But it is worth considering  the following:</p>
+
+<ul>
+  <li>
+    <p>Is there any headroom during pretraining? Would a different objective save us a lot of compute/data?</p>
+  </li>
+  <li>
+    <p>Would reinforcement learning teach us <em>all</em> skills including ones that don’t already exist within the model? What about situations (like creativity) where rewards are very sparse?</p>
+  </li>
+  <li>
+    <p>Are there tasks that are not chain-of-thought-friendly? How about tasks that require a “spark”?</p>
+  </li>
+</ul>
+
+<p><strong>Q. The failure you show here is for a very specific graph structure. This doesn’t look like it will generalize to natural language. Is this failure any relevant to practice?</strong></p>
+
+<p>A. You’re right that the <em>striking</em> failure requires the paths to be non-branching to encourage learning Clever Hans cheats; this is not true of language, where you expect a branching structure. Let’s step back and get a broader view of things:</p>
+
+<ul>
+  <li>
+    <p>Language pretraining is not the only situation where next-token-learning is used for. There are many applications such as protein modeling where models are trained with next-token prediction.  See for instance, this paper<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> which reports how models learn shortcuts when trying to imitate human behavior.</p>
+  </li>
+  <li>
+    <p>Eliminating “striking failure” is a binary target; it isn’t the practitioners only business; they also need to care about data- and compute-efficiency. It is possible that, even if the model can recover from such cheats, the gradients corresponding to those cheats are wasteful. If you see Fig 6, you’ll see that the next-token predicting model is inefficient.</p>
+  </li>
+</ul>
+
+<p><strong>Q. It’s not just the topology of the task that makes it special, but it’s also that your path lengths are all fixed. What happens if I mix the data with graphs of varying complexities?</strong></p>
+
+<p>A. In that case, we expect the model to solve the problem! See Figure 2 in this excellent paper<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> where they show how Transformers can remarkably solve compositional tasks with really small depth; if you notice, the model is trained on a dataset of varying hops, unlike in our path-star task (which is also a compositional task, but with a fixed hop).</p>
+
+<p>To teach compositional tasks, models need some form of stepwise supervision. Your suggestion, in line with the above paper, is to use <em>curriculum</em>. Another alternative is to give <em>chain-of-thought supervision</em> (see this paper<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>). These are great and practically important insights; the path-star’s insight is independent of this. It is that you may be squandering away supervision that already exists in your data simply because your supervision is sub-optimal.</p>
+
+<hr />
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>Yes, that’s hypocritical! But also see the <a href="https://en.wikipedia.org/wiki/Tu_quoque">Tu quoque</a> fallacy. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    <li id="fn:pitfalls" role="doc-endnote">
+      <p><a href="https://arxiv.org/abs/2403.06963">The pitfalls of next-token prediction</a> <a href="#fnref:pitfalls" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://osf.io/preprints/psyarxiv/u7z4t_v1">Centaur May Have Learned a Shortcut that Explains Away Psychological Tasks</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p><a href="https://arxiv.org/abs/2402.09268">Transformers, parallel computation, and logarithmic depth</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p><a href="https://arxiv.org/abs/2309.06979">Auto-Regressive Next-Token Predictors are Universal Learners</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -184,8 +198,6 @@
       </div>
 
         <div class="post-navigation">
-  
-    <a href="/blog/history-of-science/" class="nav-arrow left-arrow">&laquo; Why PhD students should read the history of science</a>
   
 
   
@@ -209,8 +221,8 @@
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = 'http://localhost:4000/blog/research-philosophy/';
-      this.page.identifier = 'http://localhost:4000/blog/research-philosophy/';
+      this.page.url = 'http://localhost:4000/faq/ntp/';
+      this.page.identifier = 'http://localhost:4000/faq/ntp/';
     };
     (function() {
       var d = document, s = d.createElement('script');
@@ -283,8 +295,8 @@
     // so DISQUS.reset can find it.
    // so DISQUS.reset can find it.
     window.disqus_config = function () {
-      this.page.url = 'http://localhost:4000/blog/research-philosophy/';
-      this.page.identifier = 'http://localhost:4000/blog/research-philosophy/';
+      this.page.url = 'http://localhost:4000/faq/ntp/';
+      this.page.identifier = 'http://localhost:4000/faq/ntp/';
 
       // Get the current theme from your body's data-theme attribute
       var disqusTheme = localStorage.getItem('theme');

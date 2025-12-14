@@ -1137,4 +1137,10 @@ ul.posts .series-parts-list li a:hover {
 }
 
 
+/* Custom style for the subtle "Last Updated" note */
+.tiny-note {
+    font-size: 0.7em; /* Makes the text small */
+    color: #888;     /* Sets the color to a light grey */
+    font-weight: normal; /* Ensures it's not bold */
+}
 
