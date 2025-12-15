@@ -1144,3 +1144,38 @@ ul.posts .series-parts-list li a:hover {
     font-weight: normal; /* Ensures it's not bold */
 }
 
+
+
+/* Style the container */
+details {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+/* Style the clickable header */
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  list-style: none; /* Removes the default arrow in some browsers */
+}
+
+/* Add a custom "+" icon that changes to "-" when open */
+summary::before {
+  content: "+ ";
+  color: #888;
+  margin-right: 10px;
+}
+
+details[open] summary::before {
+  content: "- ";
+}
+
+/* Style the revealed text */
+details p {
+  margin-top: 10px;
+  color: var(--text-color);
+  font-size: 1.1em;
+  line-height: 1.6;
+}

@@ -121,44 +121,65 @@
 
 &lt;p&gt;Here are some of the books I would recommend. I’ll continue to update this over time. &lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Longitude&lt;/strong&gt; by Dava Sobel: This little book describes the story of how 18th century governments and monarchies funded a race to design the clock, a race that stemmed from colonial ambitions (you need clocks to track the longitude which until then was extremely cumbersome and prone to ship-wrecking errors). The book covers the competition and drama the ensued between inventors and powerful astronomers and the magnitude of grit that was involved in the inventor’s process.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Chaos: Making a New Science&lt;/strong&gt; by James Gleick: This narrates the emergence of Chaos Theory as a standalone discipline (born from problems and observations in various other disciplines) and the pushbacks it experienced along the way. The book also describes the basic tenets of chaos theory in a way that I enjoyed and is easy to follow.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Chasing Venus: The Race to Measure the Heavens&lt;/strong&gt; by Andrea Wulf: This thriller-like (true) story tracks the journey of a dozen astronomers (of many) in the 1760s as they raced to colonies in various corners of the globe. Their goal was to time the journey of the Venus across the Sun in a bid to measure the distance of the Sun from the Earth. The scientists and astronomers worked across imperial borders to consolidate resources and collaborate (or not!), and in their race against time, they faced one obstacle after another, political, logistical and meteorological. Many failed. The book details the competition that developed between various astronomers (and like Longitude, also how all of this was deeply tied to colonization).&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Great Feuds in Science: Ten of the Liveliest Disputes Ever&lt;/strong&gt; by Hal Hellman: This outlines instances across the vast history of science where two ideas or two people collided head-on. Some of these you may already be aware of, like the one between Newton and Leibniz or the one between Galileo and the Pope. But the book digs out little historical details which paint a nastier picture of many of these debates than what you’d have visualized.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;When Einstein Walked with Gödel&lt;/strong&gt; by Jim Holt: This is a collection of riveting essays on science and mathematics, each with a unque insight into some of the points I’ve brought up here. (I’m still reading it as I write this.)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Accidental Astronomy: How Random Discoveries Shape the Science of Space&lt;/strong&gt; by Chris Lintott: This describes the serendipitous history leading up to many astronomical discoveries.  The story of how radio astronomy came to be is absolutely fascinating. The book also led me to learning about the story of Jocelyn Bell who discovered the first pulsars but was &lt;a href=&quot;https://www.sciencenews.org/article/jocelyn-bell-burnell-physics-prize-pulsar-discovery-interview&quot;&gt;not awarded&lt;/a&gt; the Nobel Prize.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;The Creative Moment&lt;/strong&gt; by Joseph Schwartz: A collection of (provocative) essays describing how various scientific discoveries were triggered by a political or social force;  and also, how the natural sciences became more and more abstract and obscured in the public eye (beginning at the moment Galileo mathematized physics when in conflict with the Church), and how the ways of doing science have transformed from lone inventors to large highly-managed teams, a fact that is true of machine learning and AI too.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Inventing Temperature&lt;/strong&gt; by Hasok Chang: This narrates the long history behind how temperature began to measured like how it is right now. There are details about the physics of it (some of it was a bit dense for a casual read for me), but also details about the disputes and confusion that transpired along the way.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;There are places in the world where rules are less important than kindness&lt;/strong&gt; by Carlo Rovelli: A collection of essays by a theoretical physicist that touches upon many things broadly: science, anthropology, also of the life of a young scientist, and of many other social and human values.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;A sense of the mysterious&lt;/strong&gt; by Alan Lightman: The essays here describe the emotional experience of a scientist and the intersection of being scientist and an artist (Alan’s writing about this deeply resonated with me) and the power of metaphors in scientific thinking. There are also insightful historical accounts of some scientists and discoveries; my favorite is the essay titled “Megaton Man” which descibes the personality of Edward Teller who was involved in the Manhattan Project.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Science and Government&lt;/strong&gt; by CP Snow: A long essay (or a short book?) that narrates the rivalry between two scientists who were at the helm of British military technology during the second World War.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;The Knowledge Machine&lt;/strong&gt; by Michael Strevens: This book presents a theory of why science emerged when it did; what stood out to me are examples of scientists making irrational or un-objective decisions e.g., such as in the Eddington eclipse experiment where scientists ignored some data that might have otherwise tipped the scales in favor of Newton.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;Longitude&lt;/strong&gt; by Dava Sobel&lt;/summary&gt;
+  &lt;p&gt;This little book describes the story of how 18th century governments and monarchies funded a race to design the clock, a race that stemmed from colonial ambitions (you need clocks to track the longitude which until then was extremely cumbersome and prone to ship-wrecking errors). The book covers the competition and drama that ensued between inventors and powerful astronomers and the magnitude of grit that was involved in the inventor&apos;s process.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;Chaos: Making a New Science&lt;/strong&gt; by James Gleick&lt;/summary&gt;
+  &lt;p&gt;This narrates the emergence of Chaos Theory as a standalone discipline (born from problems and observations in various other disciplines) and the pushbacks it experienced along the way. The book also describes the basic tenets of chaos theory in a way that is easy to follow.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;Chasing Venus: The Race to Measure the Heavens&lt;/strong&gt; by Andrea Wulf&lt;/summary&gt;
+  &lt;p&gt;This thriller-like (true) story tracks the journey of a dozen astronomers (of many) in the 1760s as they raced to colonies in various corners of the globe. Their goal was to time the journey of the Venus across the Sun in a bid to measure the distance of the Sun from the Earth. The scientists and astronomers worked across imperial borders to consolidate resources and collaborate (or not!), and in their race against time, they faced one obstacle after another, political, logistical and meteorological. Many failed. The book details the competition that developed between various astronomers (and like Longitude, also how all of this was deeply tied to colonization).&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;Great Feuds in Science: Ten of the Liveliest Disputes Ever&lt;/strong&gt; by Hal Hellman&lt;/summary&gt;
+  &lt;p&gt;This outlines instances across the vast history of science where two ideas or two people collided head-on. Some of these you may already be aware of, like the one between Newton and Leibniz or the one between Galileo and the Pope. But the book digs out little historical details which paint a picture of many of these debates nastier than what you’d have imagined.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;When Einstein Walked with Gödel&lt;/strong&gt; by Jim Holt&lt;/summary&gt;
+  &lt;p&gt;A collection of essays on science and mathematics, each with a unique insight into some of the lessons I brought up earlier.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;Accidental Astronomy: How Random Discoveries Shape the Science of Space&lt;/strong&gt; by Chris Lintott&lt;/summary&gt;
+  &lt;p&gt;This describes the serendipitous history leading up to many astronomical discoveries. The story of how radio astronomy came to be is absolutely fascinating. The book also led me to learning about the story of Jocelyn Bell who discovered the  pulsars but was &lt;a href=&quot;https://www.sciencenews.org/article/jocelyn-bell-burnell-physics-prize-pulsar-discovery-interview&quot;&gt;not awarded&lt;/a&gt; the Nobel Prize.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;The Creative Moment&lt;/strong&gt; by Joseph Schwartz&lt;/summary&gt;
+  &lt;p&gt; A collection of (provocative) essays describing how various scientific discoveries were triggered by a political or social force; and also, how the natural sciences became more and more abstract and obscured in the public eye (beginning at the moment Galileo mathematized physics when in conflict with the Church), and how the ways of doing science have transformed from lone inventors to large highly-managed teams, a fact that is true of machine learning and AI too.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;Inventing Temperature&lt;/strong&gt; by Hasok Chang&lt;/summary&gt;
+  &lt;p&gt;This narrates the long history behind how temperature began to measured like how it is right now. There are details about the physics of it (some of it was a bit dense for a casual read for me), but also details about the disputes and confusion that transpired along the way.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;There are places in the world where rules are less important than kindness&lt;/strong&gt; by Carlo Rovelli&lt;/summary&gt;
+  &lt;p&gt;A collection of essays by a theoretical physicist that touches upon many things broadly: science, anthropology, also of the life of a young scientist, and of many other social and human values.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;A sense of the mysterious&lt;/strong&gt; by Alan Lightman&lt;/summary&gt;
+  &lt;p&gt; The essays here describe the emotional experience of a scientist and the intersection of being scientist and an artist (Alan’s writing about this is beautiful; it deeply resonated with me) and the power of metaphors in scientific thinking. There are also insightful historical accounts of some scientists and discoveries; my favorite is the essay titled “Megaton Man” which descibes the personality of Edward Teller who was involved in the Manhattan Project.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;Science and Government&lt;/strong&gt; by CP Snow&lt;/summary&gt;
+  &lt;p&gt; A long essay (or a short book?) that narrates the rivalry between two scientists who were at the helm of British military technology during the second World War.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;The Knowledge Machine&lt;/strong&gt; by Michael Strevens&lt;/summary&gt;
+  &lt;p&gt;This book presents a theory of why science emerged when it did; what stood out to me are examples of scientists making irrational or un-objective decisions e.g., such as in the Eddington eclipse experiment where scientists ignored some data that might have otherwise tipped the scales in favor of Newton.&lt;/p&gt;
+&lt;/details&gt;
 
 &lt;hr /&gt;
 
