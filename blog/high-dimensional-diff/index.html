@@ -209,7 +209,7 @@ The right answer is in fact, a cute yet shocking<span class="spoiler" onclick="t
 
 <p>It’s entrenched in us that everything becomes funny in high-dimensions, and one such funny thing we know all too well is that <em>if you independently sample two vectors from a zero-centered, isotropic Gaussian, they must be at right angles</em> (with high probability etc., etc.,). We sense that the two directions ($\mathbf{A}$ and $\mathbf{B}$) look just like two zero-centered, isotropic Gaussian directions—which they are—and by our funny law, they should be orthogonal to each other—which they are not!</p>
 
-<p>There is joy in trying to reconcile this from various angles; try it yourself before you read below. This exercise also generated some philosophical mumblings left at the end of the post.</p>
+<p>There is joy in trying to reconcile this from various angles; try it yourself before you read below. The process of reconciliation also generated some philosophical mumblings; I leave them at the end of the post.</p>
 
 <hr />
 
@@ -226,20 +226,20 @@ The right answer is in fact, a cute yet shocking<span class="spoiler" onclick="t
 <p>Alternatively, I could say that my folly was in treating the two quantities, $\mathbf{A}$ and  $\mathbf{B}$ as two <em>independent</em>  zero-centered Gaussian random variables. Zero-centered Gaussian they are, independent they are not: the presence of “$\mathbf{Y}$” in both terms spoils the relationship. Knowing $\mathbf{A}$ i.e., $\mathbf{Z}-\mathbf{Y}$ gives me an updated belief over where $\mathbf{Y}$ could be, which in turn gives me an updated belief over where $\mathbf{Z} - \mathbf{Y}$ i.e., $\mathbf{B}$ could be.
  Therefore, I can’t cite the funny law of high-dimensional-orthogonality here.</p>
 
-<p>But I find this argument too bureaucratic to be insightful. (“You broke this precondition, so this claim cannot be processed.” Uhh, thank you, insurance agent.)</p>
+<p>But I find this argument too bureaucratic to be insightful. (“You broke this precondition, so this claim cannot be processed.” Why, thank you, insurance agent!)</p>
 
 <h3 id="the-frame-of-reference-reconciliation">The frame-of-reference reconciliation</h3>
 
 <p>Let me freeze $\mathbf{Y}$ at some specific value $\mathbf{y}$. <em>Conditioned</em> on $\mathbf{Y}=\mathbf{y}$, I think about what the angle between $\mathbf{X}-\mathbf{y}$ and $\mathbf{Z}-\mathbf{y}$ concentrates towards. Under this conditioning, I see that although these variables are independent, they are <em>not</em> zero-centered Gaussian: they have mean $\mathbf{y}$. Once again, I am mysteriously blocked from citing the funny high-dimensional law, this time by a different force.</p>
 
-<p>But this argument is actually a bit more vivid. What I did here was to move my frame of reference to the “$\mathbf{y}$”. By relabeling “$\mathbf{y}$” as my new origin $\mathbf{O}’$ (see image below), what were once the points $\mathbf{X}$ and $\mathbf{Z}$, are now points $\mathbf{A}$ and $\mathbf{B}$; these points are sampled from a far-off Gaussian galaxy that is centered at $-\mathbf{y}$ (what was my previous origin). From my planet at $\mathbf{y}$, the directions $\mathbf{A}$ and $\mathbf{B}$ appear in the sky roughly
-in the direction of that galaxy, not at right angles. This is kind of what the “algebraic reconciliation” was trying to tell me sadly in robotic garble that I couldn’t parse.</p>
+<p>But this argument is fortunately a bit more vivid than that. What I did here was to move my frame of reference to the “$\mathbf{y}$”. By relabeling “$\mathbf{y}$” as my new origin $\mathbf{O}’$ (see image below), what were once the points $\mathbf{X}$ and $\mathbf{Z}$, are now points $\mathbf{A}$ and $\mathbf{B}$; these points are sampled from a far-off Gaussian galaxy that is centered at $-\mathbf{y}$ (what was my previous origin). From my planet at $\mathbf{y}$, the directions $\mathbf{A}$ and $\mathbf{B}$ appear in the sky roughly
+in the direction of that galaxy; not at right angles. This is kind of what the “algebraic reconciliation” was trying to tell me, sadly in robotic garble that I couldn’t parse.</p>
 
 <p><img src="/assets/images/2025-12-16-high-dimensional-diff/img2.jpg" alt="Frame-of-reference reconciliation" class="theme-aware-img center-image" style="width: 60%;" /></p>
 
 <h3 id="the-geometric-reconciliation">The geometric reconciliation</h3>
 
-<p>Now, there’s one more elegant visualization. We can legally cite a different funny law in high-dimensions: the distances between two random points from a Gaussian concentrate around a fixed value. This value doesn’t matter. All that matters is that this is true of the distances between every pair of $\mathbf{X}, \mathbf{Y} \; \&amp; \; \mathbf{Z}$, which this means  these points together form a delightful equilateral triangle. QED.</p>
+<p>Now, there’s one more elegant visualization. We can legally cite a different funny law in high-dimensions: the distances between two random points from a Gaussian concentrate around a fixed value. This value doesn’t matter. All that matters is that this is true of the distances between every pair of $\mathbf{X}, \mathbf{Y} \; \&amp; \; \mathbf{Z}$, which means  these points together form a delightful equilateral triangle. QED.</p>
 
 <p><img src="/assets/images/2025-12-16-high-dimensional-diff/img3.jpg" alt="Geometric reconciliation" class="theme-aware-img center-image" style="width: 30%;" /></p>
 
@@ -248,9 +248,6 @@ in the direction of that galaxy, not at right angles. This is kind of what the �
 <ol>
   <li>
     <p>When our gut feeling says that the angle was $90^\circ$, were we tricked by the deceptive nature of high-dimensions, or were we tricked by something more rudimentary? (I think it’s the latter.)</p>
-  </li>
-  <li>
-    <p>A seemingly trivial problem can pose many distinct ways to humble us.</p>
   </li>
   <li>When we learn a new thing,
     <ul>

@@ -25,7 +25,7 @@ The right answer is in fact, a cute yet shocking&lt;span class=&quot;spoiler&quo
 
 &lt;p&gt;It’s entrenched in us that everything becomes funny in high-dimensions, and one such funny thing we know all too well is that &lt;em&gt;if you independently sample two vectors from a zero-centered, isotropic Gaussian, they must be at right angles&lt;/em&gt; (with high probability etc., etc.,). We sense that the two directions ($\mathbf{A}$ and $\mathbf{B}$) look just like two zero-centered, isotropic Gaussian directions—which they are—and by our funny law, they should be orthogonal to each other—which they are not!&lt;/p&gt;
 
-&lt;p&gt;There is joy in trying to reconcile this from various angles; try it yourself before you read below. This exercise also generated some philosophical mumblings left at the end of the post.&lt;/p&gt;
+&lt;p&gt;There is joy in trying to reconcile this from various angles; try it yourself before you read below. The process of reconciliation also generated some philosophical mumblings; I leave them at the end of the post.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -42,20 +42,20 @@ The right answer is in fact, a cute yet shocking&lt;span class=&quot;spoiler&quo
 &lt;p&gt;Alternatively, I could say that my folly was in treating the two quantities, $\mathbf{A}$ and  $\mathbf{B}$ as two &lt;em&gt;independent&lt;/em&gt;  zero-centered Gaussian random variables. Zero-centered Gaussian they are, independent they are not: the presence of “$\mathbf{Y}$” in both terms spoils the relationship. Knowing $\mathbf{A}$ i.e., $\mathbf{Z}-\mathbf{Y}$ gives me an updated belief over where $\mathbf{Y}$ could be, which in turn gives me an updated belief over where $\mathbf{Z} - \mathbf{Y}$ i.e., $\mathbf{B}$ could be.
  Therefore, I can’t cite the funny law of high-dimensional-orthogonality here.&lt;/p&gt;
 
-&lt;p&gt;But I find this argument too bureaucratic to be insightful. (“You broke this precondition, so this claim cannot be processed.” Uhh, thank you, insurance agent.)&lt;/p&gt;
+&lt;p&gt;But I find this argument too bureaucratic to be insightful. (“You broke this precondition, so this claim cannot be processed.” Why, thank you, insurance agent!)&lt;/p&gt;
 
 &lt;h3 id=&quot;the-frame-of-reference-reconciliation&quot;&gt;The frame-of-reference reconciliation&lt;/h3&gt;
 
 &lt;p&gt;Let me freeze $\mathbf{Y}$ at some specific value $\mathbf{y}$. &lt;em&gt;Conditioned&lt;/em&gt; on $\mathbf{Y}=\mathbf{y}$, I think about what the angle between $\mathbf{X}-\mathbf{y}$ and $\mathbf{Z}-\mathbf{y}$ concentrates towards. Under this conditioning, I see that although these variables are independent, they are &lt;em&gt;not&lt;/em&gt; zero-centered Gaussian: they have mean $\mathbf{y}$. Once again, I am mysteriously blocked from citing the funny high-dimensional law, this time by a different force.&lt;/p&gt;
 
-&lt;p&gt;But this argument is actually a bit more vivid. What I did here was to move my frame of reference to the “$\mathbf{y}$”. By relabeling “$\mathbf{y}$” as my new origin $\mathbf{O}’$ (see image below), what were once the points $\mathbf{X}$ and $\mathbf{Z}$, are now points $\mathbf{A}$ and $\mathbf{B}$; these points are sampled from a far-off Gaussian galaxy that is centered at $-\mathbf{y}$ (what was my previous origin). From my planet at $\mathbf{y}$, the directions $\mathbf{A}$ and $\mathbf{B}$ appear in the sky roughly
-in the direction of that galaxy, not at right angles. This is kind of what the “algebraic reconciliation” was trying to tell me sadly in robotic garble that I couldn’t parse.&lt;/p&gt;
+&lt;p&gt;But this argument is fortunately a bit more vivid than that. What I did here was to move my frame of reference to the “$\mathbf{y}$”. By relabeling “$\mathbf{y}$” as my new origin $\mathbf{O}’$ (see image below), what were once the points $\mathbf{X}$ and $\mathbf{Z}$, are now points $\mathbf{A}$ and $\mathbf{B}$; these points are sampled from a far-off Gaussian galaxy that is centered at $-\mathbf{y}$ (what was my previous origin). From my planet at $\mathbf{y}$, the directions $\mathbf{A}$ and $\mathbf{B}$ appear in the sky roughly
+in the direction of that galaxy; not at right angles. This is kind of what the “algebraic reconciliation” was trying to tell me, sadly in robotic garble that I couldn’t parse.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img2.jpg&quot; alt=&quot;Frame-of-reference reconciliation&quot; class=&quot;theme-aware-img center-image&quot; style=&quot;width: 60%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;the-geometric-reconciliation&quot;&gt;The geometric reconciliation&lt;/h3&gt;
 
-&lt;p&gt;Now, there’s one more elegant visualization. We can legally cite a different funny law in high-dimensions: the distances between two random points from a Gaussian concentrate around a fixed value. This value doesn’t matter. All that matters is that this is true of the distances between every pair of $\mathbf{X}, \mathbf{Y} \; \&amp;amp; \; \mathbf{Z}$, which this means  these points together form a delightful equilateral triangle. QED.&lt;/p&gt;
+&lt;p&gt;Now, there’s one more elegant visualization. We can legally cite a different funny law in high-dimensions: the distances between two random points from a Gaussian concentrate around a fixed value. This value doesn’t matter. All that matters is that this is true of the distances between every pair of $\mathbf{X}, \mathbf{Y} \; \&amp;amp; \; \mathbf{Z}$, which means  these points together form a delightful equilateral triangle. QED.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img3.jpg&quot; alt=&quot;Geometric reconciliation&quot; class=&quot;theme-aware-img center-image&quot; style=&quot;width: 30%;&quot; /&gt;&lt;/p&gt;
 
@@ -64,9 +64,6 @@ in the direction of that galaxy, not at right angles. This is kind of what the �
 &lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;When our gut feeling says that the angle was $90^\circ$, were we tricked by the deceptive nature of high-dimensions, or were we tricked by something more rudimentary? (I think it’s the latter.)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A seemingly trivial problem can pose many distinct ways to humble us.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;When we learn a new thing,
     &lt;ul&gt;
@@ -99,35 +96,35 @@ in the direction of that galaxy, not at right angles. This is kind of what the �
         <title>Research philosophy</title>
         <description>&lt;hr /&gt;
 
-&lt;p&gt;In this post, I pompously share my thoughts on how I aspire to be a researcher amidst the rat race that is AI/ML research. My hope is that junior researchers who hold similar ideas and have faced the challenges that come with holding them, feel some sense of support from reading this. I’m always happy to chat more about navigating these challenges.&lt;/p&gt;
+&lt;p&gt;In this post, I pompously share my thoughts on how I aspire to be a researcher. My hope is that junior researchers who hold similar ideas and have faced the challenges that come with holding them, feel some sense of support from reading this. I’m always happy to chat more about navigating these challenges amidst the rat race that is AI/ML research.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;I seek simple, insightful results unburdened by mathematical obfuscation. This means pursuing minimal abstractions, example and counterexamples, vivid intuition, clarity and depth of thought and nuanced argumentation.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Researchers should be publishing significantly less. I have published about a paper a year; I wish it was less frequent.&lt;/p&gt;
+    &lt;p&gt;Researchers should be publishing significantly less. In the first ten years of my career (2015 to 2025, the date I write this) I have published about a paper a year&lt;sup id=&quot;fnref:author&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:author&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;,  I wish it was less frequent.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Peer review is a form of taxation. If you publish more, you should review more, while ensuring that your reviews are of high quality. The System Is Broken™ in part because everyone’s publishing more without paying their fair share of taxes (and also because there’s more of everyone).&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;I care about clear and accessible communication. I enjoy spending an unhealthy amount of time on making my &lt;a href=&quot;/talks&quot;&gt;talks&lt;/a&gt; and writing my papers. This is a constant learning process.&lt;/p&gt;
+    &lt;p&gt;I care about clear and accessible communication. I enjoy spending an unhealthy amount of time on making my &lt;a href=&quot;/talks&quot;&gt;talks&lt;/a&gt; and writing my papers. This is a constant learning process—every paper or talk takes at least two or three attempts to attain clear presentation. There is significant insight to be  derived from this process.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;I enjoy the detective work that goes behind cataloging an extensive, well-organized related work section. It’s a satisfying process. If there are missing citations in my work, please reach out to me so I can rectify it!&lt;/p&gt;
+    &lt;p&gt;I enjoy the detective work that goes behind cataloging an extensive, well-organized related work section. It’s a satisfying process. If there are missing citations in my work, please reach out to me so I can rectify it. Again, there is significant insight (and knowledge) to be derived from this process!&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;I  believe that science must be done and truth must be sought collaboratively with compassion and good faith, building on each other’s works and strengths.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Science is more subjective than it is made out to be. We must embrace this with humility.&lt;/p&gt;
+    &lt;p&gt;Science is more subjective than it is made out to be. We must embrace this with humility. It’s not always obvious what questions are important, or what directions will be fruitful.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;At this point in my field, the only form of external validation that matters to me is when others tangibly build on my work, or if someone enjoyed reading my work. All other metrics (including citations, publications, awards, talk invitations and fellowships I’ve listed elsewhere on this site) have become utterly meaningless.&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+    &lt;p&gt;At this point in my field, the only form of external validation that matters to me is when others tangibly build on my work, or if someone enjoyed reading my work. All other metrics (including citations, publications, awards, talk invitations and fellowships I’ve listed elsewhere on this site) have become utterly meaningless.&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Byte-sized dissemination of research on twitter has been a terrible idea for science (but I do it anyway). It has encouraged reductive and combative interactions. &lt;sup id=&quot;fnref:1:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+    &lt;p&gt;Byte-sized dissemination of research on twitter has been a terrible idea for science (but I do it anyway). It has encouraged reductive and combative interactions. &lt;sup id=&quot;fnref:1:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -137,6 +134,9 @@ in the direction of that galaxy, not at right angles. This is kind of what the �
 
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
+    &lt;li id=&quot;fn:author&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;As lead contributor or mentor. As I grew in seniority, I’ve additionally participated as a “middle author” in about a paper a year. &lt;a href=&quot;#fnref:author&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;Yes, that’s hypocritical! But also see the &lt;a href=&quot;https://en.wikipedia.org/wiki/Tu_quoque&quot;&gt;Tu quoque&lt;/a&gt; fallacy. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:1:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
