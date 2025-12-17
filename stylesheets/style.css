@@ -711,9 +711,9 @@ section.post em strong, section > p em strong {
 
 .blogtitle {
   color: var(--blogtitle-color);
-  font-family: "IM Fell Great Primer SC", Georgia, serif;
+  font-family: "IM Fell Great Primer", Georgia, serif;
   font-weight: 800;
-  font-size: 40;
+  font-size: 30;
   /*font-style: italic; */
   line-height: 1.5em;
   margin-bottom: 60px;
@@ -1179,3 +1179,73 @@ details p {
   font-size: 1.1em;
   line-height: 1.6;
 }
+
+
+.spoiler {
+  /* This creates the "darkened spot" look */
+  background-color: var(--text-color); 
+  color: var(--text-color);
+  
+  /* The "blur" makes it look like a physical smudge */
+  filter: blur(5px);
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0 6px;
+  transition: all 0.4s ease;
+  display: inline-block;
+  user-select: none; /* Prevents accidental text selection when clicking */
+}
+
+.spoiler.revealed {
+  background-color: transparent;
+  color: var(--highlight-color); /* Reveals in your theme's highlight color */
+  filter: blur(0);
+  font-style: italic; /* Consistency with your footnote style */
+}
+
+/* Hover effect to hint that it's interactive */
+.spoiler:hover:not(.revealed) {
+  filter: blur(3px);
+  box-shadow: 0 0 8px var(--highlight-color);
+}
+
+
+.theme-aware-img {
+  border: 2px solid var(--container-border);
+  outline: 1px solid var(--highlight-color);
+  outline-offset: 4px; /* Creates a gap between the two borders */
+  margin: 3rem auto;
+  border-radius: 5px; /* Optional: keeps the border aligned with your rounded crop */
+}
+
+
+/* In light mode, the image stays as is */
+[data-theme="light"] .theme-aware-img {
+  filter: none;
+  /* --- Added Border Logic --- */
+  border: 1px solid var(---highlight-color); 
+  /* --------------------------- */
+}
+
+/* In dark mode, if the PNG is black, we invert it to white */
+[data-theme="dark"] .theme-aware-img {
+  filter: invert(0.9) hue-rotate(180deg);
+  /* Or, give it a subtle light background so the black lines stay visible */
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--highlight-color);
+}
+
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Subtle rounding - good for plots and diagrams */
+.img-rounded {
+  border: 1px solid var(--container-border); /* Adds a nice frame */
+  overflow: hidden; /* Ensures the image doesn't "leak" past the corners */
+}
+
+

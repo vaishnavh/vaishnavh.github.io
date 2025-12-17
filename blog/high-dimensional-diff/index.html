@@ -1,0 +1,465 @@
+<html>
+  <head>
+    
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/noErrors.js", "Safe.js", "html.js"], /* Ensure 'html.js' is here */
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreHtmlClass: 'no-mathjax',
+      skipTags: ["script","noscript","style","textarea","pre","code","a"]
+    },
+    "HTML-CSS": {
+      availableFonts: ["TeX"],
+      linebreaks: { automatic: true },
+      // --- KEY CHANGE 1: Enable linebreaks for HTML-CSS output ---
+      linebreaks: { automatic: true },
+      // --- KEY CHANGE 2: Define custom styles using CSS variables ---
+      styles: {
+        ".MathJax_Display": { // For display equations
+          "background-color": "var(--mathjax-highlight-background)", // Default is transparent
+          "color": "var(--mathjax-highlight-text)" // Default is black/white
+        },
+        ".MathJax_Display .MathJax_Math span": { // Target text within display equations
+            "background-color": "inherit !important", /* Prevents MathJax from forcing background */
+            "color": "var(--mathjax-highlight-text)" /* Ensure text color applies if you highlight entire blocks */
+        },
+        ".MathJax_Display .MathJax_Math": {
+            "background-color": "inherit !important",
+        },
+        ".MathJax_SVG_Display": { // For SVG output (if enabled)
+            "background-color": "var(--mathjax-highlight-background)",
+            "color": "var(--mathjax-highlight-text)"
+        },
+        ".MathJax_SVG_Display svg": {
+            "background-color": "inherit",
+        },
+        ".MathJax_SVG_Display .mjx-chtml": {
+            "background-color": "inherit",
+        },
+        /* Define a custom class for highlighting within equations */
+        ".highlighted-math": {
+            "background-color": "var(--mathjax-highlight-background) !important",
+            "color": "var(--mathjax-highlight-text) !important",
+            "padding": "0.1em 0.3em", /* Add some padding around the highlight */
+            "border-radius": "0.2em" /* Slightly rounded corners */
+        }
+      }
+    },
+    TeX: {
+    Macros: { // Define custom LaTeX commands here
+      highlightmath: ['{\\htmlclass{highlighted-math}{\\text{#1}}}', 1], // #1 means it takes one argument
+      }
+    },
+    SVG: { linebreaks: { automatic: true } }, // Enable linebreaks for SVG output as well
+    menuSettings: { zoom: "Double-Click" }
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <meta content='Angles between high-dimensional vectors - Vaishnavh Nagarajan' property='og:title' />
+    <title>Angles between high-dimensional vectors - Vaishnavh Nagarajan</title>
+    <!--
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+-->
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TZ1W6KRGW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TZ1W6KRGW0');
+</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+
+
+
+
+<link href='https://fonts.googleapis.com/css?family=IM Fell DW Pica|IM Fell DW Pica SC|IM Fell English|IM Fell English SC|IM Fell French Canon|IM Fell Great Primer|IM Fell Great Primer SC|IM Fell Great Primer IT|IM Fell Double Pica|Libre Caslon Text|Jost|Instrument Serif' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer:400,400i&display=swap' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Instrument+Serif:400,400i&display=swap' rel='stylesheet'>
+
+
+<!--<link href='http://fonts.googleapis.com/css?family=Teko|Dosis:400,800|Economica|Josefin+Sans|Oswald|Indie+Flower|Pacifico|Roboto' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' /> -->
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+<meta content="" property="fb:app_id" />
+
+  <meta content='/blog/high-dimensional-diff/' property='og:url' />
+  <meta content="Switch off your brain and answer this:Given three points $\mathbf{X}, \mathbf{Y}, \mathbf{Z}$ sampled from a high-dim..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=604714799556697";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+  </head>
+  <body>
+    <header>
+<!--<br><p>Vaishnavh Nagarajan</p>-->
+</header>
+    <div id='container'>
+      <div class="content">
+                    <nav>
+
+  <div class="navigation">
+    <div class="logo"><a href="/home/index.html">Vaishnavh Nagarajan</a></div>
+    <div class="menu">
+
+  
+    <a href="/home/index.html"  class="link">
+      <div class="title">
+      About
+    </div>
+    </a>
+  
+    <a href="/home/index.html#research"  class="link">
+      <div class="title">
+      Research
+    </div>
+    </a>
+  
+    <a href="/talks/index.html"  class="link">
+      <div class="title">
+      Talks
+    </div>
+    </a>
+  
+    <a href="/blog/index.html"  class="link">
+      <div class="title">
+      Blog
+    </div>
+    </a>
+  
+    </div>
+    <button id="theme-toggle-button" class="font-awesome-icons">
+        <i id="theme-toggle-icon" class="fas fa-moon"></i>  <span class="visually-hidden">Toggle Dark Mode</span>
+      </button>
+  </div>
+</nav>
+        <section class='blog-post'>
+          <br><br>
+          <div class="blogtitle">Angles between high-dimensional vectors</div>
+
+
+        <div class="blogbody"><p>Switch off your brain and answer this:</p>
+
+<p><strong>Given three points $\mathbf{X}, \mathbf{Y}, \mathbf{Z}$ sampled from a high-dimensional zero-centered isotropic Gaussian $\mathcal{N}(0, \mathbf{\Sigma})$, roughly, what is the angle between the lines given by $\mathbf{A} = \mathbf{X} - \mathbf{Y}$ and $\mathbf{B} = \mathbf{Z} - \mathbf{Y}$?</strong></p>
+
+<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img1.jpg" alt="The question" class="theme-aware-img center-image img-rounded" style="width: 50%;" /></p>
+
+<p>If you answered <span class="spoiler" onclick="this.classList.toggle('revealed')" title="Click to reveal">
+  $90^\circ$
+</span>, that is not right. 
+The right answer is in fact, a cute yet shocking<span class="spoiler" onclick="this.classList.toggle('revealed')" title="Click to reveal">
+  $60^\circ$
+</span>.</p>
+
+<hr />
+
+<p>It’s entrenched in us that everything becomes funny in high-dimensions, and one such funny thing we know all too well is that <em>if you independently sample two vectors from a zero-centered, isotropic Gaussian, they must be at right angles</em> (with high probability etc., etc.,). We sense that the two directions ($\mathbf{A}$ and $\mathbf{B}$) look just like two zero-centered, isotropic Gaussian directions—which they are—and by our funny law, they should be orthogonal to each other—which they are not!</p>
+
+<p>There is joy in trying to reconcile this from various angles; try it yourself before you read below. This exercise also generated some philosophical mumblings left at the end of the post.</p>
+
+<hr />
+
+<h3 id="the-algebraic-reconciliation">The algebraic reconciliation</h3>
+
+<p>For a blunt reconciliation, I go through the motions of computing the expected dot-product of $\mathbf{A} \cdot \mathbf{B}$ as below,</p>
+
+<p>\(\require{cancel} \mathbb{E}[ (\mathbf{X} - \mathbf{Y})\cdot (\mathbf{Z} - \mathbf{Y})] = \cancelto{0}{\mathbb{E}[\mathbf{X}\cdot\mathbf{Z}]} + \cancelto{0}{\mathbb{E}[\mathbf{Y}\cdot\mathbf{Z}]} + \cancelto{0}{\mathbb{E}[\mathbf{X}\cdot\mathbf{Y}]} + \underbrace{\mathbb{E}[\mathbf{Y}\cdot\mathbf{Y}]}_{&gt; 0}\),</p>
+
+<p>and I find that things don’t cancel out to zero! Thus, the angle cannot concentrate around $90^\circ$. But I find this argument too robotic to be insightful.</p>
+
+<h3 id="the-statistical-reconciliation">The statistical reconciliation</h3>
+
+<p>Alternatively, I could say that my folly was in treating the two quantities, $\mathbf{A}$ and  $\mathbf{B}$ as two <em>independent</em>  zero-centered Gaussian random variables. Zero-centered Gaussian they are, independent they are not: the presence of “$\mathbf{Y}$” in both terms spoils the relationship. Knowing $\mathbf{A}$ i.e., $\mathbf{Z}-\mathbf{Y}$ gives me an updated belief over where $\mathbf{Y}$ could be, which in turn gives me an updated belief over where $\mathbf{Z} - \mathbf{Y}$ i.e., $\mathbf{B}$ could be.
+ Therefore, I can’t cite the funny law of high-dimensional-orthogonality here.</p>
+
+<p>But I find this argument too bureaucratic to be insightful. (“You broke this precondition, so this claim cannot be processed.” Uhh, thank you, insurance agent.)</p>
+
+<h3 id="the-frame-of-reference-reconciliation">The frame-of-reference reconciliation</h3>
+
+<p>Let me freeze $\mathbf{Y}$ at some specific value $\mathbf{y}$. <em>Conditioned</em> on $\mathbf{Y}=\mathbf{y}$, I think about what the angle between $\mathbf{X}-\mathbf{y}$ and $\mathbf{Z}-\mathbf{y}$ concentrates towards. Under this conditioning, I see that although these variables are independent, they are <em>not</em> zero-centered Gaussian: they have mean $\mathbf{y}$. Once again, I am mysteriously blocked from citing the funny high-dimensional law, this time by a different force.</p>
+
+<p>But this argument is actually a bit more vivid. What I did here was to move my frame of reference to the “$\mathbf{y}$”. By relabeling “$\mathbf{y}$” as my new origin $\mathbf{O}’$ (see image below), what were once the points $\mathbf{X}$ and $\mathbf{Z}$, are now points $\mathbf{A}$ and $\mathbf{B}$; these points are sampled from a far-off Gaussian galaxy that is centered at $-\mathbf{y}$ (what was my previous origin). From my planet at $\mathbf{y}$, the directions $\mathbf{A}$ and $\mathbf{B}$ appear in the sky roughly
+in the direction of that galaxy, not at right angles. This is kind of what the “algebraic reconciliation” was trying to tell me sadly in robotic garble that I couldn’t parse.</p>
+
+<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img2.jpg" alt="Frame-of-reference reconciliation" class="theme-aware-img center-image" style="width: 60%;" /></p>
+
+<h3 id="the-geometric-reconciliation">The geometric reconciliation</h3>
+
+<p>Now, there’s one more elegant visualization. We can legally cite a different funny law in high-dimensions: the distances between two random points from a Gaussian concentrate around a fixed value. This value doesn’t matter. All that matters is that this is true of the distances between every pair of $\mathbf{X}, \mathbf{Y} \; \&amp; \; \mathbf{Z}$, which this means  these points together form a delightful equilateral triangle. QED.</p>
+
+<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img3.jpg" alt="Geometric reconciliation" class="theme-aware-img center-image" style="width: 30%;" /></p>
+
+<h4 id="notes">Notes</h4>
+
+<ol>
+  <li>
+    <p>When our gut feeling says that the angle was $90^\circ$, were we tricked by the deceptive nature of high-dimensions, or were we tricked by something more rudimentary? (I think it’s the latter.)</p>
+  </li>
+  <li>
+    <p>A seemingly trivial problem can pose many distinct ways to humble us.</p>
+  </li>
+  <li>When we learn a new thing,
+    <ul>
+      <li>we examine the thing from various angles</li>
+      <li>we examine every existing intuition in my head that is at odds with the thing</li>
+      <li>and we work until all possible contradictions are reconciled;</li>
+    </ul>
+
+    <p>only then does the thing become a part of our world view without resistance; only then do we feel like we understood the thing to completion.</p>
+  </li>
+  <li>
+    <p>It’s a useful exercise to “shut one’s brain” and see where it goes right or wrong. Don’t think step by step.</p>
+  </li>
+  <li>
+    <p>I don’t feel like I learned something satisfyingly without the aid of visualizations.</p>
+  </li>
+  <li>
+    <p>How much of AI model training reflects the above two human ways of incorporating new knowledge?</p>
+  </li>
+  <li><em>What does it really mean to explain something?</em> The algebraic reconciliation explains little. It is somewhat analogous to proving a generalization guarantee for a deep network with a 100-page step-by-step analysis of each layer when trained on a Gaussian distribution — does it really explain generalization of overparameterized models? In the 1970s, when Appel and Haken gave their computer-aided proof for the four-color theorem, there was criticism from mathematicians. It was not aesthetic; the computer-generated part of the proof allegedly was a “four-foot-high computer printout”; one couldn’t glean high-level arguments or insights into the “why” behind the truth; in fact, one couldn’t even verify and convince themselves of the truth without spending astronomical amounts of time. Jim Holt writes about this in a beautiful essay, <a href="https://www.nybooks.com/articles/2003/05/29/a-comedy-of-colors/">“A Comedy of Colors”</a>, asking what makes a proof a proof.</li>
+</ol>
+
+</div>
+        </section>
+      </div>
+
+        <div class="post-navigation">
+  
+    <a href="/blog/research-philosophy/" class="nav-arrow left-arrow">&laquo; Research philosophy</a>
+  
+
+  
+</div>
+
+          <!-- <div class="block">
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_x"></a>
+<a class="a2a_button_google_gmail"></a>
+<a class="a2a_button_threads"></a>
+<a class="a2a_button_hacker_news"></a>
+<a class="a2a_button_linkedin"></a>
+<a class="a2a_button_reddit"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_mastodon"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+</div> -->
+      <!--  <div class="block">
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://localhost:4000/blog/high-dimensional-diff/';
+      this.page.identifier = 'http://localhost:4000/blog/high-dimensional-diff/';
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://vaishnavh.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div> 
+ -->
+
+ 
+
+<div class="block">
+  <div id="disqus_thread"></div>
+  <script>
+    // The original Disqus embed script. We now rely on the global disqus_config
+    // defined above, and the reset logic in the theme toggler.
+    // Ensure this script still runs to initially load Disqus.
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://vaishnavh.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+    </div>
+
+
+
+
+    <footer>
+
+  <br />
+  <script type="text/javascript" language="javascript">
+  <!--
+  // Email obfuscator script 2.1 by Tim Williams, University of Arizona
+  // Random encryption key feature by Andrew Moulden, Site Engineering Ltd
+  // This code is freeware provided these four comment lines remain intact
+  // A wizard to generate this code is at http://www.jottings.com/obfuscator/
+  //-->
+  </script><noscript>first name AT google DOT com</noscript>
+
+
+
+					<br />
+					<br />
+  Built with Jekyll using Scribble.
+  <br>
+  <img src="/images/scribble2.png " alt="scribble" /> 
+</footer>
+    <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleButton = document.getElementById('theme-toggle-button');
+    const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+
+    console.log('DOMContentLoaded fired');
+    console.log('themeToggleButton:', themeToggleButton);
+    console.log('body:', body);
+    console.log('currentTheme:', currentTheme);
+
+    // Define disqus_config globally or within a scope accessible by DISQUS.reset
+    // A more robust way is to make it a named function or a property of window
+    // so DISQUS.reset can find it.
+   // so DISQUS.reset can find it.
+    window.disqus_config = function () {
+      this.page.url = 'http://localhost:4000/blog/high-dimensional-diff/';
+      this.page.identifier = 'http://localhost:4000/blog/high-dimensional-diff/';
+
+      // Get the current theme from your body's data-theme attribute
+      var disqusTheme = localStorage.getItem('theme');
+
+      // Set the Disqus theme based on your site's current theme
+      if (currentThemeForDisqus === 'light') {
+        this.page.display_thread_theme = 'light';
+      } else {
+        this.page.display_thread_theme = 'dark';
+      }
+    };
+
+    
+    const initializeTheme = () => {
+      const themeToggleButton = document.getElementById('theme-toggle-button');
+      const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
+      if (!themeToggleButton) {
+        console.error('Dark mode toggle element not found!');
+        return;
+      }
+
+      console.log('initializeTheme called, themeToggleButton:', themeToggleButton);
+
+      // Set initial theme based on local storage
+      if (currentTheme === 'light') {
+        body.setAttribute('data-theme', 'light');
+        themeToggleIcon.classList.remove('fa-sun');   // Switch to sun icon
+        themeToggleIcon.classList.add('fa-moon');
+        console.log('Setting light theme initially');
+      } else {
+        body.setAttribute('data-theme', 'dark');  // Default to dark
+        themeToggleIcon.classList.remove('fa-moon');   // Switch to moon icon
+        themeToggleIcon.classList.add('fa-sun');
+        console.log('Setting default dark theme');
+      }
+
+      // Add event listener for toggle change
+      themeToggleButton.addEventListener('click', function() {
+        console.log('Toggle clicked');
+        if (body.getAttribute('data-theme') === 'dark') {
+          body.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+          themeToggleIcon.classList.remove('fa-sun');   // Switch to sun icon
+          themeToggleIcon.classList.add('fa-moon');
+        } else {
+          body.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          themeToggleIcon.classList.remove('fa-moon');   // Switch to moon icon
+          themeToggleIcon.classList.add('fa-sun');
+        }
+        console.log('body.getAttribute("data-theme"):', body.getAttribute('data-theme'));
+
+        // --- NEW: Reset Disqus theme after the site theme changes ---
+        if (typeof DISQUS !== 'undefined') { // Check if Disqus is loaded
+          DISQUS.reset({
+            reload: true, // This tells Disqus to reload the embed
+            config: function () {
+              // Re-run the configuration to apply the new theme
+              // This relies on window.disqus_config being accessible
+              window.disqus_config.call(this);
+            }
+          });
+          console.log('Disqus reset initiated with new theme.');
+        }
+        // --- END NEW ---
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('readystatechange', function() {
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+          initializeTheme();
+        }
+      });
+      console.log('readyState is loading, adding readystatechange listener');
+    } else {
+      initializeTheme();
+      console.log('readyState is not loading, calling initializeTheme directly');
+    }
+  });
+</script>
+<script src="/assets/js/footnotes.js"></script>
+  </body>
+</html>

@@ -7,6 +7,95 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Angles between high-dimensional vectors</title>
+        <description>&lt;p&gt;Switch off your brain and answer this:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Given three points $\mathbf{X}, \mathbf{Y}, \mathbf{Z}$ sampled from a high-dimensional zero-centered isotropic Gaussian $\mathcal{N}(0, \mathbf{\Sigma})$, roughly, what is the angle between the lines given by $\mathbf{A} = \mathbf{X} - \mathbf{Y}$ and $\mathbf{B} = \mathbf{Z} - \mathbf{Y}$?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img1.jpg&quot; alt=&quot;The question&quot; class=&quot;theme-aware-img center-image img-rounded&quot; style=&quot;width: 50%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you answered &lt;span class=&quot;spoiler&quot; onclick=&quot;this.classList.toggle(&apos;revealed&apos;)&quot; title=&quot;Click to reveal&quot;&gt;
+  $90^\circ$
+&lt;/span&gt;, that is not right. 
+The right answer is in fact, a cute yet shocking&lt;span class=&quot;spoiler&quot; onclick=&quot;this.classList.toggle(&apos;revealed&apos;)&quot; title=&quot;Click to reveal&quot;&gt;
+  $60^\circ$
+&lt;/span&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;It’s entrenched in us that everything becomes funny in high-dimensions, and one such funny thing we know all too well is that &lt;em&gt;if you independently sample two vectors from a zero-centered, isotropic Gaussian, they must be at right angles&lt;/em&gt; (with high probability etc., etc.,). We sense that the two directions ($\mathbf{A}$ and $\mathbf{B}$) look just like two zero-centered, isotropic Gaussian directions—which they are—and by our funny law, they should be orthogonal to each other—which they are not!&lt;/p&gt;
+
+&lt;p&gt;There is joy in trying to reconcile this from various angles; try it yourself before you read below. This exercise also generated some philosophical mumblings left at the end of the post.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;the-algebraic-reconciliation&quot;&gt;The algebraic reconciliation&lt;/h3&gt;
+
+&lt;p&gt;For a blunt reconciliation, I go through the motions of computing the expected dot-product of $\mathbf{A} \cdot \mathbf{B}$ as below,&lt;/p&gt;
+
+&lt;p&gt;\(\require{cancel} \mathbb{E}[ (\mathbf{X} - \mathbf{Y})\cdot (\mathbf{Z} - \mathbf{Y})] = \cancelto{0}{\mathbb{E}[\mathbf{X}\cdot\mathbf{Z}]} + \cancelto{0}{\mathbb{E}[\mathbf{Y}\cdot\mathbf{Z}]} + \cancelto{0}{\mathbb{E}[\mathbf{X}\cdot\mathbf{Y}]} + \underbrace{\mathbb{E}[\mathbf{Y}\cdot\mathbf{Y}]}_{&amp;gt; 0}\),&lt;/p&gt;
+
+&lt;p&gt;and I find that things don’t cancel out to zero! Thus, the angle cannot concentrate around $90^\circ$. But I find this argument too robotic to be insightful.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-statistical-reconciliation&quot;&gt;The statistical reconciliation&lt;/h3&gt;
+
+&lt;p&gt;Alternatively, I could say that my folly was in treating the two quantities, $\mathbf{A}$ and  $\mathbf{B}$ as two &lt;em&gt;independent&lt;/em&gt;  zero-centered Gaussian random variables. Zero-centered Gaussian they are, independent they are not: the presence of “$\mathbf{Y}$” in both terms spoils the relationship. Knowing $\mathbf{A}$ i.e., $\mathbf{Z}-\mathbf{Y}$ gives me an updated belief over where $\mathbf{Y}$ could be, which in turn gives me an updated belief over where $\mathbf{Z} - \mathbf{Y}$ i.e., $\mathbf{B}$ could be.
+ Therefore, I can’t cite the funny law of high-dimensional-orthogonality here.&lt;/p&gt;
+
+&lt;p&gt;But I find this argument too bureaucratic to be insightful. (“You broke this precondition, so this claim cannot be processed.” Uhh, thank you, insurance agent.)&lt;/p&gt;
+
+&lt;h3 id=&quot;the-frame-of-reference-reconciliation&quot;&gt;The frame-of-reference reconciliation&lt;/h3&gt;
+
+&lt;p&gt;Let me freeze $\mathbf{Y}$ at some specific value $\mathbf{y}$. &lt;em&gt;Conditioned&lt;/em&gt; on $\mathbf{Y}=\mathbf{y}$, I think about what the angle between $\mathbf{X}-\mathbf{y}$ and $\mathbf{Z}-\mathbf{y}$ concentrates towards. Under this conditioning, I see that although these variables are independent, they are &lt;em&gt;not&lt;/em&gt; zero-centered Gaussian: they have mean $\mathbf{y}$. Once again, I am mysteriously blocked from citing the funny high-dimensional law, this time by a different force.&lt;/p&gt;
+
+&lt;p&gt;But this argument is actually a bit more vivid. What I did here was to move my frame of reference to the “$\mathbf{y}$”. By relabeling “$\mathbf{y}$” as my new origin $\mathbf{O}’$ (see image below), what were once the points $\mathbf{X}$ and $\mathbf{Z}$, are now points $\mathbf{A}$ and $\mathbf{B}$; these points are sampled from a far-off Gaussian galaxy that is centered at $-\mathbf{y}$ (what was my previous origin). From my planet at $\mathbf{y}$, the directions $\mathbf{A}$ and $\mathbf{B}$ appear in the sky roughly
+in the direction of that galaxy, not at right angles. This is kind of what the “algebraic reconciliation” was trying to tell me sadly in robotic garble that I couldn’t parse.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img2.jpg&quot; alt=&quot;Frame-of-reference reconciliation&quot; class=&quot;theme-aware-img center-image&quot; style=&quot;width: 60%;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-geometric-reconciliation&quot;&gt;The geometric reconciliation&lt;/h3&gt;
+
+&lt;p&gt;Now, there’s one more elegant visualization. We can legally cite a different funny law in high-dimensions: the distances between two random points from a Gaussian concentrate around a fixed value. This value doesn’t matter. All that matters is that this is true of the distances between every pair of $\mathbf{X}, \mathbf{Y} \; \&amp;amp; \; \mathbf{Z}$, which this means  these points together form a delightful equilateral triangle. QED.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img3.jpg&quot; alt=&quot;Geometric reconciliation&quot; class=&quot;theme-aware-img center-image&quot; style=&quot;width: 30%;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;notes&quot;&gt;Notes&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;When our gut feeling says that the angle was $90^\circ$, were we tricked by the deceptive nature of high-dimensions, or were we tricked by something more rudimentary? (I think it’s the latter.)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A seemingly trivial problem can pose many distinct ways to humble us.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;When we learn a new thing,
+    &lt;ul&gt;
+      &lt;li&gt;we examine the thing from various angles&lt;/li&gt;
+      &lt;li&gt;we examine every existing intuition in my head that is at odds with the thing&lt;/li&gt;
+      &lt;li&gt;and we work until all possible contradictions are reconciled;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;only then does the thing become a part of our world view without resistance; only then do we feel like we understood the thing to completion.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;It’s a useful exercise to “shut one’s brain” and see where it goes right or wrong. Don’t think step by step.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I don’t feel like I learned something satisfyingly without the aid of visualizations.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;How much of AI model training reflects the above two human ways of incorporating new knowledge?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;What does it really mean to explain something?&lt;/em&gt; The algebraic reconciliation explains little. It is somewhat analogous to proving a generalization guarantee for a deep network with a 100-page step-by-step analysis of each layer when trained on a Gaussian distribution — does it really explain generalization of overparameterized models? In the 1970s, when Appel and Haken gave their computer-aided proof for the four-color theorem, there was criticism from mathematicians. It was not aesthetic; the computer-generated part of the proof allegedly was a “four-foot-high computer printout”; one couldn’t glean high-level arguments or insights into the “why” behind the truth; in fact, one couldn’t even verify and convince themselves of the truth without spending astronomical amounts of time. Jim Holt writes about this in a beautiful essay, &lt;a href=&quot;https://www.nybooks.com/articles/2003/05/29/a-comedy-of-colors/&quot;&gt;“A Comedy of Colors”&lt;/a&gt;, asking what makes a proof a proof.&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Tue, 16 Dec 2025 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/blog/high-dimensional-diff/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/high-dimensional-diff/</guid>
+      </item>
+    
+      <item>
         <title>Research philosophy</title>
         <description>&lt;hr /&gt;
 
@@ -180,6 +269,13 @@
   &lt;summary&gt;&lt;strong&gt;The Knowledge Machine&lt;/strong&gt; by Michael Strevens&lt;/summary&gt;
   &lt;p&gt;This book presents a theory of why science emerged when it did; what stood out to me are examples of scientists making irrational or un-objective decisions e.g., such as in the Eddington eclipse experiment where scientists ignored some data that might have otherwise tipped the scales in favor of Newton.&lt;/p&gt;
 &lt;/details&gt;
+
+&lt;p&gt;I received a few more suggestions from readers:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Ascent of Man&lt;/strong&gt; by Bronowski  (h/t Tarun Gupta)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Infinite Powers&lt;/strong&gt; by Steven Strogatz (h/t Puneesh Deora)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;The Emergence of Probability&lt;/strong&gt; by Ian Hacking and &lt;strong&gt;Science in history&lt;/strong&gt; by Bernal (h/t Javier Burroni)&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;hr /&gt;
 
