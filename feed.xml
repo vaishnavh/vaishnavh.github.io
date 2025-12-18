@@ -39,7 +39,7 @@ The right answer is in fact, a cute yet shocking&lt;span class=&quot;spoiler&quo
 
 &lt;h3 id=&quot;the-statistical-reconciliation&quot;&gt;The statistical reconciliation&lt;/h3&gt;
 
-&lt;p&gt;Alternatively, I could say that my folly was in treating the two quantities, $\mathbf{A}$ and  $\mathbf{B}$ as two &lt;em&gt;independent&lt;/em&gt;  zero-centered Gaussian random variables. Zero-centered Gaussian they are, independent they are not: the presence of “$\mathbf{Y}$” in both terms spoils the relationship. Knowing $\mathbf{A}$ i.e., $\mathbf{X}-\mathbf{Y}$ gives me an updated belief over where $\mathbf{Y}$ could be, which in turn gives me an updated belief over where $\mathbf{Z} - \mathbf{Y}$ i.e., $\mathbf{B}$ could be.
+&lt;p&gt;Alternatively, I could say that my folly was in treating the two quantities, $\mathbf{A}$ and  $\mathbf{B}$ as two &lt;em&gt;independent&lt;/em&gt;  zero-centered Gaussian random variables. Zero-centered Gaussian they are, independent they are not: the presence of “$\mathbf{Y}$” in both terms spoils the relationship. Knowing $\mathbf{A}$ i.e., $\mathbf{X}-\mathbf{Y}$ gives me an updated belief over  where $\mathbf{Z} - \mathbf{Y}$ i.e., $\mathbf{B}$ could be.
  Therefore, I can’t cite the funny law of high-dimensional-orthogonality here.&lt;/p&gt;
 
 &lt;p&gt;But I find this argument too bureaucratic to be insightful. (“You broke this precondition, so this claim cannot be processed.” Why, thank you, insurance agent!)&lt;/p&gt;
@@ -51,11 +51,10 @@ The right answer is in fact, a cute yet shocking&lt;span class=&quot;spoiler&quo
 &lt;h3 id=&quot;the-frame-of-reference-reconciliation&quot;&gt;The frame-of-reference reconciliation&lt;/h3&gt;
 
 &lt;p&gt;Both the above statistical arguments can in fact be expressed more vividly. What I did right above was to move my frame of reference to the “$\mathbf{y}$”. By relabeling “$\mathbf{y}$” as my new origin $\mathbf{O}’$ (see image below), what were once the points $\mathbf{X}$ and $\mathbf{Z}$, are now points $\mathbf{A}$ and $\mathbf{B}$. These points are sampled from a far-off Gaussian galaxy that is centered at $-\mathbf{y}$; not centered around me! So, from my planet at $\mathbf{y}$, the directions $\mathbf{A}$ and $\mathbf{B}$ appear in the sky roughly
-in the direction of that galaxy; not at right angles.&lt;/p&gt;
+in the direction of that galaxy; not at right angles. 
+In this universe, you can also “see” how knowing where $\mathbf{A}$ is, gives you an updated belief over where $\mathbf{B}$ is.&lt;/p&gt;
 
-&lt;p&gt;In this universe, you can also say that knowing where $\mathbf{A}$ is, gives you a belief over the direction of the galaxy, and hence over where $\mathbf{B}$ is. (This is one way of “seeing” why they are dependent variables.)&lt;/p&gt;
-
-&lt;p&gt;In hindsight, this is also what the “algebraic reconciliation” was trying to tell me when it spat out $\mathbb{E}[\mathbf{Y} \cdot \mathbf{Y}]$ as the dot-product $\mathbb{E}[\mathbf{A} \cdot \mathbf{B}]$. Sadly, this is robotic garble I couldn’t parse then.&lt;/p&gt;
+&lt;p&gt;In hindsight, this is also what the “algebraic reconciliation” was trying to tell me when it spat out $\mathbb{E}[(-\mathbf{Y}) \cdot (-\mathbf{Y})]$ as the dot-product $\mathbb{E}[\mathbf{A} \cdot \mathbf{B}]$. Sadly, this is robotic garble I couldn’t parse then.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img2.jpg&quot; alt=&quot;Frame-of-reference reconciliation&quot; class=&quot;theme-aware-img center-image&quot; style=&quot;width: 60%;&quot; /&gt;&lt;/p&gt;
 
