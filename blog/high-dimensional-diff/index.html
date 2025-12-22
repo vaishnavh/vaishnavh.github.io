@@ -203,7 +203,7 @@
 </span>, that is not right. 
 The right answer is in fact, a cute yet shocking<span class="spoiler" onclick="this.classList.toggle('revealed')" title="Click to reveal">
   $60^\circ$
-</span>.</p>
+</span>.<sup id="fnref:curvature" role="doc-noteref"><a href="#fn:curvature" class="footnote" rel="footnote">1</a></sup></p>
 
 <hr />
 
@@ -235,7 +235,7 @@ The right answer is in fact, a cute yet shocking<span class="spoiler" onclick="t
 <h3 id="the-frame-of-reference-reconciliation">The frame-of-reference reconciliation</h3>
 
 <p>Both the above statistical arguments can in fact be expressed more vividly. What I did right above was to move my frame of reference to the “$\mathbf{y}$”. By relabeling “$\mathbf{y}$” as my new origin $\mathbf{O}’$ (see image below), what were once the points $\mathbf{X}$ and $\mathbf{Z}$, are now points $\mathbf{A}$ and $\mathbf{B}$. These points are sampled from a far-off Gaussian galaxy that is centered at $-\mathbf{y}$; not centered around me! So, from my planet at $\mathbf{y}$, the directions $\mathbf{A}$ and $\mathbf{B}$ appear in the sky roughly
-in the direction of that galaxy; not at right angles. 
+in the direction of that galaxy; not at right angles.<sup id="fnref:milkyway" role="doc-noteref"><a href="#fn:milkyway" class="footnote" rel="footnote">2</a></sup> 
 In this universe, you can also “see” how knowing where $\mathbf{A}$ is, gives you an updated belief over where $\mathbf{B}$ is.</p>
 
 <p>In hindsight, this is also what the “algebraic reconciliation” was trying to tell me when it spat out $\mathbb{E}[(-\mathbf{Y}) \cdot (-\mathbf{Y})]$ as the dot-product $\mathbb{E}[\mathbf{A} \cdot \mathbf{B}]$. Sadly, this is robotic garble I couldn’t parse then.</p>
@@ -250,7 +250,7 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
 
 <hr />
 
-<h4 id="notes">Notes</h4>
+<h4 id="philosophical-notes">Philosophical Notes</h4>
 
 <ol>
   <li>
@@ -277,6 +277,18 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
   <li><em>What does it really mean to explain something?</em> The algebraic reconciliation explains little. It is somewhat analogous to proving a generalization guarantee for a deep network with a 100-page step-by-step analysis of each layer when trained on a Gaussian distribution — does it really explain generalization of overparameterized models? In the 1970s, when Appel and Haken gave their computer-aided proof for the four-color theorem, there was criticism from mathematicians. It was not aesthetic; the computer-generated part of the proof allegedly was a “four-foot-high computer printout”; one couldn’t glean high-level arguments or insights into the “why” behind the truth; in fact, one couldn’t even verify and convince themselves of the truth without spending astronomical amounts of time. Jim Holt writes about this in a beautiful essay, <a href="https://www.nybooks.com/articles/2003/05/29/a-comedy-of-colors/">“A Comedy of Colors”</a>, asking what makes a proof a proof.</li>
 </ol>
 
+<h4 id="footnotes">Footnotes:</h4>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:curvature" role="doc-endnote">
+      <p>The question arose thanks to Eghbal who was discussing his experiments in this <a href="https://arxiv.org/abs/2311.04930">paper</a>, examining how the internal state of a Transformer evolves over time. If you replace $\mathbf{X}, \mathbf{Y}, \mathbf{Z}$ with the representation $\mathbf{R}_t$ at three consecutive timesteps, you can then ask how the angle $\mathbf{R}_{t+1}-\mathbf{R}_t$ and $\mathbf{R}_{t+2} -\mathbf{R}_{t+1}$ evolves over time. In their experiments, you’ll see that their baseline angle (e.g., the angle at the start) is $120^\circ$ and not $90^\circ$. <a href="#fnref:curvature" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:milkyway" role="doc-endnote">
+      <p>The strange thing is that we are also literally their of this galaxy! It’s almost like how Earthlings can look at their home galaxy (the Milky Way) while being at the edge of it. However, unlike the Milky Way, a Gaussian galaxy is not a flat spiral, but a thin shell. <a href="#fnref:milkyway" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 </div>
         </section>
       </div>

@@ -1148,11 +1148,17 @@ ul.posts .series-parts-list li a:hover {
 
 /* Style the container */
 details {
-  margin-bottom: 10px;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  transition: all 0.3s ease;
+  margin-bottom: 0px;
+  padding: 2px;
+  transition: background-color 0.2s ease;
 }
+
+
+/* Optional: remove the border from the very last item in the list */
+details:last-of-type {
+  border-bottom: none;
+}
+
 
 /* Style the clickable header */
 summary {
@@ -1161,24 +1167,28 @@ summary {
   list-style: none; /* Removes the default arrow in some browsers */
 }
 
-/* Add a custom "+" icon that changes to "-" when open */
+/* 2. Add the custom triangle icon */
 summary::before {
-  content: "+ ";
-  color: #888;
-  margin-right: 10px;
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 12px;
+  
+  /* Using a background SVG for a sharp, clean triangle */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  /* Transition for the "reorienting" animation */
+  transition: transform 0.2s ease;
 }
 
+/* 3. Reorient (Rotate) the triangle when open */
 details[open] summary::before {
-  content: "- ";
+  transform: rotate(90deg);
 }
 
-/* Style the revealed text */
-details p {
-  margin-top: 10px;
-  color: var(--text-color);
-  font-size: 1.1em;
-  line-height: 1.6;
-}
 
 
 .spoiler {
@@ -1208,6 +1218,7 @@ details p {
   filter: blur(3px);
   box-shadow: 0 0 8px var(--highlight-color);
 }
+
 
 
 .theme-aware-img {

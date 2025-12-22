@@ -19,7 +19,7 @@
 &lt;/span&gt;, that is not right. 
 The right answer is in fact, a cute yet shocking&lt;span class=&quot;spoiler&quot; onclick=&quot;this.classList.toggle(&apos;revealed&apos;)&quot; title=&quot;Click to reveal&quot;&gt;
   $60^\circ$
-&lt;/span&gt;.&lt;/p&gt;
+&lt;/span&gt;.&lt;sup id=&quot;fnref:curvature&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:curvature&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -51,7 +51,7 @@ The right answer is in fact, a cute yet shocking&lt;span class=&quot;spoiler&quo
 &lt;h3 id=&quot;the-frame-of-reference-reconciliation&quot;&gt;The frame-of-reference reconciliation&lt;/h3&gt;
 
 &lt;p&gt;Both the above statistical arguments can in fact be expressed more vividly. What I did right above was to move my frame of reference to the “$\mathbf{y}$”. By relabeling “$\mathbf{y}$” as my new origin $\mathbf{O}’$ (see image below), what were once the points $\mathbf{X}$ and $\mathbf{Z}$, are now points $\mathbf{A}$ and $\mathbf{B}$. These points are sampled from a far-off Gaussian galaxy that is centered at $-\mathbf{y}$; not centered around me! So, from my planet at $\mathbf{y}$, the directions $\mathbf{A}$ and $\mathbf{B}$ appear in the sky roughly
-in the direction of that galaxy; not at right angles. 
+in the direction of that galaxy; not at right angles.&lt;sup id=&quot;fnref:milkyway&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:milkyway&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; 
 In this universe, you can also “see” how knowing where $\mathbf{A}$ is, gives you an updated belief over where $\mathbf{B}$ is.&lt;/p&gt;
 
 &lt;p&gt;In hindsight, this is also what the “algebraic reconciliation” was trying to tell me when it spat out $\mathbb{E}[(-\mathbf{Y}) \cdot (-\mathbf{Y})]$ as the dot-product $\mathbb{E}[\mathbf{A} \cdot \mathbf{B}]$. Sadly, this is robotic garble I couldn’t parse then.&lt;/p&gt;
@@ -66,7 +66,7 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
 
 &lt;hr /&gt;
 
-&lt;h4 id=&quot;notes&quot;&gt;Notes&lt;/h4&gt;
+&lt;h4 id=&quot;philosophical-notes&quot;&gt;Philosophical Notes&lt;/h4&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -93,6 +93,18 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
   &lt;li&gt;&lt;em&gt;What does it really mean to explain something?&lt;/em&gt; The algebraic reconciliation explains little. It is somewhat analogous to proving a generalization guarantee for a deep network with a 100-page step-by-step analysis of each layer when trained on a Gaussian distribution — does it really explain generalization of overparameterized models? In the 1970s, when Appel and Haken gave their computer-aided proof for the four-color theorem, there was criticism from mathematicians. It was not aesthetic; the computer-generated part of the proof allegedly was a “four-foot-high computer printout”; one couldn’t glean high-level arguments or insights into the “why” behind the truth; in fact, one couldn’t even verify and convince themselves of the truth without spending astronomical amounts of time. Jim Holt writes about this in a beautiful essay, &lt;a href=&quot;https://www.nybooks.com/articles/2003/05/29/a-comedy-of-colors/&quot;&gt;“A Comedy of Colors”&lt;/a&gt;, asking what makes a proof a proof.&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;h4 id=&quot;footnotes&quot;&gt;Footnotes:&lt;/h4&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:curvature&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;The question arose thanks to Eghbal who was discussing his experiments in this &lt;a href=&quot;https://arxiv.org/abs/2311.04930&quot;&gt;paper&lt;/a&gt;, examining how the internal state of a Transformer evolves over time. If you replace $\mathbf{X}, \mathbf{Y}, \mathbf{Z}$ with the representation $\mathbf{R}_t$ at three consecutive timesteps, you can then ask how the angle $\mathbf{R}_{t+1}-\mathbf{R}_t$ and $\mathbf{R}_{t+2} -\mathbf{R}_{t+1}$ evolves over time. In their experiments, you’ll see that their baseline angle (e.g., the angle at the start) is $120^\circ$ and not $90^\circ$. &lt;a href=&quot;#fnref:curvature&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:milkyway&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;The strange thing is that we are also literally their of this galaxy! It’s almost like how Earthlings can look at their home galaxy (the Milky Way) while being at the edge of it. However, unlike the Milky Way, a Gaussian galaxy is not a flat spiral, but a thin shell. &lt;a href=&quot;#fnref:milkyway&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Tue, 16 Dec 2025 00:00:00 -0800</pubDate>
         <link>http://localhost:4000/blog/high-dimensional-diff/</link>
