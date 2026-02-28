@@ -10,7 +10,9 @@
         <title>What does a language model model?</title>
         <description>&lt;p&gt;&lt;strong&gt;TL;DR: Does the next-token logit track the conditional or the joint probability of the whole sequence?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;I had an invisible &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Invisible_Gorilla&quot;&gt;gorilla&lt;/a&gt; moment while reading a paper. Even though the paper interprets the gorilla in a way I’m not in agreement with, in helping me notice something so basic that was staring at me all along, the paper led me closer to clarity. The paper is called “Spilled Energy in Large Language Models” by &lt;a href=&quot;https://arxiv.org/abs/2602.18671&quot;&gt;Robert et al., 2026&lt;/a&gt;&lt;sup id=&quot;fnref:paper&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:paper&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; which proposes a way to predict whether or not a generated token is hallucinated. The proposal is simple and cute: when you generate a token, if you’re suspicious of it, take the corresponding logit of that token as $\tt{Term} 1$; feed the suspicious token in and proceed to the next step, where you take the &lt;em&gt;denominator&lt;/em&gt; of the softmax probability as $\tt{Term 2}$. If  $\tt{Term 2}$ is much smaller than $\tt{Term 1}$, your model has likely hallucinated. This difference quantity is what they call as “Spilled Energy”.&lt;/p&gt;
+&lt;p&gt;I had an invisible &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Invisible_Gorilla&quot;&gt;gorilla&lt;/a&gt; moment while reading a paper. Even though the paper interprets the gorilla in a way I’m not in agreement with, in helping me notice something so basic that was staring at me all along, the paper led me closer to clarity.&lt;/p&gt;
+
+&lt;p&gt;The paper is called “Spilled Energy in Large Language Models” by &lt;a href=&quot;https://arxiv.org/abs/2602.18671&quot;&gt;Robert et al., 2026&lt;/a&gt;&lt;sup id=&quot;fnref:paper&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:paper&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; which proposes a way to predict whether or not a generated token is hallucinated. The proposal is simple and cute: when you generate a token, if you’re suspicious of it, take the corresponding logit of that token as $\tt{Term} 1$; feed the suspicious token in and proceed to the next step, where you take the &lt;em&gt;denominator&lt;/em&gt; of the softmax probability as $\tt{Term 2}$. If  $\tt{Term 2}$ is much smaller than $\tt{Term 1}$, your model has likely hallucinated. This difference quantity is what they call as “Spilled Energy”.&lt;/p&gt;
 
 &lt;p&gt;Specifically, if $f( \tt{token} ; \tt{context} )$ is my language model’s logit on a token given a context as input, if $x$ is my suspicious token, and $y’$ some next token candidate (I’ll save the symbol $y$ for later!), then:&lt;/p&gt;
 
@@ -51,19 +53,26 @@
 
 \[\begin{align}
   p({\tt context}, x, y) 
-  &amp;amp; = p({\tt context}) \cdot \frac{p({\tt context} | x )}{\sum_{x&apos;} p({x&apos; | \tt  context})} \cdot \frac{p(y | {\tt context}, x)}{\sum_{y&apos;} p(y&apos; | {\tt context}, x)} \label{eq:w}
+  &amp;amp; = p({\tt context}) \cdot \frac{
+  \colorbox{silver}{$\color{black}p({\tt context} | x )$}
+  }{\sum_{x&apos;} p({x&apos; | \tt  context})} \cdot \frac{p(y | {\tt context}, x)}{
+  \colorbox{silver}{$\color{black}\sum_{y&apos;} p(y&apos; | {\tt context}, x)$}
+  }
+   \label{eq:w}
 \end{align}\]
 
-&lt;p&gt;In other words, I had always viewed the logits as representing how likely the next-token was, rather than how likely the whole sequence was! To me this was the obvious interpretation: we train a model on the “next-token loss” with the hope that it learns how good/bad that token is, with no care for how likely the input sequence is.&lt;/p&gt;
+&lt;p&gt;In other words, I had always viewed the logits as representing how likely the next-token was, rather than how likely the whole sequence was! In this expression, it is clear that the numerator and the denominator (which is always $1$) do not match. Here, $\tt{Term1}$ is proportional to the numerator, but the constant is &lt;em&gt;local&lt;/em&gt; to token $x$’s probability; likewise $\tt{Term2}$ is proportional to its denominator, with a constant local to $y$’s probability.&lt;/p&gt;
+
+&lt;p&gt;To me this was the obvious interpretation: we train a model on the “next-token loss” with the hope that it learns how good/bad that token is, with no care for how likely the input sequence is.&lt;/p&gt;
 
 &lt;h3 id=&quot;its-not-that-clear-which-interpretation-is-correct&quot;&gt;It’s not that clear which interpretation is correct.&lt;/h3&gt;
 
-&lt;p&gt;But then, I realize that this interpretation is not as clear-cut. While the next-token loss indeed stipulates what the &lt;em&gt;probabilities&lt;/em&gt; must be (the conditionals), the &lt;em&gt;logit&lt;/em&gt; magnitudes are underdetermined. Usually, in gradient-descent-trained models, if something is free to move as it pleases, it moves gracefully, and we may find this grace in the logits too. On seen contexts, a well-trained generative model’s logits will be forced to spike up (to $\infty$) on the seen next-token and spike down (to $-\infty$) everywhere else and so the “total energy” in  ${\tt Term 2}$ would explode. On completely bizarre contexts (say, due to our suspicious $x$ token), the next-token logits are “free to be what they want” and so, we may expect them to largely remain unenthusiastic (blunting ${\tt Term 2}$). In between these extremes, as we get closer and closer to the training manifold, we can expect the logits to be more and more enthusiastic on some next-tokens. This way, it seems that the total energy term in ${\tt Term 2}$ is indicative of the full $({\tt context}, x, y)$ sequence probability.&lt;/p&gt;
+&lt;p&gt;But then, I realize that this interpretation—that the next-token prediction only models the next-token’s likelihood—is not as clear-cut. While the next-token loss indeed stipulates what the &lt;em&gt;probabilities&lt;/em&gt; must be—the next-token conditionals—the &lt;em&gt;logit&lt;/em&gt; magnitudes themselves are underdetermined. Usually, in gradient-descent-trained models, if something is free to move as it pleases, it moves gracefully, and we may find this grace in the logits too. On seen contexts, a well-trained generative model’s logits will be forced to spike up (to $\infty$) on the seen next-token and spike down (to $-\infty$) everywhere else and so the “total energy” in  ${\tt Term 2}$ would explode. On completely bizarre contexts (say, due to our suspicious $x$ token), the next-token logits are “free to be what they want” and so, we may expect them to largely remain unenthusiastic (blunting ${\tt Term 2}$). In between these extremes, as we get closer and closer to the training manifold, we can expect the logits to be more and more enthusiastic on some next-tokens. This way, it seems that the total energy term in ${\tt Term 2}$ is indeed indicative of the how likely the $({\tt context}, x, y)$ sequence is!&lt;/p&gt;
 
-&lt;p&gt;It’s funny that this argument can be applied to even make image classifiers appear as though they are models of the input distribution:  when your input image is garbage, the logits are likely tiny in magnitude; when you input image is realistic, the logits are higher in magnitude.&lt;/p&gt;
+&lt;p&gt;It’s funny that this argument can be applied to even make boring image classifiers appear as though they are models of the input distribution:  when your input image is garbage, the logits are likely tiny in magnitude; when your input image is realistic, the logits are higher in magnitude.&lt;/p&gt;
 
 &lt;p&gt;Now, I do not mean to say that these logits are exactly representative of the joint probability. On some reasonable inputs, the next-token logits may be unenthusiastic
-purely due to poor learning resulting in lack of confidence on its next-token prediction. But what about a model that has perfectly learned the next-token conditionals?  Is its logits nicely representative of the joint distribution?&lt;/p&gt;
+purely due to poor learning resulting in lack of confidence on its next-token prediction. But what of a model that has perfectly learned the next-token conditionals?  Is its logits nicely representative of the joint distribution?&lt;/p&gt;
 
 &lt;h3 id=&quot;the-question&quot;&gt;The question&lt;/h3&gt;
 

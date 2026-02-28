@@ -197,7 +197,9 @@
 
         <div class="blogbody"><p><strong>TL;DR: Does the next-token logit track the conditional or the joint probability of the whole sequence?</strong></p>
 
-<p>I had an invisible <a href="https://en.wikipedia.org/wiki/The_Invisible_Gorilla">gorilla</a> moment while reading a paper. Even though the paper interprets the gorilla in a way I’m not in agreement with, in helping me notice something so basic that was staring at me all along, the paper led me closer to clarity. The paper is called “Spilled Energy in Large Language Models” by <a href="https://arxiv.org/abs/2602.18671">Robert et al., 2026</a><sup id="fnref:paper" role="doc-noteref"><a href="#fn:paper" class="footnote" rel="footnote">1</a></sup> which proposes a way to predict whether or not a generated token is hallucinated. The proposal is simple and cute: when you generate a token, if you’re suspicious of it, take the corresponding logit of that token as $\tt{Term} 1$; feed the suspicious token in and proceed to the next step, where you take the <em>denominator</em> of the softmax probability as $\tt{Term 2}$. If  $\tt{Term 2}$ is much smaller than $\tt{Term 1}$, your model has likely hallucinated. This difference quantity is what they call as “Spilled Energy”.</p>
+<p>I had an invisible <a href="https://en.wikipedia.org/wiki/The_Invisible_Gorilla">gorilla</a> moment while reading a paper. Even though the paper interprets the gorilla in a way I’m not in agreement with, in helping me notice something so basic that was staring at me all along, the paper led me closer to clarity.</p>
+
+<p>The paper is called “Spilled Energy in Large Language Models” by <a href="https://arxiv.org/abs/2602.18671">Robert et al., 2026</a><sup id="fnref:paper" role="doc-noteref"><a href="#fn:paper" class="footnote" rel="footnote">1</a></sup> which proposes a way to predict whether or not a generated token is hallucinated. The proposal is simple and cute: when you generate a token, if you’re suspicious of it, take the corresponding logit of that token as $\tt{Term} 1$; feed the suspicious token in and proceed to the next step, where you take the <em>denominator</em> of the softmax probability as $\tt{Term 2}$. If  $\tt{Term 2}$ is much smaller than $\tt{Term 1}$, your model has likely hallucinated. This difference quantity is what they call as “Spilled Energy”.</p>
 
 <p>Specifically, if $f( \tt{token} ; \tt{context} )$ is my language model’s logit on a token given a context as input, if $x$ is my suspicious token, and $y’$ some next token candidate (I’ll save the symbol $y$ for later!), then:</p>
 
@@ -238,19 +240,26 @@
 
 \[\begin{align}
   p({\tt context}, x, y) 
-  &amp; = p({\tt context}) \cdot \frac{p({\tt context} | x )}{\sum_{x'} p({x' | \tt  context})} \cdot \frac{p(y | {\tt context}, x)}{\sum_{y'} p(y' | {\tt context}, x)} \label{eq:w}
+  &amp; = p({\tt context}) \cdot \frac{
+  \colorbox{silver}{$\color{black}p({\tt context} | x )$}
+  }{\sum_{x'} p({x' | \tt  context})} \cdot \frac{p(y | {\tt context}, x)}{
+  \colorbox{silver}{$\color{black}\sum_{y'} p(y' | {\tt context}, x)$}
+  }
+   \label{eq:w}
 \end{align}\]
 
-<p>In other words, I had always viewed the logits as representing how likely the next-token was, rather than how likely the whole sequence was! To me this was the obvious interpretation: we train a model on the “next-token loss” with the hope that it learns how good/bad that token is, with no care for how likely the input sequence is.</p>
+<p>In other words, I had always viewed the logits as representing how likely the next-token was, rather than how likely the whole sequence was! In this expression, it is clear that the numerator and the denominator (which is always $1$) do not match. Here, $\tt{Term1}$ is proportional to the numerator, but the constant is <em>local</em> to token $x$’s probability; likewise $\tt{Term2}$ is proportional to its denominator, with a constant local to $y$’s probability.</p>
+
+<p>To me this was the obvious interpretation: we train a model on the “next-token loss” with the hope that it learns how good/bad that token is, with no care for how likely the input sequence is.</p>
 
 <h3 id="its-not-that-clear-which-interpretation-is-correct">It’s not that clear which interpretation is correct.</h3>
 
-<p>But then, I realize that this interpretation is not as clear-cut. While the next-token loss indeed stipulates what the <em>probabilities</em> must be (the conditionals), the <em>logit</em> magnitudes are underdetermined. Usually, in gradient-descent-trained models, if something is free to move as it pleases, it moves gracefully, and we may find this grace in the logits too. On seen contexts, a well-trained generative model’s logits will be forced to spike up (to $\infty$) on the seen next-token and spike down (to $-\infty$) everywhere else and so the “total energy” in  ${\tt Term 2}$ would explode. On completely bizarre contexts (say, due to our suspicious $x$ token), the next-token logits are “free to be what they want” and so, we may expect them to largely remain unenthusiastic (blunting ${\tt Term 2}$). In between these extremes, as we get closer and closer to the training manifold, we can expect the logits to be more and more enthusiastic on some next-tokens. This way, it seems that the total energy term in ${\tt Term 2}$ is indicative of the full $({\tt context}, x, y)$ sequence probability.</p>
+<p>But then, I realize that this interpretation—that the next-token prediction only models the next-token’s likelihood—is not as clear-cut. While the next-token loss indeed stipulates what the <em>probabilities</em> must be—the next-token conditionals—the <em>logit</em> magnitudes themselves are underdetermined. Usually, in gradient-descent-trained models, if something is free to move as it pleases, it moves gracefully, and we may find this grace in the logits too. On seen contexts, a well-trained generative model’s logits will be forced to spike up (to $\infty$) on the seen next-token and spike down (to $-\infty$) everywhere else and so the “total energy” in  ${\tt Term 2}$ would explode. On completely bizarre contexts (say, due to our suspicious $x$ token), the next-token logits are “free to be what they want” and so, we may expect them to largely remain unenthusiastic (blunting ${\tt Term 2}$). In between these extremes, as we get closer and closer to the training manifold, we can expect the logits to be more and more enthusiastic on some next-tokens. This way, it seems that the total energy term in ${\tt Term 2}$ is indeed indicative of the how likely the $({\tt context}, x, y)$ sequence is!</p>
 
-<p>It’s funny that this argument can be applied to even make image classifiers appear as though they are models of the input distribution:  when your input image is garbage, the logits are likely tiny in magnitude; when you input image is realistic, the logits are higher in magnitude.</p>
+<p>It’s funny that this argument can be applied to even make boring image classifiers appear as though they are models of the input distribution:  when your input image is garbage, the logits are likely tiny in magnitude; when your input image is realistic, the logits are higher in magnitude.</p>
 
 <p>Now, I do not mean to say that these logits are exactly representative of the joint probability. On some reasonable inputs, the next-token logits may be unenthusiastic
-purely due to poor learning resulting in lack of confidence on its next-token prediction. But what about a model that has perfectly learned the next-token conditionals?  Is its logits nicely representative of the joint distribution?</p>
+purely due to poor learning resulting in lack of confidence on its next-token prediction. But what of a model that has perfectly learned the next-token conditionals?  Is its logits nicely representative of the joint distribution?</p>
 
 <h3 id="the-question">The question</h3>
 
