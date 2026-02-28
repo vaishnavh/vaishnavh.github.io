@@ -17,7 +17,7 @@
   --light-hr-color: #555;
   --nav-text-color: #eee;
   --nav-border-color: #555;
-  --heading-color: #eee;
+  --heading-color: #eee;ow 
   --paragraph-color: #eee;
   --papertitle-color: #eee;
   --conference-color: #ccc;
@@ -1257,6 +1257,44 @@ details[open] summary::before {
 .img-rounded {
   border: 1px solid var(--container-border); /* Adds a nice frame */
   overflow: hidden; /* Ensures the image doesn't "leak" past the corners */
+}
+
+
+
+.paper-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px; /* Spacing between papers */
+  gap: 25px;           /* Gap between image and text */
+}
+
+.paper-thumbnail {
+  flex: 0 0 240px;     /* Fixed width for the thumbnail column */
+}
+
+.paper-thumbnail img {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Light border like your reading list */
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle depth */
+}
+
+.paper-details {
+  flex: 1;             /* Text takes up the remaining space */
+}
+
+/* Optional: Stack vertically on mobile */
+@media (max-width: 600px) {
+  .paper-card {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .paper-thumbnail {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 200px; /* Larger preview on mobile */
+  }
 }
 
 

@@ -62,8 +62,8 @@
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
-    <meta content='Angles between high-dimensional vectors - Vaishnavh Nagarajan' property='og:title' />
-    <title>Angles between high-dimensional vectors - Vaishnavh Nagarajan</title>
+    <meta content='What does a language model model? - Vaishnavh Nagarajan' property='og:title' />
+    <title>What does a language model model? - Vaishnavh Nagarajan</title>
     <!--
 <script type='text/javascript'>
   //<![CDATA[
@@ -127,8 +127,8 @@
 <meta content="http://muan.co/images/og.png" property="og:image" />
 <meta content="" property="fb:app_id" />
 
-  <meta content='/blog/high-dimensional-diff/' property='og:url' />
-  <meta content="Switch off your brain and answer this:Given three points $\mathbf{X}, \mathbf{Y}, \mathbf{Z}$ sampled from a high-dim..." property='og:description' />
+  <meta content='/blog/joint-or-conditional/' property='og:url' />
+  <meta content="TL;DR: Does the next-token logit track the conditional or the joint probability of the whole sequence?I had an invisi..." property='og:description' />
   <meta content="article" property="og:type" />
 
 <!-- - -->
@@ -192,103 +192,86 @@
 </nav>
         <section class='blog-post'>
           <br><br>
-          <div class="blogtitle">Angles between high-dimensional vectors</div>
+          <div class="blogtitle">What does a language model model?</div>
 
 
-        <div class="blogbody"><p>Switch off your brain and answer this:</p>
+        <div class="blogbody"><p><strong>TL;DR: Does the next-token logit track the conditional or the joint probability of the whole sequence?</strong></p>
 
-<p><strong>Given three points $\mathbf{X}, \mathbf{Y}, \mathbf{Z}$ sampled from a high-dimensional zero-centered isotropic Gaussian $\mathcal{N}(0, \mathbf{\Sigma})$, roughly, what is the angle between the lines given by $\mathbf{A} = \mathbf{X} - \mathbf{Y}$ and $\mathbf{B} = \mathbf{Z} - \mathbf{Y}$?</strong></p>
+<p>I had an invisible <a href="https://en.wikipedia.org/wiki/The_Invisible_Gorilla">gorilla</a> moment while reading a paper. Even though the paper interprets the gorilla in a way I’m not in agreement with, in helping me notice something so basic that was staring at me all along, the paper led me closer to clarity. The paper is called “Spilled Energy in Large Language Models” by <a href="https://arxiv.org/abs/2602.18671">Robert et al., 2026</a><sup id="fnref:paper" role="doc-noteref"><a href="#fn:paper" class="footnote" rel="footnote">1</a></sup> which proposes a way to predict whether or not a generated token is hallucinated. The proposal is simple and cute: when you generate a token, if you’re suspicious of it, take the corresponding logit of that token as $\tt{Term} 1$; feed the suspicious token in and proceed to the next step, where you take the <em>denominator</em> of the softmax probability as $\tt{Term 2}$. If  $\tt{Term 2}$ is much smaller than $\tt{Term 1}$, your model has likely hallucinated. This difference quantity is what they call as “Spilled Energy”.</p>
 
-<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img1.jpg" alt="The question" class="theme-aware-img center-image img-rounded" style="width: 50%;" /></p>
+<p>Specifically, if $f( \tt{token} ; \tt{context} )$ is my language model’s logit on a token given a context as input, if $x$ is my suspicious token, and $y’$ some next token candidate (I’ll save the symbol $y$ for later!), then:</p>
 
-<p>If you answered <span class="spoiler" onclick="this.classList.toggle('revealed')" title="Click to reveal">
-  $90^\circ$
-</span>, that is not right. 
-The right answer is in fact, a cute yet shocking<span class="spoiler" onclick="this.classList.toggle('revealed')" title="Click to reveal">
-  $60^\circ$
-</span>.<sup id="fnref:curvature" role="doc-noteref"><a href="#fn:curvature" class="footnote" rel="footnote">1</a></sup></p>
+\[\begin{equation}
+\textrm{Spilled Energy} = \underbrace{f(x ; \tt{context})}_{\tt{Term1}} - \underbrace{\log \sum_{y'} \exp(f( y' ; {\tt context}, x))}_{\tt{Term2}} 
+\end{equation}\]
+
+<p><img src="/assets/images/2026-02-27-joint-or-conditional/spilled_energy.jpg" alt="SpilledEnergy" class="theme-aware-img center-image" style="width: 40%;" /></p>
+
+<p>First things first, I made sure this smelled good: ${\tt Term 1}$ reflects the enthusiasm<sup id="fnref:enthusiasm" role="doc-noteref"><a href="#fn:enthusiasm" class="footnote" rel="footnote">2</a></sup> of the model in predicting the suspicious token, ${\tt Term 2}$  the enthusiasm of the model in continuing that train of thought for one more step, summed over all possible continuations.  If the model abruptly turns unenthusiastic, it means that the model has found itself in a grave it enthusiastically dug one step ago. Makes sense. But is this handwavy justification all there is to it?</p>
+
+<h3 id="the-papers-interpretation">The paper’s interpretation</h3>
+
+<p>The paper offers a tighter justification. The joint probability that the model assigns to a sequence must be decomposible into next-token probabilities, a fact the reader should be able to blurt out in sleep:</p>
+
+\[\require{color}
+\begin{align}
+  p({\tt context}, x, y) &amp; =  p({\tt context}) \cdot p(x | {\tt context}) \cdot p(y| {\tt context}, x) \\ 
+  &amp; = p({\tt context}) \cdot \frac{\colorbox{silver}{$\color{black} p({\tt context}, x )$}}{p({\tt  context})} \cdot \frac{p({\tt context}, x, y)}{\colorbox{silver}{$\color{black} p({\tt context}, x )$}} \label{eq:dec1}
+\end{align}\]
+
+<p>Then comes the main claim: we’ve designed the next-token-predicting language model to capture these very next-token quantities; which means ideally every numerator and its subsequent denominator, as estimated by the model, should cancel out (our ${\tt Term1}$ and ${\tt Term 2}$). <em>Yet, the claim goes, nothing in a language model imposes this constraint on its estimates!</em> Specifically if we let $\hat{p}$ be the model’s assigned probability to a sequence, we can write it in a way (see Eq $\ref{eq:energy}$) that we can “superimpose” it against the above equation (Eq $\eqref{eq:dec1}$), to infer that ${\tt Term1}$ must match ${\tt Term2}$. When these Terms do not match in practice, we are to conclude that there is profoundly erratic behavior within the model, manifesting as hallucinations.</p>
+
+\[\begin{align}
+  \hat{p}({\tt context}, x, y) &amp; =  p({\tt context}) \cdot \frac{ 
+  \overbrace{
+  \colorbox{silver}{$\color{black}\exp{f(x; \tt{context})}$
+  }}^{\propto \exp({\tt Term1})}}{\sum_{x'} \exp{f(x'; {\tt context})}} \cdot  \frac{ \exp{f(x; \tt{context})}}{\underbrace{
+  \colorbox{silver}{$\color{black}\sum_{y'} \exp{f(y'; {\tt context}, x)}$}
+  }_{\propto \exp(\tt Term2)}} \label{eq:energy} \\ 
+\end{align}\]
+
+<h3 id="my-interpretation">My interpretation</h3>
+
+<p>This disturbed me: how had I missed a gorilla hiding in an object I had stared at for weeks at one point?<sup id="fnref:ntp" role="doc-noteref"><a href="#fn:ntp" class="footnote" rel="footnote">3</a></sup></p>
+
+<p>A further staring contest somewhat resolved this confusion: I had never done the superimposition this way (and I wouldn’t do it this way). I had always superimposed Eq $\eqref{eq:energy}$ over a decomposition different from Eq $\ref{eq:dec1}$:</p>
+
+\[\begin{align}
+  p({\tt context}, x, y) 
+  &amp; = p({\tt context}) \cdot \frac{p({\tt context} | x )}{\sum_{x'} p({x' | \tt  context})} \cdot \frac{p(y | {\tt context}, x)}{\sum_{y'} p(y' | {\tt context}, x)} \label{eq:w}
+\end{align}\]
+
+<p>In other words, I had always viewed the logits as representing how likely the next-token was, rather than how likely the whole sequence was! To me this was the obvious interpretation: we train a model on the “next-token loss” with the hope that it learns how good/bad that token is, with no care for how likely the input sequence is.</p>
+
+<h3 id="its-not-that-clear-which-interpretation-is-correct">It’s not that clear which interpretation is correct.</h3>
+
+<p>But then, I realize that this interpretation is not as clear-cut. While the next-token loss indeed stipulates what the <em>probabilities</em> must be (the conditionals), the <em>logit</em> magnitudes are underdetermined. Usually, in gradient-descent-trained models, if something is free to move as it pleases, it moves gracefully, and we may find this grace in the logits too. On seen contexts, a well-trained generative model’s logits will be forced to spike up (to $\infty$) on the seen next-token and spike down (to $-\infty$) everywhere else and so the “total energy” in  ${\tt Term 2}$ would explode. On completely bizarre contexts (say, due to our suspicious $x$ token), the next-token logits are “free to be what they want” and so, we may expect them to largely remain unenthusiastic (blunting ${\tt Term 2}$). In between these extremes, as we get closer and closer to the training manifold, we can expect the logits to be more and more enthusiastic on some next-tokens. This way, it seems that the total energy term in ${\tt Term 2}$ is indicative of the full $({\tt context}, x, y)$ sequence probability.</p>
+
+<p>It’s funny that this argument can be applied to even make image classifiers appear as though they are models of the input distribution:  when your input image is garbage, the logits are likely tiny in magnitude; when you input image is realistic, the logits are higher in magnitude.</p>
+
+<p>Now, I do not mean to say that these logits are exactly representative of the joint probability. On some reasonable inputs, the next-token logits may be unenthusiastic
+purely due to poor learning resulting in lack of confidence on its next-token prediction. But what about a model that has perfectly learned the next-token conditionals?  Is its logits nicely representative of the joint distribution?</p>
+
+<h3 id="the-question">The question</h3>
+
+<p>My takeaway is this: surely, next-token probabilities of a model indeed only model the conditionals; but due to the implicit bias of gradient descent, it’s possible that the next-token logits reflect, to some extent, the joint probability of $({\tt context}, x)$, with some additional factors corresponding to the next-token confidence itself.  Is this just a feel-good empirical observation? Or is it possible to give this a mathematical form? Has someone already done this?</p>
+
+<p>Maybe this gorilla was always visible and many knew;  or maybe this gorilla is just in my imagination; but for the time being, I will enjoy the feeling of having noticed it.</p>
 
 <hr />
 
-<p>It’s entrenched in us that everything becomes funny in high-dimensions, and one such funny thing we know all too well is that <em>if you independently sample two vectors from a zero-centered, isotropic Gaussian, they must be at right angles</em> (with high probability etc., etc.,). We sense that the two directions ($\mathbf{A}$ and $\mathbf{B}$) look just like two zero-centered, isotropic Gaussian directions—which they are—and by our funny law, they should be orthogonal to each other—which they are not!</p>
-
-<p>There is joy in trying to reconcile this from various angles; try it yourself before you read below. The process of reconciliation also generated some philosophical mumblings; I leave them at the end of the post.</p>
-
-<hr />
-
-<h3 id="the-algebraic-reconciliation">The algebraic reconciliation</h3>
-
-<p>For a blunt reconciliation, I go through the motions of computing the expected dot-product of $\mathbf{A} \cdot \mathbf{B}$ as below,</p>
-
-<p>\(\require{cancel} \mathbb{E}[ (\mathbf{X} - \mathbf{Y})\cdot (\mathbf{Z} - \mathbf{Y})] = \cancelto{0}{\mathbb{E}[\mathbf{X}\cdot\mathbf{Z}]} + \cancelto{0}{\mathbb{E}[\mathbf{Y}\cdot\mathbf{Z}]} + \cancelto{0}{\mathbb{E}[\mathbf{X}\cdot\mathbf{Y}]} + \underbrace{\mathbb{E}[\mathbf{Y}\cdot\mathbf{Y}]}_{&gt; 0}\),</p>
-
-<p>and I find that things don’t cancel out to zero! Thus, the angle cannot concentrate around $90^\circ$. But I find this argument too robotic to be insightful.</p>
-
-<h3 id="the-statistical-reconciliation">The statistical reconciliation</h3>
-
-<p>Alternatively, I could say that my folly was in treating the two quantities, $\mathbf{A}$ and  $\mathbf{B}$ as two <em>independent</em>  zero-centered Gaussian random variables. Zero-centered Gaussian they are, independent they are not: the presence of “$\mathbf{Y}$” in both terms spoils the relationship. Knowing $\mathbf{A}$ i.e., $\mathbf{X}-\mathbf{Y}$ gives me an updated belief over  where $\mathbf{Z} - \mathbf{Y}$ i.e., $\mathbf{B}$ could be.
- Therefore, I can’t cite the funny law of high-dimensional-orthogonality here.</p>
-
-<p>But I find this argument too bureaucratic to be insightful. (“You broke this precondition, so this claim cannot be processed.” Why, thank you, insurance agent!)</p>
-
-<h3 id="the-other-statistical-reconciliation">The other statistical reconciliation</h3>
-
-<p>Let me freeze $\mathbf{Y}$ at some specific value $\mathbf{y}$. <em>Conditioned</em> on $\mathbf{Y}=\mathbf{y}$, I think about what the angle between $\mathbf{X}-\mathbf{y}$ and $\mathbf{Z}-\mathbf{y}$ concentrates towards. Under this conditioning, I see that although these variables are independent, they are <em>no longer</em> zero-centered Gaussian: they have mean $\mathbf{y}$. Once again, I am mysteriously blocked from citing the funny high-dimensional law, this time by a different force.</p>
-
-<h3 id="the-frame-of-reference-reconciliation">The frame-of-reference reconciliation</h3>
-
-<p>Both the above statistical arguments can in fact be expressed more vividly. What I did right above was to move my frame of reference to the “$\mathbf{y}$”. By relabeling “$\mathbf{y}$” as my new origin $\mathbf{O}’$ (see image below), what were once the points $\mathbf{X}$ and $\mathbf{Z}$, are now points $\mathbf{A}$ and $\mathbf{B}$. These points are sampled from a far-off Gaussian galaxy that is centered at $-\mathbf{y}$; not centered around me! So, from my planet at $\mathbf{y}$, the directions $\mathbf{A}$ and $\mathbf{B}$ appear in the sky roughly
-in the direction of that galaxy; not at right angles.<sup id="fnref:milkyway" role="doc-noteref"><a href="#fn:milkyway" class="footnote" rel="footnote">2</a></sup> 
-In this universe, you can also “see” how knowing where $\mathbf{A}$ is, gives you an updated belief over where $\mathbf{B}$ is.</p>
-
-<p>In hindsight, this is also what the “algebraic reconciliation” was trying to tell me when it spat out $\mathbb{E}[(-\mathbf{Y}) \cdot (-\mathbf{Y})]$ as the dot-product $\mathbb{E}[\mathbf{A} \cdot \mathbf{B}]$. Sadly, this is robotic garble I couldn’t parse then.</p>
-
-<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img2.jpg" alt="Frame-of-reference reconciliation" class="theme-aware-img center-image" style="width: 60%;" /></p>
-
-<h3 id="the-geometric-reconciliation">The geometric reconciliation</h3>
-
-<p>Now, there’s one more elegant visualization. We can legally cite a different funny law in high-dimensions: the distances between two random points from a Gaussian concentrate around a fixed value. This value doesn’t matter. All that matters is that this is true of the distances between every pair of $\mathbf{X}, \mathbf{Y} \; \&amp; \; \mathbf{Z}$, which means  these points together form a delightful equilateral triangle. QED.</p>
-
-<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img3.jpg" alt="Geometric reconciliation" class="theme-aware-img center-image" style="width: 30%;" /></p>
-
-<hr />
-
-<h4 id="philosophical-notes">Philosophical Notes</h4>
-
-<ol>
-  <li>
-    <p>When our gut feeling says that the angle was $90^\circ$, were we tricked by the deceptive nature of high-dimensions, or were we tricked by something more rudimentary? (I think it’s the latter.)</p>
-  </li>
-  <li>When we learn a new thing,
-    <ul>
-      <li>we examine the thing from various angles</li>
-      <li>we examine every existing intuition in our head that is at odds with the thing</li>
-      <li>and we work until all possible contradictions are reconciled;</li>
-    </ul>
-
-    <p>only then does the thing become a part of our world view without resistance; only then do we feel like we understood the thing to completion.</p>
-  </li>
-  <li>
-    <p>It’s a useful exercise to “shut one’s brain” and see where it goes right or wrong. Don’t think step by step.</p>
-  </li>
-  <li>
-    <p>I don’t feel like I learned something satisfyingly without the aid of visualizations.</p>
-  </li>
-  <li>
-    <p>How much of AI model training reflects the above two human ways of incorporating new knowledge?</p>
-  </li>
-  <li><em>What does it really mean to explain something?</em> The algebraic reconciliation explains little. It is somewhat analogous to proving a generalization guarantee for a deep network with a 100-page step-by-step analysis of each layer when trained on a Gaussian distribution — does it really explain generalization of overparameterized models? In the 1970s, when Appel and Haken gave their computer-aided proof for the four-color theorem, there was criticism from mathematicians. It was not aesthetic; the computer-generated part of the proof allegedly was a “four-foot-high computer printout”; one couldn’t glean high-level arguments or insights into the “why” behind the truth; in fact, one couldn’t even verify and convince themselves of the truth without spending astronomical amounts of time. Jim Holt writes about this in a beautiful essay, <a href="https://www.nybooks.com/articles/2003/05/29/a-comedy-of-colors/">“A Comedy of Colors”</a>, asking what makes a proof a proof.</li>
-</ol>
-
-<h4 id="footnotes">Footnotes:</h4>
+<p><strong>Footnotes</strong></p>
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:curvature" role="doc-endnote">
-      <p>The question arose thanks to Eghbal who was discussing his experiments in this <a href="https://arxiv.org/abs/2311.04930">paper</a>, examining how the internal state of a Transformer evolves over time. If you replace $\mathbf{X}, \mathbf{Y}, \mathbf{Z}$ with the representation $\mathbf{R}_t$ at three consecutive timesteps, you can then ask how the angle $\mathbf{R}_{t+1}-\mathbf{R}_t$ and $\mathbf{R}_{t+2} -\mathbf{R}_{t+1}$ evolves over time. In their experiments, you’ll see that their baseline angle (e.g., the angle at the start) is $120^\circ$ and not $90^\circ$. <a href="#fnref:curvature" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    <li id="fn:paper" role="doc-endnote">
+      <p>Spilled Energy in Large Language Models, Adrian Robert Minut, Hazem Dewidar, Iacopo Masi, 2026, <a href="https://arxiv.org/abs/2602.18671">https://arxiv.org/abs/2602.18671</a> <a href="#fnref:paper" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:milkyway" role="doc-endnote">
-      <p>The strange thing is that we are also literally their of this galaxy! It’s almost like how Earthlings can look at their home galaxy (the Milky Way) while being at the edge of it. However, unlike the Milky Way, a Gaussian galaxy is not a flat spiral, but a thin shell. <a href="#fnref:milkyway" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    <li id="fn:enthusiasm" role="doc-endnote">
+      <p>I use “enthusiasm” to avoid using “confidence” which usually refers to a probability value between 0 and 1. <a href="#fnref:enthusiasm" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:ntp" role="doc-endnote">
+      <p>I remember staring at it when setting up the notations for “the pitfalls of next-token prediction” <a href="https://arxiv.org/abs/2403.06963">paper</a>, during which came the (obvious-sounding) realization that the next-token predicting backbone by itself does not define a joint distribution over a future sequence; it only defines the next-token distribution. It’s the autoregressive wrapper around it that defines the joint distribution; a different wrapper would yield a different joint! Sounds trivial, but disentangling this in our notation helped clean up our thoughts. <a href="#fnref:ntp" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -298,11 +281,9 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
 
         <div class="post-navigation">
   
-    <a href="/blog/research-philosophy/" class="nav-arrow left-arrow">&laquo; Research philosophy</a>
+    <a href="/blog/high-dimensional-diff/" class="nav-arrow left-arrow">&laquo; Angles between high-dimensional vectors</a>
   
 
-  
-    <a href="/blog/joint-or-conditional/" class="nav-arrow right-arrow">What does a language model model? &raquo;</a>
   
 </div>
 
@@ -324,8 +305,8 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = 'http://localhost:4000/blog/high-dimensional-diff/';
-      this.page.identifier = 'http://localhost:4000/blog/high-dimensional-diff/';
+      this.page.url = 'http://localhost:4000/blog/joint-or-conditional/';
+      this.page.identifier = 'http://localhost:4000/blog/joint-or-conditional/';
     };
     (function() {
       var d = document, s = d.createElement('script');
@@ -398,8 +379,8 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
     // so DISQUS.reset can find it.
    // so DISQUS.reset can find it.
     window.disqus_config = function () {
-      this.page.url = 'http://localhost:4000/blog/high-dimensional-diff/';
-      this.page.identifier = 'http://localhost:4000/blog/high-dimensional-diff/';
+      this.page.url = 'http://localhost:4000/blog/joint-or-conditional/';
+      this.page.identifier = 'http://localhost:4000/blog/joint-or-conditional/';
 
       // Get the current theme from your body's data-theme attribute
       var disqusTheme = localStorage.getItem('theme');

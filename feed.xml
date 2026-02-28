@@ -7,6 +7,94 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>What does a language model model?</title>
+        <description>&lt;p&gt;&lt;strong&gt;TL;DR: Does the next-token logit track the conditional or the joint probability of the whole sequence?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I had an invisible &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Invisible_Gorilla&quot;&gt;gorilla&lt;/a&gt; moment while reading a paper. Even though the paper interprets the gorilla in a way I’m not in agreement with, in helping me notice something so basic that was staring at me all along, the paper led me closer to clarity. The paper is called “Spilled Energy in Large Language Models” by &lt;a href=&quot;https://arxiv.org/abs/2602.18671&quot;&gt;Robert et al., 2026&lt;/a&gt;&lt;sup id=&quot;fnref:paper&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:paper&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; which proposes a way to predict whether or not a generated token is hallucinated. The proposal is simple and cute: when you generate a token, if you’re suspicious of it, take the corresponding logit of that token as $\tt{Term} 1$; feed the suspicious token in and proceed to the next step, where you take the &lt;em&gt;denominator&lt;/em&gt; of the softmax probability as $\tt{Term 2}$. If  $\tt{Term 2}$ is much smaller than $\tt{Term 1}$, your model has likely hallucinated. This difference quantity is what they call as “Spilled Energy”.&lt;/p&gt;
+
+&lt;p&gt;Specifically, if $f( \tt{token} ; \tt{context} )$ is my language model’s logit on a token given a context as input, if $x$ is my suspicious token, and $y’$ some next token candidate (I’ll save the symbol $y$ for later!), then:&lt;/p&gt;
+
+\[\begin{equation}
+\textrm{Spilled Energy} = \underbrace{f(x ; \tt{context})}_{\tt{Term1}} - \underbrace{\log \sum_{y&apos;} \exp(f( y&apos; ; {\tt context}, x))}_{\tt{Term2}} 
+\end{equation}\]
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026-02-27-joint-or-conditional/spilled_energy.jpg&quot; alt=&quot;SpilledEnergy&quot; class=&quot;theme-aware-img center-image&quot; style=&quot;width: 40%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;First things first, I made sure this smelled good: ${\tt Term 1}$ reflects the enthusiasm&lt;sup id=&quot;fnref:enthusiasm&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:enthusiasm&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; of the model in predicting the suspicious token, ${\tt Term 2}$  the enthusiasm of the model in continuing that train of thought for one more step, summed over all possible continuations.  If the model abruptly turns unenthusiastic, it means that the model has found itself in a grave it enthusiastically dug one step ago. Makes sense. But is this handwavy justification all there is to it?&lt;/p&gt;
+
+&lt;h3 id=&quot;the-papers-interpretation&quot;&gt;The paper’s interpretation&lt;/h3&gt;
+
+&lt;p&gt;The paper offers a tighter justification. The joint probability that the model assigns to a sequence must be decomposible into next-token probabilities, a fact the reader should be able to blurt out in sleep:&lt;/p&gt;
+
+\[\require{color}
+\begin{align}
+  p({\tt context}, x, y) &amp;amp; =  p({\tt context}) \cdot p(x | {\tt context}) \cdot p(y| {\tt context}, x) \\ 
+  &amp;amp; = p({\tt context}) \cdot \frac{\colorbox{silver}{$\color{black} p({\tt context}, x )$}}{p({\tt  context})} \cdot \frac{p({\tt context}, x, y)}{\colorbox{silver}{$\color{black} p({\tt context}, x )$}} \label{eq:dec1}
+\end{align}\]
+
+&lt;p&gt;Then comes the main claim: we’ve designed the next-token-predicting language model to capture these very next-token quantities; which means ideally every numerator and its subsequent denominator, as estimated by the model, should cancel out (our ${\tt Term1}$ and ${\tt Term 2}$). &lt;em&gt;Yet, the claim goes, nothing in a language model imposes this constraint on its estimates!&lt;/em&gt; Specifically if we let $\hat{p}$ be the model’s assigned probability to a sequence, we can write it in a way (see Eq $\ref{eq:energy}$) that we can “superimpose” it against the above equation (Eq $\eqref{eq:dec1}$), to infer that ${\tt Term1}$ must match ${\tt Term2}$. When these Terms do not match in practice, we are to conclude that there is profoundly erratic behavior within the model, manifesting as hallucinations.&lt;/p&gt;
+
+\[\begin{align}
+  \hat{p}({\tt context}, x, y) &amp;amp; =  p({\tt context}) \cdot \frac{ 
+  \overbrace{
+  \colorbox{silver}{$\color{black}\exp{f(x; \tt{context})}$
+  }}^{\propto \exp({\tt Term1})}}{\sum_{x&apos;} \exp{f(x&apos;; {\tt context})}} \cdot  \frac{ \exp{f(x; \tt{context})}}{\underbrace{
+  \colorbox{silver}{$\color{black}\sum_{y&apos;} \exp{f(y&apos;; {\tt context}, x)}$}
+  }_{\propto \exp(\tt Term2)}} \label{eq:energy} \\ 
+\end{align}\]
+
+&lt;h3 id=&quot;my-interpretation&quot;&gt;My interpretation&lt;/h3&gt;
+
+&lt;p&gt;This disturbed me: how had I missed a gorilla hiding in an object I had stared at for weeks at one point?&lt;sup id=&quot;fnref:ntp&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:ntp&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;A further staring contest somewhat resolved this confusion: I had never done the superimposition this way (and I wouldn’t do it this way). I had always superimposed Eq $\eqref{eq:energy}$ over a decomposition different from Eq $\ref{eq:dec1}$:&lt;/p&gt;
+
+\[\begin{align}
+  p({\tt context}, x, y) 
+  &amp;amp; = p({\tt context}) \cdot \frac{p({\tt context} | x )}{\sum_{x&apos;} p({x&apos; | \tt  context})} \cdot \frac{p(y | {\tt context}, x)}{\sum_{y&apos;} p(y&apos; | {\tt context}, x)} \label{eq:w}
+\end{align}\]
+
+&lt;p&gt;In other words, I had always viewed the logits as representing how likely the next-token was, rather than how likely the whole sequence was! To me this was the obvious interpretation: we train a model on the “next-token loss” with the hope that it learns how good/bad that token is, with no care for how likely the input sequence is.&lt;/p&gt;
+
+&lt;h3 id=&quot;its-not-that-clear-which-interpretation-is-correct&quot;&gt;It’s not that clear which interpretation is correct.&lt;/h3&gt;
+
+&lt;p&gt;But then, I realize that this interpretation is not as clear-cut. While the next-token loss indeed stipulates what the &lt;em&gt;probabilities&lt;/em&gt; must be (the conditionals), the &lt;em&gt;logit&lt;/em&gt; magnitudes are underdetermined. Usually, in gradient-descent-trained models, if something is free to move as it pleases, it moves gracefully, and we may find this grace in the logits too. On seen contexts, a well-trained generative model’s logits will be forced to spike up (to $\infty$) on the seen next-token and spike down (to $-\infty$) everywhere else and so the “total energy” in  ${\tt Term 2}$ would explode. On completely bizarre contexts (say, due to our suspicious $x$ token), the next-token logits are “free to be what they want” and so, we may expect them to largely remain unenthusiastic (blunting ${\tt Term 2}$). In between these extremes, as we get closer and closer to the training manifold, we can expect the logits to be more and more enthusiastic on some next-tokens. This way, it seems that the total energy term in ${\tt Term 2}$ is indicative of the full $({\tt context}, x, y)$ sequence probability.&lt;/p&gt;
+
+&lt;p&gt;It’s funny that this argument can be applied to even make image classifiers appear as though they are models of the input distribution:  when your input image is garbage, the logits are likely tiny in magnitude; when you input image is realistic, the logits are higher in magnitude.&lt;/p&gt;
+
+&lt;p&gt;Now, I do not mean to say that these logits are exactly representative of the joint probability. On some reasonable inputs, the next-token logits may be unenthusiastic
+purely due to poor learning resulting in lack of confidence on its next-token prediction. But what about a model that has perfectly learned the next-token conditionals?  Is its logits nicely representative of the joint distribution?&lt;/p&gt;
+
+&lt;h3 id=&quot;the-question&quot;&gt;The question&lt;/h3&gt;
+
+&lt;p&gt;My takeaway is this: surely, next-token probabilities of a model indeed only model the conditionals; but due to the implicit bias of gradient descent, it’s possible that the next-token logits reflect, to some extent, the joint probability of $({\tt context}, x)$, with some additional factors corresponding to the next-token confidence itself.  Is this just a feel-good empirical observation? Or is it possible to give this a mathematical form? Has someone already done this?&lt;/p&gt;
+
+&lt;p&gt;Maybe this gorilla was always visible and many knew;  or maybe this gorilla is just in my imagination; but for the time being, I will enjoy the feeling of having noticed it.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;Footnotes&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:paper&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Spilled Energy in Large Language Models, Adrian Robert Minut, Hazem Dewidar, Iacopo Masi, 2026, &lt;a href=&quot;https://arxiv.org/abs/2602.18671&quot;&gt;https://arxiv.org/abs/2602.18671&lt;/a&gt; &lt;a href=&quot;#fnref:paper&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:enthusiasm&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;I use “enthusiasm” to avoid using “confidence” which usually refers to a probability value between 0 and 1. &lt;a href=&quot;#fnref:enthusiasm&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:ntp&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;I remember staring at it when setting up the notations for “the pitfalls of next-token prediction” &lt;a href=&quot;https://arxiv.org/abs/2403.06963&quot;&gt;paper&lt;/a&gt;, during which came the (obvious-sounding) realization that the next-token predicting backbone by itself does not define a joint distribution over a future sequence; it only defines the next-token distribution. It’s the autoregressive wrapper around it that defines the joint distribution; a different wrapper would yield a different joint! Sounds trivial, but disentangling this in our notation helped clean up our thoughts. &lt;a href=&quot;#fnref:ntp&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 27 Feb 2026 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/blog/joint-or-conditional/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/joint-or-conditional/</guid>
+      </item>
+    
+      <item>
         <title>Angles between high-dimensional vectors</title>
         <description>&lt;p&gt;Switch off your brain and answer this:&lt;/p&gt;
 
@@ -178,7 +266,7 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
     &lt;p&gt;Scientists always gambled in the scientific process, and made mistakes.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Science is noisy and subjective. There can be great subjectivity in interpreting a result or appreciating the significance of a direction. The subjectivity may disappear only in hindsight with more data and more exploration.&lt;/p&gt;
+    &lt;p&gt;Science is noisy and subjective. There can be great subjectivity in interpreting a result or appreciating the significance of a direction. The subjectivity may disappear only in hindsight with more data and more exploration. Many discoveries that are now canonical, were disputed in their infancy.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Lesser-known scientists were rarely taken seriously, especially by scientists who were backed by reputation or seniority or systemic power or mere confidence. There were always pushbacks, humiliations, and complete indifference.&lt;/p&gt;
@@ -255,6 +343,11 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
 &lt;/details&gt;
 
 &lt;details&gt;
+&lt;summary&gt;&lt;strong&gt;The Golem&lt;/strong&gt; by Collins and Pinch&lt;/summary&gt;
+&lt;p&gt;Written by sociologists, this is a collection of case studies illustrating how science is messier than we think it, how experimental results, at the time of a discovery of a result, were not as conclusive as they seem many years later and how there can be much controversy over interpreting an observation. The book was a fun read! The chapter on the Pasteur-Pouchet debates (about spontaneous generation of life) was my favorite.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
   &lt;summary&gt;&lt;strong&gt;Accidental Astronomy: How Random Discoveries Shape the Science of Space&lt;/strong&gt; by Chris Lintott&lt;/summary&gt;
   &lt;p&gt;This describes the serendipitous history leading up to many astronomical discoveries. The story of how radio astronomy came to be is absolutely fascinating. The book also led me to learning about the story of Jocelyn Bell who discovered the  pulsars but was &lt;a href=&quot;https://www.sciencenews.org/article/jocelyn-bell-burnell-physics-prize-pulsar-discovery-interview&quot;&gt;not awarded&lt;/a&gt; the Nobel Prize.&lt;/p&gt;
 &lt;/details&gt;
@@ -275,13 +368,18 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
 &lt;/details&gt;
 
 &lt;details&gt;
-  &lt;summary&gt;&lt;strong&gt;A sense of the mysterious&lt;/strong&gt; by Alan Lightman&lt;/summary&gt;
+  &lt;summary&gt;&lt;strong&gt;A Sense of the Mysterious&lt;/strong&gt; by Alan Lightman&lt;/summary&gt;
   &lt;p&gt; The essays here describe the emotional experience of a scientist and the intersection of being scientist and an artist (Alan’s writing about this is beautiful; it deeply resonated with me) and the power of metaphors in scientific thinking. There are also insightful historical accounts of some scientists and discoveries; my favorite is the essay titled “Megaton Man” which descibes the personality of Edward Teller who was involved in the Manhattan Project.&lt;/p&gt;
 &lt;/details&gt;
 
 &lt;details&gt;
   &lt;summary&gt;&lt;strong&gt;Science and Government&lt;/strong&gt; by CP Snow&lt;/summary&gt;
   &lt;p&gt; A long essay (or a short book?) that narrates the rivalry between two scientists who were at the helm of British military technology during the second World War.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;&lt;strong&gt;Indiscrete Thoughts&lt;/strong&gt; by Gian-Carlo Rota&lt;/summary&gt;
+  &lt;p&gt;The first half of this book (by a mathematician) consists of vivid personality sketches of the various mathematicians of Princeton from the mid 1900s, detailing their approach to research, lectures, and also their quirks and flaws. It&apos;s an entertaining read! I also like his essay about the cafe culture in Europe where mathematicians and philsophers would congregate to converse, conjecture and collaborate.&lt;/p&gt;
 &lt;/details&gt;
 
 &lt;details&gt;

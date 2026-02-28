@@ -51,13 +51,16 @@
     TeX: {
     Macros: { // Define custom LaTeX commands here
       highlightmath: ['{\\htmlclass{highlighted-math}{\\text{#1}}}', 1], // #1 means it takes one argument
-      }
+      },
+    equationNumbers: { autoNumber: "AMS" }, // This enables (1), (2), etc.
+    extensions: ["AMSmath.js", "AMSsymbols.js"]
     },
     SVG: { linebreaks: { automatic: true } }, // Enable linebreaks for SVG output as well
     menuSettings: { zoom: "Double-Click" }
   });
 </script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 
     <meta content='Errata - Vaishnavh Nagarajan' property='og:title' />
     <title>Errata - Vaishnavh Nagarajan</title>
