@@ -1309,3 +1309,19 @@ details[open] summary::before {
     max-width: 200px; /* Larger preview on mobile */
   }
 }
+
+
+/* Target the specific anchor and span MathJax uses for \eqref */
+.blogbody a .MathJax_ref,
+.blogbody a:has(.MathJax_ref) {
+    display: inline !important;    /* Force it out of inline-block */
+    line-height: inherit !important; /* Force it to match surrounding text */
+    vertical-align: baseline !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Fix for the CommonHTML output seen in your HTML file */
+.mjx-chtml.MathJax_CHTML .MathJax_ref {
+    vertical-align: 0;
+}

@@ -26,7 +26,7 @@
 
 &lt;h3 id=&quot;the-papers-interpretation&quot;&gt;The paper’s interpretation&lt;/h3&gt;
 
-&lt;p&gt;The paper offers a tighter justification. The joint probability that the model assigns to a sequence must be decomposible into next-token probabilities, a fact the reader should be able to blurt out in sleep:&lt;/p&gt;
+&lt;p&gt;The paper offers a tighter justification. The joint probability that the model assigns to a sequence must be decomposable into next-token probabilities, a fact the reader should be able to blurt out in sleep:&lt;/p&gt;
 
 \[\require{color}
 \begin{align}
