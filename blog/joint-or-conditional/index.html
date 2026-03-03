@@ -243,23 +243,23 @@
 
 <h3 id="my-interpretation">My interpretation</h3>
 
-<p>This disturbed me: how had I missed a gorilla hiding in an object I had stared at for weeks at one point?<sup id="fnref:ntp" role="doc-noteref"><a href="#fn:ntp" class="footnote" rel="footnote">3</a></sup>  At this point, I recommend stepping away from this to think for yourself.</p>
+<p>This disturbed me: how had I missed a gorilla hiding in an object I had stared at for weeks at one point?<sup id="fnref:ntp" role="doc-noteref"><a href="#fn:ntp" class="footnote" rel="footnote">3</a></sup> A further staring contest resolved this confusion—only somewhat though, as you’ll find at the end of this post. (But, before you proceed any further, I recommend stepping away from this to think for yourself.)</p>
 
-<p>A further staring contest resolved this confusion (somewhat; see discussion at the end): I had just never done the superimposition this way (and it seems, I wouldn’t do it this way). I had always, with certainty, superimposed Eq $\eqref{eq:energy}$ over a decomposition different from Eq $\ref{eq:dec1}$:</p>
+<p>(Welcome back!) Here’s the resolution: I had just never done the superimposition this way (and it seems, I wouldn’t do it this way). I had always, with certainty, superimposed Eq $\eqref{eq:energy}$ over a decomposition different from Eq $\ref{eq:dec1}$:</p>
 
 \[\begin{align}
   p({\tt context}, x, y) 
   &amp; = p({\tt context}) \cdot \frac{
-  \colorbox{silver}{$\color{black}p({\tt context} | x )$}
+  \colorbox{silver}{$\color{black}p(x | {\tt context}  )$}
   }{\sum_{x'} p({x' | \tt  context})} \cdot \frac{p(y | {\tt context}, x)}{
   \colorbox{silver}{$\color{black}\sum_{y'} p(y' | {\tt context}, x)$}
   }
    \label{eq:dec2}
 \end{align}\]
 
-<p>In other words, I had always viewed the logits as representing how likely the next-token was, rather than how likely the whole sequence was! In this expression, the numerator and the denominator do not match (the denominator is always $1$ but the numerator isn’t!). We can also think in terms of the proportionality constants. In the paper’s, there is some <em>global</em> constant $Z$ such that if you divide each energy/logit term in every numerator and denominator of \eqref{eq:energy} by $Z$, you get back the terms in \eqref{eq:dec1}. In my interpretation, although $\tt{Term1}$ is proportional to the numerator of \eqref{eq:dec2}, the proportionality constant is only <em>local</em> to token $x$’s probability; likewise $\tt{Term2}$ is proportional to its denominator, with a constant local to $y$’s probability.</p>
+<p>In other words, I had always viewed the logits as representing how likely the next-token was, rather than how likely the whole sequence was! In this expression, the numerator and the denominator do not match (the denominator is always $1$ but the numerator isn’t!). We can also think in terms of the proportionality constants. In the paper’s, there is some <em>global</em> constant $Z$ such that if you divide each energy/logit term in every numerator and denominator of \eqref{eq:energy} by $Z$, you get back the terms in \eqref{eq:dec1}. In my interpretation, although $\tt{Term1}$ is proportional to the numerator of \eqref{eq:dec2}, the proportionality constant is only <em>local</em> to token $x$’s probability; likewise $\tt{Term2}$ is proportional to its denominator, with a constant local to $y$’s probability.  (These constants are the respective denominators themselves.)</p>
 
-<p>To me this was the obvious interpretation: we train a model on the next-token loss with the hope that it learns how good/bad that token is, with no care for how likely the input sequence itself is.</p>
+<p>To me this was the obvious interpretation: we train a model on the next-token loss with the hope that it learns how good/bad that token is, with no care for how likely the input sequence itself is, and this is what the logits capture.</p>
 
 <h3 id="its-actually-not-that-clear-which-interpretation-is-correct">It’s actually not that clear which interpretation is correct.</h3>
 
