@@ -208,9 +208,9 @@
 
 <p>Specifically, if $f( \tt{token} ; \tt{context} )$ is my language model’s logit on a token given a context as input, if $x$ is my suspicious token, and $y’$ some next token candidate (I’ll save the symbol $y$ for later!), then:</p>
 
-<p>\begin{equation}
-\textrm{Spilled Energy} = \underbrace{f(x ; \tt{context})}<em>{\tt{Term1}} - \underbrace{\log \sum</em>{y’} \exp(f( y’ ; {\tt context}, x))}_{\tt{Term2}} 
-\end{equation}</p>
+\[\begin{equation}
+\textrm{Spilled Energy} = \underbrace{f(x ; \tt{context})}_{\tt{Term1}} - \underbrace{\log \sum_{y'} \exp(f( y' ; {\tt context}, x))}_{\tt{Term2}} 
+\end{equation}\]
 
 <p><img src="/assets/images/2026-02-27-joint-or-conditional/spilled_energy.jpg" alt="SpilledEnergy" class="theme-aware-img center-image" style="width: 40%;" /></p>
 
