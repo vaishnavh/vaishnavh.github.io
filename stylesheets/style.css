@@ -181,6 +181,8 @@ blockquote {
   /* Do NOT set font-style: normal !important; here */
 }
 
+
+
 /* Preformatted text (e.g., code blocks) */
 pre {
   overflow-x: auto;
@@ -1167,6 +1169,18 @@ summary {
   list-style: none; /* Removes the default arrow in some browsers */
 }
 
+/* Set the master size on the parent */
+details, summary {
+  font-size: 16px;
+}
+
+/* Force children to adopt that size, overriding the 17px rule */
+details p, 
+details strong, 
+summary strong {
+  font-size: inherit !important;
+}
+
 /* 2. Add the custom triangle icon */
 summary::before {
   content: '';
@@ -1174,7 +1188,6 @@ summary::before {
   width: 12px;
   height: 12px;
   margin-right: 12px;
-  
   /* Using a background SVG for a sharp, clean triangle */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
   background-size: contain;
@@ -1296,5 +1309,3 @@ details[open] summary::before {
     max-width: 200px; /* Larger preview on mobile */
   }
 }
-
-

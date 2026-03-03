@@ -11,8 +11,13 @@
       ignoreHtmlClass: 'no-mathjax',
       skipTags: ["script","noscript","style","textarea","pre","code","a"]
     },
+    CommonHTML: {
+    matchFontHeight: true,
+    linebreaks: { automatic: true }
+  },
     "HTML-CSS": {
       availableFonts: ["TeX"],
+      matchFontHeight: true,
       linebreaks: { automatic: true },
       // --- KEY CHANGE 1: Enable linebreaks for HTML-CSS output ---
       linebreaks: { automatic: true },
@@ -203,9 +208,9 @@
 
 <p>Specifically, if $f( \tt{token} ; \tt{context} )$ is my language model’s logit on a token given a context as input, if $x$ is my suspicious token, and $y’$ some next token candidate (I’ll save the symbol $y$ for later!), then:</p>
 
-\[\begin{equation}
-\textrm{Spilled Energy} = \underbrace{f(x ; \tt{context})}_{\tt{Term1}} - \underbrace{\log \sum_{y'} \exp(f( y' ; {\tt context}, x))}_{\tt{Term2}} 
-\end{equation}\]
+<p>\begin{equation}
+\textrm{Spilled Energy} = \underbrace{f(x ; \tt{context})}<em>{\tt{Term1}} - \underbrace{\log \sum</em>{y’} \exp(f( y’ ; {\tt context}, x))}_{\tt{Term2}} 
+\end{equation}</p>
 
 <p><img src="/assets/images/2026-02-27-joint-or-conditional/spilled_energy.jpg" alt="SpilledEnergy" class="theme-aware-img center-image" style="width: 40%;" /></p>
 
@@ -221,7 +226,9 @@
   &amp; = p({\tt context}) \cdot \frac{\colorbox{silver}{$\color{black} p({\tt context}, x )$}}{p({\tt  context})} \cdot \frac{p({\tt context}, x, y)}{\colorbox{silver}{$\color{black} p({\tt context}, x )$}} \label{eq:dec1}
 \end{align}\]
 
-<p>Then comes the main claim: we’ve designed the next-token-predicting language model to capture these very next-token quantities; which means ideally every numerator and its subsequent denominator, as estimated by the model, should cancel out (our ${\tt Term1}$ and ${\tt Term 2}$). <em>Yet, the claim goes, nothing in a language model imposes this constraint on its estimates!</em> Specifically if we let $\hat{p}$ be the model’s assigned probability to a sequence, we can write it in a way (see Eq $\ref{eq:energy}$) that we can “superimpose” it against the above equation (Eq $\eqref{eq:dec1}$), to infer that ${\tt Term1}$ must match ${\tt Term2}$. When these Terms do not match in practice, we are to conclude that there is profoundly erratic behavior within the model, manifesting as hallucinations.</p>
+<p>Then comes the main claim: the next-token-predicting language model has been designed to capture these very next-token quantities; which means ideally every numerator and its subsequent denominator, as estimated by the model, should cancel out (${\tt Term1}$ and ${\tt Term 2}$). <em>Yet, the claim goes, nothing in a language model imposes this constraint on its estimates!</em></p>
+
+<p>Specifically if we let $\hat{p}$ be the model’s assigned probability to a sequence, we can write it in a way that resembles Eq \eqref{eq:dec1}:</p>
 
 \[\begin{align}
   \hat{p}({\tt context}, x, y) &amp; =  p({\tt context}) \cdot \frac{ 
@@ -232,11 +239,13 @@
   }_{\propto \exp(\tt Term2)}} \label{eq:energy} \\ 
 \end{align}\]
 
+<p>Now, the claim goes on to “superimpose” \eqref{eq:energy} over \eqref{eq:dec1}, implying that every term in the former <em>corresponds</em> to the latter.  If this was true, then ${\tt Term1}$ must match ${\tt Term2}$ for their corresponding terms match in Eq \eqref{eq:dec1}. When these Terms do not match in practice, we are to conclude that there is profoundly erratic behavior within the model, manifesting as hallucinations.</p>
+
 <h3 id="my-interpretation">My interpretation</h3>
 
-<p>This disturbed me: how had I missed a gorilla hiding in an object I had stared at for weeks at one point?<sup id="fnref:ntp" role="doc-noteref"><a href="#fn:ntp" class="footnote" rel="footnote">3</a></sup></p>
+<p>This disturbed me: how had I missed a gorilla hiding in an object I had stared at for weeks at one point?<sup id="fnref:ntp" role="doc-noteref"><a href="#fn:ntp" class="footnote" rel="footnote">3</a></sup>  At this point, I recommend stepping away from this to think for yourself.</p>
 
-<p>A further staring contest somewhat resolved this confusion: I had never done the superimposition this way (and I wouldn’t do it this way). I had always superimposed Eq $\eqref{eq:energy}$ over a decomposition different from Eq $\ref{eq:dec1}$:</p>
+<p>A further staring contest resolved this confusion (somewhat; see discussion at the end): I had just never done the superimposition this way (and it seems, I wouldn’t do it this way). I had always, with certainty, superimposed Eq $\eqref{eq:energy}$ over a decomposition different from Eq $\ref{eq:dec1}$:</p>
 
 \[\begin{align}
   p({\tt context}, x, y) 
@@ -245,27 +254,31 @@
   }{\sum_{x'} p({x' | \tt  context})} \cdot \frac{p(y | {\tt context}, x)}{
   \colorbox{silver}{$\color{black}\sum_{y'} p(y' | {\tt context}, x)$}
   }
-   \label{eq:w}
+   \label{eq:dec2}
 \end{align}\]
 
-<p>In other words, I had always viewed the logits as representing how likely the next-token was, rather than how likely the whole sequence was! In this expression, it is clear that the numerator and the denominator (which is always $1$) do not match. Here, $\tt{Term1}$ is proportional to the numerator, but the constant is <em>local</em> to token $x$’s probability; likewise $\tt{Term2}$ is proportional to its denominator, with a constant local to $y$’s probability.</p>
+<p>In other words, I had always viewed the logits as representing how likely the next-token was, rather than how likely the whole sequence was! In this expression, the numerator and the denominator do not match (the denominator is always $1$ but the numerator isn’t!). We can also think in terms of the proportionality constants. In the paper’s, there is some <em>global</em> constant $Z$ such that if you divide each energy/logit term in every numerator and denominator of \eqref{eq:energy} by $Z$, you get back the terms in \eqref{eq:dec1}. In my interpretation, although $\tt{Term1}$ is proportional to the numerator of \eqref{eq:dec2}, the proportionality constant is only <em>local</em> to token $x$’s probability; likewise $\tt{Term2}$ is proportional to its denominator, with a constant local to $y$’s probability.</p>
 
-<p>To me this was the obvious interpretation: we train a model on the “next-token loss” with the hope that it learns how good/bad that token is, with no care for how likely the input sequence is.</p>
+<p>To me this was the obvious interpretation: we train a model on the next-token loss with the hope that it learns how good/bad that token is, with no care for how likely the input sequence itself is.</p>
 
-<h3 id="its-not-that-clear-which-interpretation-is-correct">It’s not that clear which interpretation is correct.</h3>
+<h3 id="its-actually-not-that-clear-which-interpretation-is-correct">It’s actually not that clear which interpretation is correct.</h3>
 
-<p>But then, I realize that this interpretation—that the next-token prediction only models the next-token’s likelihood—is not as clear-cut. While the next-token loss indeed stipulates what the <em>probabilities</em> must be—the next-token conditionals—the <em>logit</em> magnitudes themselves are underdetermined. Usually, in gradient-descent-trained models, if something is free to move as it pleases, it moves gracefully, and we may find this grace in the logits too. On seen contexts, a well-trained generative model’s logits will be forced to spike up (to $\infty$) on the seen next-token and spike down (to $-\infty$) everywhere else and so the “total energy” in  ${\tt Term 2}$ would explode. On completely bizarre contexts (say, due to our suspicious $x$ token), the next-token logits are “free to be what they want” and so, we may expect them to largely remain unenthusiastic (blunting ${\tt Term 2}$). In between these extremes, as we get closer and closer to the training manifold, we can expect the logits to be more and more enthusiastic on some next-tokens. This way, it seems that the total energy term in ${\tt Term 2}$ is indeed indicative of the how likely the $({\tt context}, x, y)$ sequence is!</p>
+<p>Continuing the staring contest bit more had me questioning this all over again. 
+If indeed the logits are <em>not</em> to be interpreted as representing the joint probability, and so, ${\tt Term2}$ is indeed unconcerned about what preceded the $y$ token, why does the spilled-energy metric even work?</p>
 
-<p>It’s funny that this argument can be applied to even make boring image classifiers appear as though they are models of the input distribution:  when your input image is garbage, the logits are likely tiny in magnitude; when your input image is realistic, the logits are higher in magnitude.</p>
+<p>My explanation is this. While the next-token loss does stipulate what the <em>probabilities</em> must be—the next-token conditionals—the <em>logit</em> magnitudes themselves are underdetermined. Usually, in gradient-descent-trained models, if something is free to move as it pleases, it moves gracefully, and I suspect we find this grace in the logits too. Consider ${\tt Term2}$. On seen contexts, a well-trained generative model’s logits will be forced to spike up (to $\infty$) on the seen next-token and spike down (to $-\infty$) on all other next tokens, and so the “total energy” in  ${\tt Term 2}$ would explode. On completely bizarre contexts (say, due to our suspicious $x$ token), the next-token logits are “free to be what they want” and so, we may expect them to largely remain unenthusiastic (blunting ${\tt Term 2}$). In between these extremes, as we get closer and closer to the training manifold, we can expect the logits to be more and more enthusiastic on some next-tokens. This way, it seems that the total energy term in ${\tt Term 2}$ is indeed indicative of the how likely the $({\tt context}, x, y)$ sequence is!</p>
 
-<p>Now, I do not mean to say that these logits are exactly representative of the joint probability. On some reasonable inputs, the next-token logits may be unenthusiastic
-purely due to poor learning resulting in lack of confidence on its next-token prediction. But what of a model that has perfectly learned the next-token conditionals?  Is its logits nicely representative of the joint distribution?</p>
+<p>If you think about it, you’ll find that this argument can be applied to even make boring image classifiers appear as though they are models of the input distribution:  when your input image is garbage, the logits are likely tiny in magnitude; when your input image is realistic, some of the logits are highly positive!</p>
 
-<h3 id="the-question">The question</h3>
+<p>Thus, do the logits represent the joint probability after all? 
+Now I do not mean to say that these logits are exactly representative of the joint probability: on some reasonable inputs, the next-token logits may be unenthusiastic
+purely due to poor learning, causing under-confidence on its next-token prediction. But what of a model that has perfectly learned the next-token conditionals?  Is its logits nicely representative of the joint distribution?</p>
 
-<p>My takeaway is this: surely, next-token probabilities of a model indeed only model the conditionals; but due to the implicit bias of gradient descent, it’s possible that the next-token logits reflect, to some extent, the joint probability of $({\tt context}, x)$, with some additional factors corresponding to the next-token confidence itself.  Is this just a feel-good empirical observation? Or is it possible to give this a mathematical form? Has someone already done this?</p>
+<h3 id="the-open-question">The open question</h3>
 
-<p>Maybe this gorilla was always visible and many knew;  or maybe this gorilla is just in my imagination; but for the time being, I will enjoy the feeling of having noticed it.</p>
+<p>Surely, next-token probabilities of a model indeed only model the conditionals; but due to the implicit bias of gradient descent, it’s possible that the next-token logits reflect, to some extent, the joint probability of $({\tt context}, x)$, with some additional factors corresponding to the next-token confidence itself.  Is this just a feel-good empirical observation? Or is it possible to give this a mathematical form? Has someone already done this?</p>
+
+<p>(Maybe this gorilla was always visible and many knew of it;  or maybe this gorilla is just a figment of my imagination; but for the time being, I will enjoy the feeling of having noticed it.)</p>
 
 <hr />
 
