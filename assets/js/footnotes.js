@@ -10,14 +10,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const footnoteContentMap = {};
   const footnoteItems = footnotesContainer.querySelectorAll('li');
+  // footnoteItems.forEach(item => {
+  //   const id = item.id;
+  //   const contentClone = item.cloneNode(true);
+  //   const reverseLink = contentClone.querySelector('.reversefootnote');
+  //   if (reverseLink) {
+  //     reverseLink.remove();
+  //   }
+  //   footnoteContentMap[id] = contentClone.innerHTML.trim();
+  // });
+
   footnoteItems.forEach(item => {
     const id = item.id;
+    
+    // 1. Store the raw HTML (including [[more]]) for the tooltip logic
     const contentClone = item.cloneNode(true);
     const reverseLink = contentClone.querySelector('.reversefootnote');
     if (reverseLink) {
       reverseLink.remove();
     }
     footnoteContentMap[id] = contentClone.innerHTML.trim();
+
+    // 2. NEW: Remove [[more]] from the ACTUAL footnote in the footer
+    // We use a global replace /\[\[more\]\]/g to ensure it catches all instances
+    item.innerHTML = item.innerHTML.replace(/\[\[more\]\]/g, "");
   });
 
   // Store active tooltip and its ref to manage hover state
@@ -26,9 +42,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
   footnoteRefs.forEach(ref => {
     const targetId = ref.getAttribute('href').substring(1);
-    const tooltipContent = footnoteContentMap[targetId];
+    
+    // Change 'const' to 'let' so we can modify the content for the summary
+    let tooltipContent = footnoteContentMap[targetId];
 
     if (tooltipContent) {
+      const delimiter = "[[more]]";
+
+      if (tooltipContent.includes(delimiter)) {
+        
+        const parts = tooltipContent.split(delimiter);
+        tooltipContent = parts[0].trim();
+
+        // Add the clickable hint
+        tooltipContent += '<span class="read-more-hint"> (Jump to footnote for more.)</span>';
+ 
+        // Safety: If the split happens inside a <p> tag, close it for the tooltip
+        if (tooltipContent.toLowerCase().includes('<p') && !tooltipContent.toLowerCase().includes('</p')) {
+          tooltipContent += '</p>';
+        }
+        
+     } 
+
       const tooltip = document.createElement('div');
       tooltip.classList.add('tooltip');
       tooltip.innerHTML = tooltipContent;

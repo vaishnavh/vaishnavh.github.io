@@ -561,6 +561,12 @@ section.post em strong, section > p em strong {
   /* Ensure no negative margins here */
 }
 
+
+.blogbody {
+  text-align: justify;
+  text-justify: inter-word; /* Helps the browser distribute spacing between words */
+}
+
 .blogbody li, p {
   color: var(--paragraph-color); /* Inherit color from paragraph variable */
   font-family: "IM Fell Great Primer", Georgia, serif;
@@ -1324,4 +1330,27 @@ details[open] summary::before {
 /* Fix for the CommonHTML output seen in your HTML file */
 .mjx-chtml.MathJax_CHTML .MathJax_ref {
     vertical-align: 0;
+}
+
+
+.read-more-hint {
+  margin-top: 1px;
+  font-size: 9px;
+  font-style: italic;
+  text-align: right;
+  opacity: 0.8;
+}
+
+
+/* Footnotes Section at the bottom of the page */
+.footnotes {
+    font-size: 15px; /* Adjust this value to your preferred smaller size */
+}
+
+/* Ensure the list items and paragraphs within the footnotes inherit the size */
+.footnotes ol li, 
+.footnotes ol li p {
+    font-size: inherit !important;
+    line-height: 1.4;
+    margin-bottom: 5px;
 }
