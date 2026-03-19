@@ -357,57 +357,89 @@ Also, controversies between scientists has always been the norm. “Big and prou
     <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
     const themeToggleButton = document.getElementById('theme-toggle-button');
-    const themeToggleIcon = document.getElementById('theme-toggle-icon');
+    const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
     const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
 
-    /**
-     * 1. Define the Disqus Config
-     */
+    console.log('DOMContentLoaded fired');
+    console.log('themeToggleButton:', themeToggleButton);
+    console.log('body:', body);
+    console.log('currentTheme:', currentTheme);
+
+    // Define disqus_config globally or within a scope accessible by DISQUS.reset
+    // A more robust way is to make it a named function or a property of window
+    // so DISQUS.reset can find it.
+   // so DISQUS.reset can find it.
     window.disqus_config = function () {
-      this.page.url = "http://localhost:4000/blog/history-of-science/";
-      this.page.identifier = "http://localhost:4000/blog/history-of-science/";
+  this.page.url = 'http://localhost:4000/blog/history-of-science/';
+      this.page.identifier = 'http://localhost:4000/blog/history-of-science/';
 
-      // Always check the current state of the body tag
-      const isLight = document.body.getAttribute('data-theme') === 'light';
-      this.page.display_thread_theme = isLight ? 'light' : 'dark';
+      // FIX: Define the variable actually used in the if-statement below
+      var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
+
+      if (currentThemeForDisqus === 'light') {
+        this.page.display_thread_theme = 'light';
+      } else {
+        this.page.display_thread_theme = 'dark';
+      }
+    };
+
+    
+    const initializeTheme = () => {
+      const savedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark
+      body.setAttribute('data-theme', savedTheme);
+
+      if (savedTheme === 'light') {
+        themeToggleIcon.classList.replace('fa-sun', 'fa-moon');
+      } else {
+        themeToggleIcon.classList.replace('fa-moon', 'fa-sun');
+      }
     };
 
     /**
-     * 2. Toggle Logic
+     * 3. Handle Theme Toggle Click
      */
     if (themeToggleButton) {
       themeToggleButton.addEventListener('click', function() {
-        // Toggle the attribute
-        const currentTheme = body.getAttribute('data-theme');
-        const newTheme = (currentTheme === 'dark') ? 'light' : 'dark';
-        
+        const isDark = body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+
+        // Update Site UI
         body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
 
-        // Update the Icon
+        // Update Icons
         if (newTheme === 'light') {
           themeToggleIcon.classList.replace('fa-sun', 'fa-moon');
         } else {
           themeToggleIcon.classList.replace('fa-moon', 'fa-sun');
         }
 
-        // --- THE DISQUS FIX ---
-        // We use a try/catch block so a CSP error doesn't crash the script
-        try {
-          if (typeof DISQUS !== 'undefined') {
-            DISQUS.reset({
-              reload: true,
-              config: function () {
-                this.page.url = "http://localhost:4000/blog/history-of-science/";
-                this.page.identifier = "http://localhost:4000/blog/history-of-science/";
-                this.page.display_thread_theme = newTheme;
-              }
-            });
-          }
-        } catch (e) {
-          console.log("Disqus is still loading or blocked by CSP, but theme changed.");
+        // --- DISQUS THEME RESET ---
+        // This forces Disqus to re-read window.disqus_config
+        if (typeof DISQUS !== 'undefined') {
+          DISQUS.reset({
+            reload: true,
+            config: function () {
+              // We call the global config using the context of the reset
+              window.disqus_config.call(this);
+            }
+          });
+          console.log('Disqus theme synchronized to: ' + newTheme);
         }
       });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('readystatechange', function() {
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+          initializeTheme();
+        }
+      });
+      console.log('readyState is loading, adding readystatechange listener');
+    } else {
+      initializeTheme();
+      console.log('readyState is not loading, calling initializeTheme directly');
     }
   });
 </script>
