@@ -1354,3 +1354,89 @@ details[open] summary::before {
     line-height: 1.4;
     margin-bottom: 5px;
 }
+
+
+/* ==========================================================================
+   PETITE SIDEBAR TOC (Right-Aligned & Faded)
+   ========================================================================== */
+
+.sidebar-toc {
+  box-sizing: border-box;
+  position: absolute;
+  /* Push further left to stop the 'leak' into the 600px text column */
+  left: -270px; 
+  top: 100px;
+  width: 210px;
+  padding-right: 15px; /* Space between text and the vertical line */
+  
+  /* The "Petite & Faded" look */
+  text-align: left;
+  opacity: 0.4; /* Fades the whole menu */
+  transition: opacity 0.3s ease;
+  font-size: 0.7rem; /* Smaller, petite font */
+  border-right: 1px solid var(--nav-border-color);
+  z-index: 10;
+}
+
+/* Hover to reveal: Makes it less visible until needed */
+.sidebar-toc:hover {
+  opacity: 1;
+}
+
+/* The Clickable Title Link */
+.toc-title-link {
+  display: block;
+  text-decoration: none !important;
+  color: var(--highlight-color) !important;
+  font-family: "IM Fell Great Primer", serif;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--nav-border-color);
+}
+
+/* List Styling */
+.sidebar-toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-toc li {
+  margin-bottom: 6px;
+}
+
+/* Hierarchy: Indent H3s (Reason 1, etc.) */
+/* Since we are right-aligned, we use padding-right to push them LEFT */
+.sidebar-toc ul ul {
+  padding-right: 12px; 
+  margin: 4px 0;
+}
+
+.sidebar-toc a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: block;
+}
+
+.sidebar-toc a:hover {
+  color: var(--highlight-color);
+}
+
+/* Responsive: Desktop Fixed Positioning */
+@media screen and (min-width: 1250px) {
+  .sidebar-toc {
+    position: fixed;
+    /* calculation: 50% center - (half of 600px content) - (220px offset) */
+    left: calc(50% - 570px); 
+  }
+}
+
+/* Safety: Hide on smaller screens where there is no margin space */
+@media screen and (max-width: 1249px) {
+  .sidebar-toc {
+    display: none;
+  }
+}

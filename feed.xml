@@ -12,6 +12,8 @@
 
 &lt;p&gt;While such narcissistic tendencies at their worst pose hazards to both personal reputation and to the collective—such as when attachment turns into malice, or when the field is led astray by a scientist of influence, or when there are direct consequences to the way society is run—I want to temporarily suspend those concerns and instead explore the other extreme: &lt;strong&gt;at their best, what productive function do such tendencies perform in science, and what lessons can we learn from noticing them?&lt;/strong&gt;&lt;/p&gt;
 
+&lt;h2 id=&quot;the-courtroom-of-science&quot;&gt;The Courtroom of Science&lt;/h2&gt;
+
 &lt;p&gt;Much of my argument takes the (admittedly exaggerated) view of science as a courtroom:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -58,13 +60,17 @@ A third argument is about &lt;em&gt;attention&lt;/em&gt;. Without a scientist’
 
 &lt;hr /&gt;
 
-&lt;h3 id=&quot;lessons&quot;&gt;Lessons&lt;/h3&gt;
+&lt;h2 id=&quot;lessons&quot;&gt;Lessons&lt;/h2&gt;
 
 &lt;p&gt;A PhD student starts out with belief that their subjective choices begin with “what question do I pick?” and end with “what solution do I come up with?”, with everything else governed by rigid logic.  Likewise, the PhD student recognizes their role as a lawyer only in a limited sense: at the moment they subject their work to peer review. Maturity comes from noticing all the deeper ways in which research involves personal interpretations and choices, and from noticing that in those contexts  interspersed throughout the life cycle of an idea, one unknowingly behaves like a lawyer. Once noticed, it allows the scientist to be &lt;em&gt;intentional&lt;/em&gt; in their choices; it allows them to examine their own implicit style and mould it over the years; it allows them to resist losing themselves in the wild stampede around them.&lt;/p&gt;
 
 &lt;p&gt;On a personal note, the courtroom view has helped me deal with the thorny interface between the external world (disagreements, rejections) and the internal world (confidence, humility and self-doubt). When in heated disagreement with someone, the courtroom is a lens to pause and observe our respective behaviors from a distance, even if momentarily, and even if I continue to disagree. The courtroom frames disagreements as a feature in the grand scheme of Science; it  creates a safe space (towards others and myself) by reframing “being proven &lt;em&gt;right/wrong&lt;/em&gt;” as “being &lt;em&gt;(mis)fortunate&lt;/em&gt; in the gamble of Science”.&lt;/p&gt;
 
-&lt;p&gt;The courtroom tempers my internal world. I am less often at the mercy of my own nature, vacillating between utter self-doubt and utter delusion in my idea (which is dangerous to be unaware of). I am better at consciously calibrating between conviction (that I may be proven right even if the other advocate sounds confident in their opinion) and humility (I may be proven to be wrong, and if so, on what precise accounts). I can also very well simulate the extremes: the sense of delusion needed to explore an idea while knowing fully well that I need to doubt my own ideas at opportunte moments.&lt;sup id=&quot;fnref:creativity&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:creativity&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;8&lt;/a&gt;&lt;/sup&gt;  All this comes from being aware of &lt;em&gt;which&lt;/em&gt; decisions are open-ended and therefore require a tribunal where Time can tell what is right or wrong.&lt;/p&gt;
+&lt;p&gt;The courtroom tempers my internal world and be &lt;em&gt;strategic&lt;/em&gt; about my emotions. I am less often at the mercy of my own nature, vacillating between utter self-doubt and utter delusion in my idea (which is dangerous to be unaware of). I can be strategic about &lt;em&gt;when&lt;/em&gt; they emotionally attach themselves to an idea: done too early, they end up sinking costs into a dead-end; done never, they never let an idea materialize.&lt;/p&gt;
+
+&lt;p&gt;I am better at consciously calibrating between conviction (that I may be proven right even if the other advocate sounds confident in their opinion) and humility (I may be proven to be wrong, and if so, on what precise accounts). Indeed,&lt;/p&gt;
+
+&lt;p&gt;I can also very well simulate the extremes: the sense of delusion needed to explore an idea while knowing fully well that I need to doubt my own ideas at opportunte moments.&lt;sup id=&quot;fnref:creativity&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:creativity&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;8&lt;/a&gt;&lt;/sup&gt;  All this comes from being aware of &lt;em&gt;which&lt;/em&gt; decisions are open-ended and therefore require a tribunal where Time can tell what is right or wrong.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -233,6 +239,8 @@ The right answer is in fact, a cute yet shocking&lt;span class=&quot;spoiler&quo
 
 &lt;hr /&gt;
 
+&lt;h2 id=&quot;reconciliations&quot;&gt;Reconciliations&lt;/h2&gt;
+
 &lt;h3 id=&quot;the-algebraic-reconciliation&quot;&gt;The algebraic reconciliation&lt;/h3&gt;
 
 &lt;p&gt;For a blunt reconciliation, I go through the motions of computing the expected dot-product of $\mathbf{A} \cdot \mathbf{B}$ as below,&lt;/p&gt;
@@ -270,7 +278,7 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
 
 &lt;hr /&gt;
 
-&lt;h4 id=&quot;philosophical-notes&quot;&gt;Philosophical Notes&lt;/h4&gt;
+&lt;h2 id=&quot;philosophical-notes&quot;&gt;Philosophical Notes&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -373,63 +381,23 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
     
       <item>
         <title>Why PhD students should read the history of science</title>
-        <description>&lt;p&gt;Here’s a secret I accidentally discovered during my PhD: consuming history-of-science content is a powerful way to nurture your emotional maturity as a researcher.&lt;/p&gt;
+        <description>&lt;p&gt;I accidentally discovered a trick during my PhD: reading the history of science is a powerful way to nurture your emotional maturity as a researcher. You’ll notice, even as you read two random pages from the history of science, the pages have an uncanny resemblance to each other, and to the one you’re writing!&lt;/p&gt;
 
-&lt;p&gt;You’ll notice, even as you read two random pages from the history of science, the pages have an uncanny resemblance to each other, and to the one you’re writing! Every tale of discovery demonstrates that:&lt;/p&gt;
+&lt;h2 id=&quot;patterns-in-the-history-of-science&quot;&gt;Patterns in the history of science&lt;/h2&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Scientists always gambled in the scientific process, and made mistakes.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Science is noisy and subjective. There can be great subjectivity in interpreting a result or appreciating the significance of a direction. The subjectivity may disappear only in hindsight with more data and more exploration. Many discoveries that are now canonical, were disputed in their infancy.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Lesser-known scientists were rarely taken seriously, especially by scientists who were backed by reputation or seniority or systemic power or mere confidence. There were always pushbacks, humiliations, and complete indifference.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Controversies between scientists has always been the norm. “Big and proud” personalities in power have made other scientists’ lives miserable. Or at times, two “big” scientists on an equal footing sparred publicly with each other. It wasn’t very nice.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Credit assignment has always been noisy and at other times, deliberately unfair. Some great scientific discoveries were tragically known only long after their originator’s passing.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Every tale of discovery demonstrates that scientists always gambled in the scientific process, and made mistakes. Science is noisy and subjective; there can be great subjectivity in interpreting a result or appreciating the significance of a direction. The subjectivity may disappear only in hindsight with more data and more exploration. Many discoveries that are now canonical, were disputed in their infancy. Next, lesser-known scientists were rarely taken seriously, especially by scientists who were backed by reputation or seniority or systemic power or mere confidence. There were always pushbacks, humiliations, and complete indifference. 
+Also, controversies between scientists has always been the norm. “Big and proud” personalities in power have made other scientists’ lives miserable. Or at times, two “big” scientists on an equal footing sparred publicly with each other. It wasn’t very nice. Finally, credit assignment has always been noisy and at other times, deliberately unfair. Some great scientific discoveries were tragically known only long after their originator’s passing. &lt;strong&gt;There are important lessons in these observations&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; that make you a more level-headed and emotionally mature researcher.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;There are important lessons in these observations&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; that make you a more level-headed and emotionally mature researcher.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;lessons&quot;&gt;Lessons&lt;/h2&gt;
 
-&lt;p&gt;You learn to&lt;/p&gt;
+&lt;p&gt;Recognizing these recurring patterns teaches you to recognize the inevitable ups and downs of the research process; navigate the terrain of research with grit; value deeply satisfying long-term ambitions over anxiety-inducing short-term goals;
+ value goal-less, curiosity-driven random explorations as an exciting and important part of working at the frontier of human knowledge; not perceive certain setbacks or the lack of external validation as a personal attack in those situations where it is not personal but pure noise (not always the case!); not be intimidated by those who may assert their subjective opinions as objective truth with authority (this is my favorite lesson); and hold on to a measured conviction in your own opinions (second favorite lesson).&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;recognize the inevitable ups and downs of the research process,&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;navigate the terrain of research with grit,&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;value deeply satisfying long-term ambitions over anxiety-inducing short-term goals,&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;value goal-less, curiosity-driven random explorations as an exciting and important part of working at the frontier of human knowledge,&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;not perceive certain setbacks or the lack of external validation as a personal attack in those situations where it is not personal but pure noise (not always the case!),&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;not be intimidated by those who may assert their subjective opinions as objective truth with authority (this is my favorite lesson),&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;hold on to a measured conviction in your own opinions (second favorite lesson).&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Some of these lessons&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; may sound like platitudes; but learning how these have repeatedly manifested in history — through vivid narrative detail — leaves a profound imprint on how you operate as a researcher, and how you construct an inner narrative about your role in the scientific community.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;I contend that you cannot learn this emotional maturity efficiently through the brute-force of the research process alone. You need to read.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Some of these lessons&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; may sound like platitudes; but learning how these have repeatedly manifested in history — through vivid narrative detail — leaves a profound imprint on how you operate as a researcher, and how you construct an inner narrative about your role in the scientific community. &lt;strong&gt;I contend that you cannot learn this emotional maturity efficiently through the brute-force of the research process alone. You need to read.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;reading-list&quot;&gt;Reading list&lt;/h3&gt;
+&lt;h2 id=&quot;reading-list&quot;&gt;Reading list&lt;/h2&gt;
 
 &lt;p&gt;Here are some of the books I would recommend. I’ll continue to update this over time. &lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
@@ -517,10 +485,10 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;While point 1 and 2 are inherent to science and research, the rest are idiosyncrasies of the current system of doing science. It does not have to be this way and I do not mean to normalize any of it, and I truly wish they were gone. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;While the noise and the gambling are inherent to science and research, the rest are idiosyncrasies of the current system of doing science. It does not have to be this way and I wish they were gone! &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;There is another important dynamic you’ll notice in history, one which is less personal and more social:   science has interacted with politics in unfortunate and devastating ways causing great and unequal harms. This interaction goes in two ways. Science creates new political tension, and conversely, political tension both hastens and hinders science. This is a topic of its own and is important to pay attention to while you read! &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;There is another important dynamic you’ll notice in history:  science has interacted with politics in unfortunate and devastating ways causing great and unequal harms. This interaction goes in two ways. Science creates new political tension, and conversely, political tension both hastens and hinders science. This is a topic of its own and is important to pay attention to while you read! &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;Most of these books are random picks from various old book stores, so they do not come vetted by popularity. &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
