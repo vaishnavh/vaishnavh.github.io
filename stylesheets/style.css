@@ -1355,48 +1355,57 @@ details[open] summary::before {
     margin-bottom: 5px;
 }
 
-
 /* ==========================================================================
-   PETITE SIDEBAR TOC (Right-Aligned & Faded)
+   PETITE & STICKY SIDEBAR TOC
    ========================================================================== */
 
 .sidebar-toc {
-  box-sizing: border-box;
-  position: absolute;
-  /* Push further left to stop the 'leak' into the 600px text column */
-  left: -270px; 
-  top: 100px;
-  width: 210px;
-  padding-right: 15px; /* Space between text and the vertical line */
+  box-sizing: border-box; /* Ensures padding doesn't push border into text */
+  position: -webkit-sticky;
+  position: sticky;       /* Stays within the .blog-post container */
+  top: 100px;             /* Distance from top of screen when sticking */
+  float: left;            /* Keeps it in the left flow of the container */
   
-  /* The "Petite & Faded" look */
-  text-align: left;
-  opacity: 0.4; /* Fades the whole menu */
-  transition: opacity 0.3s ease;
-  font-size: 0.7rem; /* Smaller, petite font */
+  /* Pushes it into the margin relative to the 600px blog column */
+  margin-left: -260px;    
+  width: 210px;
+  padding-right: 15px;    /* Space between text and divider line */
+  
+  /* Petite & Faded styling */
+  text-align: left;      /* Hugs the divider line for clean alignment */
+  font-size: 0.7rem;      /* Smaller, less distracting font */
+  opacity: 0.4;           /* Faded out by default */
   border-right: 1px solid var(--nav-border-color);
+  transition: opacity 0.3s ease;
   z-index: 10;
 }
 
-/* Hover to reveal: Makes it less visible until needed */
+/* Hover effect: Full visibility when needed */
 .sidebar-toc:hover {
   opacity: 1;
 }
 
-/* The Clickable Title Link */
+/* Clickable Title (The Return-to-Top link) */
 .toc-title-link {
   display: block;
   text-decoration: none !important;
   color: var(--highlight-color) !important;
   font-family: "IM Fell Great Primer", serif;
   font-weight: 800;
-  line-height: 1.3;
+  font-size: 0.75rem !important;
+  line-height: 1.4;
   margin-bottom: 15px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--nav-border-color);
 }
 
-/* List Styling */
+/* Hierarchy: Indent Reason 1, 2, etc. (H3s) */
+/* Since text is right-aligned, padding-right pushes sub-items LEFT */
+.sidebar-toc ul ul {
+  padding-right: 12px;
+  margin: 5px 0;
+}
+
 .sidebar-toc ul {
   list-style: none;
   padding: 0;
@@ -1404,37 +1413,20 @@ details[open] summary::before {
 }
 
 .sidebar-toc li {
-  margin-bottom: 6px;
-}
-
-/* Hierarchy: Indent H3s (Reason 1, etc.) */
-/* Since we are right-aligned, we use padding-right to push them LEFT */
-.sidebar-toc ul ul {
-  padding-right: 12px; 
-  margin: 4px 0;
+  margin-bottom: 8px;
 }
 
 .sidebar-toc a {
   color: var(--text-color);
   text-decoration: none;
   transition: color 0.2s;
-  display: block;
 }
 
 .sidebar-toc a:hover {
   color: var(--highlight-color);
 }
 
-/* Responsive: Desktop Fixed Positioning */
-@media screen and (min-width: 1250px) {
-  .sidebar-toc {
-    position: fixed;
-    /* calculation: 50% center - (half of 600px content) - (220px offset) */
-    left: calc(50% - 570px); 
-  }
-}
-
-/* Safety: Hide on smaller screens where there is no margin space */
+/* Responsive: Hide on narrow screens to avoid overlapping text */
 @media screen and (max-width: 1249px) {
   .sidebar-toc {
     display: none;

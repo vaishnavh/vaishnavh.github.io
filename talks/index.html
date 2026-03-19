@@ -190,107 +190,64 @@
 
 					<br />
 					<br />
-  Built with Jekyll using Scribble.
+  Built with Jekyll (based off of Scribble).
   <br>
   <img src="/images/scribble2.png " alt="scribble" /> 
 </footer>
     <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
     const themeToggleButton = document.getElementById('theme-toggle-button');
-    const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
+    const themeToggleIcon = document.getElementById('theme-toggle-icon');
     const body = document.body;
-    const currentTheme = localStorage.getItem('theme');
 
-    console.log('DOMContentLoaded fired');
-    console.log('themeToggleButton:', themeToggleButton);
-    console.log('body:', body);
-    console.log('currentTheme:', currentTheme);
-
-    // Define disqus_config globally or within a scope accessible by DISQUS.reset
-    // A more robust way is to make it a named function or a property of window
-    // so DISQUS.reset can find it.
-   // so DISQUS.reset can find it.
+    /**
+     * 1. Define the Disqus Config
+     */
     window.disqus_config = function () {
-      this.page.url = 'http://localhost:4000/talks/';
-      this.page.identifier = 'http://localhost:4000/talks/';
+      this.page.url = "http://localhost:4000/talks/";
+      this.page.identifier = "http://localhost:4000/talks/";
 
-      // Get the current theme from your body's data-theme attribute
-      var disqusTheme = localStorage.getItem('theme');
-
-      // Set the Disqus theme based on your site's current theme
-      if (currentThemeForDisqus === 'light') {
-        this.page.display_thread_theme = 'light';
-      } else {
-        this.page.display_thread_theme = 'dark';
-      }
+      // Always check the current state of the body tag
+      const isLight = document.body.getAttribute('data-theme') === 'light';
+      this.page.display_thread_theme = isLight ? 'light' : 'dark';
     };
 
-    
-    const initializeTheme = () => {
-      const themeToggleButton = document.getElementById('theme-toggle-button');
-      const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
-      if (!themeToggleButton) {
-        console.error('Dark mode toggle element not found!');
-        return;
-      }
-
-      console.log('initializeTheme called, themeToggleButton:', themeToggleButton);
-
-      // Set initial theme based on local storage
-      if (currentTheme === 'light') {
-        body.setAttribute('data-theme', 'light');
-        themeToggleIcon.classList.remove('fa-sun');   // Switch to sun icon
-        themeToggleIcon.classList.add('fa-moon');
-        console.log('Setting light theme initially');
-      } else {
-        body.setAttribute('data-theme', 'dark');  // Default to dark
-        themeToggleIcon.classList.remove('fa-moon');   // Switch to moon icon
-        themeToggleIcon.classList.add('fa-sun');
-        console.log('Setting default dark theme');
-      }
-
-      // Add event listener for toggle change
+    /**
+     * 2. Toggle Logic
+     */
+    if (themeToggleButton) {
       themeToggleButton.addEventListener('click', function() {
-        console.log('Toggle clicked');
-        if (body.getAttribute('data-theme') === 'dark') {
-          body.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
-          themeToggleIcon.classList.remove('fa-sun');   // Switch to sun icon
-          themeToggleIcon.classList.add('fa-moon');
+        // Toggle the attribute
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // Update the Icon
+        if (newTheme === 'light') {
+          themeToggleIcon.classList.replace('fa-sun', 'fa-moon');
         } else {
-          body.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
-          themeToggleIcon.classList.remove('fa-moon');   // Switch to moon icon
-          themeToggleIcon.classList.add('fa-sun');
+          themeToggleIcon.classList.replace('fa-moon', 'fa-sun');
         }
-        console.log('body.getAttribute("data-theme"):', body.getAttribute('data-theme'));
 
-        // --- NEW: Reset Disqus theme after the site theme changes ---
-        if (typeof DISQUS !== 'undefined') { // Check if Disqus is loaded
-          DISQUS.reset({
-            reload: true, // This tells Disqus to reload the embed
-            config: function () {
-              // Re-run the configuration to apply the new theme
-              // This relies on window.disqus_config being accessible
-              window.disqus_config.call(this);
-            }
-          });
-          console.log('Disqus reset initiated with new theme.');
-        }
-        // --- END NEW ---
-      });
-    };
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('readystatechange', function() {
-        if (document.readyState === 'interactive' || document.readyState === 'complete') {
-          initializeTheme();
+        // --- THE DISQUS FIX ---
+        // We use a try/catch block so a CSP error doesn't crash the script
+        try {
+          if (typeof DISQUS !== 'undefined') {
+            DISQUS.reset({
+              reload: true,
+              config: function () {
+                this.page.url = "http://localhost:4000/talks/";
+                this.page.identifier = "http://localhost:4000/talks/";
+                this.page.display_thread_theme = newTheme;
+              }
+            });
+          }
+        } catch (e) {
+          console.log("Disqus is still loading or blocked by CSP, but theme changed.");
         }
       });
-      console.log('readyState is loading, adding readystatechange listener');
-    } else {
-      initializeTheme();
-      console.log('readyState is not loading, calling initializeTheme directly');
     }
   });
 </script>
