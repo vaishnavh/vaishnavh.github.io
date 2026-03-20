@@ -206,16 +206,17 @@
     console.log('body:', body);
     console.log('currentTheme:', currentTheme);
 
-    // Define disqus_config globally or within a scope accessible by DISQUS.reset
-    // A more robust way is to make it a named function or a property of window
-    // so DISQUS.reset can find it.
+   //  Define disqus_config globally or within a scope accessible by DISQUS.reset
+   //  A more robust way is to make it a named function or a property of window
+   //  so DISQUS.reset can find it.
    // so DISQUS.reset can find it.
     window.disqus_config = function () {
   this.page.url = 'http://localhost:4000/talks/';
       this.page.identifier = 'http://localhost:4000/talks/';
 
       // FIX: Define the variable actually used in the if-statement below
-      var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
+      // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
+      var currentThemeForDisqus = document.body.getAttribute('data-theme') || 'dark';
 
       if (currentThemeForDisqus === 'light') {
         this.page.display_thread_theme = 'light';
@@ -263,11 +264,15 @@
             config: function () {
               // We call the global config using the context of the reset
               window.disqus_config.call(this);
+              this.page.display_thread_theme = newTheme; // <--- Add this line
             }
           });
           console.log('Disqus theme synchronized to: ' + newTheme);
         }
+      
+
       });
+
     }
 
     if (document.readyState === 'loading') {

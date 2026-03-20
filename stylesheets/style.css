@@ -1369,8 +1369,7 @@ details[open] summary::before {
   /* Pushes it into the margin relative to the 600px blog column */
   margin-left: -260px;    
   width: 210px;
-  padding-right: 15px;    /* Space between text and divider line */
-  
+  padding-right: 20px;
   /* Petite & Faded styling */
   text-align: left;      /* Hugs the divider line for clean alignment */
   font-size: 0.7rem;      /* Smaller, less distracting font */
@@ -1399,17 +1398,23 @@ details[open] summary::before {
   border-bottom: 1px solid var(--nav-border-color);
 }
 
-/* Hierarchy: Indent Reason 1, 2, etc. (H3s) */
-/* Since text is right-aligned, padding-right pushes sub-items LEFT */
-.sidebar-toc ul ul {
-  padding-right: 12px;
-  margin: 5px 0;
-}
 
 .sidebar-toc ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+/* Hierarchy: Indent Reason 1, 2, etc. (H3s) */
+.sidebar-toc ul ul {
+  padding-left: -5px;
+  margin: 5px -10px;
+}
+
+
+/* Optional: Add deeper indentation for third-level headers (H4s) */
+.sidebar-toc ul ul ul {
+  padding-left: 5px; 
 }
 
 .sidebar-toc li {
@@ -1427,8 +1432,39 @@ details[open] summary::before {
 }
 
 /* Responsive: Hide on narrow screens to avoid overlapping text */
-@media screen and (max-width: 1249px) {
+/*@media screen and (max-width: 1000px) {
   .sidebar-toc {
     display: none;
+  }
+}*/
+
+/* Tier 1: Moderate Zoom (Viewport between 1050px and 1249px) */
+@media screen and (max-width: 1249px) {
+  .sidebar-toc {
+    font-size: 0.6rem;    /* Shrink font from 0.7rem */
+    width: 180px;         /* Narrow the container from 210px */
+    margin-left: -220px;  /* Pull it less far left from -260px */
+    opacity: 0.3;         /* Fade it slightly more to stay unobtrusive */
+  }
+}
+
+/* Tier 2: High Zoom (Viewport between 900px and 1049px) */
+@media screen and (max-width: 1049px) {
+  .sidebar-toc {
+    font-size: 0.5rem;    /* Tiny font for extreme narrow gutters */
+    width: 140px; 
+    margin-left: -170px;
+    padding-right: 8px;   /* Reduce padding to save space */
+  }
+  
+  .toc-title-link {
+    font-size: 0.6rem !important; /* Shrink the TOC header specifically */
+  }
+}
+
+/* Tier 3: Final Hide (Viewport below 900px) */
+@media screen and (max-width: 900px) {
+  .sidebar-toc {
+    display: none !important; /* Finally hide when overlap is inevitable */
   }
 }

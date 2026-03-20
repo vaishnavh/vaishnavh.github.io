@@ -1,5 +1,13 @@
 <html>
   <head>
+      <script>
+    // Set theme immediately to prevent flashing and provide data for Disqus
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+
     
     <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -267,25 +275,7 @@
 </div>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 </div> -->
-      <!--  <div class="block">
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = 'http://localhost:4000/home/errata/';
-      this.page.identifier = 'http://localhost:4000/home/errata/';
-    };
-    (function() {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://vaishnavh.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div> 
- -->
-
- 
+       
 
 <div class="block">
   <div id="disqus_thread"></div>
@@ -340,16 +330,17 @@
     console.log('body:', body);
     console.log('currentTheme:', currentTheme);
 
-    // Define disqus_config globally or within a scope accessible by DISQUS.reset
-    // A more robust way is to make it a named function or a property of window
-    // so DISQUS.reset can find it.
+   //  Define disqus_config globally or within a scope accessible by DISQUS.reset
+   //  A more robust way is to make it a named function or a property of window
+   //  so DISQUS.reset can find it.
    // so DISQUS.reset can find it.
     window.disqus_config = function () {
   this.page.url = 'http://localhost:4000/home/errata/';
       this.page.identifier = 'http://localhost:4000/home/errata/';
 
       // FIX: Define the variable actually used in the if-statement below
-      var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
+      // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
+      var currentThemeForDisqus = document.body.getAttribute('data-theme') || 'dark';
 
       if (currentThemeForDisqus === 'light') {
         this.page.display_thread_theme = 'light';
@@ -397,11 +388,15 @@
             config: function () {
               // We call the global config using the context of the reset
               window.disqus_config.call(this);
+              this.page.display_thread_theme = newTheme; // <--- Add this line
             }
           });
           console.log('Disqus theme synchronized to: ' + newTheme);
         }
+      
+
       });
+
     }
 
     if (document.readyState === 'loading') {
