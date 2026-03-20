@@ -1481,7 +1481,7 @@ details[open] summary::before {
   .sidebar-toc {
     font-size: 0.6rem;    /* Shrink font from 0.7rem */
     width: 180px;         /* Narrow the container from 210px */
-    margin-left: -220px;  /* Pull it less far left from -260px */
+    margin-left: -210px;  /* Pull it less far left from -260px */
     opacity: 0.3;         /* Fade it slightly more to stay unobtrusive */
   }
 }
@@ -1490,9 +1490,9 @@ details[open] summary::before {
 @media screen and (max-width: 1049px) {
   .sidebar-toc {
     font-size: 0.5rem;    /* Tiny font for extreme narrow gutters */
-    width: 140px; 
-    margin-left: -170px;
-    padding-right: 8px;   /* Reduce padding to save space */
+    width: 135px; 
+    margin-left: -145px;
+    padding-right: 5px;   /* Reduce padding to save space */
   }
   
   .toc-title-link {
