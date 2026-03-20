@@ -16,7 +16,7 @@
   --hr-color: #D2B48C;
   --light-hr-color: #555;
   --nav-text-color: #eee;
-  --nav-border-color: #555;
+  --nav-border-color: #ffffff;
   --heading-color: #eee;ow 
   --paragraph-color: #eee;
   --papertitle-color: #eee;
@@ -804,8 +804,43 @@ section.post em strong, section > p em strong {
   justify-content: flex-end;
 }
 
-/* Theme Toggle Button */
+
+
+/* Make the theme toggle float on the top-right at all times */
 #theme-toggle-button {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 1000000 !important; /* Forces it to float above TOCs, math, and code blocks */
+  
+  /* Create a clean circular floating button */
+  background-color: var(--background-color) !important;
+  border: 1px solid var(--nav-border-color) !important;
+  border-radius: 50% !important;
+  width: 42px !important;
+  height: 42px !important;
+  
+  /* Center the icon inside the circle */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  /* Reset margins and add a shadow for depth */
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+#theme-toggle-button:hover {
+  border-color: var(--highlight-color) !important;
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+  color: var(--link-color);
+}
+
+
+/* Theme Toggle Button */
+/*#theme-toggle-button {
   background: none;
   border: none;
   color: var(--nav-text-color);
@@ -814,10 +849,13 @@ section.post em strong, section > p em strong {
   margin: 10px 0px;
   cursor: pointer;
   transition: color 0.3s ease;
-}
-#theme-toggle-button:hover {
+}*/
+
+/*#theme-toggle-button:hover {
   color: var(--link-color);
-}
+}*/
+
+
 /* Visually Hidden for Accessibility */
 .visually-hidden {
   position: absolute !important;
@@ -1467,4 +1505,29 @@ details[open] summary::before {
   .sidebar-toc {
     display: none !important; /* Finally hide when overlap is inevitable */
   }
+}
+
+#disqus_thread {
+  max-width: 600px;
+  margin: 50px auto 20px;
+  padding: 30px 0 0 0; /* Only top padding */
+  
+  border-top: 1px solid var(--nav-border-color); /* Single crisp line */
+}
+
+#disqus_thread {
+  max-width: 600px;
+  margin: 40px auto; /* 40px top/bottom pushes it away from the post */
+  padding: 30px;     /* Internal breathing room */
+  
+  background-color: var(--blockquote-background); /* Uses your theme's dark/light palette */
+  border: 2px solid var(--nav-border-color);
+  border-radius: 1px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
