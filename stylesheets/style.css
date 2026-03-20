@@ -465,7 +465,7 @@ section.post em strong, section > p em strong {
   flex-wrap: wrap; /* Allows columns to wrap below each other on smaller screens */
   align-items: flex-start; /* Aligns items to the top of the container */
   justify-content: space-between; /* Pushes columns to ends, or adds space between */
-  gap: 30px; /* Space between the columns */
+  gap: 50px; /* Space between the columns */
   margin-bottom: 30px; /* Space below this entire section */
   padding: 0 20px; /* Add internal padding for this section to match .content's side padding */
 }
@@ -474,6 +474,9 @@ section.post em strong, section > p em strong {
   flex: 2 1 60%; /* Allows this column to grow (2), shrink (1), and has a base width of 60% */
   min-width: 300px; /* Prevents text from becoming too narrow before wrapping */
   /* Remove any conflicting padding/margin from here */
+  /* ADD THESE TWO LINES */
+  text-align: justify;
+  text-justify: inter-word; /* Helps distribute spacing naturally between words */
 }
 
 .profile-image-column {
