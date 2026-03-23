@@ -601,6 +601,7 @@ section.post em strong, section > p em strong {
 .blogbody h6 {
   font-style: italic; /* Use true italics from imported font */
   color: var(--highlight-color);
+  letter-spacing: -0.05em;
 }
 .blogbody h1 { font-size: 24px; line-height: 35px; }
 .blogbody h2 { font-size: 24px; line-height: 35px; }
@@ -757,8 +758,8 @@ section.post em strong, section > p em strong {
   font-weight: 400 !important;
   font-variant: small-caps !important;
   text-transform: lowercase !important;
-  letter-spacing: 0.18em !important;
-  font-size: 16px !important; /* Shrunk down for elegance */
+  letter-spacing: 0.16em !important;
+  font-size: 20px !important; /* Shrunk down for elegance */
   color: var(--highlight-color) !important;
   margin-top: 3rem !important;
   margin-bottom: 1.5rem !important;
@@ -780,7 +781,7 @@ section.post em strong, section > p em strong {
   font-size: 14px !important;
   font-weight: 700 !important;
   font-style: italic !important;
-  letter-spacing: 0.02em !important;
+  letter-spacing: -0.02em !important;
   color: var(--heading-color) !important;
   margin-top: 2rem !important;
   margin-bottom: 1rem !important;
@@ -813,10 +814,11 @@ section.post em strong, section > p em strong {
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-weight: 800;
   font-size: 30;
+  font-style:italic;
   line-height: 1.5em;
   margin-bottom: 60px;
   color: var(--highlight-color);
-    font-variant: small-caps;
+  letter-spacing: -0.05em !important;
 }
 
 
