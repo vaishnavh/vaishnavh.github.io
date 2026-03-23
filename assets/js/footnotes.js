@@ -149,3 +149,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+
+
+/* ==========================================================================
+   Small Caps Subsections
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", function() {
+// Change this in footnotes.js
+  const postSections = document.querySelectorAll('.blogbody > p:first-of-type, .blogbody h2 + p, .blogbody h3 + p, .blog-post h2 + p, .blog-post h3 + p');
+  postSections.forEach(p => {
+    const text = p.innerHTML.trim();
+    const words = text.split(/\s+/); 
+
+    if (words.length >= 4) {
+      const firstFour = words.slice(0, 4).join(' ');
+      const rest = words.slice(4).join(' ');
+      
+      p.innerHTML = `<span class="intro-caps">${firstFour}</span> ${rest}`;
+    }
+  });
+});

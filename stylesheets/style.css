@@ -601,11 +601,10 @@ section.post em strong, section > p em strong {
 .blogbody h6 {
   font-style: italic; /* Use true italics from imported font */
   color: var(--highlight-color);
-  font-weight: 800;
 }
-.blogbody h1 { font-size: 24px; font-weight: 700; line-height: 35px; }
-.blogbody h2 { font-size: 24px; font-weight: 800; line-height: 35px; }
-.blogbody h3 { font-size: 20px; font-weight: 800; line-height: 20px; }
+.blogbody h1 { font-size: 24px; line-height: 35px; }
+.blogbody h2 { font-size: 24px; line-height: 35px; }
+.blogbody h3 { font-size: 20px;  line-height: 20px; }
 
 .blogbody b { color: var(--highlight-color); }
 
@@ -618,7 +617,12 @@ section.post em strong, section > p em strong {
 }
 
 
-
+.intro-caps {
+  font-variant: small-caps;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-size: 1em;
+}
 
 
 .blogbody blockquote {
@@ -725,7 +729,7 @@ section.post em strong, section > p em strong {
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-weight: 800;
   font-size: 30;
-  /*font-style: italic; */
+  font-style: italic; 
   line-height: 1.5em;
   margin-bottom: 60px;
   color: var(--highlight-color);
@@ -1004,11 +1008,15 @@ section.post em strong, section > p em strong {
   opacity: 1;
   transform: translateY(0);
 }
-.tooltip p {
-  color: var(--tooltip-text-color);
-  font-size: 10;
-}
 
+/*  FORCE ITALICS AND CORRECT TEXT UNITS HERE */
+.tooltip p {
+  color: var(--tooltip-text-color) !important;
+  font-size: 14px !important; /* Fixed missing 'px' and made readable */
+  font-style: italic !important; /* Overrides global normal paragraph styles */
+  margin: 0; /* Tightens up layout */
+  line-height: 1.4;
+}
 
 .post-navigation {
   display: flex;

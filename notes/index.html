@@ -46,7 +46,9 @@
 
 
 
-<link href='https://fonts.googleapis.com/css?family=IM Fell DW Pica|IM Fell DW Pica SC|IM Fell English|IM Fell English SC|IM Fell French Canon|IM Fell Great Primer|IM Fell Great Primer IT|IM Fell Double Pica|Libre Caslon Text|Jost' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=IM Fell DW Pica|IM Fell DW Pica SC|IM Fell English|IM Fell English SC|IM Fell French Canon|IM Fell Great Primer|IM Fell Great Primer SC|IM Fell Great Primer IT|IM Fell Double Pica|Libre Caslon Text|Jost|Instrument Serif' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer:400,400i&display=swap' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Instrument+Serif:400,400i&display=swap' rel='stylesheet'>
 
 
 <!--<link href='http://fonts.googleapis.com/css?family=Teko|Dosis:400,800|Economica|Josefin+Sans|Oswald|Indie+Flower|Pacifico|Roboto' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' /> -->
@@ -81,12 +83,6 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-<!-- for mathjax support -->
-
-
-
-<!-- for mathjax support -->
-
 
 
   </head>
@@ -96,6 +92,7 @@
 </header>
     <div id='container'>
       <div class="content">
+
             <nav>
 
   <div class="navigation">
@@ -115,7 +112,13 @@
     </div>
     </a>
   
-    <a href="/notes/index.html"  class="link">
+    <a href="/talks/index.html"  class="link">
+      <div class="title">
+      Talks
+    </div>
+    </a>
+  
+    <a href="/blog/index.html"  class="link">
       <div class="title">
       Blog
     </div>
@@ -134,9 +137,36 @@
 <ul>
   
     <li>
-      <span class="blogname"><a href="/2025/04/29/history-of-science/index.html">Why PhD students should read the history of science</a> (29 Apr 2025)  </span>
-      <!-- <p>Here’s a secret that I accidentally discovered during my PhD: consuming history-of-science content is an efficient way to hone your emotional maturity as a researcher.
-You’ll notice, even as you read two random pages from the history of science, the pages have an uncanny resemblance to each other, and to the one you’re writing. Here are some patterns:</p>
+      <span class="blogname"><a href="/blog/emotions-in-science//index.html">Emotional attachment in science</a> (18 Mar 2026)  </span>
+      <!-- <p>The ideal scientist, we have convinced ourselves, is a robot: dispassionate, in search of an objective truth, embarrassed by any attachment to their own ideas. An ideal so coveted, yet never attained! It is in fact flagrantly violated all the time: scientists deny or explain away every new piece of information depending on how it aligns with their way of viewing things; they write papers pushing methods they’re convinced are superior; they roll their eyes at lines of work they’ve developed a hatred towards; they jump at any opportunity to find tenuous connections to their own extremely important and groundbreaking body of work. Revered scientists in particular are dogmatic and defend their traditions beyond the weight of growing evidence, all in a grand abrasive way. There are modest scientists whom I deeply admire, but who too are, in an endearing way, emotionally attached to their ideas. Of course, I don’t exclude myself from any of these generalizations.</p>
+
+ -->
+    </li>
+  
+    <li>
+      <span class="blogname"><a href="/blog/joint-or-conditional//index.html">What does a language model model?</a> (27 Feb 2026)  </span>
+      <!-- <p><strong>TL;DR: Does the next-token logit track the conditional or the joint probability of the whole sequence?</strong></p>
+
+ -->
+    </li>
+  
+    <li>
+      <span class="blogname"><a href="/blog/high-dimensional-diff//index.html">Angles between high-dimensional vectors</a> (16 Dec 2025)  </span>
+      <!-- <p>Switch off your brain and answer this:</p>
+
+ -->
+    </li>
+  
+    <li>
+      <span class="blogname"><a href="/blog/research-philosophy//index.html">Research philosophy</a> (05 Dec 2025)  </span>
+      <!-- <hr />
+
+ -->
+    </li>
+  
+    <li>
+      <span class="blogname"><a href="/blog/history-of-science//index.html">Why PhD students should read the history of science</a> (29 Apr 2025)  </span>
+      <!-- <p>I accidentally discovered a trick during my PhD: reading the history of science is a powerful way to nurture your emotional maturity as a researcher. You’ll notice, even as you read two random pages from the history of science, the pages have an uncanny resemblance to each other, and to the one you’re writing!</p>
 
  -->
     </li>
@@ -162,7 +192,7 @@ You’ll notice, even as you read two random pages from the history of science, 
 
 					<br />
 					<br />
-  Built with Jekyll using Scribble.
+  Built with Jekyll (based off of Scribble).
   <br>
   <img src="/images/scribble2.png " alt="scribble" /> 
 </footer>
@@ -178,46 +208,74 @@ You’ll notice, even as you read two random pages from the history of science, 
     console.log('body:', body);
     console.log('currentTheme:', currentTheme);
 
-    const initializeTheme = () => {
-      const themeToggleButton = document.getElementById('theme-toggle-button');
-      const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
-      if (!themeToggleButton) {
-        console.error('Dark mode toggle element not found!');
-        return;
-      }
+   //  Define disqus_config globally or within a scope accessible by DISQUS.reset
+   //  A more robust way is to make it a named function or a property of window
+   //  so DISQUS.reset can find it.
+   // so DISQUS.reset can find it.
+    window.disqus_config = function () {
+  this.page.url = 'http://localhost:4000/notes/';
+      this.page.identifier = 'http://localhost:4000/notes/';
 
-      console.log('initializeTheme called, themeToggleButton:', themeToggleButton);
+      // FIX: Define the variable actually used in the if-statement below
+      // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
+      var currentThemeForDisqus = document.body.getAttribute('data-theme') || 'dark';
 
-      // Set initial theme based on local storage
-      if (currentTheme === 'light') {
-        body.setAttribute('data-theme', 'light');
-        themeToggleIcon.classList.remove('fa-sun');   // Switch to sun icon
-        themeToggleIcon.classList.add('fa-moon');
-        console.log('Setting light theme initially');
+      if (currentThemeForDisqus === 'light') {
+        this.page.display_thread_theme = 'light';
       } else {
-        body.setAttribute('data-theme', 'dark');  // Default to dark
-        themeToggleIcon.classList.remove('fa-moon');   // Switch to moon icon
-        themeToggleIcon.classList.add('fa-sun');
-        console.log('Setting default dark theme');
+        this.page.display_thread_theme = 'dark';
       }
-
-      // Add event listener for toggle change
-      themeToggleButton.addEventListener('click', function() {
-        console.log('Toggle clicked');
-        if (body.getAttribute('data-theme') === 'dark') {
-          body.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
-          themeToggleIcon.classList.remove('fa-sun');   // Switch to sun icon
-          themeToggleIcon.classList.add('fa-moon');
-        } else {
-          body.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
-          themeToggleIcon.classList.remove('fa-moon');   // Switch to moon icon
-          themeToggleIcon.classList.add('fa-sun');
-        }
-        console.log('body.getAttribute("data-theme"):', body.getAttribute('data-theme'));
-      });
     };
+
+    
+    const initializeTheme = () => {
+      const savedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark
+      body.setAttribute('data-theme', savedTheme);
+
+      if (savedTheme === 'light') {
+        themeToggleIcon.classList.replace('fa-sun', 'fa-moon');
+      } else {
+        themeToggleIcon.classList.replace('fa-moon', 'fa-sun');
+      }
+    };
+
+    /**
+     * 3. Handle Theme Toggle Click
+     */
+    if (themeToggleButton) {
+      themeToggleButton.addEventListener('click', function() {
+        const isDark = body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+
+        // Update Site UI
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // Update Icons
+        if (newTheme === 'light') {
+          themeToggleIcon.classList.replace('fa-sun', 'fa-moon');
+        } else {
+          themeToggleIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // --- DISQUS THEME RESET ---
+        // This forces Disqus to re-read window.disqus_config
+        if (typeof DISQUS !== 'undefined') {
+          DISQUS.reset({
+            reload: true,
+            config: function () {
+              // We call the global config using the context of the reset
+              window.disqus_config.call(this);
+              this.page.display_thread_theme = newTheme; // <--- Add this line
+            }
+          });
+          console.log('Disqus theme synchronized to: ' + newTheme);
+        }
+      
+
+      });
+
+    }
 
     if (document.readyState === 'loading') {
       document.addEventListener('readystatechange', function() {
