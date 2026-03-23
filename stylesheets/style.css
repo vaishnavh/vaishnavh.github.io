@@ -742,18 +742,49 @@ section.post em strong, section > p em strong {
   font-family: "IM Fell Great Primer";
 }
 
-.subheading {
+/*.subheading {
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-weight: 800;
   font-optical-sizing: auto;
   font-size: var(--main-page-subheading-fontsize);
   color: var(--highlight-color)
+}*/
+
+
+/* 🏛️ Main Section Heading (e.g., Selected Publications) */
+.subheading {
+  font-family: "Futura", sans-serif !important; /* Modern sans-serif cuts through the serif body beautifully */
+  font-weight: 400 !important;
+  font-variant: small-caps !important;
+  text-transform: lowercase !important;
+  letter-spacing: 0.18em !important;
+  font-size: 16px !important; /* Shrunk down for elegance */
+  color: var(--highlight-color) !important;
+  margin-top: 3rem !important;
+  margin-bottom: 1.5rem !important;
+  display: block;
+  border-bottom: 1px solid var(--nav-border-color);
+  padding-bottom: 8px;
 }
-.subsubheading {
+
+/*.subsubheading {
   font-family: "IM Fell Great Primer", Georgia, serif;
   text-transform: uppercase;
   font-size: 18;
   color: var(--heading-color);
+}*/
+
+/* 🏛️ Subsection (e.g., Conference Papers vs Workshops) */
+.subsubheading {
+  font-family: "IM Fell Great Primer", Georgia, serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  letter-spacing: 0.02em !important;
+  color: var(--heading-color) !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  display: block;
 }
 
 .papertitle {
@@ -782,11 +813,14 @@ section.post em strong, section > p em strong {
   font-family: "IM Fell Great Primer", Georgia, serif;
   font-weight: 800;
   font-size: 30;
-  font-style: italic; 
   line-height: 1.5em;
   margin-bottom: 60px;
   color: var(--highlight-color);
+    font-variant: small-caps;
 }
+
+
+
 
 /* ==========================================================================
    8. Navigation Bar (Refined based on previous discussions)
@@ -1254,6 +1288,15 @@ ul.posts .series-parts-list li a:hover {
     font-weight: normal; /* Ensures it's not bold */
 }
 
+.last-updated {
+  font-family: "Futura", "Helvetica Neue", sans-serif !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: var(--post-date-color) !important;
+  font-weight: 500 !important;
+  opacity: 0.7;
+}
 
 
 /* Style the container */
