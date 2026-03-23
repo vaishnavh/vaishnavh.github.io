@@ -1595,3 +1595,100 @@ details[open] summary::before {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+
+/* Blog landing page */ 
+
+/* Container for the scholarly Table of Contents */
+.academic-toc {
+  max-width: 650px;
+  margin: 0 auto;
+  font-family: "IM Fell Great Primer", Georgia, serif;
+}
+
+.toc-category-block {
+  margin-bottom: 3rem;
+}
+
+/* Category Header: Small caps, spaced out, petite */
+.toc-category-title {
+  font-size: 14px !important;
+  font-family: "Futura", "Helvetica Neue", sans-serif !important; /* A sans-serif contrast works beautifully for headers in academic texts */
+  font-variant: small-caps !important;
+  text-transform: lowercase !important;
+  letter-spacing: 0.15em !important;
+  font-weight: 600 !important;
+  color: var(--highlight-color) !important;
+  margin-bottom: 5px !important;
+  border: none !important;
+  font-style: normal !important;
+}
+
+/* Category Description */
+.toc-category-description {
+  font-size: 14px !important;
+  font-style: italic !important;
+  line-height: 1.4 !important;
+  color: var(--text-color) !important;
+  opacity: 0.7;
+  margin: 0 0 15px 0 !important;
+}
+
+.toc-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.toc-item {
+  margin-bottom: 6px !important;
+  padding: 0 !important;
+}
+
+.toc-link {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+  width: 100% !important;
+  text-decoration: none !important;
+  color: var(--text-color) !important;
+}
+
+/* Title is shrunk down, removing the aggressive italic italics */
+.toc-title {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  flex-shrink: 0;
+}
+
+.toc-link:hover .toc-title {
+  color: var(--link-color) !important;
+  text-decoration: underline;
+}
+
+/* This creates the classic book dot-leader connecting title to date */
+.toc-filler {
+  flex-grow: 1;
+  border-bottom: 1px dotted var(--nav-border-color);
+  opacity: 0.3;
+  margin: 0 10px;
+}
+
+.toc-date {
+  font-size: 8px !important;
+  font-family: "Futura", sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: var(--post-date-color) !important;
+  flex-shrink: 0;
+}
+
+/* Abstract if you decide to add it */
+.toc-abstract {
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  opacity: 0.6;
+  margin: 2px 0 10px 0 !important;
+  padding-left: 15px;
+}
