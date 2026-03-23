@@ -616,6 +616,11 @@ section.post em strong, section > p em strong {
   margin-bottom: 5px;
 }
 
+.blogbody p {
+  hyphens: auto;
+  text-wrap: pretty; /* Prevents single words from sitting alone on the last line */
+}
+
 
 .intro-caps {
   font-variant: small-caps;
@@ -623,7 +628,6 @@ section.post em strong, section > p em strong {
   letter-spacing: 0.05em;
   font-size: 1em;
 }
-
 
 .blogbody blockquote {
   -webkit-transition: all, 0.3s;
@@ -648,11 +652,28 @@ section.post em strong, section > p em strong {
   overflow: hidden;
 }
 
+.blogbody blockquote {
+  border-left: 2px solid var(--highlight-color);
+  background-color: rgba(184, 106, 80, 0.05); /* Very subtle tint of your link color */
+  padding: 1rem 1.5rem;
+  font-variant-numeric: oldstyle-nums; /* Makes numbers look "hand-written" */
+}
+
 
 .blogbody blockquote p {
   color: var(--blockquote-text);
   font-weight: 800;
   font-size: 17px;
+}
+
+.blogbody::after {
+  content: "❦"; /* Or "Q.E.D." */
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--highlight-color);
+  margin-top: 2rem;
+  opacity: 0.5;
 }
 
 
@@ -676,6 +697,38 @@ section.post em strong, section > p em strong {
   font-variant-caps: small-caps; /* For small caps effect */
 }
 
+
+/* 1. Initialize the counter at the top of the blog */
+.blogbody {
+  counter-reset: section-h2;
+}
+
+/* 2. When we hit an H2, increment it and reset the H3 counter beneath it */
+.blogbody h2 {
+  counter-increment: section-h2;
+  counter-reset: section-h3;
+}
+
+/* 3. Prepend the number to the H2 */
+.blogbody h2::before {
+  content: counter(section-h2) ". ";
+  color: var(--highlight-color); /* Matches your theme's accent */
+  font-family: "IM Fell Great Primer SC", serif; /* Uses your small-caps */
+  margin-right: 0.5rem;
+}
+
+/* 4. When we hit an H3, increment it */
+.blogbody h3 {
+  counter-increment: section-h3;
+}
+
+/* 5. Prepend the compound number (e.g., 1.2) to the H3 */
+.blogbody h3::before {
+  content: counter(section-h2) "." counter(section-h3) " ";
+  color: var(--highlight-color);
+  font-size: 0.9em;
+  margin-right: 0.5rem;
+}
 
 
 /* ==========================================================================
