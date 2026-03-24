@@ -1707,10 +1707,15 @@ details[open] summary::before {
   flex-shrink: 0;
 }
 
+
+
+/* 🕯️ Remove the underline and gently illuminate the title on hover */
 .toc-link:hover .toc-title {
-  color: var(--link-color) !important;
-  text-decoration: underline;
+  color: var(--highlight-color) !important;
+  text-decoration: none !important; /* Removes the underline */
+  transition: color 0.2s ease; /* Makes the illumination feel "gentle" */
 }
+
 
 /* This creates the classic book dot-leader connecting title to date */
 .toc-filler {
