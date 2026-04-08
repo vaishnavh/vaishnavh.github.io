@@ -356,11 +356,13 @@ a, .as-link {
   -o-transition: color 0.3s;
   transition: color 0.3s;
 }
+
 a:hover, .as-link:hover { /* Consolidated hover for all links */
   color: var(--link-hover-color); /* Consider variable:  */
   text-decoration: underline;
   background-image: none; /* Remove any background image underline */
 }
+
 a.main:hover, .as-link.main:hover { /* If specific .main hover needs unique style */
     /* Adjust or remove if not needed */
 }
@@ -599,9 +601,18 @@ section.post em strong, section > p em strong {
 .blogbody h4,
 .blogbody h5,
 .blogbody h6 {
-  font-style: italic; /* Use true italics from imported font */
+  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-size: 18px !important;
+  /*font-variant: small-caps !important;*/
+  /*letter-spacing: 0.15em !important;*/
+  color: var(--highlight-color) !important;
+  margin-bottom: 5px !important;
+  border: none !important;
+  font-style: normal !important;
+  font-weight: 600;
+  /*font-style: italic; */
   color: var(--highlight-color);
-  letter-spacing: -0.05em;
+  /*letter-spacing: -0.05em;*/
 }
 .blogbody h1 { font-size: 24px; line-height: 35px; }
 .blogbody h2 { font-size: 24px; line-height: 35px; }
@@ -820,7 +831,8 @@ section.post em strong, section > p em strong {
   line-height: 1.5em;
   margin-bottom: 60px;
   color: var(--highlight-color);
-  letter-spacing: -0.05em !important;
+  /*letter-spacing: -0.05em !important;*/
+  
 }
 
 
@@ -1089,6 +1101,7 @@ section.post em strong, section > p em strong {
   transform: translateY(5px);
   font-style: italic;
 }
+
 .tooltip::after {
   content: "";
   position: absolute;
@@ -1509,6 +1522,7 @@ details[open] summary::before {
 .footnotes {
     font-size: 15px; /* Adjust this value to your preferred smaller size */
 }
+
 
 /* Ensure the list items and paragraphs within the footnotes inherit the size */
 .footnotes ol li, 

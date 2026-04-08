@@ -7,6 +7,125 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Can a text-only model ever understand things the way we see?</title>
+        <description>&lt;h2 id=&quot;the-question&quot;&gt;The question&lt;/h2&gt;
+
+&lt;p&gt;“Do language models truly understand things or are they just deceiving us by pattern-matching”? I find this phrasing too vaguely and weakly posed in the face of the tremendous capabilities of language models to yield useful insight. A more fruitful phrasing I like to entertain is the following two-part question:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;The circle question(s):&lt;/strong&gt;&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Can a model that has only been trained on text and can only interact in a textual medium, correctly answer every possible question about a circle in text?&lt;/li&gt;
+    &lt;li&gt;If yes, does such a model &lt;em&gt;understand&lt;/em&gt; the circle in the same way a correctly-answering, vision-possessing human can? (If not, it is trivially clear that the model doesn’t understand the circle like that human does.)&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This line of questioning has disentangled two concerns. The first concern is about whether vision/spatial reasoning is a necessary component for correctness (about a circle).  The other concern is about how “understanding” is related to correctness. I use “understand” in the somewhat concrete sense of “how we internally represent and manipulate information”. Notably, the question asks us not whether “a true understanding” has been achieved, but simply whether two different understandings correspond with each other. The question also grounds our concerns on a concrete object (circle) and is directed towards a concrete metric (correctness) of practical concern. This means we won’t be chasing questions of purely philosophical concern (such as “what really is meaning?” etc.,). We may even be able to do a bit of math with this.&lt;/p&gt;
+
+&lt;h2 id=&quot;three-possible-answers&quot;&gt;Three possible answers&lt;/h2&gt;
+
+&lt;p&gt;To set the stage of the debate, let me introduce three actors with three different answers to the circle questions.&lt;/p&gt;
+
+&lt;p&gt;The optimist says “(1) Yes and (2) therefore, yes”. Yes, the language model &lt;em&gt;can&lt;/em&gt; answer every possible question about a circle correctly. Even if present-day models cannot, this is achievable. Such a perfect model &lt;em&gt;necessarily&lt;/em&gt; has to have the same understanding of a circle that a human does. When there is perfection in the answers of the model and the human, it means there is no difference in the internal processes of a text-only  model and a spatio-linguistically-abled human. There is only one correct and complete way to understand a circle, and language-only models can ultimately achieve that.&lt;/p&gt;
+
+&lt;p&gt;The skeptic says “(1) No, and (2) therefore, no”. A model that has only been trained on textual descriptions of a circle may seem like it answers many research-level questions we throw at it; but there shall come a day when a deviously-crafted question is posed to the model finally exposing the model’s charade! This is all because the model does not internally represent and manipulate the circle the same spatio-linguistic way a human does.&lt;/p&gt;
+
+&lt;p&gt;Observe that the skeptic and the optimist do agree on something: that there is one “true, complete understanding” for there to be correctness; what they disagree on is whether a language-only model can get there. Our next character will deviate from this shared opinion.&lt;/p&gt;
+
+&lt;p&gt;The pluralist says “(1) Yes and (2) yet, no”. A language-only model may indeed answer every question about a circle correctly. Yet, it may not have the holistic spatio-linguistic understanding that a human does. This paradox is possible because the model can arrive at perfect answers about the circle through multiple different ways of representation-manipulation! When pressured a bit, the pluralist may concede that the language model, although correct, is inefficient: its solution is potentially convoluted by extensive calculations for certain questions, questions that a human solves much more deftly through space wizardry. The pluralist may also concede that there is &lt;em&gt;more&lt;/em&gt; to a human’s understanding of a circle than an AI model, even if this excess does not affect the model’s answers in a textual conversation.&lt;/p&gt;
+
+&lt;p&gt;With these characters in place, let me introduce the various plot lines in the story.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-chicken-and-egg-problem-of-a-dictionary&quot;&gt;The chicken-and-egg problem of a dictionary&lt;/h2&gt;
+
+&lt;p&gt;The beauty of the circle question lies in the following chicken-and-egg problem&lt;sup id=&quot;fnref:symbolgrounding&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:symbolgrounding&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. If we wear the optimist’s hat, it may seem that really, nothing is lacking in language: everything from a circle to dark matter is describable in language, sufficiently enough to reason. A circle is simply “the set of points equidistant from a single point in 2D space” from which I can derive a million facts to torture a high-school student with. So, with a highly-informative training dataset where every object’s appearances are described, and with the right training method, a language model can imbibe the “true and full” understanding of a circle, and this understanding would have one-to-one correspondence with the representations and manipulations that a human engages in.&lt;/p&gt;
+
+&lt;p&gt;“Excellent”, the skeptic says; but “What is equidistant? And pray tell, what is a point”? The optimist believes that too is linguistically describable: equidistant means equal distances, and a point is a zero-dimensional object, almost like a single pixel in a vast space of pixels. “But what is a pixel? What is this space thing you talk of? What on earth is a dimension?” The skeptic argues that there is no way to describe images in the form of text upon text upon text without ultimately having to rely on some spatial medium!&lt;/p&gt;
+
+&lt;p&gt;The optimist points out that the existence of the English dictionary is direct evidence that this circularity can be resolved. But the skeptic is quick to object: when it comes to the most atomic words in a dictionary (like “pain” or “big” or “orange”), a human internally represents those definitions by recalling their physical experiences, and such extrinsic information is required for reasoning and correctness. Thus, the self-referential labyrinth of text seems grossly incompetent to capture, of various things, information contained in vision and space. The skeptic adds “It is as doomed as trying to express imaginary numbers with integers and addition, without having a conception of negative numbers or a square root function.”&lt;/p&gt;
+
+&lt;h2 id=&quot;spectral-representations-of-cardinal-directions&quot;&gt;Spectral representations of cardinal directions&lt;/h2&gt;
+
+&lt;p&gt;The optimist stops the skeptic in their tracks with one concrete instance where the chicken-and-egg problem is resolved in visceral fashion. They ask:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Can a language model figure out a representation of the cardinal directions?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Consider a simple dataset where a model when given a cardinal direction (“north”) must produce as output one of the adjacent cardinal directions (“east” or “west”) with equal probability. Given these non-spatial symbols, one can show that even a childish two-layer model trained on this dataset, with no spatial experience, ends up representing the four terms along four orthogonal directions in the right order. Key to this is some “spectral dynamics” in gradient-descent-trained multi-layer models.&lt;/p&gt;
+
+&lt;p&gt;To researchers immersed in interpretability, this is all old and obvious news; grander versions of this have been observed: models embed arithmetic symbols along a helix, reconstruct a world map of cities, embed months in a 2D cycle and so on. But these observations should register as profound to the philosopher looking at it all from the sky: a resolution to the hopeless conundrum in a dictionary surprisingly lies in the magic of an concrete mathematical object (gradient descent and deep learning), an object that has no power of sight or even no conception of what space or vision is.&lt;/p&gt;
+
+&lt;p&gt;The skeptic raises an objection. What these examples show is a language model’s ability to visualize &lt;em&gt;relationships&lt;/em&gt;. Can a model somehow imagine &lt;em&gt;absolute&lt;/em&gt; things like what “a point” is, or what “a space” is, or what “size” is, or what “occlusion” is? Which then raises the other concern (which I had disentangled): is being able to imagine such absolute things even necessary to answer all questions pertinent to them, including deviously-posed ones, or can one get by without such visualizations?&lt;/p&gt;
+
+&lt;h2 id=&quot;humans-and-four-dimensions&quot;&gt;Humans and four-dimensions&lt;/h2&gt;
+
+&lt;p&gt;Try as we might, humans cannot visualize a four-dimensional sphere or a four-dimensional Gaussian distribution. We can at best obtain narrow glimpses of such objects by thinking about how parts of them would look like under special conditions e.g., if a 4D object were to pass through our universe, we would see a sphere appear out of nowhere, enlarge gradually, and then shrink gradually before disappearing nowhere;most volume in a hypercube is concentrated in its corners; sampling from a Gaussian is like picking points at random on a thin shell. We are the parabolic four men sensing four different parts of an elephant.&lt;/p&gt;
+
+&lt;p&gt;With this insight, the otherwise pluralist makes their first point: although none of us can witness the elephant in its complete magnificent form, we still seem to answer each individual question about the elephant. We succeed at writing gory equations computing the volume of n-dimensional objects, we know what is the end result of rotating and scaling  256 dimensional vectors, and we know the eigenvectors of a 1000 by 1000 matrix. For simple 2- or 3-dimensional objects, perhaps we use both visual and linguistic understanding, and visual understanding  makes our calculations faster. But dwelling on higher dimensional objects suggests that visual understanding is not even necessary to achieve correctness. 
+(But the skeptic still wonders: are we sure we can really answer &lt;em&gt;all&lt;/em&gt; questions about such high-dimensional objects?)&lt;/p&gt;
+
+&lt;h2 id=&quot;shut-up-and-calculate&quot;&gt;Shut up and calculate&lt;/h2&gt;
+
+&lt;p&gt;The pluralist continues with a more vivid, thought experiment. How would a model  answer the question “Which is heavier: 1 kilogram of feather or 1 kilogram of iron?”. To reason through this correctly, a model does not need to have any extra-textual understanding of what “heavy” feels like. It merely needs to reason that “the feeling of heaviness, whatever it may be, is (as my training text tells me) is proportionate to mass; 1kg mass equals 1 kg mass; heaviness must be the same”. In fact, this verbalization is precisely how correctly-answering humans end up processing—they rely not on tactile reasoning! Now, do we label label such “text-only” reasoning as  “deceptive pattern-matching”? Likewise, the pluralist says, there are multiple routes to an answer, and furthermore, text-only models can find at least one route to every answer, yet we must also acknowledge that text-only models can miss something in human understanding.&lt;/p&gt;
+
+&lt;p&gt;The pluralist adds that this is the “Shut up and calculate” school-of-thought in quantum mechanics. Concepts in quantum mechanics (such as wave-particle duality) are beyond our capacity to visualize or experience; yet, we have been able to abandon any attempts to derive visual or experiential meaning out of it, and instead just do the math to reason about it. Likewise, a text-only model can do all sorts of math and physics. (The skeptic wonders though, what developments in physics may be stalled by the human inability to grasp quantum mechanics.)&lt;/p&gt;
+
+&lt;h2 id=&quot;epiphenomenon&quot;&gt;Epiphenomenon&lt;/h2&gt;
+
+&lt;p&gt;The pluralist, now developing some courage from their varied thought experiments, proposes an even stronger separation between visual understanding and correctness.
+ Visual understanding, at least when answering questions that can be verified in text, may be some sort of &lt;em&gt;epiphenomenon&lt;/em&gt;. The concept is most commonly used in the p-zombie thought experiment in consciousness. The experiment is this: assuming there is physically a human-looking thing that is also human-behaving; if you poke it, it behaves the same way your friend would—“ouch!”. Is such a thing necessarily conscious or is it just deceiving us?  If you say this is a deception, then you’re suggesting that humans are conscious but the consciousness really plays no role in our behaviors; epiphenomenalists compare consciousness to the spokesperson for the government reporting ongoings but never playing a causal role in them.&lt;/p&gt;
+
+&lt;p&gt;Likewise, the courageous pluralist, convinced by human prowess in high-dimensional linear algebra and quantum mechanics announces that visual/spatial understanding may even be epiphenomenal in light of linguistic descriptions. Perhaps, humans answer questions about circles under the illusion of visual thinking, when in fact, at some level it is all step-by-step manipulation of text, where we apply one textual theorem after the other. Visual thinking is just a nice invention to compress and remember what textual process we carried out in hindsight.&lt;/p&gt;
+
+&lt;p&gt;This is quickly objected though. When a human solves a 10-dimensional problem, are they purely relying on text, or are they extrapolating from lower-dimensional visual understanding? It is misleading to say that visual thinking is &lt;em&gt;non-existent&lt;/em&gt; in the high-dimensional mathematician. A poor man’s 3D visual thinking is still visual thinking that a text-only model lacks, but may aid him in his high-dimensional algebra.&lt;/p&gt;
+
+&lt;h2 id=&quot;aphantasia-anendophasia-molyneuxs-problem&quot;&gt;Aphantasia, Anendophasia, Molyneux’s problem&lt;/h2&gt;
+
+&lt;p&gt;The debate then continues into &lt;em&gt;aphantasia&lt;/em&gt; (the phenomenon where a human does not use mental imagery) and &lt;em&gt;anendophasia&lt;/em&gt;&lt;sup id=&quot;fnref:anendophasia&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:anendophasia&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; (where a human does not have an internal monologue). Do people who experience such phenomena fare differently in different types of tasks? Does that tell us something about how understanding is necessary (or not) for correctness?&lt;/p&gt;
+
+&lt;p&gt;The discussion further veers off into a tangent about the three-hundred-year-old &lt;a href=&quot;https://en.wikipedia.org/wiki/Molyneux%27s_problem&quot;&gt;Molyneux’s problem&lt;/a&gt;.
+Can a person who was born blind and can &lt;em&gt;feel&lt;/em&gt; the shapes of spheres and cubes, later distinguish those objects &lt;em&gt;visually&lt;/em&gt; when they have sight? The question here is not so much about linguistic understanding, but more about how tactile understanding can transfer over to vision.&lt;/p&gt;
+
+&lt;p&gt;Modern &lt;a href=&quot;https://news.mit.edu/2011/vision-problem-0411&quot;&gt;studies&lt;/a&gt; suggest humans don’t immediately recognize the difference when they acquire vision. The skeptic uses this study to suggest that it says something about the second question: this study is evidence that there &lt;em&gt;is&lt;/em&gt; some thing unique in vision data that perhaps other modalities, at least touch, cannot provide. The optimist who reads the full study however notices that those humans were reportedly able to acquire the visual discriminative power only a few days after acquiring vision. This tremendous learning rate can only be possible if rich vision-friendly representations already existed from the humans’ non-visual experience since birth; the human simply had to have learned a “simple linear discriminator” of sorts in those few days.&lt;/p&gt;
+
+&lt;p&gt;The skeptic is unconvinced. This positive result says nothing about language models: the human who did not have vision was still embodied and had tactile powers. They always &lt;em&gt;felt&lt;/em&gt; what a point is (it is a pinprick), while a language model can only read textual descriptions of what a point is. The tactile pinprick feels much closer to the visual experience of a pixel than how the textual description of a pixel sounds! (What does this even mean mathematically?) Thus, the skeptic realizes this human experiment is too confounded for a debate about language.&lt;/p&gt;
+
+&lt;h2 id=&quot;colors&quot;&gt;Colors&lt;/h2&gt;
+
+&lt;p&gt;At some point, a different flavor of the circle question is brought up:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;The color question:&lt;/strong&gt; Can a model that has only been trained on text  (a) correctly answer every possible question about red in the same way a human would (e.g., questions about the way red mixes with other colors, its wavelength, what objects are red, how good red looks against other colors)? (b) If yes, does it &lt;em&gt;understand&lt;/em&gt; red that way a human with vision can?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Similar variants can be asked of “sweetness”, “texture” and all that. This is essentially the &lt;a href=&quot;https://en.wikipedia.org/wiki/Knowledge_argument&quot;&gt;Mary, the Colour Scientist experiment&lt;/a&gt;, although with slightly different intentions.&lt;/p&gt;
+
+&lt;p&gt;The moderator however believes that this is misleading territory that opens up a can of worms about consciousness, rather than sticking to more sterile worms about understanding, representations and correctness. There is something qualitatively different between redness and circle-ness. Redness, heat, and sweetness are all qualia; our answers about them may or may not depend on our subjective experience of them, rather than their inherent physical properties (like wavelength, friction etc.,). That is a separate question!&lt;/p&gt;
+
+&lt;p&gt;The circle is nicer. It is clear that when we reason about a circle, we do not rely on some metaphysical experience of the circle. We rely only on the pixels and the text descriptions. So the moderator brings the debate back to the circle.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h4&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:symbolgrounding&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Which I believe closely parallels the more philosophical &lt;a href=&quot;https://en.wikipedia.org/wiki/Symbol_grounding_problem&quot;&gt;symbol grounding problem&lt;/a&gt; &lt;a href=&quot;#fnref:symbolgrounding&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:anendophasia&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;This term was introduced this 2024  &lt;a href=&quot;https://journals.sagepub.com/doi/10.1177/09567976241243004&quot;&gt;paper&lt;/a&gt;. &lt;a href=&quot;#fnref:anendophasia&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Mon, 30 Mar 2026 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/blog/what-llms-see/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/what-llms-see/</guid>
+      </item>
+    
+      <item>
         <title>Emotional attachment in science</title>
         <description>&lt;p&gt;The ideal scientist, we have convinced ourselves, is a robot: dispassionate, in search of an objective truth, embarrassed by any attachment to their own ideas. An ideal so coveted, yet never attained! It is in fact flagrantly violated all the time: scientists deny or explain away every new piece of information depending on how it aligns with their way of viewing things; they write papers pushing methods they’re convinced are superior; they roll their eyes at lines of work they’ve developed a hatred towards; they jump at any opportunity to find tenuous connections to their own extremely important and groundbreaking body of work. Revered scientists in particular are dogmatic and defend their traditions beyond the weight of growing evidence, all in a grand abrasive way. There are modest scientists whom I deeply admire, but who too are, in an endearing way, emotionally attached to their ideas. Of course, I don’t exclude myself from any of these generalizations.&lt;/p&gt;
 
