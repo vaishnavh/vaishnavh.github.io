@@ -1,3 +1,25 @@
+
+
+/* Create a custom offline font that maps all heavy weights to the Regular local file */
+@font-face {
+  font-family: 'OfflineAcademic';
+  src: local('Hoefler Text'), local('Baskerville'), local('Georgia');
+  font-weight: 400; /* Regular */
+}
+
+@font-face {
+  font-family: 'OfflineAcademic';
+  src: local('Hoefler Text'), local('Baskerville'), local('Georgia');
+  font-weight: 700; /* When CSS asks for Bold, force it to use Regular */
+}
+
+@font-face {
+  font-family: 'OfflineAcademic';
+  src: local('Hoefler Text'), local('Baskerville'), local('Georgia');
+  font-weight: 800; /* When CSS asks for Extra Bold, force it to use Regular */
+}
+
+
 /* ==========================================================================
    1. Theme Variables
    ========================================================================== */
@@ -17,7 +39,7 @@
   --light-hr-color: #555;
   --nav-text-color: #eee;
   --nav-border-color: #ffffff;
-  --heading-color: #eee;ow 
+  --heading-color: #eee; 
   --paragraph-color: #eee;
   --papertitle-color: #eee;
   --conference-color: #ccc;
@@ -99,7 +121,7 @@ html, body {
 body {
   background: var(--background-color);
   color: var(--text-color);
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -122,7 +144,7 @@ img {
 /* Global Headings */
 h1, h2, h3, h4, h5, h6 {
   margin: 10px auto;
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   text-rendering: optimizelegibility;
   line-height: 1.2em;
   color: var(--heading-color);
@@ -138,7 +160,7 @@ h6 { font-size: 14px; font-weight: 500; }
 
 /* Paragraphs */
 p {
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-size: 18px;
   font-style: normal;
   font-variant: normal;
@@ -149,7 +171,7 @@ p {
 
 /* Bold and Strong text */
 b {
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-size: 18px;
   font-style: normal;
   font-variant: normal;
@@ -158,7 +180,7 @@ b {
   color: var(--text-color);
 }
 strong {
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-size: 15px;
   font-style: normal;
   font-variant: normal;
@@ -171,7 +193,7 @@ strong {
 /* Blockquote */
 blockquote {
   margin: 0;
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-size: 21px; /* Default size, will be overridden by more specific rules */
   font-style: italic;
   font-weight: 400;
@@ -180,7 +202,6 @@ blockquote {
   background: var(--blockquote-background);
   /* Do NOT set font-style: normal !important; here */
 }
-
 
 
 /* Preformatted text (e.g., code blocks) */
@@ -192,7 +213,7 @@ pre {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "IM Fell Great Primer", Georgia, serif; /* Consider a monospace font here */
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif; /* Consider a monospace font here */
   font-size: 13px;
   font-style: normal;
   font-variant: normal;
@@ -574,7 +595,7 @@ section.post em strong, section > p em strong {
 
 .blogbody li, p {
   color: var(--paragraph-color); /* Inherit color from paragraph variable */
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-style: normal;
   font-weight: 800;
   font-size: 17px;
@@ -582,7 +603,7 @@ section.post em strong, section > p em strong {
 
 
 .blogbody strong {
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-size: 17px;
   font-style: normal;
   font-variant: normal;
@@ -601,8 +622,8 @@ section.post em strong, section > p em strong {
 .blogbody h4,
 .blogbody h5,
 .blogbody h6 {
-  font-family: "IM Fell Great Primer", Georgia, serif;
-  font-size: 18px !important;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  /* font-size: 18px !important; */
   /*font-variant: small-caps !important;*/
   /*letter-spacing: 0.15em !important;*/
   color: var(--highlight-color) !important;
@@ -615,7 +636,7 @@ section.post em strong, section > p em strong {
   /*letter-spacing: -0.05em;*/
 }
 .blogbody h1 { font-size: 24px; line-height: 35px; }
-.blogbody h2 { font-size: 24px; line-height: 35px; }
+.blogbody h2 { font-size: 22px; line-height: 35px; }
 .blogbody h3 { font-size: 20px;  line-height: 20px; }
 
 .blogbody b { color: var(--highlight-color); }
@@ -656,7 +677,7 @@ section.post em strong, section > p em strong {
   margin: 2em auto;
   max-width: 75%;
   display: block;
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
 
   font-style: italic; /* Keep this here to ensure it's italic, even if default is not */
   /* --- Existing Position/Overflow for the triangle pseudo-elements --- */
@@ -670,6 +691,7 @@ section.post em strong, section > p em strong {
   padding: 1rem 1.5rem;
   font-variant-numeric: oldstyle-nums; /* Makes numbers look "hand-written" */
 }
+
 
 
 .blogbody blockquote p {
@@ -690,7 +712,7 @@ section.post em strong, section > p em strong {
 
 
 .blogbody blockquote strong {
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-weight: 700; /* Ensure it's bold if you want it */
   color: var(--highlight-color); /* You can use your highlight color or a new one */
   /* Add any other styles you want for strong text within blockquotes here */
@@ -699,6 +721,26 @@ section.post em strong, section > p em strong {
   /* padding: 0 2px; */
   /* border-radius: 3px; */
 }
+
+
+
+/* Compact Bullet Lists inside Blockquotes */
+.blogbody blockquote ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.blogbody blockquote ul li {
+  margin-bottom: 0.2rem; /* Tighter space between individual bullets */
+  line-height: 1.4;      /* Tighter line-height for multi-line text */
+}
+
+/* Kills the massive spacing caused by Markdown injecting <p> tags into lists */
+.blogbody blockquote ul li p {
+  margin-bottom: 0;
+  display: inline; /* Keeps the text perfectly inline with your new custom bullet marks */
+}
+
 
 
 .bq-title {
@@ -732,6 +774,7 @@ section.post em strong, section > p em strong {
 /* 4. When we hit an H3, increment it */
 .blogbody h3 {
   counter-increment: section-h3;
+  counter-reset: section-h4;
 }
 
 /* 5. Prepend the compound number (e.g., 1.2) to the H3 */
@@ -740,6 +783,51 @@ section.post em strong, section > p em strong {
   color: var(--highlight-color);
   font-size: 0.9em;
   margin-right: 0.5rem;
+}
+
+/* 6. When we hit an H4, increment it */
+.blogbody h4 {
+  counter-increment: section-h4;
+}
+
+/* 7. Prepend the compound number (e.g., 1.2.1) to the H4 */
+.blogbody h4::before {
+  content: counter(section-h2) "." counter(section-h3) "." counter(section-h4) " ";
+  color: var(--highlight-color);
+  font-size: 0.8em; /* Slightly smaller than H3 prefix */
+  margin-right: 0.5rem;
+}
+
+
+
+/* Custom Academic Bullets for Unordered Lists */
+.blogbody ul {
+  list-style-type: none; /* Removes the default black dots */
+  padding-left: 0;       /* Resets default browser indent */
+}
+
+.blogbody ul li {
+  position: relative;
+  padding-left: 1.5rem;  /* Creates space for the custom bullet */
+  margin-bottom: 0.5rem;
+}
+
+/* The custom bullet symbol */
+.blogbody ul li::before {
+  content: "⬩"; /* 🪶 Swap this out for your chosen symbol */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--highlight-color); 
+  font-family: "IM Fell Great Primer", serif; 
+  font-size: 1.1em;
+  line-height: inherit;
+}
+
+/* For nested lists, use a simpler symbol so it doesn't get cluttered */
+.blogbody ul ul li::before {
+  content: "—"; /* Em dash for sub-bullets */
+  opacity: 0.7;
 }
 
 
@@ -755,7 +843,7 @@ section.post em strong, section > p em strong {
 }
 
 /*.subheading {
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-weight: 800;
   font-optical-sizing: auto;
   font-size: var(--main-page-subheading-fontsize);
@@ -780,7 +868,7 @@ section.post em strong, section > p em strong {
 }
 
 /*.subsubheading {
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   text-transform: uppercase;
   font-size: 18;
   color: var(--heading-color);
@@ -801,21 +889,21 @@ section.post em strong, section > p em strong {
 
 .papertitle {
   color: var(--papertitle-color);
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-optical-sizing: auto;
   font-size: var(--main-page-fontsize);
   font-weight: 800;
 }
 .conference {
   color: var(--conference-color);
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-size: var(--main-page-fontsize);
 }
 
 
 .blogname {
   color: var(--highlight-color);
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-weight: 800;
   font-size: 24px;
   font-style: italic;
@@ -824,7 +912,7 @@ section.post em strong, section > p em strong {
 
 .blogtitle {
   color: var(--blogtitle-color);
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   font-weight: 800;
   font-size: 30;
   font-style:italic;
@@ -864,7 +952,7 @@ section.post em strong, section > p em strong {
   font-size: 30px;
   font-weight: 700;
   padding: 7px;
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   color: var(--logo-color);
   text-decoration: none;
 }
@@ -889,7 +977,7 @@ section.post em strong, section > p em strong {
   color: var(--nav-text-color) !important;
   font-weight: bold; /* Preserving your current bold style */
   font-size: 20px;
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   transition: color 0.2s ease; /* Smooth illumination */
   /* ADD THIS LINE: Subtle tracking for an airy, academic feel */
   letter-spacing: 0.06rem;
@@ -1133,7 +1221,7 @@ section.post em strong, section > p em strong {
   margin-top: 40px; /* Space above navigation */
   padding: 15px 0;
   border-top: 1px dotted var(--hr-color); /* A subtle separator */
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
   color: var(--nav-text-color);
 }
 
@@ -1591,7 +1679,7 @@ details[open] summary::before {
 
 /* Optional: Add deeper indentation for third-level headers (H4s) */
 .sidebar-toc ul ul ul {
-  padding-left: 5px; 
+display: none !important;
 }
 
 .sidebar-toc li {
@@ -1679,7 +1767,7 @@ details[open] summary::before {
 .academic-toc {
   max-width: 650px;
   margin: 0 auto;
-  font-family: "IM Fell Great Primer", Georgia, serif;
+  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
 }
 
 .toc-category-block {
@@ -1772,3 +1860,5 @@ details[open] summary::before {
   margin: 2px 0 10px 0 !important;
   padding-left: 15px;
 }
+
+

@@ -7,6 +7,282 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>An analogy for technical communication</title>
+        <description>&lt;hr /&gt;
+
+&lt;h2 id=&quot;the-analogy-of-rescuing-a-marooned-audience&quot;&gt;The analogy of rescuing a marooned audience&lt;/h2&gt;
+
+&lt;p&gt;Technical/scientific communication—writing, talks, day-to-day collaboration, &lt;em&gt;especially&lt;/em&gt; day-to-day collaboration—is a life-or-death predicament in disguise:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The communicator must&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;verbally convey an escape route&lt;/li&gt;
+    &lt;li&gt;to a frantic and fatigued audience marooned on a treacherous island;&lt;/li&gt;
+    &lt;li&gt;the audience has no map, only the communicator does,&lt;/li&gt;
+    &lt;li&gt;but the communicator is separated in a control room and must guide the audience only through a walkie-talkie.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;An alternative imagination (although a bit less potent as an analogy) is of the audience solving a jigsaw puzzle or reconstructing an picture while following instructions from a communicator announcing the instructions from behind an opaque screen. Also, the audience have clueless about what the final picture looks like.&lt;/p&gt;
+
+&lt;p&gt;Even less potent, and in fact misleading, is the analogy of technical communication as something like guiding tourists. This suffers from multiple incorrect assumptions.  The tourist-audience is in the same place as the communicator, know what the map looks like upfront, and can observe the guide’s spatial gestures. The tourist-audience is whimsical, has no pressing long-term goal, is under no cognitive or emotional stress,  and gleefully follows the guide wherever they go. None of this is true of the challenging mission that is technical communication.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-challenges-of-technical-communication&quot;&gt;The challenges of technical communication&lt;/h3&gt;
+
+&lt;h4 id=&quot;verbalizing-both-the-map-and-map-showing&quot;&gt;Verbalizing both the map and map-showing&lt;/h4&gt;
+
+&lt;p&gt;In the analogy of the rescue mission, the rescuer’s task is to transmit through mere words a gnarly escape route (teeming with forks, loops and dead-ends) to a mapless audience reconstructing the route at their end. This task—of funnelling a two-dimensional object through a verbal bottleneck—is already challenging to do without inflicting distortions on the object. But making matters worse is that the (disembodied, remote) rescuer cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Thus, in technical communication, the rescuer is forced to verbalize both a complex map and the many physical gestures required to spatially guide someone as they assemble and navigate the map.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;understanding-the-psychology-of-the-audience-and-building-trust&quot;&gt;Understanding the psychology of the audience and building trust&lt;/h4&gt;
+
+&lt;p&gt;The rescuer also needs to empathize with the delicate mental state of the people stranded and starving on an unpredictable island.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;They are distracted by the slightest of stimuli and bewildered by the tiniest of tasks;&lt;/li&gt;
+  &lt;li&gt;they are forgetful and barely able to think;&lt;/li&gt;
+  &lt;li&gt;they feel a constant urgency towards being  liberated (“Are we there yet? How far did the trek bring us? Where on earth are we now? Weren’t we here exactly two hours ago?”);&lt;/li&gt;
+  &lt;li&gt;they experience a severe dissonance: every instruction from the rescuer appears to those poor souls as a meaningless form of torture: climb a slippery mountain, pet a snake, read a meandering, line-breaked equation. Why is a self-proclaimed savior making them endure bizarre sufferrings?  Is there not a rosier path to salvation? This friction generates caution and skepticism.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Thus, in technical communication, the rescuer needs to dispel and a flurry of doubts arising from the audience, earn the audience’s trust, and persuade them into wilfully engaging in acts of suffering.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;the-solutions&quot;&gt;The solutions&lt;/h4&gt;
+
+&lt;p&gt;To master these challenges, our disembodied rescuer must abide by two broad commandments.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;One is that they must transmit the pieces of the map in a calculated order that is sequential and hierarchical.&lt;/li&gt;
+  &lt;li&gt;Second, they must transmit all the raw information glued together with rich &lt;em&gt;meta-information&lt;/em&gt; that explicitly verbalizes finger-pointings and makes the mission more transparent by offering promises, rationales, reassurances, reminders, red flags and so on.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We will discuss these ideas shortly.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;why-an-analogy&quot;&gt;Why an analogy?&lt;/h3&gt;
+
+&lt;p&gt;The analogy is not just an exercise in wild imagination. It serves a few purposes.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;One, it helps us internalize in succinct and animated terms, the tedious commandments of technical communication that we otherwise try to absorb through brute memorization and practice.&lt;/li&gt;
+  &lt;li&gt;Second, the analogy helps develop new rules on the fly by shaping our instincts in unpredictable scenarios, like when an otherwise well-rehearsed talk is heckled by a tenured faculty member.&lt;/li&gt;
+  &lt;li&gt;Third, the analogy is a didactic tool that helps justify feedback. I often say things like: “You’re trying to get the reader to embark on this strenuous journey, but you’ve not told them why they should do it!” or “You’ve shocked the reader abruptly with this complex discussion. Give them a warning!”.  With vivid back-story, the rule is better taught and better understood.&lt;/li&gt;
+  &lt;li&gt;Finally, the analogy gives some imagery to rules of writing that are frustratingly cryptic to a young writer (“improve flow”—what flow?, “anticipate the reader’s questions!”–what questions?).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The rest of the post will demonstrate (to great detail), how to derive and motivate some of these rules from within this analogy. The focus is not so much on the rules themselves as it is on their derivation.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;narrative-ordering&quot;&gt;Narrative ordering&lt;/h2&gt;
+
+&lt;p&gt;We can think of every snippet of the map/escape route as a raw piece of technical information (a notation, a definition, a sub-routine, a claim, a hypothesis etc.,). The first two rules lay out the basic algorithm by which the rescuer must break down their private map into such digestible pieces, and the order in which they must transmit those pieces.
+Before discussing the rules, let us diagnose how the ordering can go wrong.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-naive-rescuers-ordering&quot;&gt;The naive rescuer’s ordering&lt;/h3&gt;
+
+&lt;p&gt;“Why are you telling me this? What do I do with this information? Where does this fit?”,
+is a question that vexes the audience in a disorganized presentation. The naive rescuer, eager to enlighten his mapless audience, has impulsively dumped all pieces of the map in some reckless ordering into the audience’s head. The rescuer’s assumption is that, in a subsequent  stage, the audience, with eagerness equalling that of the rescuer, will re-arrange the map into one piece to witness what the rescuer has been privy to all along. This is what happens when a second read of a paper is needed for everything to fall in place—it is rarely a delight for the audience.&lt;/p&gt;
+
+&lt;p&gt;The naive rescuer’s downfall lies in their own private knowledge: to them, the “dump-then-reconstruct” strategy appears so simple and thrilling
+because they can already picture the panoramic beauty of the complete map, and so which piece goes where. But to the  audience, the naive rescuer has demanded a “memorize-everything-then-recall-everything-into-your-working-memory-and-then-unscramble” strategy. This requires the cognitive abilities of a detective and the patience of a saint, neither of which the famished audience has the luxury for.&lt;/p&gt;
+
+&lt;h3 id=&quot;sequential-narration-for-flow&quot;&gt;Sequential narration for flow&lt;/h3&gt;
+
+&lt;p&gt;The audience in despair craves for &lt;em&gt;constant signs of progress&lt;/em&gt;: as and when a snippet of the escape route arrives in their walkie-talkie, it must snugly fit into whatever crude map they’ve partially reconstructed, allowing them to proceed a step further. If the rescuer tells them, “there’s a faraway forest we’ll later encounter, let us now pause for my monologue about the many trails and tribulations it has in store”, the audience descends into chaos. They cannot teleport, and they don’t want to hold on to a disconnected body of information, information that may evaporate from  memory at any moment. (“What if I forget this arbitrary collection of hideous notations and that’s how I perish on this island?”)&lt;/p&gt;
+
+&lt;p&gt;The solution then is to lead the audience step-by-step into the forest, so they can develop their map through direct experience:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Technical communication must relay an escape route through a chain of step-by-step instructions. Nothing must be introduced abruptly. Every equation, theorem, algorithm and hypothesis must refer back to, and emerge out of &lt;em&gt;at least one&lt;/em&gt; or more ideas, objects or motivations introduced before. This way, every instruction is consumed then and there rather than dangling afloat in the audience’s head like loose threads. The audience, in stitching the map out as if it were a single piece of cloth, are relieved to carry at any time only the amount of information necessary to execute the next step, not a whole scrambled map.  This is what is meant by “flow” and the impatient cravings of the marooned audience justifies the need for flow.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;hierarchical-narration-for-building-a-canvas&quot;&gt;Hierarchical narration for building a canvas&lt;/h3&gt;
+
+&lt;p&gt;Sequential ordering alone is inadequate to soothe the audience. If the walkie-talkie blared out a well-ordered series of commands—Read these notations! Next comes Lemma 1! And then, Lemma 2! Now, the final proof!—it is as frustrating as being made to assemble the pieces of a puzzle or being made to draw a picture grid-by-grid with no clue of what is even being constructed.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;That is, the audience on a terrifying island are reluctant to blind-foldedly follow a cascade of little steps. They desperately want to know the overarching plan for salvation &lt;em&gt;before all else&lt;/em&gt;, rather than take a leap of faith. They demand this so they can first and foremost build a fuzzy canvas in their head onto which they can later piece together specific, low-level snippets of the map, thus re-assuring themselves that everything is indeed going according to plan and they will make it out alive.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Thus, the rescuer provides a helicopter pilot’s view of the island from various altitudes: they say, the exit lies at a so-and-so theorem, the shape of the island is a three-lemma proof sketch,  etc., all before zooming into a particular definition. Now, even when stating the definition, the rescuer provides an high-altitude idea before specifying its ground-level details.  Algorithmically, the rescuer has organized all their information into a giant tree, and they traverse this tree in a “depth-first order”, repeatedly zooming in and out to read out the information. 
+(That’s one dizzy helicopter ride, but such is the sacrifice our rescuer has to make.)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;meta-information&quot;&gt;Meta-information&lt;/h2&gt;
+
+&lt;p&gt;In addition to transmitting raw information about the escape route, the rescuer needs to transmit  &lt;em&gt;meta-information&lt;/em&gt;, that is, information &lt;em&gt;about&lt;/em&gt; the information—such as why the information is necessary, how it relates to everything else, how important it is etc., Meta-information is what describes how to parse and assimilate a piece of information. It is the equivalent of physical gestures sent over a walkie-talkie or messages sent to manage the apprehensive and antsy state of a marooned audience.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A golden rule then is to &lt;strong&gt;&lt;em&gt;provide meta-information in advance of the information itself&lt;/em&gt;&lt;/strong&gt;. This pre-emptively wards off any anxieties that a piece of information may trigger, and has the audience (psychologically and cognitively) primed  to handle an incoming piece of information. If not, they are forced to store the raw information first, and &lt;em&gt;then&lt;/em&gt; be told how to handle it, which by the same logic we discussed under “sequential narration”,  would demand much patience and memory from the fatigued audience than is needed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The next few sections derive the different types of meta-information needed using the analogy of the rescue mission. But let us make clear how essential this is, because
+we often sideline meta-information as the dull and dead afterthought of communication, the However’s,  and the “in this section, we will”s peppered in between information that we deem interesting&lt;sup id=&quot;fnref:meta-discourse&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:meta-discourse&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. This is a gross misconception. &lt;strong&gt;Meta-information includes substantive thoughts, insights and facts about the information.&lt;/strong&gt; It is what breathes life and form to what would otherwise be a clumsy Frankenstein of a presentation. Meta-information should therefore by treated on an &lt;em&gt;equal footing&lt;/em&gt; to information itself!&lt;sup id=&quot;fnref:live&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:live&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;relationships-between-information&quot;&gt;Relationships between information&lt;/h3&gt;
+
+&lt;p&gt;Before transmitting a piece of information, the rescuer must explicitly handhold and motivate the audience by specifying how the piece relates to the audience’s partially reconstructed map and the promised hazy canvas of the map.&lt;/p&gt;
+
+&lt;h4 id=&quot;connections-to-the-past-for-handholding&quot;&gt;Connections to the past for handholding&lt;/h4&gt;
+
+&lt;p&gt;The audience has no patience to try and deduce &lt;em&gt;how&lt;/em&gt; and &lt;em&gt;where&lt;/em&gt; a piece fits with their partially-reconstructed map. So, as if virtually holding their hand to place the piece, the rescuer must be descriptive about how an information delivers on an earlier promise or how it supplements or complements or builds out of other pieces of information. At the level of ideas this could be saying “In the next theorem, I’ll prove a gap between the two quantities &lt;em&gt;described in the previous two slides. This is stronger than the warm-up theorem we saw earlier&lt;/em&gt;.” before describing Theorem 1 (observe that the italicized connection to past is not boring fluff but meaty technical content about technical content!). Similarly, on the surface of the text, the rescuer would ensure that the first few words of sentence directly relate to, or literally overlap with a recent sentence, as if the text has been manifestly hemmed together.&lt;/p&gt;
+
+&lt;h4 id=&quot;connections-to-the-future-to-motivate-suffering&quot;&gt;Connections to the future to motivate suffering&lt;/h4&gt;
+
+&lt;p&gt;The audience cannot be lured into following a sequence of actions, just because one follows smoothly from all previous actions. “Grab this giant rock before we trek up this mountain” and the audience stares incredulously. A particular sequence of worries will run through their mind: “(1) Do I really need something that will weigh me down during the climb? (2) But what if this is useful later? (3) Perhaps I can find rocks like this later, so I dont need to worry about this instruction right now! (4) But what if I skip it and I don’t find these rocks again?”&lt;/p&gt;
+
+&lt;p&gt;So, &lt;em&gt;before&lt;/em&gt; making the audience endure an act so painful and so loathsome,  the rescuer must motivate &lt;em&gt;why&lt;/em&gt; that suffering is both sufficient and necessary for the eternal salvation promised at the start of the treacherous academic presentation. This means rather than describing a theorem to excruciating detail followed by a dramatic reveal of its  purpose, the rescuer begins with a spoiler about how it satisfies a previously-mentioned overarching plan: “&lt;em&gt;Since we want to show that this algorithm fails,&lt;/em&gt; it means that this quantity from the previous slide must be large than the quantity in this slide. This gap is what this theorem establishes.”&lt;/p&gt;
+
+&lt;h4 id=&quot;signposts&quot;&gt;Signposts&lt;/h4&gt;
+
+&lt;p&gt;The marooned are traversing not just the island, but also a tree of instructions, an imaginary tree which needs visible punctuations like, “Having crossed the first hurdle of the river, for the second of the three hurdles, we have to get you up this steep and misery-inducing proof sketch.” Thus, after covering a sub-tree, the rescuer reminds the audience of a summary of what they have accomplished; as they backtrack and zoom into a different branch, they announce that they’re pivoting, and provide a summary of what the new sub-tree promises.&lt;sup id=&quot;fnref:signposts&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:signposts&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;shaping-attention-or-verbal-gesturing&quot;&gt;Shaping attention, or verbal gesturing&lt;/h3&gt;
+
+&lt;p&gt;Since the rescuer and the audience are not co-located, the rescuer needs to explicitly and verbally finger-point to steer the audience’s attention. What makes this more challenging is that, the audience, surrounded by wilderness, is over-stimulated and hyper-sensitive, and so the rescuer needs to predict the audience’s “saccades” and bridle them, all through a walkie-talkie.&lt;/p&gt;
+
+&lt;h4 id=&quot;abstractions-and-distinctions&quot;&gt;Abstractions and distinctions&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Abstractions:&lt;/strong&gt; To point fingers at things, there must be things, things that exist inside the heads of both the interacting parties. But given that the audience is stuck elsewhere, this shared vocabulary of things must be deliberately developed and shared. This is however hard, especially in the initial stages of research, when interesting formations begin to appear on the landscape but only as fuzzy silhouettes in the distance. What the rescuer does then is to routinely and loudly segment  and re-segment the horizon: as and when these formations become even mildly discernible, they are quick to announce names for them (“Hypothesis ABC”, “Phenomenon XYZ”) so that the audience’s attention can later be conveniently redirected to a collection of related and recurring ideas. This is accompanied with rich definitions, explicitly noting that it is only tentative, and will become more comprehensible as the audience trudge closer towards those formations in the horizon. (This practice of repeated abstracting and christening is particularly important in day-to-day collaborations and at the beginning of a research project.)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Distinctions:&lt;/strong&gt; Another &lt;em&gt;extremely&lt;/em&gt; important tool for developing a shared segmentation of the landscape is contrasting how one formation is different from another, especially when they seem to overlap. Noting “Theorem 2, unlike Theorem 1, no longer needs Assumption 1” or “What I’m saying now is different from what I said five minutes ago in this sense” crystallizes how exactly the map has advanced.&lt;/p&gt;
+
+&lt;h3 id=&quot;distractions&quot;&gt;Distractions&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A common pitfall in guessing games like pictionary is that the communicator, intent on painting a rich picture, over-communicates while 
+the guesser, intent on finding patterns, fixates on a stray detail, which then cascades into a grave misunderstanding, derailing the communication game.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To avoid this pitfall, there are two rules to be observed.&lt;/p&gt;
+
+&lt;h4 id=&quot;specifying-importance&quot;&gt;Specifying importance&lt;/h4&gt;
+
+&lt;p&gt;The rescuer assesses the relevance of each instruction to the escape, and announces that assessment in words before announcing the instruction. Saying “What I’m about to say is just a sidenote” or warning the audience “I’m about to divulge the major step we should focus on” can graciously let the audience time their naps. But back-and-forth, collaborative settings demand more adaptive strategies since the communicator must constantly detect and shepherd the collaborators whenever they pull the conversation down a rabbit hole.&lt;/p&gt;
+
+&lt;h4 id=&quot;avoiding-emergent-distractions-with-disclaimers&quot;&gt;Avoiding emergent distractions with disclaimers&lt;/h4&gt;
+
+&lt;p&gt;Some stray details emerge not from the rescuer’s mouth, but in the eyes of the audience as an inadvertent second-order effect:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;some statements may seem counter to the audience’s intuition or to the audience’s knowledge of literature or to what they thought the rescuer said earlier;&lt;/li&gt;
+  &lt;li&gt;some key terms may seem overloaded within the presentation or may mean something else in some pockets of literature;&lt;/li&gt;
+  &lt;li&gt;some ideas may sound similar or related to each other when they are not;&lt;/li&gt;
+  &lt;li&gt;some analogy may be easy to superimpose and over-apply in an unintended orientation;&lt;/li&gt;
+  &lt;li&gt;some claims ambiguous, some things easy to misunderstand.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These distractions may or may not be visible to the audience. Either way, they are insidious: if the distraction sticks out as a giant, bizarre contraption, it can eternally haunt the   audience, given their skittishness; if well-camouflaged, it can unwittingly lure them down the wrong route!&lt;/p&gt;
+
+&lt;p&gt;A vigilant rescuer &lt;em&gt;infers&lt;/em&gt; the locations of these traps (which are highly camouflaged in the rescuer’s vision) and then addresses their presence promptly, which can be done in one of three ways:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“You may have spotted a gigantic ticking apparatus by your side,  here’s how to defuse it!” or&lt;/li&gt;
+  &lt;li&gt;“Do not worry about that trap now, we will defuse it &lt;em&gt;later&lt;/em&gt;!”
+or&lt;/li&gt;
+  &lt;li&gt;“That ticking sound is just a red herring placed by this diabolical island. We shall ignore it forever as it does not lie on the way to salvation!”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The last two solutions rest on the fact that the rescuer needs to always say what they are &lt;em&gt;not&lt;/em&gt; claiming. The mere &lt;em&gt;disclaimer&lt;/em&gt; that something should seem nonsensical and unresolved for now, and is best ignored for now, builds trust with an anxious audience that is otherwise over-guessing missing details.&lt;sup id=&quot;fnref:acknowledging&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:acknowledging&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;descriptions-of-the-information&quot;&gt;Descriptions of the information&lt;/h3&gt;
+
+&lt;p&gt;Before transmitting a piece of information, the rescuer must describe the various traits of the information. Richer the description, smoother the rescue. Some examples below.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Type:&lt;/strong&gt; Like the myriads of symbols on a map, a techincal statement could be an assertion, a promise, a question, a concern, an observation, a conclusion, an assumption, a definition or a guess. Confusions arise when what the communicator regards as an assumption, is what the listener processes as a conclusion—at least until the discrepancy surfaces itself.   Thus, the &lt;em&gt;type&lt;/em&gt; of the information must be announced before the information itself.  (Once again, this habit comes naturally while writing, but is easy to miss in day-to-day collaborations.)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Quality:&lt;/strong&gt; Occasionally, the rescuer may think it is best not to communicate the next piece of the map with precision. If the audience senses something imprecise, it induces anxiety, which is avoided, if in advance, they’re told of an upcoming instruction being intentionally “handwavy” or “informal” or “rough”.  Once again, this is the rule of saying what is not being said (here, the intricate details).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Difficulty:&lt;/strong&gt; Demanding the marooned to climb a mountain that becomes abruptly steep is a rude shock. The empathic rescuer  prepares the marooned psychologically: “Now, this is going to be a hard trek up” or “This is going to be frustratingly precise, but we need that precision here”. Funnily, even if something is too straightforward, the  audience second-guesses themselves: “Did I miss something here? It cannot be that easy?” The empathic communicator would have started with “What I’m about to say is straightforward.”&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;other-rules&quot;&gt;Other rules&lt;/h3&gt;
+
+&lt;p&gt;Many other miscellaneous rules of technical communication can be derived from our premise of remotely guiding an audience trapped in a wild island.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;For instance, the empathic rescuer compensates for the lossy memory of the barely-surviving audience by reminding them of landmarks and experience they have come across as and when these get referenced.  Such reminders are most needed in day-to-day research collaborations where the lead who has intimate and fresh knowledge of the island, has to communicate with the advisors who are simultaneously escaping (or pretending to escape) multiple wild islands.&lt;/li&gt;
+  &lt;li&gt;The rescuer also provides ways for the disoriented audience to periodically “triangulate” their location, especially at complex situations, for example, through base-cases or simple examples right after a theorem, or through multiple rephrasings or perspectives of the same fact.&lt;/li&gt;
+  &lt;li&gt;The rescuer also breaks up instructions into the littlest pieces possible, rather than rambling on and on about one piece, and in situations where they can hear back from the audience, they give long pauses for the audience to overcome their (undue) embarrassment and speak up about a given piece.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The derivation of other rules are left as an exercise for the reader.&lt;/p&gt;
+
+&lt;p&gt;Another exercise is to experience and monitor a few technical presentations through the lens of the rescue mission. What things has the rescuer done right and done wrong, and how does the analogy explain those?  Did you feel the canvas being built in your head and pieces being easy to put in place? What moments caused “distress”? What could the rescuer have done better? What meta-information could they have provided, in hindsight?&lt;/p&gt;
+
+&lt;h2 id=&quot;technical-communication-vs-story-telling&quot;&gt;Technical communication vs. story-telling&lt;/h2&gt;
+
+&lt;p&gt;In many ways, story-telling is anti-thetical to technical communication, a contrast that when appreciated illuminates what is unique about technical communication. The story-telling audience has deliberately marooned themselves on an island; they seek an adventure and are excited by the ignorance of what is around the corner; they do not want instructions to make immediate sense; they don’t want to be handheld!&lt;/p&gt;
+
+&lt;p&gt;As a consequence, the story-teller transgresses each of the commandments discussed above. The story-teller constructs a deliberately and artfully disordered presentation of information, non-sequential, non-hierarchical and ever unpredictable. Everything clicks only at the end, only with a second read or only after an enthusiastic unscrambling by a brave audience, because that fate is pre-meditated by the story-teller. The story-teller must “show, not tell”, which means meta-information is taboo. The pleasure of a story is derived from filling in missing details, from constantly making conjectures abour how something relates to the past or to the future, from anticipating what the undisclosed future resolution would be, or from overlooking a critical plot device as a mere distraction and so on. In many ways, what is suffering for a technical audience is pleasure for a creative audience, and vice versa.&lt;sup id=&quot;fnref:painting&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:painting&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;disclaimers&quot;&gt;Disclaimers&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;It may seem as though this essay views technical communication as a form of torture and condescension towards the audience. But the suggestion here is to only &lt;em&gt;temporarily role-play&lt;/em&gt; a certain default mental makeup while designing a talk or paper. It is still important to know what the audience knows and respect their knowledge.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Not all technical presentations that require a second read or a second watch are due to the communicator’s naivety. Some ideas are  inherently complex and possess higher-order beauty that demands revisits.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Some of the rules may make it seem like scientific communication must consitute a lot of dry and rigid scaffolding devoid of any thrills or suspense. However, with experience, a technical writer can find little ways to inject freshness into their writing while being subject to the rules:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;One solution is to play with the surface of the text: avoid cliched phrases and syntax (both in the meta-information and the information), or use novel metaphors and phrases while communicating the information.&lt;/li&gt;
+      &lt;li&gt;But we can also pursue a technically-deeper kind of creativity in other ways, like in how intuitions are developed and illustrated, in how the introductory paragraph of the paper develops the motivation, in how ideas are related and contrasted, or in cleanly explaining (and pausing before) the key “aha” step in a proof.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h5 id=&quot;footnotes&quot;&gt;Footnotes:&lt;/h5&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:meta-discourse&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Those generic markers, the “However,”, “Additionally, etc., are referred to as meta-discourse. [[more]] But guide-books usually over-emphasize these markers themselves rather than the interesting, non-trivial content that accompany these markers, which is why I prefer to label it distinctly as meta-information. For more on metadiscourse, see these references [&lt;a href=&quot;https://en.wikipedia.org/wiki/Metadiscourse&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;http://www.kenhyland.org/wp-content/uploads/2020/05/Metadiscourse_What-is-it-and-where-is-it-going.pdf&quot;&gt;2&lt;/a&gt;, &lt;a href=&quot;https://explorationsofstyle.com/2017/01/31/metadiscourse/&quot;&gt;3&lt;/a&gt;]. &lt;a href=&quot;#fnref:meta-discourse&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:live&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Meta-information tends to come more naturally in structured and editable media (e.g., in written form), but is most easy to miss in live presentations and even more so in day-to-day collaborations. Ironically, [[more]] the live audience are most in need of meta-information since they do not have a structured medium to stare at and think through! So, the live communicator must be doubly attentive in parting with meta-information to a live audience. &lt;a href=&quot;#fnref:live&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:signposts&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;I admit that signposts tend to be the most boring type of meta-information. It is best to keep it short and sweet. &lt;a href=&quot;#fnref:signposts&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:acknowledging&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;The trick of acknowledging the nonsensical is handy in many situations. For example, it can be handy when the rescuer relays an out-of-sequence instruction that can only make sense later—this may happen either because the concept is impossible to sequentialize or because the rescuer accidentally went out of order (thanks, heckler). &lt;a href=&quot;#fnref:acknowledging&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:painting&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;A similar series of contrasts can be drawn between a painting and a technical diagram. &lt;a href=&quot;#fnref:painting&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 06 Jun 2026 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/blog/technical-communication/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/technical-communication/</guid>
+      </item>
+    
+      <item>
         <title>Can a text-only model ever understand things the way we see?</title>
         <description>&lt;h2 id=&quot;the-question&quot;&gt;The question&lt;/h2&gt;
 
@@ -32,17 +308,17 @@
 
 &lt;p&gt;Observe that the skeptic and the optimist do agree on something: that there is one “true, complete understanding” for there to be correctness; what they disagree on is whether a language-only model can get there. Our next character will deviate from this shared opinion.&lt;/p&gt;
 
-&lt;p&gt;The pluralist says “(1) Yes and (2) yet, no”. A language-only model may indeed answer every question about a circle correctly. Yet, it may not have the holistic spatio-linguistic understanding that a human does. This paradox is possible because the model can arrive at perfect answers about the circle through multiple different ways of representation-manipulation! The pluralist, when pressured a bit, may concede that the language model, although correct, is inefficient: its solution is potentially convoluted by extensive calculations for certain questions, questions that a human solves much more deftly through space wizardry. The pluralist may also concede that there is &lt;em&gt;more&lt;/em&gt; to a human’s understanding of a circle than an AI model, even if this excess does not affect the model’s answers in a textual conversation.&lt;/p&gt;
+&lt;p&gt;The pluralist says “(1) Yes and (2) yet, no”. A language-only model may indeed answer every question about a circle correctly. Yet, it may not have the holistic spatio-linguistic understanding that a human does. This paradox is possible because the model can arrive at perfect answers about the circle through multiple different ways of representation-manipulation, one textual, another spatial! The pluralist, when pressured a bit, may concede that the language model, although correct, is inefficient: its solution is potentially convoluted by extensive calculations for certain questions, questions that a human solves much more deftly through space wizardry. The pluralist may also concede that there is &lt;em&gt;more&lt;/em&gt; to a human’s understanding of a circle than an AI model, even if this excess does not affect the model’s answers in a textual conversation.&lt;/p&gt;
 
 &lt;p&gt;With these characters in place, let me introduce the various plot lines in the story.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-chicken-and-egg-problem-of-a-dictionary&quot;&gt;The chicken-and-egg problem of a dictionary&lt;/h2&gt;
 
-&lt;p&gt;The beauty of the circle question lies in the following chicken-and-egg problem&lt;sup id=&quot;fnref:symbolgrounding&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:symbolgrounding&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. If we wear the optimist’s hat, it may seem that really, nothing is lacking in language: everything from a circle to dark matter is describable in language, sufficiently enough to reason. A circle is simply “the set of points equidistant from a single point in 2D space” from which I can derive a million facts to torture a high-school student with. So, with a highly-informative training dataset where every object’s appearances are described, and with the right training method, a language model can imbibe the “true and full” understanding of a circle, and this understanding would have one-to-one correspondence with the representations and manipulations that a human engages in.&lt;/p&gt;
+&lt;p&gt;The beauty of the circle question lies in the following chicken-and-egg problem&lt;sup id=&quot;fnref:symbolgrounding&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:symbolgrounding&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. If we wear the optimist’s hat, it may seem that really, nothing is lacking in language: everything from a circle to dark matter is describable in language, sufficiently enough to reason with. A circle is simply “the set of points equidistant from a single point in 2D space” from which I can derive a million facts to torture a high-school student with. So, with a highly-informative training dataset where every object’s appearances are described, and with the right training method, a language model can imbibe the “true and full” understanding of a circle, and this understanding would have one-to-one correspondence with the representations and manipulations that a human engages in.&lt;/p&gt;
 
-&lt;p&gt;“Excellent”, the skeptic says; but “What is equidistant? And pray tell, what is a point”? The optimist believes that too is linguistically describable: equidistant means equal distances, and a point is a zero-dimensional object, almost like a single pixel in a vast space of pixels. “But what is a pixel? What is this space thing you talk of? What on earth is a dimension?” The skeptic argues that there is no way to describe images in the form of text upon text upon text without ultimately having to rely on some spatial medium!&lt;/p&gt;
+&lt;p&gt;“Excellent”, the skeptic says; but “What is equidistant? And pray tell, what is a point”? The optimist believes that too is linguistically describable: equidistant means two line segments of equal magnitude, and a point is a zero-dimensional object, almost like a single pixel in a vast space of pixels. “But what is a pixel? What is this space thing you talk of? What on earth is a dimension?” The skeptic argues that there is no way to describe images in the form of text upon text upon text without ultimately having to rely on some spatial medium!&lt;/p&gt;
 
-&lt;p&gt;The optimist points out that the existence of the English dictionary is direct evidence that this circularity can be resolved. But the skeptic is quick to object: when it comes to the most atomic words in a dictionary (like “pain” or “big” or “orange”), a human internally represents those definitions by recalling their physical experiences, and such extrinsic information is required for reasoning and correctness. Thus, the self-referential labyrinth of text seems grossly incompetent to capture, of various things, information contained in vision and space. The skeptic adds “It is as doomed as trying to express imaginary numbers with integers and addition, without having a conception of negative numbers or a square root function.”&lt;/p&gt;
+&lt;p&gt;The optimist pinpoints the existence of the English dictionary as direct evidence that this circularity can be resolved. But the skeptic is quick to object: when it comes to the most atomic words in a dictionary (like “pain” or “big” or “orange”), a human internally represents those definitions by recalling their physical experiences, and such extrinsic information is required for reasoning and correctness. Thus, the self-referential labyrinth of text seems grossly incompetent to capture, of various things, information contained in vision and space. The skeptic adds “It is as doomed as trying to express imaginary numbers with integers and addition, without having a conception of negative numbers or a square root function.”&lt;/p&gt;
 
 &lt;h2 id=&quot;spectral-representations-of-cardinal-directions&quot;&gt;Spectral representations of cardinal directions&lt;/h2&gt;
 
@@ -54,7 +330,7 @@
 
 &lt;p&gt;Consider a simple dataset where a model when given a cardinal direction (“north”) must produce as output one of the adjacent cardinal directions (“east” or “west”) with equal probability. Given these non-spatial symbols, one can show that even a  two-layer model trained on this dataset, with no spatial experience, ends up representing the four terms along four orthogonal directions in the right order. Key to this is some “spectral dynamics” in gradient-descent-trained multi-layer models; the top two eigenvectors of such a dataset correspond to such a cyclic embedding of the words “north”, “south”, “east” and “west”.&lt;/p&gt;
 
-&lt;p&gt;To researchers immersed in interpretability, this is all old and obvious news; grander versions of this have been observed: models embed arithmetic symbols along a helix, reconstruct a world map of cities, embed months in a 2D cycle and so on. But these observations should register as profound to the philosopher looking at it all from the sky: &lt;strong&gt;a resolution to the hopeless conundrum of a dictionary  lies in a concrete mathematical object (gradient descent and deep learning), an object that has no power of sight and has no conception of what space even is.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To researchers immersed in interpretability, this is all old and obvious news; grander versions of this have been observed: language models embed arithmetic symbols along a helix, reconstruct a world map of cities, embed months in a 2D cycle and so on. But these observations should register as profound to the philosopher looking at it all from the sky: &lt;strong&gt;a resolution to the hopeless conundrum of a dictionary  lies in a mathematical object (gradient descent and deep learning) that has no power of sight and has no conception of what space even is.&lt;/strong&gt;  Who would have thought that such an object, after merely processing millions of pages of a dictionary called the internet, can somehow do research-level math and reason about the world?&lt;/p&gt;
 
 &lt;p&gt;The skeptic raises an objection. What these examples show is a language model’s ability to visualize &lt;em&gt;relationships&lt;/em&gt;. Can a model somehow imagine &lt;em&gt;absolute&lt;/em&gt; things like what “a point” is, or what “a space” is, or what “size” is, or what “occlusion” is? Which then raises the other concern (which I had disentangled): is being able to imagine such absolute things even necessary to answer all questions pertinent to them, including deviously-posed ones, or can one get by without such visualizations?&lt;/p&gt;
 
@@ -67,9 +343,9 @@
 
 &lt;h2 id=&quot;shut-up-and-calculate&quot;&gt;Shut up and calculate&lt;/h2&gt;
 
-&lt;p&gt;The pluralist continues with a more vivid, thought experiment. How would a model  answer the question “Which is heavier: 1 kilogram of feather or 1 kilogram of iron?”. To reason through this correctly, a model does not need to have any extra-textual understanding of what “heavy” feels like. It merely needs to reason that “the feeling of heaviness, whatever it may be, is (as my training text tells me) proportionate to mass; 1kg mass equals 1 kg mass; whatever this is heaviness is, it must be identical”. In fact, this verbalization is precisely how correctly-answering humans end up processing this trick question—they rely not on tactile reasoning! Now, do we label such “text-only” reasoning as  “deceptive pattern-matching”? Likewise, the pluralist says, there are multiple routes to an answer, and furthermore, text-only models can find at least one route to every answer, yet we must also acknowledge that text-only models can miss something in human understanding.&lt;/p&gt;
+&lt;p&gt;The pluralist continues with a more vivid thought experiment. How would a model  answer the question “Which is heavier: 1 kilogram of feather or 1 kilogram of iron?”. To reason through this correctly, a model does not need to have any extra-textual understanding of what “heavy” feels like. It merely needs to deduce that “the feeling of heaviness, whatever it may be, is (as my training text tells me) proportionate to mass; 1kg mass equals 1 kg mass; whatever this concept of heaviness is, it must be identical”. In fact, this verbalization is precisely how correctly-answering humans end up processing this trick question—they rely not on tactile reasoning! Now, do we label such “text-only” reasoning as  “deceptive pattern-matching”? Likewise, the pluralist says, there are multiple routes to an answer, and furthermore, text-only models can find at least one route to every answer, yet we must also acknowledge that text-only models can miss something in human understanding.&lt;/p&gt;
 
-&lt;p&gt;The pluralist adds that this is the “Shut up and calculate” school-of-thought in quantum mechanics. Concepts in quantum mechanics (such as wave-particle duality) are beyond our capacity to visualize or experience; yet, we have been able to abandon any attempts to derive visual or experiential meaning out of it, and instead just do the math to reason about it. Likewise, a text-only model can do all sorts of math and physics, with never bothering to understand it visually. (The skeptic wonders though, what developments in physics may be stalled by the human inability to grasp quantum mechanics.)&lt;/p&gt;
+&lt;p&gt;The pluralist adds that this is the “&lt;a href=&quot;https://physicstoday.aip.org/opinion/could-feynman-have-said-this&quot;&gt;Shut up and calculate&lt;/a&gt;” school-of-thought in quantum mechanics. Concepts in quantum mechanics are beyond our capacity to visualize or experience (e.g., What does it mean for something to be a wave and a particle? No such familiar object exists.); yet, we have been able to abandon attempts to derive visual or experiential meaning out of it, and instead just do the math to reason about it. Likewise, a text-only model can do all sorts of math and physics, without ever bothering to understand it visually. (The skeptic wonders though, what developments in physics may be stalled by the human inability to grasp quantum mechanics.)&lt;/p&gt;
 
 &lt;h2 id=&quot;epiphenomenon&quot;&gt;Epiphenomenon&lt;/h2&gt;
 

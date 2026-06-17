@@ -1,0 +1,684 @@
+<html>
+  <head>
+      <script>
+    // Set theme immediately to prevent flashing and provide data for Disqus
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+
+    
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/noErrors.js", "Safe.js", "html.js"], /* Ensure 'html.js' is here */
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreHtmlClass: 'no-mathjax',
+      skipTags: ["script","noscript","style","textarea","pre","code","a"]
+    },
+    CommonHTML: {
+    matchFontHeight: true,
+    linebreaks: { automatic: true }
+  },
+    "HTML-CSS": {
+      availableFonts: ["TeX"],
+      matchFontHeight: true,
+      linebreaks: { automatic: true },
+      // --- KEY CHANGE 1: Enable linebreaks for HTML-CSS output ---
+      linebreaks: { automatic: true },
+      // --- KEY CHANGE 2: Define custom styles using CSS variables ---
+      styles: {
+        ".MathJax_Display": { // For display equations
+          "background-color": "var(--mathjax-highlight-background)", // Default is transparent
+          "color": "var(--mathjax-highlight-text)" // Default is black/white
+        },
+        ".MathJax_Display .MathJax_Math span": { // Target text within display equations
+            "background-color": "inherit !important", /* Prevents MathJax from forcing background */
+            "color": "var(--mathjax-highlight-text)" /* Ensure text color applies if you highlight entire blocks */
+        },
+        ".MathJax_Display .MathJax_Math": {
+            "background-color": "inherit !important",
+        },
+        ".MathJax_SVG_Display": { // For SVG output (if enabled)
+            "background-color": "var(--mathjax-highlight-background)",
+            "color": "var(--mathjax-highlight-text)"
+        },
+        ".MathJax_SVG_Display svg": {
+            "background-color": "inherit",
+        },
+        ".MathJax_SVG_Display .mjx-chtml": {
+            "background-color": "inherit",
+        },
+        /* Define a custom class for highlighting within equations */
+        ".highlighted-math": {
+            "background-color": "var(--mathjax-highlight-background) !important",
+            "color": "var(--mathjax-highlight-text) !important",
+            "padding": "0.1em 0.3em", /* Add some padding around the highlight */
+            "border-radius": "0.2em" /* Slightly rounded corners */
+        }
+      }
+    },
+    TeX: {
+    Macros: { // Define custom LaTeX commands here
+      highlightmath: ['{\\htmlclass{highlighted-math}{\\text{#1}}}', 1], // #1 means it takes one argument
+      },
+    equationNumbers: { autoNumber: "AMS" }, // This enables (1), (2), etc.
+    },
+    SVG: { linebreaks: { automatic: true } }, // Enable linebreaks for SVG output as well
+    menuSettings: { zoom: "Double-Click" }
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    <meta content='An analogy for technical communication - Vaishnavh Nagarajan' property='og:title' />
+    <title>An analogy for technical communication - Vaishnavh Nagarajan</title>
+    <!--
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+-->
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TZ1W6KRGW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TZ1W6KRGW0');
+</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&family=Ewert&family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+
+<!-- ADD THIS SINGLE LINK -->
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&family=IM+Fell+Great+Primer:ital@0;1&family=Instrument+Serif:ital@0;1&family=Pacifico&display=swap" rel="stylesheet">
+
+<!-- <link href='https://fonts.googleapis.com/css?family=IM Fell DW Pica|IM Fell DW Pica SC|IM Fell English|IM Fell English SC|IM Fell French Canon|IM Fell Great Primer|IM Fell Great Primer SC|IM Fell Great Primer IT|IM Fell Double Pica|Libre Caslon Text|Jost|Instrument Serif' rel='stylesheet'>
+
+<link href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer:400,400i&display=swap' rel='stylesheet'>
+
+<link href='https://fonts.googleapis.com/css?family=Instrument+Serif:400,400i&display=swap' rel='stylesheet'>
+
+ -->
+<!--<link href='http://fonts.googleapis.com/css?family=Teko|Dosis:400,800|Economica|Josefin+Sans|Oswald|Indie+Flower|Pacifico|Roboto' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' /> -->
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+<meta content="" property="fb:app_id" />
+
+  <meta content='/blog/technical-communication/' property='og:url' />
+  <meta content="The analogy of rescuing a marooned audienceTechnical/scientific communication—writing, talks, day-to-day collaboratio..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=604714799556697";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+  </head>
+  <body>
+    <header>
+<!--<br><p>Vaishnavh Nagarajan</p>-->
+</header>
+    <div id='container'>
+      <div class="content">
+                    <nav>
+
+  <div class="navigation">
+    <div class="logo"><a href="/home/index.html">Vaishnavh Nagarajan</a></div>
+    <div class="menu">
+
+  
+    <a href="/home/index.html"  class="link">
+      <div class="title">
+      About
+    </div>
+    </a>
+  
+    <a href="/home/index.html#research"  class="link">
+      <div class="title">
+      Research
+    </div>
+    </a>
+  
+    <a href="/talks/index.html"  class="link">
+      <div class="title">
+      Talks
+    </div>
+    </a>
+  
+    <a href="/blog/index.html"  class="link">
+      <div class="title">
+      Blog
+    </div>
+    </a>
+  
+    </div>
+    <button id="theme-toggle-button" class="font-awesome-icons">
+        <i id="theme-toggle-icon" class="fas fa-moon"></i>  <span class="visually-hidden">Toggle Dark Mode</span>
+      </button>
+  </div>
+</nav>
+        <section class='blog-post'>
+          <br><br>
+          <div class="blogtitle">An analogy for technical communication</div>
+        <!-- Table of Contents Container -->
+
+      
+
+      <nav class="sidebar-toc">
+                <!-- Clickable Title replaces "Contents" -->
+          <a href="#container" class="toc-header toc-title-link">
+            An analogy for technical communication
+          </a>
+
+        <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#the-analogy-of-rescuing-a-marooned-audience">The analogy of rescuing a marooned audience</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#the-challenges-of-technical-communication">The challenges of technical communication</a></li>
+<li class="toc-entry toc-h3"><a href="#why-an-analogy">Why an analogy?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#narrative-ordering">Narrative ordering</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#the-naive-rescuers-ordering">The naive rescuer’s ordering</a></li>
+<li class="toc-entry toc-h3"><a href="#sequential-narration-for-flow">Sequential narration for flow</a></li>
+<li class="toc-entry toc-h3"><a href="#hierarchical-narration-for-building-a-canvas">Hierarchical narration for building a canvas</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#meta-information">Meta-information</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#relationships-between-information">Relationships between information</a></li>
+<li class="toc-entry toc-h3"><a href="#shaping-attention-or-verbal-gesturing">Shaping attention, or verbal gesturing</a></li>
+<li class="toc-entry toc-h3"><a href="#distractions">Distractions</a></li>
+<li class="toc-entry toc-h3"><a href="#descriptions-of-the-information">Descriptions of the information</a></li>
+<li class="toc-entry toc-h3"><a href="#other-rules">Other rules</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#technical-communication-vs-story-telling">Technical communication vs. story-telling</a></li>
+<li class="toc-entry toc-h2"><a href="#disclaimers">Disclaimers</a></li>
+</ul> 
+      </nav>
+
+
+        <div class="blogbody"><hr />
+
+<h2 id="the-analogy-of-rescuing-a-marooned-audience">The analogy of rescuing a marooned audience</h2>
+
+<p>Technical/scientific communication—writing, talks, day-to-day collaboration, <em>especially</em> day-to-day collaboration—is a life-or-death predicament in disguise:</p>
+
+<blockquote>
+  <p>The communicator must</p>
+
+  <ul>
+    <li>verbally convey an escape route</li>
+    <li>to a frantic and fatigued audience marooned on a treacherous island;</li>
+    <li>the audience has no map, only the communicator does,</li>
+    <li>but the communicator is separated in a control room and must guide the audience only through a walkie-talkie.</li>
+  </ul>
+</blockquote>
+
+<p>An alternative imagination (although a bit less potent as an analogy) is of the audience solving a jigsaw puzzle or reconstructing an picture while following instructions from a communicator announcing the instructions from behind an opaque screen. Also, the audience have clueless about what the final picture looks like.</p>
+
+<p>Even less potent, and in fact misleading, is the analogy of technical communication as something like guiding tourists. This suffers from multiple incorrect assumptions.  The tourist-audience is in the same place as the communicator, know what the map looks like upfront, and can observe the guide’s spatial gestures. The tourist-audience is whimsical, has no pressing long-term goal, is under no cognitive or emotional stress,  and gleefully follows the guide wherever they go. None of this is true of the challenging mission that is technical communication.</p>
+
+<h3 id="the-challenges-of-technical-communication">The challenges of technical communication</h3>
+
+<h4 id="verbalizing-both-the-map-and-map-showing">Verbalizing both the map and map-showing</h4>
+
+<p>In the analogy of the rescue mission, the rescuer’s task is to transmit through mere words a gnarly escape route (teeming with forks, loops and dead-ends) to a mapless audience reconstructing the route at their end. This task—of funnelling a two-dimensional object through a verbal bottleneck—is already challenging to do without inflicting distortions on the object. But making matters worse is that the (disembodied, remote) rescuer cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.</p>
+
+<blockquote>
+  <p>Thus, in technical communication, the rescuer is forced to verbalize both a complex map and the many physical gestures required to spatially guide someone as they assemble and navigate the map.</p>
+</blockquote>
+
+<h4 id="understanding-the-psychology-of-the-audience-and-building-trust">Understanding the psychology of the audience and building trust</h4>
+
+<p>The rescuer also needs to empathize with the delicate mental state of the people stranded and starving on an unpredictable island.</p>
+
+<ul>
+  <li>They are distracted by the slightest of stimuli and bewildered by the tiniest of tasks;</li>
+  <li>they are forgetful and barely able to think;</li>
+  <li>they feel a constant urgency towards being  liberated (“Are we there yet? How far did the trek bring us? Where on earth are we now? Weren’t we here exactly two hours ago?”);</li>
+  <li>they experience a severe dissonance: every instruction from the rescuer appears to those poor souls as a meaningless form of torture: climb a slippery mountain, pet a snake, read a meandering, line-breaked equation. Why is a self-proclaimed savior making them endure bizarre sufferrings?  Is there not a rosier path to salvation? This friction generates caution and skepticism.</li>
+</ul>
+
+<blockquote>
+  <p>Thus, in technical communication, the rescuer needs to dispel and a flurry of doubts arising from the audience, earn the audience’s trust, and persuade them into wilfully engaging in acts of suffering.</p>
+</blockquote>
+
+<h4 id="the-solutions">The solutions</h4>
+
+<p>To master these challenges, our disembodied rescuer must abide by two broad commandments.</p>
+<ul>
+  <li>One is that they must transmit the pieces of the map in a calculated order that is sequential and hierarchical.</li>
+  <li>Second, they must transmit all the raw information glued together with rich <em>meta-information</em> that explicitly verbalizes finger-pointings and makes the mission more transparent by offering promises, rationales, reassurances, reminders, red flags and so on.</li>
+</ul>
+
+<p>We will discuss these ideas shortly.</p>
+
+<hr />
+
+<h3 id="why-an-analogy">Why an analogy?</h3>
+
+<p>The analogy is not just an exercise in wild imagination. It serves a few purposes.</p>
+
+<ul>
+  <li>One, it helps us internalize in succinct and animated terms, the tedious commandments of technical communication that we otherwise try to absorb through brute memorization and practice.</li>
+  <li>Second, the analogy helps develop new rules on the fly by shaping our instincts in unpredictable scenarios, like when an otherwise well-rehearsed talk is heckled by a tenured faculty member.</li>
+  <li>Third, the analogy is a didactic tool that helps justify feedback. I often say things like: “You’re trying to get the reader to embark on this strenuous journey, but you’ve not told them why they should do it!” or “You’ve shocked the reader abruptly with this complex discussion. Give them a warning!”.  With vivid back-story, the rule is better taught and better understood.</li>
+  <li>Finally, the analogy gives some imagery to rules of writing that are frustratingly cryptic to a young writer (“improve flow”—what flow?, “anticipate the reader’s questions!”–what questions?).</li>
+</ul>
+
+<p>The rest of the post will demonstrate (to great detail), how to derive and motivate some of these rules from within this analogy. The focus is not so much on the rules themselves as it is on their derivation.</p>
+
+<hr />
+
+<h2 id="narrative-ordering">Narrative ordering</h2>
+
+<p>We can think of every snippet of the map/escape route as a raw piece of technical information (a notation, a definition, a sub-routine, a claim, a hypothesis etc.,). The first two rules lay out the basic algorithm by which the rescuer must break down their private map into such digestible pieces, and the order in which they must transmit those pieces.
+Before discussing the rules, let us diagnose how the ordering can go wrong.</p>
+
+<h3 id="the-naive-rescuers-ordering">The naive rescuer’s ordering</h3>
+
+<p>“Why are you telling me this? What do I do with this information? Where does this fit?”,
+is a question that vexes the audience in a disorganized presentation. The naive rescuer, eager to enlighten his mapless audience, has impulsively dumped all pieces of the map in some reckless ordering into the audience’s head. The rescuer’s assumption is that, in a subsequent  stage, the audience, with eagerness equalling that of the rescuer, will re-arrange the map into one piece to witness what the rescuer has been privy to all along. This is what happens when a second read of a paper is needed for everything to fall in place—it is rarely a delight for the audience.</p>
+
+<p>The naive rescuer’s downfall lies in their own private knowledge: to them, the “dump-then-reconstruct” strategy appears so simple and thrilling
+because they can already picture the panoramic beauty of the complete map, and so which piece goes where. But to the  audience, the naive rescuer has demanded a “memorize-everything-then-recall-everything-into-your-working-memory-and-then-unscramble” strategy. This requires the cognitive abilities of a detective and the patience of a saint, neither of which the famished audience has the luxury for.</p>
+
+<h3 id="sequential-narration-for-flow">Sequential narration for flow</h3>
+
+<p>The audience in despair craves for <em>constant signs of progress</em>: as and when a snippet of the escape route arrives in their walkie-talkie, it must snugly fit into whatever crude map they’ve partially reconstructed, allowing them to proceed a step further. If the rescuer tells them, “there’s a faraway forest we’ll later encounter, let us now pause for my monologue about the many trails and tribulations it has in store”, the audience descends into chaos. They cannot teleport, and they don’t want to hold on to a disconnected body of information, information that may evaporate from  memory at any moment. (“What if I forget this arbitrary collection of hideous notations and that’s how I perish on this island?”)</p>
+
+<p>The solution then is to lead the audience step-by-step into the forest, so they can develop their map through direct experience:</p>
+
+<blockquote>
+  <p>Technical communication must relay an escape route through a chain of step-by-step instructions. Nothing must be introduced abruptly. Every equation, theorem, algorithm and hypothesis must refer back to, and emerge out of <em>at least one</em> or more ideas, objects or motivations introduced before. This way, every instruction is consumed then and there rather than dangling afloat in the audience’s head like loose threads. The audience, in stitching the map out as if it were a single piece of cloth, are relieved to carry at any time only the amount of information necessary to execute the next step, not a whole scrambled map.  This is what is meant by “flow” and the impatient cravings of the marooned audience justifies the need for flow.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="hierarchical-narration-for-building-a-canvas">Hierarchical narration for building a canvas</h3>
+
+<p>Sequential ordering alone is inadequate to soothe the audience. If the walkie-talkie blared out a well-ordered series of commands—Read these notations! Next comes Lemma 1! And then, Lemma 2! Now, the final proof!—it is as frustrating as being made to assemble the pieces of a puzzle or being made to draw a picture grid-by-grid with no clue of what is even being constructed.</p>
+
+<blockquote>
+  <p>That is, the audience on a terrifying island are reluctant to blind-foldedly follow a cascade of little steps. They desperately want to know the overarching plan for salvation <em>before all else</em>, rather than take a leap of faith. They demand this so they can first and foremost build a fuzzy canvas in their head onto which they can later piece together specific, low-level snippets of the map, thus re-assuring themselves that everything is indeed going according to plan and they will make it out alive.</p>
+</blockquote>
+
+<p>Thus, the rescuer provides a helicopter pilot’s view of the island from various altitudes: they say, the exit lies at a so-and-so theorem, the shape of the island is a three-lemma proof sketch,  etc., all before zooming into a particular definition. Now, even when stating the definition, the rescuer provides an high-altitude idea before specifying its ground-level details.  Algorithmically, the rescuer has organized all their information into a giant tree, and they traverse this tree in a “depth-first order”, repeatedly zooming in and out to read out the information. 
+(That’s one dizzy helicopter ride, but such is the sacrifice our rescuer has to make.)</p>
+
+<hr />
+
+<h2 id="meta-information">Meta-information</h2>
+
+<p>In addition to transmitting raw information about the escape route, the rescuer needs to transmit  <em>meta-information</em>, that is, information <em>about</em> the information—such as why the information is necessary, how it relates to everything else, how important it is etc., Meta-information is what describes how to parse and assimilate a piece of information. It is the equivalent of physical gestures sent over a walkie-talkie or messages sent to manage the apprehensive and antsy state of a marooned audience.</p>
+
+<blockquote>
+  <p>A golden rule then is to <strong><em>provide meta-information in advance of the information itself</em></strong>. This pre-emptively wards off any anxieties that a piece of information may trigger, and has the audience (psychologically and cognitively) primed  to handle an incoming piece of information. If not, they are forced to store the raw information first, and <em>then</em> be told how to handle it, which by the same logic we discussed under “sequential narration”,  would demand much patience and memory from the fatigued audience than is needed.</p>
+</blockquote>
+
+<p>The next few sections derive the different types of meta-information needed using the analogy of the rescue mission. But let us make clear how essential this is, because
+we often sideline meta-information as the dull and dead afterthought of communication, the However’s,  and the “in this section, we will”s peppered in between information that we deem interesting<sup id="fnref:meta-discourse" role="doc-noteref"><a href="#fn:meta-discourse" class="footnote" rel="footnote">1</a></sup>. This is a gross misconception. <strong>Meta-information includes substantive thoughts, insights and facts about the information.</strong> It is what breathes life and form to what would otherwise be a clumsy Frankenstein of a presentation. Meta-information should therefore by treated on an <em>equal footing</em> to information itself!<sup id="fnref:live" role="doc-noteref"><a href="#fn:live" class="footnote" rel="footnote">2</a></sup></p>
+
+<h3 id="relationships-between-information">Relationships between information</h3>
+
+<p>Before transmitting a piece of information, the rescuer must explicitly handhold and motivate the audience by specifying how the piece relates to the audience’s partially reconstructed map and the promised hazy canvas of the map.</p>
+
+<h4 id="connections-to-the-past-for-handholding">Connections to the past for handholding</h4>
+
+<p>The audience has no patience to try and deduce <em>how</em> and <em>where</em> a piece fits with their partially-reconstructed map. So, as if virtually holding their hand to place the piece, the rescuer must be descriptive about how an information delivers on an earlier promise or how it supplements or complements or builds out of other pieces of information. At the level of ideas this could be saying “In the next theorem, I’ll prove a gap between the two quantities <em>described in the previous two slides. This is stronger than the warm-up theorem we saw earlier</em>.” before describing Theorem 1 (observe that the italicized connection to past is not boring fluff but meaty technical content about technical content!). Similarly, on the surface of the text, the rescuer would ensure that the first few words of sentence directly relate to, or literally overlap with a recent sentence, as if the text has been manifestly hemmed together.</p>
+
+<h4 id="connections-to-the-future-to-motivate-suffering">Connections to the future to motivate suffering</h4>
+
+<p>The audience cannot be lured into following a sequence of actions, just because one follows smoothly from all previous actions. “Grab this giant rock before we trek up this mountain” and the audience stares incredulously. A particular sequence of worries will run through their mind: “(1) Do I really need something that will weigh me down during the climb? (2) But what if this is useful later? (3) Perhaps I can find rocks like this later, so I dont need to worry about this instruction right now! (4) But what if I skip it and I don’t find these rocks again?”</p>
+
+<p>So, <em>before</em> making the audience endure an act so painful and so loathsome,  the rescuer must motivate <em>why</em> that suffering is both sufficient and necessary for the eternal salvation promised at the start of the treacherous academic presentation. This means rather than describing a theorem to excruciating detail followed by a dramatic reveal of its  purpose, the rescuer begins with a spoiler about how it satisfies a previously-mentioned overarching plan: “<em>Since we want to show that this algorithm fails,</em> it means that this quantity from the previous slide must be large than the quantity in this slide. This gap is what this theorem establishes.”</p>
+
+<h4 id="signposts">Signposts</h4>
+
+<p>The marooned are traversing not just the island, but also a tree of instructions, an imaginary tree which needs visible punctuations like, “Having crossed the first hurdle of the river, for the second of the three hurdles, we have to get you up this steep and misery-inducing proof sketch.” Thus, after covering a sub-tree, the rescuer reminds the audience of a summary of what they have accomplished; as they backtrack and zoom into a different branch, they announce that they’re pivoting, and provide a summary of what the new sub-tree promises.<sup id="fnref:signposts" role="doc-noteref"><a href="#fn:signposts" class="footnote" rel="footnote">3</a></sup></p>
+
+<h3 id="shaping-attention-or-verbal-gesturing">Shaping attention, or verbal gesturing</h3>
+
+<p>Since the rescuer and the audience are not co-located, the rescuer needs to explicitly and verbally finger-point to steer the audience’s attention. What makes this more challenging is that, the audience, surrounded by wilderness, is over-stimulated and hyper-sensitive, and so the rescuer needs to predict the audience’s “saccades” and bridle them, all through a walkie-talkie.</p>
+
+<h4 id="abstractions-and-distinctions">Abstractions and distinctions</h4>
+
+<p><strong>Abstractions:</strong> To point fingers at things, there must be things, things that exist inside the heads of both the interacting parties. But given that the audience is stuck elsewhere, this shared vocabulary of things must be deliberately developed and shared. This is however hard, especially in the initial stages of research, when interesting formations begin to appear on the landscape but only as fuzzy silhouettes in the distance. What the rescuer does then is to routinely and loudly segment  and re-segment the horizon: as and when these formations become even mildly discernible, they are quick to announce names for them (“Hypothesis ABC”, “Phenomenon XYZ”) so that the audience’s attention can later be conveniently redirected to a collection of related and recurring ideas. This is accompanied with rich definitions, explicitly noting that it is only tentative, and will become more comprehensible as the audience trudge closer towards those formations in the horizon. (This practice of repeated abstracting and christening is particularly important in day-to-day collaborations and at the beginning of a research project.)</p>
+
+<p><strong>Distinctions:</strong> Another <em>extremely</em> important tool for developing a shared segmentation of the landscape is contrasting how one formation is different from another, especially when they seem to overlap. Noting “Theorem 2, unlike Theorem 1, no longer needs Assumption 1” or “What I’m saying now is different from what I said five minutes ago in this sense” crystallizes how exactly the map has advanced.</p>
+
+<h3 id="distractions">Distractions</h3>
+
+<blockquote>
+  <p>A common pitfall in guessing games like pictionary is that the communicator, intent on painting a rich picture, over-communicates while 
+the guesser, intent on finding patterns, fixates on a stray detail, which then cascades into a grave misunderstanding, derailing the communication game.</p>
+</blockquote>
+
+<p>To avoid this pitfall, there are two rules to be observed.</p>
+
+<h4 id="specifying-importance">Specifying importance</h4>
+
+<p>The rescuer assesses the relevance of each instruction to the escape, and announces that assessment in words before announcing the instruction. Saying “What I’m about to say is just a sidenote” or warning the audience “I’m about to divulge the major step we should focus on” can graciously let the audience time their naps. But back-and-forth, collaborative settings demand more adaptive strategies since the communicator must constantly detect and shepherd the collaborators whenever they pull the conversation down a rabbit hole.</p>
+
+<h4 id="avoiding-emergent-distractions-with-disclaimers">Avoiding emergent distractions with disclaimers</h4>
+
+<p>Some stray details emerge not from the rescuer’s mouth, but in the eyes of the audience as an inadvertent second-order effect:</p>
+<ul>
+  <li>some statements may seem counter to the audience’s intuition or to the audience’s knowledge of literature or to what they thought the rescuer said earlier;</li>
+  <li>some key terms may seem overloaded within the presentation or may mean something else in some pockets of literature;</li>
+  <li>some ideas may sound similar or related to each other when they are not;</li>
+  <li>some analogy may be easy to superimpose and over-apply in an unintended orientation;</li>
+  <li>some claims ambiguous, some things easy to misunderstand.</li>
+</ul>
+
+<p>These distractions may or may not be visible to the audience. Either way, they are insidious: if the distraction sticks out as a giant, bizarre contraption, it can eternally haunt the   audience, given their skittishness; if well-camouflaged, it can unwittingly lure them down the wrong route!</p>
+
+<p>A vigilant rescuer <em>infers</em> the locations of these traps (which are highly camouflaged in the rescuer’s vision) and then addresses their presence promptly, which can be done in one of three ways:</p>
+
+<ul>
+  <li>“You may have spotted a gigantic ticking apparatus by your side,  here’s how to defuse it!” or</li>
+  <li>“Do not worry about that trap now, we will defuse it <em>later</em>!”
+or</li>
+  <li>“That ticking sound is just a red herring placed by this diabolical island. We shall ignore it forever as it does not lie on the way to salvation!”</li>
+</ul>
+
+<blockquote>
+  <p>The last two solutions rest on the fact that the rescuer needs to always say what they are <em>not</em> claiming. The mere <em>disclaimer</em> that something should seem nonsensical and unresolved for now, and is best ignored for now, builds trust with an anxious audience that is otherwise over-guessing missing details.<sup id="fnref:acknowledging" role="doc-noteref"><a href="#fn:acknowledging" class="footnote" rel="footnote">4</a></sup></p>
+</blockquote>
+
+<h3 id="descriptions-of-the-information">Descriptions of the information</h3>
+
+<p>Before transmitting a piece of information, the rescuer must describe the various traits of the information. Richer the description, smoother the rescue. Some examples below.</p>
+
+<ul>
+  <li>
+    <p><strong>Type:</strong> Like the myriads of symbols on a map, a techincal statement could be an assertion, a promise, a question, a concern, an observation, a conclusion, an assumption, a definition or a guess. Confusions arise when what the communicator regards as an assumption, is what the listener processes as a conclusion—at least until the discrepancy surfaces itself.   Thus, the <em>type</em> of the information must be announced before the information itself.  (Once again, this habit comes naturally while writing, but is easy to miss in day-to-day collaborations.)</p>
+  </li>
+  <li>
+    <p><strong>Quality:</strong> Occasionally, the rescuer may think it is best not to communicate the next piece of the map with precision. If the audience senses something imprecise, it induces anxiety, which is avoided, if in advance, they’re told of an upcoming instruction being intentionally “handwavy” or “informal” or “rough”.  Once again, this is the rule of saying what is not being said (here, the intricate details).</p>
+  </li>
+  <li>
+    <p><strong>Difficulty:</strong> Demanding the marooned to climb a mountain that becomes abruptly steep is a rude shock. The empathic rescuer  prepares the marooned psychologically: “Now, this is going to be a hard trek up” or “This is going to be frustratingly precise, but we need that precision here”. Funnily, even if something is too straightforward, the  audience second-guesses themselves: “Did I miss something here? It cannot be that easy?” The empathic communicator would have started with “What I’m about to say is straightforward.”</p>
+  </li>
+</ul>
+
+<h3 id="other-rules">Other rules</h3>
+
+<p>Many other miscellaneous rules of technical communication can be derived from our premise of remotely guiding an audience trapped in a wild island.</p>
+
+<ul>
+  <li>For instance, the empathic rescuer compensates for the lossy memory of the barely-surviving audience by reminding them of landmarks and experience they have come across as and when these get referenced.  Such reminders are most needed in day-to-day research collaborations where the lead who has intimate and fresh knowledge of the island, has to communicate with the advisors who are simultaneously escaping (or pretending to escape) multiple wild islands.</li>
+  <li>The rescuer also provides ways for the disoriented audience to periodically “triangulate” their location, especially at complex situations, for example, through base-cases or simple examples right after a theorem, or through multiple rephrasings or perspectives of the same fact.</li>
+  <li>The rescuer also breaks up instructions into the littlest pieces possible, rather than rambling on and on about one piece, and in situations where they can hear back from the audience, they give long pauses for the audience to overcome their (undue) embarrassment and speak up about a given piece.</li>
+</ul>
+
+<p>The derivation of other rules are left as an exercise for the reader.</p>
+
+<p>Another exercise is to experience and monitor a few technical presentations through the lens of the rescue mission. What things has the rescuer done right and done wrong, and how does the analogy explain those?  Did you feel the canvas being built in your head and pieces being easy to put in place? What moments caused “distress”? What could the rescuer have done better? What meta-information could they have provided, in hindsight?</p>
+
+<h2 id="technical-communication-vs-story-telling">Technical communication vs. story-telling</h2>
+
+<p>In many ways, story-telling is anti-thetical to technical communication, a contrast that when appreciated illuminates what is unique about technical communication. The story-telling audience has deliberately marooned themselves on an island; they seek an adventure and are excited by the ignorance of what is around the corner; they do not want instructions to make immediate sense; they don’t want to be handheld!</p>
+
+<p>As a consequence, the story-teller transgresses each of the commandments discussed above. The story-teller constructs a deliberately and artfully disordered presentation of information, non-sequential, non-hierarchical and ever unpredictable. Everything clicks only at the end, only with a second read or only after an enthusiastic unscrambling by a brave audience, because that fate is pre-meditated by the story-teller. The story-teller must “show, not tell”, which means meta-information is taboo. The pleasure of a story is derived from filling in missing details, from constantly making conjectures abour how something relates to the past or to the future, from anticipating what the undisclosed future resolution would be, or from overlooking a critical plot device as a mere distraction and so on. In many ways, what is suffering for a technical audience is pleasure for a creative audience, and vice versa.<sup id="fnref:painting" role="doc-noteref"><a href="#fn:painting" class="footnote" rel="footnote">5</a></sup></p>
+
+<hr />
+
+<h2 id="disclaimers">Disclaimers</h2>
+
+<ul>
+  <li>
+    <p>It may seem as though this essay views technical communication as a form of torture and condescension towards the audience. But the suggestion here is to only <em>temporarily role-play</em> a certain default mental makeup while designing a talk or paper. It is still important to know what the audience knows and respect their knowledge.</p>
+  </li>
+  <li>
+    <p>Not all technical presentations that require a second read or a second watch are due to the communicator’s naivety. Some ideas are  inherently complex and possess higher-order beauty that demands revisits.</p>
+  </li>
+  <li>
+    <p>Some of the rules may make it seem like scientific communication must consitute a lot of dry and rigid scaffolding devoid of any thrills or suspense. However, with experience, a technical writer can find little ways to inject freshness into their writing while being subject to the rules:</p>
+    <ul>
+      <li>One solution is to play with the surface of the text: avoid cliched phrases and syntax (both in the meta-information and the information), or use novel metaphors and phrases while communicating the information.</li>
+      <li>But we can also pursue a technically-deeper kind of creativity in other ways, like in how intuitions are developed and illustrated, in how the introductory paragraph of the paper develops the motivation, in how ideas are related and contrasted, or in cleanly explaining (and pausing before) the key “aha” step in a proof.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h5 id="footnotes">Footnotes:</h5>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:meta-discourse" role="doc-endnote">
+      <p>Those generic markers, the “However,”, “Additionally, etc., are referred to as meta-discourse. [[more]] But guide-books usually over-emphasize these markers themselves rather than the interesting, non-trivial content that accompany these markers, which is why I prefer to label it distinctly as meta-information. For more on metadiscourse, see these references [<a href="https://en.wikipedia.org/wiki/Metadiscourse">1</a>, <a href="http://www.kenhyland.org/wp-content/uploads/2020/05/Metadiscourse_What-is-it-and-where-is-it-going.pdf">2</a>, <a href="https://explorationsofstyle.com/2017/01/31/metadiscourse/">3</a>]. <a href="#fnref:meta-discourse" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:live" role="doc-endnote">
+      <p>Meta-information tends to come more naturally in structured and editable media (e.g., in written form), but is most easy to miss in live presentations and even more so in day-to-day collaborations. Ironically, [[more]] the live audience are most in need of meta-information since they do not have a structured medium to stare at and think through! So, the live communicator must be doubly attentive in parting with meta-information to a live audience. <a href="#fnref:live" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:signposts" role="doc-endnote">
+      <p>I admit that signposts tend to be the most boring type of meta-information. It is best to keep it short and sweet. <a href="#fnref:signposts" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:acknowledging" role="doc-endnote">
+      <p>The trick of acknowledging the nonsensical is handy in many situations. For example, it can be handy when the rescuer relays an out-of-sequence instruction that can only make sense later—this may happen either because the concept is impossible to sequentialize or because the rescuer accidentally went out of order (thanks, heckler). <a href="#fnref:acknowledging" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:painting" role="doc-endnote">
+      <p>A similar series of contrasts can be drawn between a painting and a technical diagram. <a href="#fnref:painting" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+        </section>
+      </div>
+
+        <div class="post-navigation">
+  
+    <a href="/blog/what-llms-see/" class="nav-arrow left-arrow">&laquo; Can a text-only model ever understand things the way we see?</a>
+  
+
+  
+</div>
+
+          <!-- <div class="block">
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_x"></a>
+<a class="a2a_button_google_gmail"></a>
+<a class="a2a_button_threads"></a>
+<a class="a2a_button_hacker_news"></a>
+<a class="a2a_button_linkedin"></a>
+<a class="a2a_button_reddit"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_mastodon"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+</div> -->
+          
+       
+
+<div class="block">
+  <div id="disqus_thread"></div>
+  <script>
+    // The original Disqus embed script. We now rely on the global disqus_config
+    // defined above, and the reset logic in the theme toggler.
+    // Ensure this script still runs to initially load Disqus.
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://vaishnavh.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+    </div>
+
+
+
+
+    <footer>
+
+  <br />
+  <script type="text/javascript" language="javascript">
+  <!--
+  // Email obfuscator script 2.1 by Tim Williams, University of Arizona
+  // Random encryption key feature by Andrew Moulden, Site Engineering Ltd
+  // This code is freeware provided these four comment lines remain intact
+  // A wizard to generate this code is at http://www.jottings.com/obfuscator/
+  //-->
+  </script><noscript>first name AT google DOT com</noscript>
+
+
+
+					<br />
+					<br />
+  Built with Jekyll (based off of Scribble).
+  <br>
+  <img src="/images/scribble2.png " alt="scribble" /> 
+</footer>
+    <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleButton = document.getElementById('theme-toggle-button');
+    const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+
+    console.log('DOMContentLoaded fired');
+    console.log('themeToggleButton:', themeToggleButton);
+    console.log('body:', body);
+    console.log('currentTheme:', currentTheme);
+
+   //  Define disqus_config globally or within a scope accessible by DISQUS.reset
+   //  A more robust way is to make it a named function or a property of window
+   //  so DISQUS.reset can find it.
+   // so DISQUS.reset can find it.
+    window.disqus_config = function () {
+  this.page.url = 'http://localhost:4000/blog/technical-communication/';
+      this.page.identifier = 'http://localhost:4000/blog/technical-communication/';
+
+      // FIX: Define the variable actually used in the if-statement below
+      // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
+      var currentThemeForDisqus = document.body.getAttribute('data-theme') || 'dark';
+
+      if (currentThemeForDisqus === 'light') {
+        this.page.display_thread_theme = 'light';
+      } else {
+        this.page.display_thread_theme = 'dark';
+      }
+    };
+
+    
+    const initializeTheme = () => {
+      const savedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark
+      body.setAttribute('data-theme', savedTheme);
+
+      if (savedTheme === 'light') {
+        themeToggleIcon.classList.replace('fa-sun', 'fa-moon');
+      } else {
+        themeToggleIcon.classList.replace('fa-moon', 'fa-sun');
+      }
+    };
+
+    /**
+     * 3. Handle Theme Toggle Click
+     */
+    if (themeToggleButton) {
+      themeToggleButton.addEventListener('click', function() {
+        const isDark = body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+
+        // Update Site UI
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // Update Icons
+        if (newTheme === 'light') {
+          themeToggleIcon.classList.replace('fa-sun', 'fa-moon');
+        } else {
+          themeToggleIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // --- DISQUS THEME RESET ---
+        // This forces Disqus to re-read window.disqus_config
+        if (typeof DISQUS !== 'undefined') {
+          DISQUS.reset({
+            reload: true,
+            config: function () {
+              // We call the global config using the context of the reset
+              window.disqus_config.call(this);
+              this.page.display_thread_theme = newTheme; // <--- Add this line
+            }
+          });
+          console.log('Disqus theme synchronized to: ' + newTheme);
+        }
+      
+
+      });
+
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('readystatechange', function() {
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+          initializeTheme();
+        }
+      });
+      console.log('readyState is loading, adding readystatechange listener');
+    } else {
+      initializeTheme();
+      console.log('readyState is not loading, calling initializeTheme directly');
+    }
+  });
+</script>
+<script src="/assets/js/footnotes.js"></script>
+  </body>
+</html>
