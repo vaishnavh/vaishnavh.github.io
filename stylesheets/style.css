@@ -1638,7 +1638,7 @@ details[open] summary::before {
   /* Petite & Faded styling */
   text-align: left;      /* Hugs the divider line for clean alignment */
   font-size: 0.7rem;      /* Smaller, less distracting font */
-  opacity: 0.4;           /* Faded out by default */
+  opacity: 1.0;           /* Faded out by default */
   border-right: 1px solid var(--nav-border-color);
   transition: opacity 0.3s ease;
   z-index: 10;
