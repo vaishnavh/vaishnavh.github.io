@@ -33,7 +33,7 @@
 
 &lt;h4 id=&quot;verbalizing-both-the-map-and-map-showing&quot;&gt;Verbalizing both the map and map-showing&lt;/h4&gt;
 
-&lt;p&gt;In the rescue mission, the rescuer’s task is to transmit through mere words a gnarly escape route (teeming with forks, loops and dead-ends) to a mapless audience reconstructing the route at their end. Disentangling and verbalizing a two-dimensional object is already challenging. But making matters worse is that the (disembodied, remote) rescuer cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.&lt;/p&gt;
+&lt;p&gt;In the rescue mission, the rescuer’s task is to transmit through mere words a gnarly escape route (teeming with forks, loops and dead-ends) to a mapless audience reconstructing the route at their end. Disentangling and verbalizing a two-dimensional object—without inflicting distortions—is already challenging. But making matters worse is that the (disembodied, remote) rescuer cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Thus, in technical communication, the rescuer is forced to verbalize both a complex map and the many physical gestures required to spatially guide someone as they assemble and navigate the map.&lt;/p&gt;
@@ -101,17 +101,19 @@ because they can already picture the panoramic beauty of the complete map, and s
 &lt;p&gt;The solution then is to lead the audience step-by-step into the forest, so they can develop their map through direct experience:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Technical communication must relay an escape route through a chain of step-by-step instructions. Nothing must be introduced abruptly. Every equation, theorem, algorithm and hypothesis must refer back to, and emerge out of &lt;em&gt;at least one&lt;/em&gt; or more ideas, objects or motivations introduced before. This way, every instruction is consumed then and there rather than dangling afloat in the audience’s head like loose threads. The audience, in stitching the map out as if it were a single piece of cloth, are relieved to carry at any time only the amount of information necessary to execute the next step, not a whole scrambled map.  This is what is meant by “flow” and the impatient cravings of the marooned audience justifies the need for flow.&lt;/p&gt;
+  &lt;p&gt;Technical communication must relay an escape route through a chain of step-by-step instructions. Nothing must be introduced abruptly. Every equation, theorem, algorithm and hypothesis must refer back to, and emerge out of &lt;em&gt;at least one&lt;/em&gt; or more ideas, objects or motivations introduced before. This way, every instruction is consumed then and there rather than dangling afloat in the audience’s head like loose threads. The audience, in stitching the map out as if it were a single piece of cloth, are relieved to carry at any time only the amount of information necessary to execute the next step, not a whole scrambled map.&lt;/p&gt;
+
+  &lt;p&gt;This is what is meant by &lt;em&gt;flow&lt;/em&gt; and the impatient cravings of the marooned audience justifies the need for flow.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
 
 &lt;h3 id=&quot;hierarchical-narration-for-building-a-canvas&quot;&gt;Hierarchical narration for building a canvas&lt;/h3&gt;
 
-&lt;p&gt;Sequential ordering alone is inadequate to soothe the audience. If the walkie-talkie blared out a well-ordered series of commands—Read these notations! Next comes Lemma 1! And then, Lemma 2! Now, the final proof!—it is as frustrating as being made to reconstruct a picture grid-by-grid with no clue of what is even being constructed.&lt;/p&gt;
+&lt;p&gt;Sequential ordering alone is inadequate to soothe the audience. If the walkie-talkie blared out a well-ordered series of commands—Read these notations! Next comes Lemma 1! And then, Lemma 2! Now, the final proof!—it is as frustrating as being made to reconstruct a picture grid-by-grid with no clue of what is even being constructed!&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;That is, the audience on a terrifying island are reluctant to blind-foldedly follow a cascade of little steps. They desperately want to know the overarching plan for salvation &lt;em&gt;before all else&lt;/em&gt;, rather than take a leap of faith. They demand this so they can first and foremost build a fuzzy canvas in their head onto which they can later piece together specific, low-level snippets of the map, thus re-assuring themselves that everything is indeed going according to plan and they will make it out alive.&lt;/p&gt;
+  &lt;p&gt;That is, the audience on a terrifying island are reluctant to blind-foldedly follow a cascade of little steps. They desperately want to know the overarching plan for salvation &lt;em&gt;before all else&lt;/em&gt;, rather than take many little leaps of faith. They demand this so they can first and foremost build a fuzzy canvas in their head onto which they can later piece together specific, low-level snippets of the map, thus re-assuring themselves at every step that everything is indeed going according to plan and they will make it out alive.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Thus, the rescuer provides a helicopter pilot’s view of the island from various altitudes: they say, the exit lies at a so-and-so theorem, the shape of the island is a three-lemma proof sketch,  etc., all before zooming into a particular definition. Now, even when stating the definition, the rescuer provides an high-altitude idea before specifying its ground-level details.  Algorithmically, the rescuer has organized all their information into a giant tree, and they traverse this tree in a “depth-first order”, repeatedly zooming in and out to read out the information. 
@@ -128,7 +130,7 @@ because they can already picture the panoramic beauty of the complete map, and s
 &lt;/blockquote&gt;
 
 &lt;p&gt;The next few sections derive the different types of meta-information needed using the analogy of the rescue mission. But let us make clear how essential this is, because
-we often sideline meta-information as the dull and dead afterthought of communication, the However’s,  and the “in this section, we will”s peppered in between information that we deem interesting&lt;sup id=&quot;fnref:meta-discourse&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:meta-discourse&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. This is a gross misconception. &lt;strong&gt;Meta-information includes substantive thoughts, insights and facts about the information.&lt;/strong&gt; It is what breathes life and form to what would otherwise be a clumsy Frankenstein of a presentation. Meta-information should therefore by treated on an &lt;em&gt;equal footing&lt;/em&gt; to information itself!&lt;sup id=&quot;fnref:live&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:live&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+we often sideline meta-information as the dull and dead afterthought of communication, the However’s,  and the “in this section, we will”s peppered in between information that we deem interesting&lt;sup id=&quot;fnref:meta-discourse&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:meta-discourse&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. This is a gross misconception. &lt;strong&gt;Meta-information includes substantive  insights about the information.&lt;/strong&gt; It is what breathes life and form to what would otherwise be a clumsy Frankenstein of a presentation. Meta-information should therefore by treated on an &lt;em&gt;equal footing&lt;/em&gt; to information itself!&lt;sup id=&quot;fnref:live&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:live&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;relationships-between-information&quot;&gt;Relationships between information&lt;/h3&gt;
 
@@ -136,7 +138,7 @@ we often sideline meta-information as the dull and dead afterthought of communic
 
 &lt;h4 id=&quot;connections-to-the-past-for-handholding&quot;&gt;Connections to the past for handholding&lt;/h4&gt;
 
-&lt;p&gt;The marooned have no patience to try and deduce &lt;em&gt;how&lt;/em&gt; and &lt;em&gt;where&lt;/em&gt; a piece fits with their partially-reconstructed map. So, as if grasping their hand and directing it to place a piece, the rescuer must be descriptive about how an information delivers on an earlier promise or how it supplements or complements or builds out of other pieces of information. At the level of ideas this could be saying “In the next theorem, I’ll prove a gap between the two quantities &lt;em&gt;described in the previous two slides. This is stronger than the warm-up theorem we saw earlier&lt;/em&gt;.” before describing Theorem 1 (observe that the italicized connection to past is not boring fluff but meaty technical content about technical content!). Similarly, on the surface of the text, the rescuer would ensure that the first few words of sentence directly relate to, or literally overlap with a recent sentence, as if the text has been manifestly hemmed together.&lt;/p&gt;
+&lt;p&gt;The marooned have no patience to try and deduce &lt;em&gt;how&lt;/em&gt; and &lt;em&gt;where&lt;/em&gt; a piece fits with their partially-reconstructed map. So, as if grasping their hand and directing it to place a piece, the rescuer must be descriptive about how an incoming piece of information is about to deliver on an earlier promise or about to supplement, complement or build out of prior pieces of information. At the level of ideas this could be saying “In the next theorem, I’ll prove a gap between the two quantities &lt;em&gt;described in the previous two slides. This is stronger than the warm-up theorem we saw earlier&lt;/em&gt;.” before describing Theorem 1 (observe that the italicized connection to past is not boring fluff but meaty technical content about technical content!). Similarly, on the surface of the text, the rescuer would ensure that the first few words of sentence directly relate to, or literally overlap with a recent sentence, as if the text has been manifestly hemmed together.&lt;/p&gt;
 
 &lt;h4 id=&quot;connections-to-the-future-to-motivate-suffering&quot;&gt;Connections to the future to motivate suffering&lt;/h4&gt;
 
@@ -249,13 +251,13 @@ or&lt;/li&gt;
     &lt;p&gt;It may seem as though this essay views technical communication as a form of torture and condescension towards the audience. But the suggestion here is to only &lt;em&gt;temporarily role-play&lt;/em&gt; a certain default mental makeup while designing a talk or paper. It is still important to know what the audience knows and respect their knowledge.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Not all technical presentations that require a second read or a second watch are due to the communicator’s naivety. Some ideas are  inherently complex and possess higher-order beauty that demands revisits.&lt;/p&gt;
+    &lt;p&gt;Not all technical presentations that require a second round of consumption are due to the communicator’s naivety. Some ideas are  inherently complex and possess higher-order beauty that demands revisits.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Some of the rules may make it seem like scientific communication must consitute a lot of dry and rigid scaffolding devoid of any thrills or suspense. However, with experience, a technical writer can find little ways to inject freshness into their writing while being subject to the rules:&lt;/p&gt;
+    &lt;p&gt;Some of the rules may portray scientific communication as inherently dry and rigid, devoid of any thrills or suspense. However, with experience, a technical writer can find little ways to inject freshness into their writing while still being a serious observer of the rules:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;One solution is to play with the surface of the text: avoid cliched phrases and syntax (both in the meta-information and the information), or use novel metaphors and phrases while communicating the information.&lt;/li&gt;
-      &lt;li&gt;But we can also pursue a technically-deeper kind of creativity in other ways, like in how intuitions are developed and illustrated, in how the introductory paragraph of the paper develops the motivation, in how ideas are related and contrasted, or in cleanly explaining (and pausing before) the key “aha” step in a proof.&lt;/li&gt;
+      &lt;li&gt;But we can also pursue a technically-deeper kind of creativity in other ways, like in how intuitions are developed and illustrated, in how the introductory paragraph of the paper develops the motivation (call it “the scientific story”), in how ideas are related and contrasted, or in cleanly explaining (and pausing before) the key “aha” step in a proof.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
