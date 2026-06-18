@@ -211,7 +211,7 @@ or&lt;/li&gt;
     &lt;p&gt;&lt;strong&gt;Quality:&lt;/strong&gt; Occasionally, the rescuer may think it is best not to communicate the next piece of the map with precision. If the audience senses something imprecise, it induces anxiety, which is avoided, if in advance, they’re told of an upcoming instruction being intentionally “handwavy” or “informal” or “rough”.  Once again, this is the rule of saying what is not being said (here, the intricate details).&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Difficulty:&lt;/strong&gt; Demanding the marooned to climb a mountain that becomes abruptly steep is a rude shock. The empathic rescuer  prepares the marooned psychologically: “Now, this is going to be a hard trek up” or “This is going to be frustratingly precise, but we need that precision here”. Funnily, even if something is too straightforward, the  audience second-guesses themselves: “Did I miss something here? It cannot be that easy?” The empathic communicator would have started with “What I’m about to say is straightforward.”&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Difficulty:&lt;/strong&gt; Demanding the marooned to climb a mountain that becomes abruptly steep is a rude shock. The empathic rescuer  prepares the marooned psychologically: “Now, this is going to be a hard trek up” or “This is going to be frustratingly precise, but we need that precision here” or even offers warm-up treks. Funnily, even if something is too straightforward, the  audience second-guesses themselves: “Did I miss something here? It cannot be that easy?” The empathic communicator would have started with “This lemma will be a relatively straightforward, three-step proof.”&lt;sup id=&quot;fnref:straightforward&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:straightforward&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -240,11 +240,11 @@ or&lt;/li&gt;
 
 &lt;p&gt;In many ways, story-telling is anti-thetical to technical communication, a contrast that when appreciated illuminates what is unique about technical communication. The story-telling audience has deliberately marooned themselves on an island; they seek an adventure and are excited by the ignorance of what is around the corner; they do not want instructions to make immediate sense; they don’t want to be handheld!&lt;/p&gt;
 
-&lt;p&gt;As a consequence, the story-teller transgresses each of the commandments discussed above. The story-teller constructs a deliberately and artfully disordered presentation of information, non-sequential, non-hierarchical and ever unpredictable. Everything clicks only at the end, only with a second read or only after an enthusiastic unscrambling by a brave audience, because that fate is pre-meditated by the story-teller. The story-teller must “show, not tell”, which means meta-information is taboo. The pleasure of a story is derived from filling in missing details, from constantly making conjectures abour how something relates to the past or to the future, from anticipating what the undisclosed future resolution would be, or from overlooking a critical plot device as a mere distraction and so on. In many ways, what is suffering for a technical audience is pleasure for a creative audience, and vice versa.&lt;sup id=&quot;fnref:painting&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:painting&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;As a consequence, the story-teller transgresses each of the commandments discussed above. The story-teller constructs a deliberately and artfully disordered presentation of information, non-sequential, non-hierarchical and ever unpredictable. Everything clicks only at the end, only with a second read or only after an enthusiastic unscrambling by a brave audience, because that fate is pre-meditated by the story-teller. The story-teller must “show, not tell”, which means meta-information is taboo. The pleasure of a story is derived from filling in missing details, from constantly making conjectures abour how something relates to the past or to the future, from anticipating what the undisclosed future resolution would be, or from overlooking a critical plot device as a mere distraction and so on. In many ways, what is suffering for a technical audience is pleasure for a creative audience, and vice versa.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;disclaimers&quot;&gt;Disclaimers&lt;/h2&gt;
+&lt;h2 id=&quot;disclaimers-and-clarifications&quot;&gt;Disclaimers and clarifications&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -253,16 +253,25 @@ or&lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Not all technical presentations that require a second round of consumption are due to the communicator’s naivety. Some ideas are  inherently complex and possess higher-order beauty that demands revisits.&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Some of the rules may portray scientific communication as inherently dry and rigid, devoid of any thrills or suspense. However, with experience, a technical writer can find little ways to inject freshness into their writing while still being a serious observer of the rules:&lt;/p&gt;
+  &lt;li&gt;Some of the rules may portray scientific communication as inherently dry and rigid, devoid of any thrills or suspense. However, with experience, a technical writer can find little ways to inject freshness into their writing while still being a serious observer of the rules:
     &lt;ul&gt;
       &lt;li&gt;One solution is to play with the surface of the text: avoid cliched phrases and syntax (both in the meta-information and the information), or use novel metaphors and phrases while communicating the information.&lt;/li&gt;
       &lt;li&gt;But we can also pursue a technically-deeper kind of creativity in other ways, like in how intuitions are developed and illustrated, in how the introductory paragraph of the paper develops the motivation (call it “the scientific story”), in how ideas are related and contrasted, or in cleanly explaining (and pausing before) the key “aha” step in a proof.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+  &lt;li&gt;A keen reader may argue that technical diagrams are one way to circumvent the challenge of map verbalization: they help convey a two-dimensional diagram without having to use words. This is true in part, but also not for two reasons:
+    &lt;ul&gt;
+      &lt;li&gt;A technical diagram only conveys a small part of the content. A majority of scientific narration happens in a verbal medium.&lt;/li&gt;
+      &lt;li&gt;A technical diagram is subject to the rules of technical communication, thus deviating from artistic communication (painting) in the same way that a paper differs from a story. A technical diagram, even if two-dimensional, still needs to let the reader parse in a linear, hierarchical order lest any cyclical dependencies cause the viewer distress—e.g., the X and Y axis labels are read first, the plot lines are grouped carefully, arrows indicating the flow of an object through a system; a technical diagram has to have meta-information, like a legend, or arrows guiding the reader’s attention; a technical diagram must not convey stray details. All these are rules a painting breaks.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
+
+&lt;h5 id=&quot;acknowledgements&quot;&gt;Acknowledgements:&lt;/h5&gt;
+
+&lt;p&gt;Thanks to Jacob Springer for his thoughtful feedback and questions about this analogy (e.g., about technical diagrams) and for sharing his own take on technical communication.&lt;/p&gt;
 
 &lt;h5 id=&quot;footnotes&quot;&gt;Footnotes:&lt;/h5&gt;
 
@@ -280,8 +289,8 @@ or&lt;/li&gt;
     &lt;li id=&quot;fn:acknowledging&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;The trick of acknowledging the nonsensical is handy in many situations. For example, it can be handy when the rescuer relays an out-of-sequence instruction that can only make sense later—this may happen either because the concept is impossible to sequentialize or because the rescuer accidentally went out of order (thanks, heckler). &lt;a href=&quot;#fnref:acknowledging&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
-    &lt;li id=&quot;fn:painting&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;A similar series of contrasts can be drawn between a painting and a technical diagram. &lt;a href=&quot;#fnref:painting&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;li id=&quot;fn:straightforward&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Some do not like using terms like “straightforward” or “trivial” that can be discouraging to the reader. I think it’s possible (and useful) to indicate ease in &lt;em&gt;relation&lt;/em&gt; to the level of the surrounding content, without having the same discouraging effect. &lt;a href=&quot;#fnref:straightforward&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
