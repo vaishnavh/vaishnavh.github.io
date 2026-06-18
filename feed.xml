@@ -25,15 +25,15 @@
   &lt;/ul&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;An alternative imagination (although a bit less potent as an analogy) is of the audience solving a jigsaw puzzle or reconstructing a picture while listening to instructions from a communicator. The communicator is hidden behind a screen and the audience are clueless about what the final picture looks like.&lt;/p&gt;
+&lt;p&gt;An alternative imagination (although a bit less potent as an analogy) is of the audience solving a jigsaw puzzle or reconstructing a picture while listening to instructions from a communicator. The communicator is hidden behind a screen and the audience clueless about what the final picture looks like.&lt;/p&gt;
 
-&lt;p&gt;Even less potent, and in fact misleading, is the analogy of technical communication as something like guiding tourists. This suffers from multiple incorrect assumptions.  The tourist-audience is in the same place as the communicator, know what the map looks like upfront and can observe the guide’s spatial gestures. The tourist-audience is whimsical, has no pressing long-term goal, is under no cognitive or emotional stress  and gleefully follows the guide wherever they go. None of this is true of the challenging mission that is technical communication.&lt;/p&gt;
+&lt;p&gt;Even less potent, and in fact misleading, is the analogy of technical communication as guiding tourists. This suffers from multiple incorrect assumptions.  The tourist-audience is in the same place as the communicator, know what the map looks like upfront and can watch the guide’s spatial gestures. The tourist-audience is whimsical, has no pressing long-term goal, is under no cognitive or emotional stress  and gleefully follows the guide wherever they go. None of this is true of the challenging mission that is technical communication.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-challenges-of-technical-communication&quot;&gt;The challenges of technical communication&lt;/h3&gt;
 
 &lt;h4 id=&quot;verbalizing-both-the-map-and-map-showing&quot;&gt;Verbalizing both the map and map-showing&lt;/h4&gt;
 
-&lt;p&gt;In the analogy of the rescue mission, the rescuer’s task is to transmit through mere words a gnarly escape route (teeming with forks, loops and dead-ends) to a mapless audience reconstructing the route at their end. Disentangling and verbalizing a two-dimensional object is already challenging. But making matters worse is that the (disembodied, remote) rescuer cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.&lt;/p&gt;
+&lt;p&gt;In the rescue mission, the rescuer’s task is to transmit through mere words a gnarly escape route (teeming with forks, loops and dead-ends) to a mapless audience reconstructing the route at their end. Disentangling and verbalizing a two-dimensional object is already challenging. But making matters worse is that the (disembodied, remote) rescuer cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Thus, in technical communication, the rescuer is forced to verbalize both a complex map and the many physical gestures required to spatially guide someone as they assemble and navigate the map.&lt;/p&gt;
@@ -83,20 +83,20 @@
 
 &lt;h2 id=&quot;narrative-ordering&quot;&gt;Narrative ordering&lt;/h2&gt;
 
-&lt;p&gt;We can think of every snippet of the map/escape route as a raw piece of technical information (a notation, a definition, a sub-routine, a claim, a hypothesis etc.,). The first two rules lay out the basic algorithm by which the rescuer must break down their private map into such digestible pieces, and the order in which they must transmit those pieces.
-Before discussing the rules, let us diagnose how the ordering can go wrong.&lt;/p&gt;
+&lt;p&gt;We can think of every snippet of the map/escape route as a raw piece of technical information (a notation, a definition, a sub-routine etc.,). The first two rules lay down the algorithm by which the rescuer must break down their private map into such digestible pieces, and the order in which they must transmit those pieces.
+To motivate these rules, we must diagnose how the ordering can go wrong.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-naive-rescuers-ordering&quot;&gt;The naive rescuer’s ordering&lt;/h3&gt;
 
 &lt;p&gt;“Why are you telling me this? What do I do with this information? Where does this fit?”,
-is a question that vexes the audience in a disorganized presentation. The naive rescuer, eager to enlighten his mapless audience, has impulsively dumped all pieces of the map in some reckless ordering into the audience’s head. The rescuer’s assumption is that, in a subsequent  stage, the audience, with eagerness equalling that of the rescuer, will re-arrange the map into one piece to witness what the rescuer has been privy to all along. This is what happens when a second read of a paper is needed for everything to fall in place—it is rarely a delight for the audience.&lt;/p&gt;
+is a question that vexes the audience in a disorganized presentation. The naive rescuer, eager to enlighten his mapless audience, has impulsively dumped all pieces of the map in some reckless ordering into the audience’s head. The rescuer’s assumption is that, in a subsequent  stage, the audience, with eagerness equalling that of the rescuer, will re-arrange the map into one piece to witness what the rescuer has been privy to all along. This is what happens when a second read of a paper is needed for everything to fall in place. This is no delight for the audience.&lt;/p&gt;
 
-&lt;p&gt;The naive rescuer’s downfall lies in their own private knowledge: to them, the “dump-then-reconstruct” strategy appears so simple and thrilling
-because they can already picture the panoramic beauty of the complete map, and so which piece goes where. But to the  audience, the naive rescuer has demanded a “memorize-everything-then-recall-everything-into-your-working-memory-and-then-unscramble” strategy. This requires the cognitive abilities of a detective and the patience of a saint, neither of which the famished audience has the luxury for.&lt;/p&gt;
+&lt;p&gt;The naive rescuer’s downfall lies in their own knowledge: to them, the “dump-then-reconstruct” strategy appears so simple and thrilling
+because they can already picture the panoramic beauty of the complete map, and so which piece goes where. But to the  mapless audience, the naive rescuer has asked of them a “memorize-everything-then-recall-everything-into-your-working-memory-and-then-unscramble” strategy. This requires the cognitive abilities of a detective and the patience of a saint, neither of which the famished audience has the luxury for.&lt;/p&gt;
 
 &lt;h3 id=&quot;sequential-narration-for-flow&quot;&gt;Sequential narration for flow&lt;/h3&gt;
 
-&lt;p&gt;The audience in despair craves for &lt;em&gt;constant signs of progress&lt;/em&gt;: as and when a snippet of the escape route arrives in their walkie-talkie, it must snugly fit into whatever crude map they’ve partially reconstructed, allowing them to proceed a step further. If the rescuer tells them, “there’s a faraway forest we’ll later encounter, let us now pause for my monologue about the many trails and tribulations it has in store”, the audience descends into chaos. They cannot teleport, and they don’t want to hold on to a disconnected body of information, information that may evaporate from  memory at any moment. (“What if I forget this arbitrary collection of hideous notations and that’s how I perish on this island?”)&lt;/p&gt;
+&lt;p&gt;The audience in despair craves for &lt;em&gt;constant signs of progress&lt;/em&gt;: as and when a snippet of the escape route arrives in their walkie-talkie, it must snugly fit into whatever crude map they’ve partially reconstructed, allowing them to proceed a step further. If the rescuer tells them, “there’s a faraway forest we’ll later encounter, let us now pause for a monologue about the many trails and tribulations it has in store”, the audience descends into chaos. They cannot teleport, and they don’t want to hold on to a disconnected body of information, information that may evaporate from  memory at any moment. (“What if I forget this hideously notated theorem and that’s how I perish on this island?”)&lt;/p&gt;
 
 &lt;p&gt;The solution then is to lead the audience step-by-step into the forest, so they can develop their map through direct experience:&lt;/p&gt;
 
@@ -108,7 +108,7 @@ because they can already picture the panoramic beauty of the complete map, and s
 
 &lt;h3 id=&quot;hierarchical-narration-for-building-a-canvas&quot;&gt;Hierarchical narration for building a canvas&lt;/h3&gt;
 
-&lt;p&gt;Sequential ordering alone is inadequate to soothe the audience. If the walkie-talkie blared out a well-ordered series of commands—Read these notations! Next comes Lemma 1! And then, Lemma 2! Now, the final proof!—it is as frustrating as being made to assemble the pieces of a puzzle or being made to draw a picture grid-by-grid with no clue of what is even being constructed.&lt;/p&gt;
+&lt;p&gt;Sequential ordering alone is inadequate to soothe the audience. If the walkie-talkie blared out a well-ordered series of commands—Read these notations! Next comes Lemma 1! And then, Lemma 2! Now, the final proof!—it is as frustrating as being made to reconstruct a picture grid-by-grid with no clue of what is even being constructed.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;That is, the audience on a terrifying island are reluctant to blind-foldedly follow a cascade of little steps. They desperately want to know the overarching plan for salvation &lt;em&gt;before all else&lt;/em&gt;, rather than take a leap of faith. They demand this so they can first and foremost build a fuzzy canvas in their head onto which they can later piece together specific, low-level snippets of the map, thus re-assuring themselves that everything is indeed going according to plan and they will make it out alive.&lt;/p&gt;
@@ -124,7 +124,7 @@ because they can already picture the panoramic beauty of the complete map, and s
 &lt;p&gt;In addition to transmitting raw information about the escape route, the rescuer needs to transmit  &lt;em&gt;meta-information&lt;/em&gt;, that is, information &lt;em&gt;about&lt;/em&gt; the information—such as why the information is necessary, how it relates to everything else, how important it is etc., Meta-information is what describes how to parse and assimilate a piece of information. It is the equivalent of physical gestures sent over a walkie-talkie or messages sent to manage the apprehensive and antsy state of a marooned audience.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;A golden rule then is to &lt;strong&gt;&lt;em&gt;provide meta-information in advance of the information itself&lt;/em&gt;&lt;/strong&gt;. This pre-emptively wards off any anxieties that a piece of information may trigger, and has the audience (psychologically and cognitively) primed  to handle an incoming piece of information. If not, they are forced to store the raw information first, and &lt;em&gt;then&lt;/em&gt; be told how to handle it, which by the same logic we discussed under “sequential narration”,  would demand much patience and memory from the fatigued audience than is needed.&lt;/p&gt;
+  &lt;p&gt;A golden rule then is to &lt;strong&gt;&lt;em&gt;provide meta-information in advance of the information itself&lt;/em&gt;&lt;/strong&gt;. This pre-emptively wards off any anxieties that a piece of information may trigger, and has the audience (psychologically and cognitively) primed  to handle an incoming piece of information. If not, they are forced to cling on to the raw information first, and &lt;em&gt;then&lt;/em&gt; be told how to handle it, which by the same logic we discussed under “sequential narration”,  would demand much patience and memory from the fatigued audience than is needed.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;The next few sections derive the different types of meta-information needed using the analogy of the rescue mission. But let us make clear how essential this is, because
@@ -136,11 +136,11 @@ we often sideline meta-information as the dull and dead afterthought of communic
 
 &lt;h4 id=&quot;connections-to-the-past-for-handholding&quot;&gt;Connections to the past for handholding&lt;/h4&gt;
 
-&lt;p&gt;The audience has no patience to try and deduce &lt;em&gt;how&lt;/em&gt; and &lt;em&gt;where&lt;/em&gt; a piece fits with their partially-reconstructed map. So, as if virtually holding their hand to place the piece, the rescuer must be descriptive about how an information delivers on an earlier promise or how it supplements or complements or builds out of other pieces of information. At the level of ideas this could be saying “In the next theorem, I’ll prove a gap between the two quantities &lt;em&gt;described in the previous two slides. This is stronger than the warm-up theorem we saw earlier&lt;/em&gt;.” before describing Theorem 1 (observe that the italicized connection to past is not boring fluff but meaty technical content about technical content!). Similarly, on the surface of the text, the rescuer would ensure that the first few words of sentence directly relate to, or literally overlap with a recent sentence, as if the text has been manifestly hemmed together.&lt;/p&gt;
+&lt;p&gt;The marooned have no patience to try and deduce &lt;em&gt;how&lt;/em&gt; and &lt;em&gt;where&lt;/em&gt; a piece fits with their partially-reconstructed map. So, as if grasping their hand and directing it to place a piece, the rescuer must be descriptive about how an information delivers on an earlier promise or how it supplements or complements or builds out of other pieces of information. At the level of ideas this could be saying “In the next theorem, I’ll prove a gap between the two quantities &lt;em&gt;described in the previous two slides. This is stronger than the warm-up theorem we saw earlier&lt;/em&gt;.” before describing Theorem 1 (observe that the italicized connection to past is not boring fluff but meaty technical content about technical content!). Similarly, on the surface of the text, the rescuer would ensure that the first few words of sentence directly relate to, or literally overlap with a recent sentence, as if the text has been manifestly hemmed together.&lt;/p&gt;
 
 &lt;h4 id=&quot;connections-to-the-future-to-motivate-suffering&quot;&gt;Connections to the future to motivate suffering&lt;/h4&gt;
 
-&lt;p&gt;The audience cannot be lured into following a sequence of actions, just because one follows smoothly from all previous actions. “Grab this giant rock before we trek up this mountain” and the audience stares incredulously. A particular sequence of worries will run through their mind: “(1) Do I really need something that will weigh me down during the climb? (2) But what if this is useful later? (3) Perhaps I can find rocks like this later, so I dont need to worry about this instruction right now! (4) But what if I skip it and I don’t find these rocks again?”&lt;/p&gt;
+&lt;p&gt;The marooned cannot be lured into following a sequence of actions, just because one follows smoothly from all previous actions. “Grab this giant rock before we trek up this mountain” and the audience stares incredulously. A particular sequence of worries will run through their mind: “(1) Do I really need something that will weigh me down during the climb? (2) But what if this is useful later? (3) Perhaps I can find rocks like this later, so I dont need to worry about this instruction right now! (4) But what if I skip it and I don’t find these rocks again?”&lt;/p&gt;
 
 &lt;p&gt;So, &lt;em&gt;before&lt;/em&gt; making the audience endure an act so painful and so loathsome,  the rescuer must motivate &lt;em&gt;why&lt;/em&gt; that suffering is both sufficient and necessary for the eternal salvation promised at the start of the treacherous academic presentation. This means rather than describing a theorem to excruciating detail followed by a dramatic reveal of its  purpose, the rescuer begins with a spoiler about how it satisfies a previously-mentioned overarching plan: “&lt;em&gt;Since we want to show that this algorithm fails,&lt;/em&gt; it means that this quantity from the previous slide must be large than the quantity in this slide. This gap is what this theorem establishes.”&lt;/p&gt;
 
@@ -150,7 +150,7 @@ we often sideline meta-information as the dull and dead afterthought of communic
 
 &lt;h3 id=&quot;shaping-attention-or-verbal-gesturing&quot;&gt;Shaping attention, or verbal gesturing&lt;/h3&gt;
 
-&lt;p&gt;Since the rescuer and the audience are not co-located, the rescuer needs to explicitly and verbally finger-point to steer the audience’s attention. What makes this more challenging is that, the audience, surrounded by wilderness, is over-stimulated and hyper-sensitive, and so the rescuer needs to predict the audience’s “saccades” and bridle them, all through a walkie-talkie.&lt;/p&gt;
+&lt;p&gt;Since the rescuer and the audience are not co-located, the rescuer needs to explicitly and verbally finger-point to steer the audience’s attention. This is made challenging by an audience that, encircled by wilderness, becomes over-stimulated and hyper-sensitive. So the rescuer needs to predict the audience’s “saccades” and bridle them. But all they have is walkie-talkie.&lt;/p&gt;
 
 &lt;h4 id=&quot;abstractions-and-distinctions&quot;&gt;Abstractions and distinctions&lt;/h4&gt;
 
@@ -213,19 +213,26 @@ or&lt;/li&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;other-rules&quot;&gt;Other rules&lt;/h3&gt;
+&lt;h3 id=&quot;deriving-other-rules-of-technical-communication&quot;&gt;Deriving other rules of technical communication&lt;/h3&gt;
 
-&lt;p&gt;Many other miscellaneous rules of technical communication can be derived from our premise of remotely guiding an audience trapped in a wild island.&lt;/p&gt;
+&lt;p&gt;The essay has made its focus a subset of rules that best justify our analogy of remotely guiding an audience trapped in a wild island. Many other miscellaneous (and equally important) rules can be derived from this analogy:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;For instance, the empathic rescuer compensates for the lossy memory of the barely-surviving audience by reminding them of landmarks and experience they have come across as and when these get referenced.  Such reminders are most needed in day-to-day research collaborations where the lead who has intimate and fresh knowledge of the island, has to communicate with the advisors who are simultaneously escaping (or pretending to escape) multiple wild islands.&lt;/li&gt;
+  &lt;li&gt;The empathic rescuer compensates for the lossy memory of the barely-surviving audience by reminding them of landmarks and experience they have come across as and when these get referenced.  Such reminders are most needed in day-to-day research collaborations where the lead who has intimate and fresh knowledge of the island, has to communicate with advisors who are simultaneously escaping (or pretending to escape) multiple wild islands.&lt;/li&gt;
   &lt;li&gt;The rescuer also provides ways for the disoriented audience to periodically “triangulate” their location, especially at complex situations, for example, through base-cases or simple examples right after a theorem, or through multiple rephrasings or perspectives of the same fact.&lt;/li&gt;
   &lt;li&gt;The rescuer also breaks up instructions into the littlest pieces possible, rather than rambling on and on about one piece, and in situations where they can hear back from the audience, they give long pauses for the audience to overcome their (undue) embarrassment and speak up about a given piece.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The derivation of other rules are left as an exercise for the reader.&lt;/p&gt;
+&lt;h4 id=&quot;exercises-left-for-the-reader&quot;&gt;Exercises left for the reader&lt;/h4&gt;
 
-&lt;p&gt;Another exercise is to experience and monitor a few technical presentations through the lens of the rescue mission. What things has the rescuer done right and done wrong, and how does the analogy explain those?  Did you feel the canvas being built in your head and pieces being easy to put in place? What moments caused “distress”? What could the rescuer have done better? What meta-information could they have provided, in hindsight?&lt;/p&gt;
+&lt;p&gt;We invite the reader to explore what other rules can be derived within this analogy. Another exercise is to experience and monitor a few technical presentations through the lens of the rescue mission.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What things has the rescuer done right and done wrong, and how does the analogy explain those?&lt;/li&gt;
+  &lt;li&gt;Did you feel the canvas being built in your head and pieces being easy to put in place?&lt;/li&gt;
+  &lt;li&gt;What moments caused distress?&lt;/li&gt;
+  &lt;li&gt;What could the rescuer have done better? What meta-information could they have provided, in hindsight?&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;technical-communication-vs-story-telling&quot;&gt;Technical communication vs. story-telling&lt;/h2&gt;
 
