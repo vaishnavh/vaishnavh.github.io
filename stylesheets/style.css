@@ -1642,6 +1642,27 @@ details[open] summary::before {
   border-right: 1px solid var(--nav-border-color);
   transition: opacity 0.3s ease;
   z-index: 10;
+
+  /* --- NEW SCROLLING LOGIC --- */
+  max-height: calc(100vh - 120px); /* Prevents the TOC from growing taller than the screen */
+  overflow-y: auto;                /* Enables vertical scrolling */
+}
+
+/* --- MINIMALIST WEBKIT SCROLLBAR (Chrome, Safari, Edge) --- */
+.sidebar-toc::-webkit-scrollbar {
+  width: 1px; /* Incredibly thin so it doesn't distract */
+}
+
+.sidebar-toc::-webkit-scrollbar-track {
+  background: transparent; /* Invisible track */
+}
+
+.sidebar-toc::-webkit-scrollbar-thumb {
+  background-color: var(--nav-border-color); /* Matches the vertical line right next to it */
+}
+
+.sidebar-toc::-webkit-scrollbar-thumb:hover {
+  background-color: var(--highlight-color); /* Illuminates when the user interacts with it */
 }
 
 /* Hover effect: Full visibility when needed */
@@ -1703,20 +1724,76 @@ display: none !important;
   }
 }*/
 
+
+/* --- TOC TREE LINES --- */
+
+/* Reset default list padding and set indentation for branches */
+.sidebar-toc ul {
+  list-style: none;
+  padding-left: 12px; 
+}
+
+/* Keep top-level items completely flush to the left */
+.sidebar-toc > ul {
+  padding-left: 0; 
+}
+
+/* Create relative positioning for the lines to anchor to */
+.sidebar-toc li {
+  position: relative;
+  padding-left: 15px; /* Room for the horizontal branch */
+  margin-bottom: 4px;
+}
+
+/* Remove the padding from top-level items so they don't shift */
+.sidebar-toc > ul > li {
+  padding-left: 0;
+}
+
+/* Vertical line (The Trunk) */
+.sidebar-toc ul ul li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background-color: var(--nav-border-color);
+  opacity: 0.5; /* Slightly faded so it doesn't overpower the text */
+}
+
+/* Horizontal line (The Branch) */
+.sidebar-toc ul ul li::after {
+  content: "";
+  position: absolute;
+  top: 9px; /* Aligns visually with the middle of your 0.7rem font */
+  left: 0;
+  width: 10px;
+  height: 1px;
+  background-color: var(--nav-border-color);
+  opacity: 0.5;
+}
+
+/* Prevent the vertical line from hanging below the final item */
+.sidebar-toc ul ul li:last-child::before {
+  bottom: auto;
+  height: 9px; /* Must perfectly match the 'top' value of the horizontal line */
+}
+
 /* Tier 1: Moderate Zoom (Viewport between 1050px and 1249px) */
 @media screen and (max-width: 1249px) {
   .sidebar-toc {
-    font-size: 0.6rem;    /* Shrink font from 0.7rem */
+    font-size: 0.7rem;    /* Shrink font from 0.7rem */
     width: 180px;         /* Narrow the container from 210px */
     margin-left: -210px;  /* Pull it less far left from -260px */
-    opacity: 0.95;         /* Fade it slightly more to stay unobtrusive */
+    opacity: 1.0;         /* Fade it slightly more to stay unobtrusive */
   }
 }
 
 /* Tier 2: High Zoom (Viewport between 900px and 1049px) */
 @media screen and (max-width: 1049px) {
   .sidebar-toc {
-    font-size: 0.5rem;    /* Tiny font for extreme narrow gutters */
+    font-size: 0.65rem;    /* Tiny font for extreme narrow gutters */
     width: 135px; 
     margin-left: -145px;
     padding-right: 5px;   /* Reduce padding to save space */
