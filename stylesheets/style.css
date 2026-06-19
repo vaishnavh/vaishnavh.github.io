@@ -1637,8 +1637,8 @@ details[open] summary::before {
   padding-right: 20px;
   /* Petite & Faded styling */
   text-align: left;      /* Hugs the divider line for clean alignment */
-  font-size: 0.7rem;      /* Smaller, less distracting font */
-  opacity: 1.0;           /* Faded out by default */
+  font-size: 0.8rem;      /* Smaller, less distracting font */
+  opacity: 0.95;           /* Faded out by default */
   border-right: 1px solid var(--nav-border-color);
   transition: opacity 0.3s ease;
   z-index: 10;
@@ -1709,7 +1709,7 @@ display: none !important;
     font-size: 0.6rem;    /* Shrink font from 0.7rem */
     width: 180px;         /* Narrow the container from 210px */
     margin-left: -210px;  /* Pull it less far left from -260px */
-    opacity: 0.3;         /* Fade it slightly more to stay unobtrusive */
+    opacity: 0.95;         /* Fade it slightly more to stay unobtrusive */
   }
 }
 
