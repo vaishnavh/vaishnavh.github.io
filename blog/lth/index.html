@@ -225,7 +225,6 @@
 <li class="toc-entry toc-h2"><a href="#proof-for-single-neuron">Proof for single neuron</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#what-is-the-pruned-network">What is the pruned network?</a></li>
-<li class="toc-entry toc-h3"><a href="#how-do-we-arrive-at-such-a-pruned-network">How do we arrive at such a pruned network?</a></li>
 <li class="toc-entry toc-h3"><a href="#why-does-such-a-pruned-network-exist">Why does such a pruned network exist?</a></li>
 </ul>
 </li>
@@ -267,40 +266,26 @@ This post is an attempt at diagnosing and fixing this false belief.</p>
 <p>This post will work its way to a fix for our mental model by going over the proof intuition for the strong LTH. The reader has two paths before them:</p>
 
 <ul>
-  <li>Either directly go to the “analogy” section for the fix,</li>
+  <li>Either directly go to the <a href="#the-multiple-dart-game-analogy">“analogy” section</a> for the fix,</li>
   <li>Or first follow the proof closely, think for themselves as to what’s wrong in our mental model, and then cross-verify the fix.</li>
 </ul>
 
 <h2 id="proof-for-single-neuron">Proof for single neuron</h2>
 
-<p>Consider a single-Relu target function of the form $f^\star(\mathbf{x}) = \sigma(\mathbf{w}^\star \cdot \mathbf{x})$. Malach et al., 2020 prove that a 2-layer, polynomially-wide neural network can be pruned down to what approximates $f^\star$.  Let us understand what this pruned network looks like, then how the pruning is done,
-and then finally, why such a pruning is possible with only a polynomially-sized network.</p>
+<p>Consider a single-Relu target function of the form $f^\star(\mathbf{x}) = \sigma(\mathbf{w}^\star \cdot \mathbf{x})$. Malach et al., 2020 prove that a 2-layer, polynomially-wide neural network can be pruned down to what approximates $f^\star$.  Let us understand what this pruned network looks like, and why such a pruning is possible with only a polynomially-sized network.</p>
 
 <h3 id="what-is-the-pruned-network">What is the pruned network?</h3>
 
 <blockquote>
-  <p>The key trick is to <em>independently</em> reconstruct each feature’s component ($w_i x_i$) through a set of neurons dedicated solely for that feature.</p>
+  <p>The key trick for pruning is to <em>independently</em> reconstruct each feature’s component ($w_i x_i$) through a set of neurons dedicated solely for that feature.</p>
 </blockquote>
-
-<ul>
-  <li>First, for each of the $d$ input dimensions, there are precisely two first-layer ReLU neurons that in total recover the linear component $w^\star_i x_i$.
-    <ul>
-      <li>Each of the two neurons computes one “half” of the linear function: one neuron is of the form $\sigma(w_ix_i)$ and another is of the form $-\sigma(-w_ix_i)$ the sum of which is $w_i x_i$.</li>
-    </ul>
-  </li>
-  <li>Now, there are $2d$ neurons in the first layer that in total compute $\mathbf{w}^\star \cdot \mathbf{x}$. This is forwarded to the second-layer activation, thus recovering the full function,</li>
-</ul>
-
-\[\hat{f}(\mathbf{x}) = \sigma\left(\sum_{i=1}^{d} ( \sigma(w_i^\star x_i) - \sigma(-w_i^\star x_i))\right).\]
-
-<h3 id="how-do-we-arrive-at-such-a-pruned-network">How do we arrive at such a pruned network?</h3>
 
 <p>Our pruning of the parent network is as follows:</p>
 
 <ul>
-  <li>Partition the first-layer neurons into $d$ chunks, one for each feature component.</li>
-  <li>In the $i$’th chunk, preserve only input from the $i$’th dimension and prune all else. We will use the $i$’th chunk to reconstruct $w^\star_i x_i$.</li>
-  <li>In chunk $i$ where only input $i$ is alive now,
+  <li>Partition the first-layer neurons into $d$ chunks. Chunk $i$ will comnpute feature component $w_i x_i$.</li>
+  <li>In the chunk $i$, preserve only input from the $i$’th dimension and prune all else.</li>
+  <li>In chunk $i$, we’ll find two ReLU neurons, one that constructs the “positive” side of $w_i^\star x_i$ and the other negative. For this:
     <ul>
       <li>Consider all the “positive neurons” of the form $u \sigma(v x_i)$  where the first-layer has positive weight $v &gt; 0$ (and $u$ is the second layer weight).</li>
       <li>Compute the set of products $u\cdot v$ corresponding to all the positive neurons in this chunk. Find the neuron for which $u \cdot v \approx w_i^\star$. Keep this neuron and prune all the other positive neurons. This reconstructs the positive half of the linear function $w_i^\star x_i$.</li>
@@ -311,7 +296,7 @@ and then finally, why such a pruning is possible with only a polynomially-sized 
 
 <p>Thus, the exact pruning looks more like this:</p>
 
-\[\hat{f}(\mathbf{x}) = \sigma\left(\sum_{i=1}^{d} (u_i \sigma(v_i x_i) - u'_i\sigma(-v_i' x_i))\right),\]
+\[\hat{f}(\mathbf{x}) = \sigma\left(\sum_{i=1}^{d} \underbrace{(u_i \sigma(v_i x_i) - u'_i\sigma(-v_i' x_i))}_{w^\star_i x_i}\right),\]
 
 <p>where $v_i, v_i’ &gt; 0$ and $u_i v_i \approx w_i$ and $u_i’v_i’\approx w_i$.</p>
 
