@@ -24,7 +24,7 @@ This post is an attempt at diagnosing and fixing this false belief.&lt;/p&gt;
 
 &lt;h2 id=&quot;strong-lth&quot;&gt;Strong LTH&lt;/h2&gt;
 
-&lt;p&gt;What broke my pessimism is the proof for “the &lt;em&gt;strong&lt;/em&gt; LTH”, originally stated in &lt;a href=&quot;https://arxiv.org/abs/1911.13299&quot;&gt;(Ramanujan et al., 2019)&lt;/a&gt;&lt;sup id=&quot;fnref:strong-lth&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:strong-lth&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; and later proved in &lt;a href=&quot;https://proceedings.mlr.press/v119/malach20a/malach20a.pdf&quot;&gt;(Malach et al., 2020)&lt;/a&gt;&lt;sup id=&quot;fnref:lth-proof&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:lth-proof&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;. They prove that&lt;/p&gt;
+&lt;p&gt;What broke my pessimism is the proof for “the &lt;em&gt;strong&lt;/em&gt; LTH”, originally stated in &lt;a href=&quot;https://arxiv.org/abs/1911.13299&quot;&gt;Ramanujan et al., 2019&lt;/a&gt;&lt;sup id=&quot;fnref:strong-lth&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:strong-lth&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; and later proved in &lt;a href=&quot;https://proceedings.mlr.press/v119/malach20a/malach20a.pdf&quot;&gt;Malach et al., 2020&lt;/a&gt;&lt;sup id=&quot;fnref:lth-proof&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:lth-proof&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;. They prove that&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;couched within a network of just &lt;em&gt;twice&lt;/em&gt; (not exponential) the depth of the target network, and &lt;em&gt;polynomial&lt;/em&gt; (not exponential) in width, is the winning ticket almost &lt;em&gt;as is&lt;/em&gt; (a good subnetwork that doesn’t require finetuning)!&lt;/p&gt;
@@ -70,7 +70,7 @@ and then finally, why such a pruning is possible with only a polynomially-sized 
 &lt;p&gt;Our pruning of the parent network is as follows:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Partition the first-layer neurons into $d$ chunks.&lt;/li&gt;
+  &lt;li&gt;Partition the first-layer neurons into $d$ chunks, one for each feature component.&lt;/li&gt;
   &lt;li&gt;In the $i$’th chunk, preserve only input from the $i$’th dimension and prune all else. We will use the $i$’th chunk to reconstruct $w^\star_i x_i$.&lt;/li&gt;
   &lt;li&gt;In chunk $i$ where only input $i$ is alive now,
     &lt;ul&gt;
@@ -89,10 +89,10 @@ and then finally, why such a pruning is possible with only a polynomially-sized 
 
 &lt;h3 id=&quot;why-does-such-a-pruned-network-exist&quot;&gt;Why does such a pruned network exist?&lt;/h3&gt;
 
-&lt;p&gt;The strong LTH says that a mere polynomially small neural network can be chipped away to expose this target network. We can see how this is possible with $2d/\epsilon$ neurons:&lt;/p&gt;
+&lt;p&gt;The strong LTH says that a mere polynomially small neural network can be chipped away to expose this target network, upto some $\epsilon$ error. We can verify how this is possible with a network of just $2d/\epsilon$ neurons:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;From $2d/\epsilon$ neurons, we can allocate $2/\epsilon$ neurons to each chunk that reconstructs each of the $d$ features.&lt;/li&gt;
+  &lt;li&gt;From $2d/\epsilon$ neurons, we can allocate $2/\epsilon$ neurons to each of the $d$ chunks that reconstructs the $d$ feature components.&lt;/li&gt;
   &lt;li&gt;From $2/\epsilon$ neurons in a chunk, we will roughly have $1/\epsilon$ neurons for the positive neurons, and $1/\epsilon$ for the negative neurons.&lt;/li&gt;
   &lt;li&gt;To be able to find at least one neuron with $u\cdot v$ such that 
 $| w^\star_i - u\cdot v| \approx \epsilon$, we only need an $1/\epsilon$ dense sampling of a one-dimensional space, which we do have with $1/\epsilon$ positive (negative) neurons. Thus, we’re done.&lt;/li&gt;
@@ -108,11 +108,11 @@ $| w^\star_i - u\cdot v| \approx \epsilon$, we only need an $1/\epsilon$ dense s
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/2026-06-23-lth/dart.jpg&quot; alt=&quot;The question&quot; class=&quot;theme-aware-hand-drawn center-image img-rounded&quot; style=&quot;width: 100%;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In more words: in our original mental model, we imagined a play of darts in an exponentially voluminous $d$-dimensional space, hoping that &lt;em&gt;one&lt;/em&gt; dart somehow finds itself close to the true target &lt;em&gt;simultaneously&lt;/em&gt; along all dimensions. The construction shows that we only throw darts along each of $d$ dimensions &lt;em&gt;independently&lt;/em&gt;, hoping that each dimension is covered densely enough. When pruning, we have the liberty to choose the best dart along each dimension and aggregate those $d$ darts to create the pruned network.&lt;sup id=&quot;fnref:ticket&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:ticket&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;In more words: in our original mental model, we imagined a play of darts in an exponentially voluminous $d$-dimensional space, hoping that &lt;em&gt;one&lt;/em&gt; dart somehow finds itself close to the true target &lt;em&gt;simultaneously&lt;/em&gt; along all dimensions. The construction shows that we only throw darts along each of $d$ dimensions &lt;em&gt;independently&lt;/em&gt;, hoping that each dimension is covered densely enough. When pruning, we have the liberty to eliminate all but the best dart along each dimension and aggregate the chosen $d$ darts to create the pruned network.&lt;sup id=&quot;fnref:ticket&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:ticket&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;the-mystery-of-deeper-networks&quot;&gt;The mystery of deeper networks&lt;/h2&gt;
 
-&lt;p&gt;Something still remained mysterious, and that something is about LTH in deeper networks. Are we saying that to recover a cat vs. dog classifier, we can take a twice-as-large randomly-initialized network, and somehow find a “cat ear”-detecting feature just lying there &lt;em&gt;as is&lt;/em&gt;? Doesn’t this contradict intuition about expressive capacity?  It seems unacceptable that a complex composition of many specific layers of many specific neurons just appears somewhere, in its full, pristine glory, within a randomly-initialized network of modest size.&lt;/p&gt;
+&lt;p&gt;Something still remains mysterious, and that something is about LTH in deeper networks. Are we saying that to recover a cat vs. dog classifier, we can take a twice-as-large randomly-initialized network, and somehow find a “cat ear”-detecting feature just lying there &lt;em&gt;as is&lt;/em&gt;? Doesn’t this contradict intuition about expressive capacity?  It seems unacceptable that a complex composition of many specific layers of many specific neurons just appears somewhere, in its full, pristine glory, within a randomly-initialized network of modest size!&lt;/p&gt;
 
 &lt;p&gt;A few observations help resolve this. First is an important correction that must be made for deeper-layered targets:&lt;/p&gt;
 
@@ -123,7 +123,7 @@ $| w^\star_i - u\cdot v| \approx \epsilon$, we only need an $1/\epsilon$ dense s
 &lt;p&gt;This subnetwork exists padded with a zillion garbage parameters, as a result of which all neurons (in a polyomially-sized network) indeed compute garbage.
 Only with careful and intelligent pruning does a multi-layered cat-ear-detecting neuron begin to form.&lt;/p&gt;
 
-&lt;p&gt;Second, is a mathematical observation: the single-neuron argument extends without protest to a setup of multiple neurons composed on top of each other. This the paper shows inductively. Assume that the first $l$ target layers can be reconstructed using a randomly-initialized and pruned $2l$-deep network. We can then independently apply our argument to say that the transformation brought about by the next layer can be recovered by a two-layer, randomly-initialized and pruned network on top of it. In other words, in just the same way as our dart-throwing challenge conveniently decomposed into independent games across multiple input features, it also conveniently decomposes across multiple layers!&lt;/p&gt;
+&lt;p&gt;Second is a mathematical observation: the single-neuron argument extends without protest to a setup of multiple neurons composed on top of each other. This the paper shows inductively. In just the same way as our dart-throwing challenge conveniently decomposed into independent games across multiple input features, it also conveniently decomposes across multiple layers! &lt;sup id=&quot;fnref:proof&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:proof&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
 &lt;p&gt;Third is an insight about expressive capacity: how does a $2l$-layered neural network have within it every possible $l$ layer detector under the sun? This is because in a model with $n$ frozen parameters, there are $2^n$ ways to prune. It seems quite acceptable then that one of these $2^n$ must  detect the ear of a cat.&lt;/p&gt;
 
@@ -149,6 +149,9 @@ Only with careful and intelligent pruning does a multi-layered cat-ear-detecting
     &lt;/li&gt;
     &lt;li id=&quot;fn:ticket&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;In ticket terminology: [[more]] if the winning ticket were $68-07-08-10-20$, we’re &lt;em&gt;not&lt;/em&gt; purchasing one lottery ticket of five 2-digit numbers, checking if it won, discarding if not, and then attempting the lottery again. Instead, we’re purchasing many such lottery tickets and then cutting-and-pasting them: look for $68$ in the first column of some ticket, look for $7$ in the second column and so on. &lt;a href=&quot;#fnref:ticket&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#x21a9;&amp;#xFE0E;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:proof&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Proof: [[more]] Assume that the first $l$ target layers can be reconstructed using a randomly-initialized and pruned $2l$-deep network. We can then independently apply our argument to say that the transformation brought about by the next layer can be recovered by a two-layer, randomly-initialized and pruned network on top of it. &lt;a href=&quot;#fnref:proof&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#x21a9;&amp;#xFE0E;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
