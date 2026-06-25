@@ -21,7 +21,8 @@
     },
     CommonHTML: {
     matchFontHeight: true,
-    linebreaks: { automatic: true }
+    linebreaks: { automatic: true },
+    scale: 100
   },
     "HTML-CSS": {
       availableFonts: ["TeX"],
@@ -33,7 +34,7 @@
       styles: {
         ".MathJax_Display": { // For display equations
           "background-color": "var(--mathjax-highlight-background)", // Default is transparent
-          "color": "var(--mathjax-highlight-text)" // Default is black/white
+          "color": "var(--mathjax-highlight-text)" // Default is black/white,
         },
         ".MathJax_Display .MathJax_Math span": { // Target text within display equations
             "background-color": "inherit !important", /* Prevents MathJax from forcing background */
@@ -396,11 +397,13 @@ purely due to poor learning, causing under-confidence on its next-token predicti
   <br>
   <img src="/images/scribble2.png " alt="scribble" /> 
 </footer>
-    <script type="text/javascript">
+    <!-- This is the main script for the theme toggle -->
+
+<script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
     const themeToggleButton = document.getElementById('theme-toggle-button');
     const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
-    const body = document.body;
+    const body = document.documentElement;    
     const currentTheme = localStorage.getItem('theme');
 
     console.log('DOMContentLoaded fired');
@@ -418,8 +421,7 @@ purely due to poor learning, causing under-confidence on its next-token predicti
 
       // FIX: Define the variable actually used in the if-statement below
       // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
-      var currentThemeForDisqus = document.body.getAttribute('data-theme') || 'dark';
-
+      var currentThemeForDisqus = document.documentElement.getAttribute('data-theme') || 'dark';
       if (currentThemeForDisqus === 'light') {
         this.page.display_thread_theme = 'light';
       } else {

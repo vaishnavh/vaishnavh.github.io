@@ -21,7 +21,8 @@
     },
     CommonHTML: {
     matchFontHeight: true,
-    linebreaks: { automatic: true }
+    linebreaks: { automatic: true },
+    scale: 100
   },
     "HTML-CSS": {
       availableFonts: ["TeX"],
@@ -33,7 +34,7 @@
       styles: {
         ".MathJax_Display": { // For display equations
           "background-color": "var(--mathjax-highlight-background)", // Default is transparent
-          "color": "var(--mathjax-highlight-text)" // Default is black/white
+          "color": "var(--mathjax-highlight-text)" // Default is black/white,
         },
         ".MathJax_Display .MathJax_Math span": { // Target text within display equations
             "background-color": "inherit !important", /* Prevents MathJax from forcing background */
@@ -237,7 +238,7 @@
 
 <p><strong>Given three points $\mathbf{X}, \mathbf{Y}, \mathbf{Z}$ sampled from a high-dimensional zero-centered isotropic Gaussian $\mathcal{N}(0, \mathbf{\Sigma})$, roughly, what is the angle between the lines given by $\mathbf{A} = \mathbf{X} - \mathbf{Y}$ and $\mathbf{B} = \mathbf{Z} - \mathbf{Y}$?</strong></p>
 
-<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img1.jpg" alt="The question" class="theme-aware-img center-image img-rounded" style="width: 50%;" /></p>
+<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img1.jpg" alt="The question" class="theme-aware-hand-drawn center-image img-rounded" style="width: 50%;" /></p>
 
 <p>If you answered <span class="spoiler" onclick="this.classList.toggle('revealed')" title="Click to reveal">
   $90^\circ$
@@ -283,13 +284,13 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
 
 <p>In hindsight, this is also what the “algebraic reconciliation” was trying to tell me when it spat out $\mathbb{E}[(-\mathbf{Y}) \cdot (-\mathbf{Y})]$ as the dot-product $\mathbb{E}[\mathbf{A} \cdot \mathbf{B}]$. Sadly, this is robotic garble I couldn’t parse then.</p>
 
-<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img2.jpg" alt="Frame-of-reference reconciliation" class="theme-aware-img center-image" style="width: 60%;" /></p>
+<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img2.jpg" alt="Frame-of-reference reconciliation" class="theme-aware-hand-drawn center-image" style="width: 60%;" /></p>
 
 <h3 id="the-geometric-reconciliation">The geometric reconciliation</h3>
 
 <p>Now, there’s one more elegant visualization. We can legally cite a different funny law in high-dimensions: the distances between two random points from a Gaussian concentrate around a fixed value. This value doesn’t matter. All that matters is that this is true of the distances between every pair of $\mathbf{X}, \mathbf{Y} \; \&amp; \; \mathbf{Z}$, which means  these points together form a delightful equilateral triangle. QED.</p>
 
-<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img3.jpg" alt="Geometric reconciliation" class="theme-aware-img center-image" style="width: 30%;" /></p>
+<p><img src="/assets/images/2025-12-16-high-dimensional-diff/img3.jpg" alt="Geometric reconciliation" class="theme-aware-hand-drawn center-image" style="width: 30%;" /></p>
 
 <hr />
 
@@ -404,11 +405,13 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
   <br>
   <img src="/images/scribble2.png " alt="scribble" /> 
 </footer>
-    <script type="text/javascript">
+    <!-- This is the main script for the theme toggle -->
+
+<script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
     const themeToggleButton = document.getElementById('theme-toggle-button');
     const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
-    const body = document.body;
+    const body = document.documentElement;    
     const currentTheme = localStorage.getItem('theme');
 
     console.log('DOMContentLoaded fired');
@@ -426,8 +429,7 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
 
       // FIX: Define the variable actually used in the if-statement below
       // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
-      var currentThemeForDisqus = document.body.getAttribute('data-theme') || 'dark';
-
+      var currentThemeForDisqus = document.documentElement.getAttribute('data-theme') || 'dark';
       if (currentThemeForDisqus === 'light') {
         this.page.display_thread_theme = 'light';
       } else {

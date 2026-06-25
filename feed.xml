@@ -7,6 +7,158 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>A (dis)analogy for (mis)understanding the lottery ticket hypothesis</title>
+        <description>&lt;p&gt;“For any given task, a sufficiently large neural network will contain within it a good subnetwork that can be isolated and finetuned to solve the given task”, is how we would recall the Lottery Ticket Hypothesis
+(LTH) &lt;a href=&quot;https://arxiv.org/abs/1803.03635&quot;&gt;(Frankle and Carbin, 2018)&lt;/a&gt;&lt;sup id=&quot;fnref:lth&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:lth&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, but this statement by itself does not specify how large the parent network must be. So, it may be tempting to conclude that the parent network must be really, really large—even exponentially large—for at least a slim chance that some subnetwork wins the lottery. This belief, which I had long held, which I’ve also seen advocated in many forums, is false. 
+This post is an attempt at diagnosing and fixing this false belief.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-dart-throwing-disanalogy&quot;&gt;The dart-throwing disanalogy&lt;/h2&gt;
+
+&lt;p&gt;The above conclusion, we will see, stems from a naive mental model of LTH.  This can be demonstrated even in the simplest scenario where the target task is a single neuron:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We think, “if a randomly-initialized network must contain within it a target neuron of the form $\sigma(\mathbf{w}^\star \cdot \mathbf{x})$,  the network needs to throw many darts (say, $\mathbf{w}_1, \mathbf{w}_2, ….$) into the space of all possible neurons, praying that one of the darts strikes close enough to the target $\mathbf{w}^\star$.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Thus, we think of each random “subnetwork” in the LTH statement as though it was a dart thrown into some $d$-dimensional space, where $d$ is the dimensionality of $\mathbf{w}^\star$. This seems to be a hopeless game even for the single-neuron target: the unpruned, randomly-initialized network must contain $\exp(d)$ many random neurons for us to be sure that the one neuron we covet has materialized in it. &lt;sup id=&quot;fnref:gaussian&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:gaussian&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; Thankfully, reality is brighter than this train of thought makes it out to be.&lt;/p&gt;
+
+&lt;h2 id=&quot;strong-lth&quot;&gt;Strong LTH&lt;/h2&gt;
+
+&lt;p&gt;What broke my pessimism is the proof for “the &lt;em&gt;strong&lt;/em&gt; LTH”, originally stated in &lt;a href=&quot;https://arxiv.org/abs/1911.13299&quot;&gt;(Ramanujan et al., 2019)&lt;/a&gt;&lt;sup id=&quot;fnref:strong-lth&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:strong-lth&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; and later proved in &lt;a href=&quot;https://proceedings.mlr.press/v119/malach20a/malach20a.pdf&quot;&gt;(Malach et al., 2020)&lt;/a&gt;&lt;sup id=&quot;fnref:lth-proof&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:lth-proof&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;. They prove that&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;couched within a network of just &lt;em&gt;twice&lt;/em&gt; (not exponential) the depth of the target network, and &lt;em&gt;polynomial&lt;/em&gt; (not exponential) in width, is the winning ticket almost &lt;em&gt;as is&lt;/em&gt; (a good subnetwork that doesn’t require finetuning)!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;How is this possible? Winning the lottery without exponential subcomponents? And the weights are just randomly-initialized and untouched? Sounds like sorcery!&lt;/p&gt;
+
+&lt;p&gt;That… or our mental model of LTH is awfully wrong.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;This post will work its way to a fix for our mental model by going over the proof intuition for the strong LTH. The reader has two paths before them:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Either directly go to the “analogy” section for the fix,&lt;/li&gt;
+  &lt;li&gt;Or first follow the proof closely, think for themselves as to what’s wrong in our mental model, and then cross-verify the fix.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;proof-for-single-neuron&quot;&gt;Proof for single neuron&lt;/h2&gt;
+
+&lt;p&gt;Consider a single-Relu target function of the form $f^\star(\mathbf{x}) = \sigma(\mathbf{w}^\star \cdot \mathbf{x})$. Malach et al., 2020 prove that a 2-layer, polynomially-wide neural network can be pruned down to what approximates $f^\star$.  Let us understand what this pruned network looks like, then how the pruning is done,
+and then finally, why such a pruning is possible with only a polynomially-sized network.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-the-pruned-network&quot;&gt;What is the pruned network?&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The key trick is to &lt;em&gt;independently&lt;/em&gt; reconstruct each feature’s component ($w_i x_i$) through a set of neurons dedicated solely for that feature.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;First, for each of the $d$ input dimensions, there are precisely two first-layer ReLU neurons that in total recover the linear component $w^\star_i x_i$.
+    &lt;ul&gt;
+      &lt;li&gt;Each of the two neurons computes one “half” of the linear function: one neuron is of the form $\sigma(w_ix_i)$ and another is of the form $-\sigma(-w_ix_i)$ the sum of which is $w_i x_i$.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Now, there are $2d$ neurons in the first layer that in total compute $\mathbf{w}^\star \cdot \mathbf{x}$. This is forwarded to the second-layer activation, thus recovering the full function,&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\hat{f}(\mathbf{x}) = \sigma\left(\sum_{i=1}^{d} ( \sigma(w_i^\star x_i) - \sigma(-w_i^\star x_i))\right).\]
+
+&lt;h3 id=&quot;how-do-we-arrive-at-such-a-pruned-network&quot;&gt;How do we arrive at such a pruned network?&lt;/h3&gt;
+
+&lt;p&gt;Our pruning of the parent network is as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Partition the first-layer neurons into $d$ chunks.&lt;/li&gt;
+  &lt;li&gt;In the $i$’th chunk, preserve only input from the $i$’th dimension and prune all else. We will use the $i$’th chunk to reconstruct $w^\star_i x_i$.&lt;/li&gt;
+  &lt;li&gt;In chunk $i$ where only input $i$ is alive now,
+    &lt;ul&gt;
+      &lt;li&gt;Consider all the “positive neurons” of the form $u \sigma(v x_i)$  where the first-layer has positive weight $v &amp;gt; 0$ (and $u$ is the second layer weight).&lt;/li&gt;
+      &lt;li&gt;Compute the set of products $u\cdot v$ corresponding to all the positive neurons in this chunk. Find the neuron for which $u \cdot v \approx w_i^\star$. Keep this neuron and prune all the other positive neurons. This reconstructs the positive half of the linear function $w_i^\star x_i$.&lt;/li&gt;
+      &lt;li&gt;Repeat this for the “negative neurons”.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thus, the exact pruning looks more like this:&lt;/p&gt;
+
+\[\hat{f}(\mathbf{x}) = \sigma\left(\sum_{i=1}^{d} (u_i \sigma(v_i x_i) - u&apos;_i\sigma(-v_i&apos; x_i))\right),\]
+
+&lt;p&gt;where $v_i, v_i’ &amp;gt; 0$ and $u_i v_i \approx w_i$ and $u_i’v_i’\approx w_i$.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-does-such-a-pruned-network-exist&quot;&gt;Why does such a pruned network exist?&lt;/h3&gt;
+
+&lt;p&gt;The strong LTH says that a mere polynomially small neural network can be chipped away to expose this target network. We can see how this is possible with $2d/\epsilon$ neurons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;From $2d/\epsilon$ neurons, we can allocate $2/\epsilon$ neurons to each chunk that reconstructs each of the $d$ features.&lt;/li&gt;
+  &lt;li&gt;From $2/\epsilon$ neurons in a chunk, we will roughly have $1/\epsilon$ neurons for the positive neurons, and $1/\epsilon$ for the negative neurons.&lt;/li&gt;
+  &lt;li&gt;To be able to find at least one neuron with $u\cdot v$ such that 
+$| w^\star_i - u\cdot v| \approx \epsilon$, we only need an $1/\epsilon$ dense sampling of a one-dimensional space, which we do have with $1/\epsilon$ positive (negative) neurons. Thus, we’re done.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-multiple-dart-game-analogy&quot;&gt;The multiple-dart-game analogy&lt;/h2&gt;
+
+&lt;p&gt;We gain an important realization from the proof:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Rather than playing one hopeless $d$-dimensional game of darts,  we’re playing a much easier set of $d$ separate $1$-dimensional games.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2026-06-23-lth/dart.jpg&quot; alt=&quot;The question&quot; class=&quot;theme-aware-hand-drawn center-image img-rounded&quot; style=&quot;width: 100%;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In more words: in our original mental model, we imagined a play of darts in an exponentially voluminous $d$-dimensional space, hoping that &lt;em&gt;one&lt;/em&gt; dart somehow finds itself close to the true target &lt;em&gt;simultaneously&lt;/em&gt; along all dimensions. The construction shows that we only throw darts along each of $d$ dimensions &lt;em&gt;independently&lt;/em&gt;, hoping that each dimension is covered densely enough. When pruning, we have the liberty to choose the best dart along each dimension and aggregate those $d$ darts to create the pruned network.&lt;sup id=&quot;fnref:ticket&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:ticket&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-mystery-of-deeper-networks&quot;&gt;The mystery of deeper networks&lt;/h2&gt;
+
+&lt;p&gt;Something still remained mysterious, and that something is about LTH in deeper networks. Are we saying that to recover a cat vs. dog classifier, we can take a twice-as-large randomly-initialized network, and somehow find a “cat ear”-detecting feature just lying there &lt;em&gt;as is&lt;/em&gt;? Doesn’t this contradict intuition about expressive capacity?  It seems unacceptable that a complex composition of many specific layers of many specific neurons just appears somewhere, in its full, pristine glory, within a randomly-initialized network of modest size.&lt;/p&gt;
+
+&lt;p&gt;A few observations help resolve this. First is an important correction that must be made for deeper-layered targets:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;it is not that a cat-ear detecting &lt;em&gt;feature&lt;/em&gt; (or &lt;em&gt;neuron&lt;/em&gt;) that is guaranteed to exist, but a cat-ear detecting &lt;em&gt;subnetwork&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This subnetwork exists padded with a zillion garbage parameters, as a result of which all neurons (in a polyomially-sized network) indeed compute garbage.
+Only with careful and intelligent pruning does a multi-layered cat-ear-detecting neuron begin to form.&lt;/p&gt;
+
+&lt;p&gt;Second, is a mathematical observation: the single-neuron argument extends without protest to a setup of multiple neurons composed on top of each other. This the paper shows inductively. Assume that the first $l$ target layers can be reconstructed using a randomly-initialized and pruned $2l$-deep network. We can then independently apply our argument to say that the transformation brought about by the next layer can be recovered by a two-layer, randomly-initialized and pruned network on top of it. In other words, in just the same way as our dart-throwing challenge conveniently decomposed into independent games across multiple input features, it also conveniently decomposes across multiple layers!&lt;/p&gt;
+
+&lt;p&gt;Third is an insight about expressive capacity: how does a $2l$-layered neural network have within it every possible $l$ layer detector under the sun? This is because in a model with $n$ frozen parameters, there are $2^n$ ways to prune. It seems quite acceptable then that one of these $2^n$ must  detect the ear of a cat.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;p&gt;I refer the reader to this other excellent &lt;a href=&quot;https://www.lesswrong.com/posts/i9p5KWNWcthccsxqm/updating-the-lottery-ticket-hypothesis&quot;&gt;post and discussion&lt;/a&gt; on the same confusion. Other cited references below:&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:lth&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;“The lottery ticket hypothesis: Finding sparse, trainable neural networks”, ICLR 2019, Frankle and Carbin. &lt;a href=&quot;https://arxiv.org/pdf/1803.03635&quot;&gt;(Frankle and Carbin)&lt;/a&gt; &lt;a href=&quot;#fnref:lth&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#x21a9;&amp;#xFE0E;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:gaussian&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;This can be simulated by picking both the target and all the darts to be Gaussian. Random Gaussian vectors in high-dimensions are far apart unless you pick exponentially many. &lt;a href=&quot;#fnref:gaussian&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#x21a9;&amp;#xFE0E;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:strong-lth&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;“What’s Hidden in a Randomly Weighted Neural Network?”, CVPR 2020, Ramanujan, Worstman, Kembhavi, Farhadi and Rastegari. &lt;a href=&quot;https://arxiv.org/abs/1911.13299&quot;&gt;(Ramanujan et al., 2019)&lt;/a&gt; &lt;a href=&quot;#fnref:strong-lth&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#x21a9;&amp;#xFE0E;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:lth-proof&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;“Proving the Lottery Ticket Hypothesis: Pruning is All You Need”, ICML 2020. Malach, Yehudai, Shalev-Shwartz, Shamir. &lt;a href=&quot;https://proceedings.mlr.press/v119/malach20a/malach20a.pdf&quot;&gt;(Malach et al., 2020)&lt;/a&gt; &lt;a href=&quot;#fnref:lth-proof&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#x21a9;&amp;#xFE0E;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:ticket&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;In ticket terminology: [[more]] if the winning ticket were $68-07-08-10-20$, we’re &lt;em&gt;not&lt;/em&gt; purchasing one lottery ticket of five 2-digit numbers, checking if it won, discarding if not, and then attempting the lottery again. Instead, we’re purchasing many such lottery tickets and then cutting-and-pasting them: look for $68$ in the first column of some ticket, look for $7$ in the second column and so on. &lt;a href=&quot;#fnref:ticket&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#x21a9;&amp;#xFE0E;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 23 Jun 2026 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/blog/lth/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/lth/</guid>
+      </item>
+    
+      <item>
         <title>An analogy for technical communication</title>
         <description>&lt;hr /&gt;
 
@@ -25,7 +177,7 @@
   &lt;/ul&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;An alternative imagination (although a bit less potent as an analogy) is of the audience solving a jigsaw puzzle or reconstructing a picture while listening to instructions from a communicator. The communicator is hidden behind a screen and the audience clueless about what the final picture looks like.&lt;/p&gt;
+&lt;p&gt;An alternative imagination (although a bit less potent as an analogy) is of the audience solving a jigsaw puzzle or reconstructing a picture while listening to instructions from a communicator, the communicator  hidden behind a screen and the audience clueless about what the final picture looks like.&lt;/p&gt;
 
 &lt;p&gt;Even less potent, and in fact misleading, is the analogy of technical communication as guiding tourists. This suffers from multiple incorrect assumptions.  The tourist-audience is in the same place as the communicator, knows what the map looks like upfront and can watch the guide’s spatial gestures. The tourist-audience is whimsical, has no pressing long-term goal, is under no cognitive or emotional stress  and gleefully follows the guide wherever they go. None of this is true of the challenging mission that is technical communication.&lt;/p&gt;
 
@@ -33,7 +185,7 @@
 
 &lt;h4 id=&quot;verbalizing-both-the-map-and-map-showing&quot;&gt;Verbalizing both the map and map-showing&lt;/h4&gt;
 
-&lt;p&gt;In the rescue mission, the rescuer’s task is to transmit through mere words a gnarly escape route (teeming with forks, loops and dead-ends) to a mapless audience reconstructing the route at their end. Disentangling and verbalizing a two-dimensional object—without inflicting distortions—is already challenging. But making matters worse is that the (disembodied, remote) rescuer cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.&lt;/p&gt;
+&lt;p&gt;The rescuer on the other hand, must transmit an escape route teeming with forks, loops and dead-ends to a mapless audience. This they must accomplish through mere words. This means the rescuer must disentangle and verbalize a gnarly two-dimensional object without inflicting any distortion upon it. Not only that, but the (disembodied, remote) rescuer cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Thus, in technical communication, the rescuer is forced to verbalize both a complex map and the many physical gestures required to spatially guide someone as they assemble the map and navigate through the island.&lt;/p&gt;
@@ -44,7 +196,7 @@
 &lt;p&gt;The rescuer also needs to empathize with the delicate mental state of the people stranded and starving on an unpredictable island.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;They are distracted by the slightest of stimuli and bewildered by the tiniest of tasks;&lt;/li&gt;
+  &lt;li&gt;Those people are distracted by the slightest of stimuli and bewildered by the tiniest of tasks;&lt;/li&gt;
   &lt;li&gt;they are forgetful and barely able to think;&lt;/li&gt;
   &lt;li&gt;they feel a constant urgency towards being  liberated (“Are we there yet? How far did the trek bring us? Where on earth are we now? Weren’t we here exactly two hours ago?”);&lt;/li&gt;
   &lt;li&gt;they experience a severe dissonance: every instruction from the rescuer appears to those poor souls as a meaningless form of torture: climb a slippery mountain, pet a snake, read a meandering, line-breaked equation. Why is a self-proclaimed savior making them endure bizarre sufferrings?  Is there not a rosier path to salvation? This friction generates caution and skepticism.&lt;/li&gt;
@@ -655,7 +807,7 @@ purely due to poor learning, causing under-confidence on its next-token predicti
 
 &lt;p&gt;&lt;strong&gt;Given three points $\mathbf{X}, \mathbf{Y}, \mathbf{Z}$ sampled from a high-dimensional zero-centered isotropic Gaussian $\mathcal{N}(0, \mathbf{\Sigma})$, roughly, what is the angle between the lines given by $\mathbf{A} = \mathbf{X} - \mathbf{Y}$ and $\mathbf{B} = \mathbf{Z} - \mathbf{Y}$?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img1.jpg&quot; alt=&quot;The question&quot; class=&quot;theme-aware-img center-image img-rounded&quot; style=&quot;width: 50%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img1.jpg&quot; alt=&quot;The question&quot; class=&quot;theme-aware-hand-drawn center-image img-rounded&quot; style=&quot;width: 50%;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;If you answered &lt;span class=&quot;spoiler&quot; onclick=&quot;this.classList.toggle(&apos;revealed&apos;)&quot; title=&quot;Click to reveal&quot;&gt;
   $90^\circ$
@@ -701,13 +853,13 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
 
 &lt;p&gt;In hindsight, this is also what the “algebraic reconciliation” was trying to tell me when it spat out $\mathbb{E}[(-\mathbf{Y}) \cdot (-\mathbf{Y})]$ as the dot-product $\mathbb{E}[\mathbf{A} \cdot \mathbf{B}]$. Sadly, this is robotic garble I couldn’t parse then.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img2.jpg&quot; alt=&quot;Frame-of-reference reconciliation&quot; class=&quot;theme-aware-img center-image&quot; style=&quot;width: 60%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img2.jpg&quot; alt=&quot;Frame-of-reference reconciliation&quot; class=&quot;theme-aware-hand-drawn center-image&quot; style=&quot;width: 60%;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;the-geometric-reconciliation&quot;&gt;The geometric reconciliation&lt;/h3&gt;
 
 &lt;p&gt;Now, there’s one more elegant visualization. We can legally cite a different funny law in high-dimensions: the distances between two random points from a Gaussian concentrate around a fixed value. This value doesn’t matter. All that matters is that this is true of the distances between every pair of $\mathbf{X}, \mathbf{Y} \; \&amp;amp; \; \mathbf{Z}$, which means  these points together form a delightful equilateral triangle. QED.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img3.jpg&quot; alt=&quot;Geometric reconciliation&quot; class=&quot;theme-aware-img center-image&quot; style=&quot;width: 30%;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2025-12-16-high-dimensional-diff/img3.jpg&quot; alt=&quot;Geometric reconciliation&quot; class=&quot;theme-aware-hand-drawn center-image&quot; style=&quot;width: 30%;&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 

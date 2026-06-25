@@ -1,0 +1,550 @@
+<html>
+  <head>
+      <script>
+    // Set theme immediately to prevent flashing and provide data for Disqus
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+
+    
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js", "TeX/AMSmath.js", "TeX/AMSsymbols.js", "TeX/noUndefined.js", "TeX/noErrors.js", "Safe.js", "html.js"], /* Ensure 'html.js' is here */
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      ignoreHtmlClass: 'no-mathjax',
+      skipTags: ["script","noscript","style","textarea","pre","code","a"]
+    },
+    CommonHTML: {
+    matchFontHeight: true,
+    linebreaks: { automatic: true },
+    scale: 100
+  },
+    "HTML-CSS": {
+      availableFonts: ["TeX"],
+      matchFontHeight: true,
+      linebreaks: { automatic: true },
+      // --- KEY CHANGE 1: Enable linebreaks for HTML-CSS output ---
+      linebreaks: { automatic: true },
+      // --- KEY CHANGE 2: Define custom styles using CSS variables ---
+      styles: {
+        ".MathJax_Display": { // For display equations
+          "background-color": "var(--mathjax-highlight-background)", // Default is transparent
+          "color": "var(--mathjax-highlight-text)" // Default is black/white,
+        },
+        ".MathJax_Display .MathJax_Math span": { // Target text within display equations
+            "background-color": "inherit !important", /* Prevents MathJax from forcing background */
+            "color": "var(--mathjax-highlight-text)" /* Ensure text color applies if you highlight entire blocks */
+        },
+        ".MathJax_Display .MathJax_Math": {
+            "background-color": "inherit !important",
+        },
+        ".MathJax_SVG_Display": { // For SVG output (if enabled)
+            "background-color": "var(--mathjax-highlight-background)",
+            "color": "var(--mathjax-highlight-text)"
+        },
+        ".MathJax_SVG_Display svg": {
+            "background-color": "inherit",
+        },
+        ".MathJax_SVG_Display .mjx-chtml": {
+            "background-color": "inherit",
+        },
+        /* Define a custom class for highlighting within equations */
+        ".highlighted-math": {
+            "background-color": "var(--mathjax-highlight-background) !important",
+            "color": "var(--mathjax-highlight-text) !important",
+            "padding": "0.1em 0.3em", /* Add some padding around the highlight */
+            "border-radius": "0.2em" /* Slightly rounded corners */
+        }
+      }
+    },
+    TeX: {
+    Macros: { // Define custom LaTeX commands here
+      highlightmath: ['{\\htmlclass{highlighted-math}{\\text{#1}}}', 1], // #1 means it takes one argument
+      },
+    equationNumbers: { autoNumber: "AMS" }, // This enables (1), (2), etc.
+    },
+    SVG: { linebreaks: { automatic: true } }, // Enable linebreaks for SVG output as well
+    menuSettings: { zoom: "Double-Click" }
+  });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    <meta content='A (dis)analogy for (mis)understanding the lottery ticket hypothesis - Vaishnavh Nagarajan' property='og:title' />
+    <title>A (dis)analogy for (mis)understanding the lottery ticket hypothesis - Vaishnavh Nagarajan</title>
+    <!--
+<script type='text/javascript'>
+  //<![CDATA[
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  //]]>
+</script>
+-->
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TZ1W6KRGW0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TZ1W6KRGW0');
+</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&family=Ewert&family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+
+<!-- ADD THIS SINGLE LINK -->
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&family=IM+Fell+Great+Primer:ital@0;1&family=Instrument+Serif:ital@0;1&family=Pacifico&display=swap" rel="stylesheet">
+
+<!-- <link href='https://fonts.googleapis.com/css?family=IM Fell DW Pica|IM Fell DW Pica SC|IM Fell English|IM Fell English SC|IM Fell French Canon|IM Fell Great Primer|IM Fell Great Primer SC|IM Fell Great Primer IT|IM Fell Double Pica|Libre Caslon Text|Jost|Instrument Serif' rel='stylesheet'>
+
+<link href='https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer:400,400i&display=swap' rel='stylesheet'>
+
+<link href='https://fonts.googleapis.com/css?family=Instrument+Serif:400,400i&display=swap' rel='stylesheet'>
+
+ -->
+<!--<link href='http://fonts.googleapis.com/css?family=Teko|Dosis:400,800|Economica|Josefin+Sans|Oswald|Indie+Flower|Pacifico|Roboto' rel='stylesheet' type='text/css'><link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' /> -->
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+<meta content="http://muan.co/images/og.png" property="og:image" />
+<meta content="" property="fb:app_id" />
+
+  <meta content='/blog/lth/' property='og:url' />
+  <meta content="“For any given task, a sufficiently large neural network will contain within it a good subnetwork that can be isolate..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=604714799556697";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+  </head>
+  <body>
+    <header>
+<!--<br><p>Vaishnavh Nagarajan</p>-->
+</header>
+    <div id='container'>
+      <div class="content">
+                    <nav>
+
+  <div class="navigation">
+    <div class="logo"><a href="/home/index.html">Vaishnavh Nagarajan</a></div>
+    <div class="menu">
+
+  
+    <a href="/home/index.html"  class="link">
+      <div class="title">
+      About
+    </div>
+    </a>
+  
+    <a href="/home/index.html#research"  class="link">
+      <div class="title">
+      Research
+    </div>
+    </a>
+  
+    <a href="/talks/index.html"  class="link">
+      <div class="title">
+      Talks
+    </div>
+    </a>
+  
+    <a href="/blog/index.html"  class="link">
+      <div class="title">
+      Blog
+    </div>
+    </a>
+  
+    </div>
+    <button id="theme-toggle-button" class="font-awesome-icons">
+        <i id="theme-toggle-icon" class="fas fa-moon"></i>  <span class="visually-hidden">Toggle Dark Mode</span>
+      </button>
+  </div>
+</nav>
+        <section class='blog-post'>
+          <br><br>
+          <div class="blogtitle">A (dis)analogy for (mis)understanding the lottery ticket hypothesis</div>
+        <!-- Table of Contents Container -->
+
+      
+
+      <nav class="sidebar-toc">
+                <!-- Clickable Title replaces "Contents" -->
+          <a href="#container" class="toc-header toc-title-link">
+            A (dis)analogy for (mis)understanding the lottery ticket hypothesis
+          </a>
+
+        <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#the-dart-throwing-disanalogy">The dart-throwing disanalogy</a></li>
+<li class="toc-entry toc-h2"><a href="#strong-lth">Strong LTH</a></li>
+<li class="toc-entry toc-h2"><a href="#proof-for-single-neuron">Proof for single neuron</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#what-is-the-pruned-network">What is the pruned network?</a></li>
+<li class="toc-entry toc-h3"><a href="#how-do-we-arrive-at-such-a-pruned-network">How do we arrive at such a pruned network?</a></li>
+<li class="toc-entry toc-h3"><a href="#why-does-such-a-pruned-network-exist">Why does such a pruned network exist?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#the-multiple-dart-game-analogy">The multiple-dart-game analogy</a></li>
+<li class="toc-entry toc-h2"><a href="#the-mystery-of-deeper-networks">The mystery of deeper networks</a></li>
+<li class="toc-entry toc-h2"><a href="#references">References</a></li>
+</ul> 
+      </nav>
+
+
+        <div class="blogbody"><p>“For any given task, a sufficiently large neural network will contain within it a good subnetwork that can be isolated and finetuned to solve the given task”, is how we would recall the Lottery Ticket Hypothesis
+(LTH) <a href="https://arxiv.org/abs/1803.03635">(Frankle and Carbin, 2018)</a><sup id="fnref:lth" role="doc-noteref"><a href="#fn:lth" class="footnote" rel="footnote">1</a></sup>, but this statement by itself does not specify how large the parent network must be. So, it may be tempting to conclude that the parent network must be really, really large—even exponentially large—for at least a slim chance that some subnetwork wins the lottery. This belief, which I had long held, which I’ve also seen advocated in many forums, is false. 
+This post is an attempt at diagnosing and fixing this false belief.</p>
+
+<h2 id="the-dart-throwing-disanalogy">The dart-throwing disanalogy</h2>
+
+<p>The above conclusion, we will see, stems from a naive mental model of LTH.  This can be demonstrated even in the simplest scenario where the target task is a single neuron:</p>
+
+<blockquote>
+  <p>We think, “if a randomly-initialized network must contain within it a target neuron of the form $\sigma(\mathbf{w}^\star \cdot \mathbf{x})$,  the network needs to throw many darts (say, $\mathbf{w}_1, \mathbf{w}_2, ….$) into the space of all possible neurons, praying that one of the darts strikes close enough to the target $\mathbf{w}^\star$.”</p>
+</blockquote>
+
+<p>Thus, we think of each random “subnetwork” in the LTH statement as though it was a dart thrown into some $d$-dimensional space, where $d$ is the dimensionality of $\mathbf{w}^\star$. This seems to be a hopeless game even for the single-neuron target: the unpruned, randomly-initialized network must contain $\exp(d)$ many random neurons for us to be sure that the one neuron we covet has materialized in it. <sup id="fnref:gaussian" role="doc-noteref"><a href="#fn:gaussian" class="footnote" rel="footnote">2</a></sup> Thankfully, reality is brighter than this train of thought makes it out to be.</p>
+
+<h2 id="strong-lth">Strong LTH</h2>
+
+<p>What broke my pessimism is the proof for “the <em>strong</em> LTH”, originally stated in <a href="https://arxiv.org/abs/1911.13299">(Ramanujan et al., 2019)</a><sup id="fnref:strong-lth" role="doc-noteref"><a href="#fn:strong-lth" class="footnote" rel="footnote">3</a></sup> and later proved in <a href="https://proceedings.mlr.press/v119/malach20a/malach20a.pdf">(Malach et al., 2020)</a><sup id="fnref:lth-proof" role="doc-noteref"><a href="#fn:lth-proof" class="footnote" rel="footnote">4</a></sup>. They prove that</p>
+
+<blockquote>
+  <p>couched within a network of just <em>twice</em> (not exponential) the depth of the target network, and <em>polynomial</em> (not exponential) in width, is the winning ticket almost <em>as is</em> (a good subnetwork that doesn’t require finetuning)!</p>
+</blockquote>
+
+<p>How is this possible? Winning the lottery without exponential subcomponents? And the weights are just randomly-initialized and untouched? Sounds like sorcery!</p>
+
+<p>That… or our mental model of LTH is awfully wrong.</p>
+
+<hr />
+
+<p>This post will work its way to a fix for our mental model by going over the proof intuition for the strong LTH. The reader has two paths before them:</p>
+
+<ul>
+  <li>Either directly go to the “analogy” section for the fix,</li>
+  <li>Or first follow the proof closely, think for themselves as to what’s wrong in our mental model, and then cross-verify the fix.</li>
+</ul>
+
+<h2 id="proof-for-single-neuron">Proof for single neuron</h2>
+
+<p>Consider a single-Relu target function of the form $f^\star(\mathbf{x}) = \sigma(\mathbf{w}^\star \cdot \mathbf{x})$. Malach et al., 2020 prove that a 2-layer, polynomially-wide neural network can be pruned down to what approximates $f^\star$.  Let us understand what this pruned network looks like, then how the pruning is done,
+and then finally, why such a pruning is possible with only a polynomially-sized network.</p>
+
+<h3 id="what-is-the-pruned-network">What is the pruned network?</h3>
+
+<blockquote>
+  <p>The key trick is to <em>independently</em> reconstruct each feature’s component ($w_i x_i$) through a set of neurons dedicated solely for that feature.</p>
+</blockquote>
+
+<ul>
+  <li>First, for each of the $d$ input dimensions, there are precisely two first-layer ReLU neurons that in total recover the linear component $w^\star_i x_i$.
+    <ul>
+      <li>Each of the two neurons computes one “half” of the linear function: one neuron is of the form $\sigma(w_ix_i)$ and another is of the form $-\sigma(-w_ix_i)$ the sum of which is $w_i x_i$.</li>
+    </ul>
+  </li>
+  <li>Now, there are $2d$ neurons in the first layer that in total compute $\mathbf{w}^\star \cdot \mathbf{x}$. This is forwarded to the second-layer activation, thus recovering the full function,</li>
+</ul>
+
+\[\hat{f}(\mathbf{x}) = \sigma\left(\sum_{i=1}^{d} ( \sigma(w_i^\star x_i) - \sigma(-w_i^\star x_i))\right).\]
+
+<h3 id="how-do-we-arrive-at-such-a-pruned-network">How do we arrive at such a pruned network?</h3>
+
+<p>Our pruning of the parent network is as follows:</p>
+
+<ul>
+  <li>Partition the first-layer neurons into $d$ chunks.</li>
+  <li>In the $i$’th chunk, preserve only input from the $i$’th dimension and prune all else. We will use the $i$’th chunk to reconstruct $w^\star_i x_i$.</li>
+  <li>In chunk $i$ where only input $i$ is alive now,
+    <ul>
+      <li>Consider all the “positive neurons” of the form $u \sigma(v x_i)$  where the first-layer has positive weight $v &gt; 0$ (and $u$ is the second layer weight).</li>
+      <li>Compute the set of products $u\cdot v$ corresponding to all the positive neurons in this chunk. Find the neuron for which $u \cdot v \approx w_i^\star$. Keep this neuron and prune all the other positive neurons. This reconstructs the positive half of the linear function $w_i^\star x_i$.</li>
+      <li>Repeat this for the “negative neurons”.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Thus, the exact pruning looks more like this:</p>
+
+\[\hat{f}(\mathbf{x}) = \sigma\left(\sum_{i=1}^{d} (u_i \sigma(v_i x_i) - u'_i\sigma(-v_i' x_i))\right),\]
+
+<p>where $v_i, v_i’ &gt; 0$ and $u_i v_i \approx w_i$ and $u_i’v_i’\approx w_i$.</p>
+
+<h3 id="why-does-such-a-pruned-network-exist">Why does such a pruned network exist?</h3>
+
+<p>The strong LTH says that a mere polynomially small neural network can be chipped away to expose this target network. We can see how this is possible with $2d/\epsilon$ neurons:</p>
+
+<ul>
+  <li>From $2d/\epsilon$ neurons, we can allocate $2/\epsilon$ neurons to each chunk that reconstructs each of the $d$ features.</li>
+  <li>From $2/\epsilon$ neurons in a chunk, we will roughly have $1/\epsilon$ neurons for the positive neurons, and $1/\epsilon$ for the negative neurons.</li>
+  <li>To be able to find at least one neuron with $u\cdot v$ such that 
+$| w^\star_i - u\cdot v| \approx \epsilon$, we only need an $1/\epsilon$ dense sampling of a one-dimensional space, which we do have with $1/\epsilon$ positive (negative) neurons. Thus, we’re done.</li>
+</ul>
+
+<h2 id="the-multiple-dart-game-analogy">The multiple-dart-game analogy</h2>
+
+<p>We gain an important realization from the proof:</p>
+
+<blockquote>
+  <p>Rather than playing one hopeless $d$-dimensional game of darts,  we’re playing a much easier set of $d$ separate $1$-dimensional games.</p>
+</blockquote>
+
+<p><img src="/assets/images/2026-06-23-lth/dart.jpg" alt="The question" class="theme-aware-hand-drawn center-image img-rounded" style="width: 100%;" /></p>
+
+<p>In more words: in our original mental model, we imagined a play of darts in an exponentially voluminous $d$-dimensional space, hoping that <em>one</em> dart somehow finds itself close to the true target <em>simultaneously</em> along all dimensions. The construction shows that we only throw darts along each of $d$ dimensions <em>independently</em>, hoping that each dimension is covered densely enough. When pruning, we have the liberty to choose the best dart along each dimension and aggregate those $d$ darts to create the pruned network.<sup id="fnref:ticket" role="doc-noteref"><a href="#fn:ticket" class="footnote" rel="footnote">5</a></sup></p>
+
+<h2 id="the-mystery-of-deeper-networks">The mystery of deeper networks</h2>
+
+<p>Something still remained mysterious, and that something is about LTH in deeper networks. Are we saying that to recover a cat vs. dog classifier, we can take a twice-as-large randomly-initialized network, and somehow find a “cat ear”-detecting feature just lying there <em>as is</em>? Doesn’t this contradict intuition about expressive capacity?  It seems unacceptable that a complex composition of many specific layers of many specific neurons just appears somewhere, in its full, pristine glory, within a randomly-initialized network of modest size.</p>
+
+<p>A few observations help resolve this. First is an important correction that must be made for deeper-layered targets:</p>
+
+<blockquote>
+  <p>it is not that a cat-ear detecting <em>feature</em> (or <em>neuron</em>) that is guaranteed to exist, but a cat-ear detecting <em>subnetwork</em>.</p>
+</blockquote>
+
+<p>This subnetwork exists padded with a zillion garbage parameters, as a result of which all neurons (in a polyomially-sized network) indeed compute garbage.
+Only with careful and intelligent pruning does a multi-layered cat-ear-detecting neuron begin to form.</p>
+
+<p>Second, is a mathematical observation: the single-neuron argument extends without protest to a setup of multiple neurons composed on top of each other. This the paper shows inductively. Assume that the first $l$ target layers can be reconstructed using a randomly-initialized and pruned $2l$-deep network. We can then independently apply our argument to say that the transformation brought about by the next layer can be recovered by a two-layer, randomly-initialized and pruned network on top of it. In other words, in just the same way as our dart-throwing challenge conveniently decomposed into independent games across multiple input features, it also conveniently decomposes across multiple layers!</p>
+
+<p>Third is an insight about expressive capacity: how does a $2l$-layered neural network have within it every possible $l$ layer detector under the sun? This is because in a model with $n$ frozen parameters, there are $2^n$ ways to prune. It seems quite acceptable then that one of these $2^n$ must  detect the ear of a cat.</p>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<p>I refer the reader to this other excellent <a href="https://www.lesswrong.com/posts/i9p5KWNWcthccsxqm/updating-the-lottery-ticket-hypothesis">post and discussion</a> on the same confusion. Other cited references below:</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:lth" role="doc-endnote">
+      <p>“The lottery ticket hypothesis: Finding sparse, trainable neural networks”, ICLR 2019, Frankle and Carbin. <a href="https://arxiv.org/pdf/1803.03635">(Frankle and Carbin)</a> <a href="#fnref:lth" class="reversefootnote" role="doc-backlink">&#x21a9;&#xFE0E;</a></p>
+    </li>
+    <li id="fn:gaussian" role="doc-endnote">
+      <p>This can be simulated by picking both the target and all the darts to be Gaussian. Random Gaussian vectors in high-dimensions are far apart unless you pick exponentially many. <a href="#fnref:gaussian" class="reversefootnote" role="doc-backlink">&#x21a9;&#xFE0E;</a></p>
+    </li>
+    <li id="fn:strong-lth" role="doc-endnote">
+      <p>“What’s Hidden in a Randomly Weighted Neural Network?”, CVPR 2020, Ramanujan, Worstman, Kembhavi, Farhadi and Rastegari. <a href="https://arxiv.org/abs/1911.13299">(Ramanujan et al., 2019)</a> <a href="#fnref:strong-lth" class="reversefootnote" role="doc-backlink">&#x21a9;&#xFE0E;</a></p>
+    </li>
+    <li id="fn:lth-proof" role="doc-endnote">
+      <p>“Proving the Lottery Ticket Hypothesis: Pruning is All You Need”, ICML 2020. Malach, Yehudai, Shalev-Shwartz, Shamir. <a href="https://proceedings.mlr.press/v119/malach20a/malach20a.pdf">(Malach et al., 2020)</a> <a href="#fnref:lth-proof" class="reversefootnote" role="doc-backlink">&#x21a9;&#xFE0E;</a></p>
+    </li>
+    <li id="fn:ticket" role="doc-endnote">
+      <p>In ticket terminology: [[more]] if the winning ticket were $68-07-08-10-20$, we’re <em>not</em> purchasing one lottery ticket of five 2-digit numbers, checking if it won, discarding if not, and then attempting the lottery again. Instead, we’re purchasing many such lottery tickets and then cutting-and-pasting them: look for $68$ in the first column of some ticket, look for $7$ in the second column and so on. <a href="#fnref:ticket" class="reversefootnote" role="doc-backlink">&#x21a9;&#xFE0E;</a></p>
+    </li>
+  </ol>
+</div>
+</div>
+        </section>
+      </div>
+
+        <div class="post-navigation">
+  
+    <a href="/blog/technical-communication/" class="nav-arrow left-arrow">&laquo; An analogy for technical communication</a>
+  
+
+  
+</div>
+
+          <!-- <div class="block">
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_x"></a>
+<a class="a2a_button_google_gmail"></a>
+<a class="a2a_button_threads"></a>
+<a class="a2a_button_hacker_news"></a>
+<a class="a2a_button_linkedin"></a>
+<a class="a2a_button_reddit"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_mastodon"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+</div> -->
+          
+       
+
+<div class="block">
+  <div id="disqus_thread"></div>
+  <script>
+    // The original Disqus embed script. We now rely on the global disqus_config
+    // defined above, and the reset logic in the theme toggler.
+    // Ensure this script still runs to initially load Disqus.
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://vaishnavh.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+    </div>
+
+
+
+
+    <footer>
+
+  <br />
+  <script type="text/javascript" language="javascript">
+  <!--
+  // Email obfuscator script 2.1 by Tim Williams, University of Arizona
+  // Random encryption key feature by Andrew Moulden, Site Engineering Ltd
+  // This code is freeware provided these four comment lines remain intact
+  // A wizard to generate this code is at http://www.jottings.com/obfuscator/
+  //-->
+  </script><noscript>first name AT google DOT com</noscript>
+
+
+
+					<br />
+					<br />
+  Built with Jekyll (based off of Scribble).
+  <br>
+  <img src="/images/scribble2.png " alt="scribble" /> 
+</footer>
+    <!-- This is the main script for the theme toggle -->
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleButton = document.getElementById('theme-toggle-button');
+    const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
+    const body = document.documentElement;    
+    const currentTheme = localStorage.getItem('theme');
+
+    console.log('DOMContentLoaded fired');
+    console.log('themeToggleButton:', themeToggleButton);
+    console.log('body:', body);
+    console.log('currentTheme:', currentTheme);
+
+   //  Define disqus_config globally or within a scope accessible by DISQUS.reset
+   //  A more robust way is to make it a named function or a property of window
+   //  so DISQUS.reset can find it.
+   // so DISQUS.reset can find it.
+    window.disqus_config = function () {
+  this.page.url = 'http://localhost:4000/blog/lth/';
+      this.page.identifier = 'http://localhost:4000/blog/lth/';
+
+      // FIX: Define the variable actually used in the if-statement below
+      // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
+      var currentThemeForDisqus = document.documentElement.getAttribute('data-theme') || 'dark';
+      if (currentThemeForDisqus === 'light') {
+        this.page.display_thread_theme = 'light';
+      } else {
+        this.page.display_thread_theme = 'dark';
+      }
+    };
+
+    
+    const initializeTheme = () => {
+      const savedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark
+      body.setAttribute('data-theme', savedTheme);
+
+      if (savedTheme === 'light') {
+        themeToggleIcon.classList.replace('fa-sun', 'fa-moon');
+      } else {
+        themeToggleIcon.classList.replace('fa-moon', 'fa-sun');
+      }
+    };
+
+    /**
+     * 3. Handle Theme Toggle Click
+     */
+    if (themeToggleButton) {
+      themeToggleButton.addEventListener('click', function() {
+        const isDark = body.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+
+        // Update Site UI
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        // Update Icons
+        if (newTheme === 'light') {
+          themeToggleIcon.classList.replace('fa-sun', 'fa-moon');
+        } else {
+          themeToggleIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // --- DISQUS THEME RESET ---
+        // This forces Disqus to re-read window.disqus_config
+        if (typeof DISQUS !== 'undefined') {
+          DISQUS.reset({
+            reload: true,
+            config: function () {
+              // We call the global config using the context of the reset
+              window.disqus_config.call(this);
+              this.page.display_thread_theme = newTheme; // <--- Add this line
+            }
+          });
+          console.log('Disqus theme synchronized to: ' + newTheme);
+        }
+      
+
+      });
+
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('readystatechange', function() {
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+          initializeTheme();
+        }
+      });
+      console.log('readyState is loading, adding readystatechange listener');
+    } else {
+      initializeTheme();
+      console.log('readyState is not loading, calling initializeTheme directly');
+    }
+  });
+</script>
+<script src="/assets/js/footnotes.js"></script>
+  </body>
+</html>

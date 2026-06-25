@@ -1503,21 +1503,63 @@ details[open] summary::before {
 }
 
 
+/* --- HAND-DRAWN SKETCH FRAME --- */
 
-.theme-aware-img {
+/* 1. The Container gets the borders, so they NEVER get filtered or inverted */
+.sketch-frame {
+  display: table; /* Shrinks the container to perfectly wrap the image */
+  margin: 3rem auto; /* Centers it horizontally */
+  
+  /* Your exact border and outline setup */
   border: 2px solid var(--container-border);
   outline: 1px solid var(--highlight-color);
+  outline-offset: 4px;
+}
+
+/* Replicate your light/dark mode border logic for the container */
+[data-theme="light"] .sketch-frame {
+  border: 1px solid var(--highlight-color); 
+}
+[data-theme="dark"] .sketch-frame {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--highlight-color);
+}
+
+/* 2. The Image inside handles ONLY the B&W scanner effect */
+.sketch-frame img {
+  display: block;
+  max-width: 100%;
+  border-radius: 0px; 
+  /* Strips yellow paper and blue ink */
+  filter: grayscale(1) contrast(1.8) brightness(1.1);
+}
+
+/* 3. Invert the sketch for dark mode (Leaves borders untouched!) */
+[data-theme="dark"] .sketch-frame img {
+  filter: grayscale(1) contrast(1.8) brightness(1.1) invert(0.9);
+}
+
+.theme-aware-img {
+  /*border: 2px solid var(--container-border);
+  outline: 1px solid var(--highlight-color);*/
   outline-offset: 4px; /* Creates a gap between the two borders */
   margin: 3rem auto;
-  border-radius: 5px; /* Optional: keeps the border aligned with your rounded crop */
+  border-radius: 0px; /* Optional: keeps the border aligned with your rounded crop */
+    /* The Frame */
+  border: 1px solid var(--nav-border-color);
+  padding: 15px; /* Thicker matte */
+  background-color: var(--blockquote-background); /* Subtle contrast against the page */
+
 }
+
+
 
 
 /* In light mode, the image stays as is */
 [data-theme="light"] .theme-aware-img {
   filter: none;
   /* --- Added Border Logic --- */
-  border: 1px solid var(---highlight-color); 
+  border: 1px solid var(--highlight-color); 
   /* --------------------------- */
 }
 
@@ -1529,6 +1571,44 @@ details[open] summary::before {
   border: 1px solid var(--highlight-color);
 }
 
+
+
+/* ==========================================================================
+   HAND-DRAWN THEME AWARE IMAGE (Standalone Class)
+   ========================================================================== */
+
+.theme-aware-hand-drawn {
+  /* 1. Exactly the same layout and borders as regular images */
+  display: block;
+  max-width: 100%;
+/*  border: 2px solid var(--container-border);
+  outline: 1px solid var(--highlight-color);*/
+  outline-offset: 4px;
+  margin: 3rem auto;
+  border-radius: 0px;
+  
+  /* 2. Base digital scanner effect (Default) */
+  filter: grayscale(1) contrast(1.8) brightness(1.1);
+
+  /* The Frame */
+  border: 1px solid var(--nav-border-color);
+  background-color: var(--blockquote-background); /* Subtle contrast against the page */
+
+  }
+
+/* Light Mode Override */
+[data-theme="light"] .theme-aware-hand-drawn {
+  /* Keeps the scanner effect (unlike regular images which set filter: none) */
+  filter: grayscale(1) contrast(1.8) brightness(1.1);
+  border: 1px solid var(--highlight-color); 
+}
+
+/* Dark Mode Override */
+[data-theme="dark"] .theme-aware-hand-drawn {
+  filter: grayscale(1) contrast(1.8) brightness(1.1) invert(0.9);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: black;
+}
 
 .center-image {
   display: block;
@@ -1939,3 +2019,24 @@ display: none !important;
 }
 
 
+/* --- DISPLAY EQUATION SCALING (Safe Method) --- */
+
+/* Targets the specific CommonHTML block display container */
+.mjx-chtml.MJXc-display {
+  transform: scale(1.30); /* Scales the equation to 115% */
+  transform-origin: center center; /* Keeps it perfectly centered */
+  
+  /* Because the equation is visually larger, we must add margin 
+     so it doesn't overlap the paragraphs above and below it */
+  margin-top: 1.5em !important;
+  margin-bottom: 1.5em !important;
+}
+
+/* Fallbacks just in case you ever switch renderers */
+.MathJax_Display,
+.MathJax_SVG_Display {
+  transform: scale(1.30);
+  transform-origin: center center;
+  margin-top: 1.5em !important;
+  margin-bottom: 1.5em !important;
+}

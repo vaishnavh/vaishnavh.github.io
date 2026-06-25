@@ -140,6 +140,22 @@
 <ul>
   
     <li>
+      <span class="blogname"><a href="/blog/lth//index.html">A (dis)analogy for (mis)understanding the lottery ticket hypothesis</a> (23 Jun 2026)  </span>
+      <!-- <p>“For any given task, a sufficiently large neural network will contain within it a good subnetwork that can be isolated and finetuned to solve the given task”, is how we would recall the Lottery Ticket Hypothesis
+(LTH) <a href="https://arxiv.org/abs/1803.03635">(Frankle and Carbin, 2018)</a><sup id="fnref:lth" role="doc-noteref"><a href="#fn:lth" class="footnote" rel="footnote">1</a></sup>, but this statement by itself does not specify how large the parent network must be. So, it may be tempting to conclude that the parent network must be really, really large—even exponentially large—for at least a slim chance that some subnetwork wins the lottery. This belief, which I had long held, which I’ve also seen advocated in many forums, is false. 
+This post is an attempt at diagnosing and fixing this false belief.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:lth" role="doc-endnote">
+      <p>“The lottery ticket hypothesis: Finding sparse, trainable neural networks”, ICLR 2019, Frankle and Carbin. <a href="https://arxiv.org/pdf/1803.03635">(Frankle and Carbin)</a> <a href="#fnref:lth" class="reversefootnote" role="doc-backlink">&#x21a9;&#xFE0E;</a></p>
+    </li>
+  </ol>
+</div>
+ -->
+    </li>
+  
+    <li>
       <span class="blogname"><a href="/blog/technical-communication//index.html">An analogy for technical communication</a> (17 Jun 2026)  </span>
       <!-- <hr />
 
@@ -213,11 +229,13 @@
   <br>
   <img src="/images/scribble2.png " alt="scribble" /> 
 </footer>
-    <script type="text/javascript">
+    <!-- This is the main script for the theme toggle -->
+
+<script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
     const themeToggleButton = document.getElementById('theme-toggle-button');
     const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
-    const body = document.body;
+    const body = document.documentElement;    
     const currentTheme = localStorage.getItem('theme');
 
     console.log('DOMContentLoaded fired');
@@ -235,8 +253,7 @@
 
       // FIX: Define the variable actually used in the if-statement below
       // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
-      var currentThemeForDisqus = document.body.getAttribute('data-theme') || 'dark';
-
+      var currentThemeForDisqus = document.documentElement.getAttribute('data-theme') || 'dark';
       if (currentThemeForDisqus === 'light') {
         this.page.display_thread_theme = 'light';
       } else {

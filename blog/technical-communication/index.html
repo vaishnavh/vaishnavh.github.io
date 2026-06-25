@@ -199,7 +199,7 @@
   </ul>
 </blockquote>
 
-<p>An alternative imagination (although a bit less potent as an analogy) is of the audience solving a jigsaw puzzle or reconstructing a picture while listening to instructions from a communicator. The communicator is hidden behind a screen and the audience clueless about what the final picture looks like.</p>
+<p>An alternative imagination (although a bit less potent as an analogy) is of the audience solving a jigsaw puzzle or reconstructing a picture while listening to instructions from a communicator, the communicator  hidden behind a screen and the audience clueless about what the final picture looks like.</p>
 
 <p>Even less potent, and in fact misleading, is the analogy of technical communication as guiding tourists. This suffers from multiple incorrect assumptions.  The tourist-audience is in the same place as the communicator, knows what the map looks like upfront and can watch the guide’s spatial gestures. The tourist-audience is whimsical, has no pressing long-term goal, is under no cognitive or emotional stress  and gleefully follows the guide wherever they go. None of this is true of the challenging mission that is technical communication.</p>
 
@@ -207,7 +207,7 @@
 
 <h4 id="verbalizing-both-the-map-and-map-showing">Verbalizing both the map and map-showing</h4>
 
-<p>In the rescue mission, the rescuer’s task is to transmit through mere words a gnarly escape route (teeming with forks, loops and dead-ends) to a mapless audience reconstructing the route at their end. Disentangling and verbalizing a two-dimensional object—without inflicting distortions—is already challenging. But making matters worse is that the (disembodied, remote) rescuer cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.</p>
+<p>The rescuer on the other hand, must transmit an escape route teeming with forks, loops and dead-ends to a mapless audience. This they must accomplish through mere words. This means the rescuer must disentangle and verbalize a gnarly two-dimensional object without inflicting any distortion upon it. Not only that, but the (disembodied, remote) rescuer cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.</p>
 
 <blockquote>
   <p>Thus, in technical communication, the rescuer is forced to verbalize both a complex map and the many physical gestures required to spatially guide someone as they assemble the map and navigate through the island.</p>
@@ -218,7 +218,7 @@
 <p>The rescuer also needs to empathize with the delicate mental state of the people stranded and starving on an unpredictable island.</p>
 
 <ul>
-  <li>They are distracted by the slightest of stimuli and bewildered by the tiniest of tasks;</li>
+  <li>Those people are distracted by the slightest of stimuli and bewildered by the tiniest of tasks;</li>
   <li>they are forgetful and barely able to think;</li>
   <li>they feel a constant urgency towards being  liberated (“Are we there yet? How far did the trek bring us? Where on earth are we now? Weren’t we here exactly two hours ago?”);</li>
   <li>they experience a severe dissonance: every instruction from the rescuer appears to those poor souls as a meaningless form of torture: climb a slippery mountain, pet a snake, read a meandering, line-breaked equation. Why is a self-proclaimed savior making them endure bizarre sufferrings?  Is there not a rosier path to salvation? This friction generates caution and skepticism.</li>
@@ -491,6 +491,8 @@ or</li>
   
 
   
+    <a href="/blog/lth/" class="nav-arrow right-arrow">A (dis)analogy for (mis)understanding the lottery ticket hypothesis &raquo;</a>
+  
 </div>
 
           <!-- <div class="block">
@@ -551,11 +553,13 @@ or</li>
   <br>
   <img src="/images/scribble2.png " alt="scribble" /> 
 </footer>
-    <script type="text/javascript">
+    <!-- This is the main script for the theme toggle -->
+
+<script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
     const themeToggleButton = document.getElementById('theme-toggle-button');
     const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
-    const body = document.body;
+    const body = document.documentElement;    
     const currentTheme = localStorage.getItem('theme');
 
     console.log('DOMContentLoaded fired');
@@ -573,8 +577,7 @@ or</li>
 
       // FIX: Define the variable actually used in the if-statement below
       // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
-      var currentThemeForDisqus = document.body.getAttribute('data-theme') || 'dark';
-
+      var currentThemeForDisqus = document.documentElement.getAttribute('data-theme') || 'dark';
       if (currentThemeForDisqus === 'light') {
         this.page.display_thread_theme = 'light';
       } else {

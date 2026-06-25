@@ -277,11 +277,13 @@
   <br>
   <img src="/images/scribble2.png " alt="scribble" /> 
 </footer>
-    <script type="text/javascript">
+    <!-- This is the main script for the theme toggle -->
+
+<script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function() {
     const themeToggleButton = document.getElementById('theme-toggle-button');
     const themeToggleIcon = document.getElementById('theme-toggle-icon');  // New: select the icon
-    const body = document.body;
+    const body = document.documentElement;    
     const currentTheme = localStorage.getItem('theme');
 
     console.log('DOMContentLoaded fired');
@@ -299,8 +301,7 @@
 
       // FIX: Define the variable actually used in the if-statement below
       // var currentThemeForDisqus = localStorage.getItem('theme') || 'dark';
-      var currentThemeForDisqus = document.body.getAttribute('data-theme') || 'dark';
-
+      var currentThemeForDisqus = document.documentElement.getAttribute('data-theme') || 'dark';
       if (currentThemeForDisqus === 'light') {
         this.page.display_thread_theme = 'light';
       } else {
