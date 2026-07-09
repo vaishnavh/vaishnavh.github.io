@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pinyon&family=Allura&family=Cormorant+Garamond:ital,wght@1,600&family=Pinyon+Script&family=Tangerine:wght@700&display=swap');
 
 /* Create a custom offline font that maps all heavy weights to the Regular local file */
 @font-face {
@@ -913,13 +913,18 @@ section.post em strong, section > p em strong {
 .blogtitle {
   color: var(--blogtitle-color);
   font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
-  font-weight: 800;
-  font-size: 30;
+  font-weight: 100;
+  font-size: 50;
   font-style:italic;
-  line-height: 1.5em;
+  line-height: 1em;
   margin-bottom: 60px;
   color: var(--highlight-color);
-  /*letter-spacing: -0.05em !important;*/
+  letter-spacing: 0.0em
+  display: inline-block; /* Ensures the border only spans the width of the text */
+  padding-bottom: 10px; /* Space between text and the line */
+  border-bottom: 4px double var(--nav-border-color, #ccc); /* The classic double line */
+  padding-top: 10px; /* Space between text and the line */
+  border-top: 4px double var(--nav-border-color, #ccc); /* The classic double line */
   
 }
 

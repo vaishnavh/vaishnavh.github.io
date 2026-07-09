@@ -103,7 +103,7 @@ $| w^\star_i - u\cdot v| \approx \epsilon$, we only need an $1/\epsilon$ dense s
 &lt;p&gt;A few observations help resolve this. First is an important correction that must be made for deeper-layered targets:&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;it is not that a cat-ear detecting &lt;em&gt;feature&lt;/em&gt; (or &lt;em&gt;neuron&lt;/em&gt;) that is guaranteed to exist, but a cat-ear detecting &lt;em&gt;subnetwork&lt;/em&gt;.&lt;/p&gt;
+  &lt;p&gt;it is not a cat-ear detecting &lt;em&gt;feature&lt;/em&gt; (or &lt;em&gt;neuron&lt;/em&gt;) that is guaranteed to exist, but a cat-ear detecting &lt;em&gt;subnetwork&lt;/em&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;This subnetwork exists padded with a zillion garbage parameters, as a result of which all neurons (in a polyomially-sized network) indeed compute garbage.
@@ -142,16 +142,14 @@ Only with careful and intelligent pruning does a multi-layered cat-ear-detecting
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Tue, 23 Jun 2026 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 23 Jun 2026 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/blog/lth/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/lth/</guid>
       </item>
     
       <item>
         <title>An analogy for technical communication</title>
-        <description>&lt;hr /&gt;
-
-&lt;h2 id=&quot;rescuing-a-marooned-audience&quot;&gt;Rescuing a marooned audience&lt;/h2&gt;
+        <description>&lt;h2 id=&quot;rescuing-a-marooned-audience&quot;&gt;Rescuing a marooned audience&lt;/h2&gt;
 
 &lt;p&gt;Technical/scientific communication—writing, talks, day-to-day collaboration, &lt;em&gt;especially&lt;/em&gt; day-to-day collaboration—is a life-or-death predicament in disguise:&lt;/p&gt;
 
@@ -312,7 +310,7 @@ the guesser, intent on finding patterns, fixates on a stray detail, which then c
 
 &lt;h5 id=&quot;specifying-importance&quot;&gt;Specifying importance&lt;/h5&gt;
 
-&lt;p&gt;The rescuer assesses the relevance of each instruction to the escape, and announces that assessment in words before announcing the instruction. By saying “What I’m about to say is just a sidenote” or warning the audience “I’m about to divulge the major step we should focus on”, they are gracious in let the audience time their naps.&lt;/p&gt;
+&lt;p&gt;The rescuer assesses the relevance of each instruction to the escape, and announces that assessment in words before announcing the instruction. By saying “What I’m about to say is just a sidenote” or warning the audience “I’m about to divulge the major step we should focus on”, they are gracious in letting the audience time their naps.&lt;/p&gt;
 
 &lt;h5 id=&quot;avoiding-emergent-distractions-with-disclaimers&quot;&gt;Avoiding emergent distractions with disclaimers&lt;/h5&gt;
 
@@ -325,7 +323,7 @@ the guesser, intent on finding patterns, fixates on a stray detail, which then c
   &lt;li&gt;some claims ambiguous, some things easy to misunderstand.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;These distractions may or may not be visible to the audience. Either way, they are insidious: if the distraction sticks out as a giant, bizarre contraption, it can eternally haunt the   audience that is skittish; if well-camouflaged, it can unwittingly lure them down the wrong route!&lt;/p&gt;
+&lt;p&gt;These distractions may or may not be visible to the audience. Either way, they are insidious: if the distraction sticks out as some bizarre giant contraption, it can eternally haunt the skittish audience; if well-camouflaged, it can unwittingly lure the audience down the wrong route!&lt;/p&gt;
 
 &lt;p&gt;A vigilant rescuer &lt;em&gt;infers&lt;/em&gt; the locations of these traps (which are highly camouflaged in the rescuer’s vision) and then addresses their presence promptly, which can be done in one of three ways:&lt;/p&gt;
 
@@ -449,7 +447,7 @@ or&lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Wed, 17 Jun 2026 00:00:00 -0700</pubDate>
+        <pubDate>Wed, 17 Jun 2026 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/blog/technical-communication/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/technical-communication/</guid>
       </item>
@@ -568,7 +566,7 @@ Can a person who was born blind and can &lt;em&gt;feel&lt;/em&gt; the shapes of 
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Mon, 30 Mar 2026 00:00:00 -0700</pubDate>
+        <pubDate>Mon, 30 Mar 2026 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/blog/what-llms-see/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/what-llms-see/</guid>
       </item>
@@ -680,7 +678,7 @@ A third argument is about &lt;em&gt;attention&lt;/em&gt;. Without a scientist’
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Wed, 18 Mar 2026 00:00:00 -0700</pubDate>
+        <pubDate>Wed, 18 Mar 2026 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/blog/emotions-in-science/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/emotions-in-science/</guid>
       </item>
@@ -785,7 +783,7 @@ purely due to poor learning, causing under-confidence on its next-token predicti
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Fri, 27 Feb 2026 00:00:00 -0800</pubDate>
+        <pubDate>Fri, 27 Feb 2026 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/blog/joint-or-conditional/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/joint-or-conditional/</guid>
       </item>
@@ -892,16 +890,14 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Tue, 16 Dec 2025 00:00:00 -0800</pubDate>
+        <pubDate>Tue, 16 Dec 2025 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/blog/high-dimensional-diff/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/high-dimensional-diff/</guid>
       </item>
     
       <item>
         <title>Research philosophy</title>
-        <description>&lt;hr /&gt;
-
-&lt;p&gt;In this post, I pompously share my thoughts on how I aspire to be a researcher. My hope is that junior researchers who hold similar ideas and have faced the challenges that come with holding them, feel some sense of support from reading this. I’m always happy to chat more about navigating these challenges amidst the rat race that is AI/ML research.&lt;/p&gt;
+        <description>&lt;p&gt;In this post, I pompously share my thoughts on how I aspire to be a researcher. My hope is that junior researchers who hold similar ideas and have faced the challenges that come with holding them, feel some sense of support from reading this. I’m always happy to chat more about navigating these challenges amidst the rat race that is AI/ML research.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -948,26 +944,30 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Fri, 05 Dec 2025 00:00:00 -0800</pubDate>
+        <pubDate>Fri, 05 Dec 2025 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/blog/research-philosophy/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/research-philosophy/</guid>
       </item>
     
       <item>
         <title>Why PhD students should read the history of science</title>
-        <description>&lt;p&gt;I accidentally discovered a trick during my PhD: reading the history of science is a powerful way to nurture your emotional maturity as a researcher. You’ll notice, even as you read two random pages from the history of science, the pages have an uncanny resemblance to each other, and to the one you’re writing!&lt;/p&gt;
+        <description>&lt;p&gt;I accidentally discovered a trick during my PhD: reading the history of science is a powerful way to nurture your emotional maturity as a researcher. You’ll notice, even as you read two random pages from the history of science, the pages have an uncanny resemblance to each other, and to the one you’re writing.&lt;/p&gt;
 
 &lt;h2 id=&quot;patterns-in-the-history-of-science&quot;&gt;Patterns in the history of science&lt;/h2&gt;
 
-&lt;p&gt;Every tale of discovery demonstrates that scientists always gambled in the scientific process, and made mistakes. Science is noisy and subjective; there can be great subjectivity in interpreting a result or appreciating the significance of a direction. The subjectivity may disappear only in hindsight with more data and more exploration. Many discoveries that are now canonical, were disputed in their infancy. Next, lesser-known scientists were rarely taken seriously, especially by scientists who were backed by reputation or seniority or systemic power or mere confidence. There were always pushbacks, humiliations, and complete indifference. 
-Also, controversies between scientists has always been the norm. “Big and proud” personalities in power have made other scientists’ lives miserable. Or at times, two “big” scientists on an equal footing sparred publicly with each other. It wasn’t very nice. Finally, credit assignment has always been noisy and at other times, deliberately unfair. Some great scientific discoveries were tragically known only long after their originator’s passing. &lt;strong&gt;There are important lessons in these observations&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; that make you a more level-headed and emotionally mature researcher.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Every tale of discovery demonstrates that scientists always gambled in the scientific process, and made mistakes. Science is noisy and subjective; there can be great subjectivity in interpreting a result or appreciating the significance of a direction. The subjectivity may disappear only in hindsight with more data and more exploration. Many discoveries that are now canonical, were disputed in their infancy.&lt;/p&gt;
+
+&lt;p&gt;Lesser-known scientists were rarely taken seriously, especially by scientists who were backed by reputation or seniority or systemic power or mere confidence. There were always pushbacks, humiliations, and complete indifference. 
+Also, controversies between scientists has always been the norm. “Big and proud” personalities in power have made other scientists’ lives miserable. Or at times, two “big” scientists on an equal footing sparred publicly with each other. It wasn’t very nice.&lt;/p&gt;
+
+&lt;p&gt;Finally, credit assignment has always been noisy and at other times, deliberately unfair. Some great scientific discoveries were tragically known only long after their originator’s passing. &lt;em&gt;There are important lessons in these observations&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; that make you a more level-headed and emotionally mature researcher.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;lessons&quot;&gt;Lessons&lt;/h2&gt;
 
 &lt;p&gt;Recognizing these recurring patterns teaches you to recognize the inevitable ups and downs of the research process; navigate the terrain of research with grit; value deeply satisfying long-term ambitions over anxiety-inducing short-term goals;
- value goal-less, curiosity-driven random explorations as an exciting and important part of working at the frontier of human knowledge; not perceive certain setbacks or the lack of external validation as a personal attack in those situations where it is not personal but pure noise (not always the case!); not be intimidated by those who may assert their subjective opinions as objective truth with authority (this is my favorite lesson); and hold on to a measured conviction in your own opinions (second favorite lesson).&lt;/p&gt;
+ value goal-less, curiosity-driven random explorations as an exciting and important part of working at the frontier of human knowledge; not perceive certain setbacks or the lack of external validation as a personal attack in those situations where it is not personal but pure noise (not always the case though); not be intimidated by those who may assert their subjective opinions as objective truth with authority (this is my favorite lesson); and hold on to a measured conviction in your own opinions (second favorite lesson).&lt;/p&gt;
 
-&lt;p&gt;Some of these lessons&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; may sound like platitudes; but learning how these have repeatedly manifested in history — through vivid narrative detail — leaves a profound imprint on how you operate as a researcher, and how you construct an inner narrative about your role in the scientific community. &lt;strong&gt;I contend that you cannot learn this emotional maturity efficiently through the brute-force of the research process alone. You need to read.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Some of these lessons&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; may sound like platitudes, but learning how these have repeatedly manifested in history—through vivid narrative detail—leaves a profound imprint on how you operate as a researcher and how you construct an inner narrative about your role in the scientific community. &lt;em&gt;I contend that you cannot learn this emotional maturity efficiently through the brute-force of the research process alone. You need to read.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1073,7 +1073,7 @@ Also, controversies between scientists has always been the norm. “Big and prou
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Tue, 29 Apr 2025 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 29 Apr 2025 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/blog/history-of-science/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/history-of-science/</guid>
       </item>
