@@ -142,7 +142,7 @@ Only with careful and intelligent pruning does a multi-layered cat-ear-detecting
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Tue, 23 Jun 2026 00:00:00 +0900</pubDate>
+        <pubDate>Tue, 23 Jun 2026 00:00:00 -0700</pubDate>
         <link>http://localhost:4000/blog/lth/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/lth/</guid>
       </item>
@@ -172,7 +172,7 @@ Only with careful and intelligent pruning does a multi-layered cat-ear-detecting
 
 &lt;h4 id=&quot;verbalizing-both-the-map-and-map-showing&quot;&gt;Verbalizing both the map and map-showing&lt;/h4&gt;
 
-&lt;p&gt;The rescuer on the other hand, must transmit an escape route teeming with forks, loops and dead-ends to a mapless audience. This they must accomplish through mere words. This means the rescuer must disentangle and verbalize a gnarly two-dimensional object without inflicting any distortion upon it. Not only that, but the (disembodied, remote) rescuer cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.&lt;/p&gt;
+&lt;p&gt;The rescuer in our island analogy on the other hand, must transmit to their mapless audience an escape route teeming with forks, loops and dead-ends, an act they must accomplish through words and words only. This means the rescuer must disentangle the gnarly two-dimensional object and verbalize it, without ever inflicting any distortion upon it. If that wasn’t already a challenge, the (disembodied, remote) rescuer also cannot enact the physical gestures of an (embodied, in-person) tour guide, like pointing a finger in a direction, dileneating the silhouette of a fuzzy object, demonstrating where and how a piece must placed and so on.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Thus, in technical communication, the rescuer is forced to verbalize both a complex map and the many physical gestures required to spatially guide someone as they assemble the map and navigate through the island.&lt;/p&gt;
@@ -180,10 +180,10 @@ Only with careful and intelligent pruning does a multi-layered cat-ear-detecting
 
 &lt;h4 id=&quot;understanding-the-psychology-of-the-audience-and-building-trust&quot;&gt;Understanding the psychology of the audience and building trust&lt;/h4&gt;
 
-&lt;p&gt;The rescuer also needs to empathize with the delicate mental state of the people stranded and starving on an unpredictable island.&lt;/p&gt;
+&lt;p&gt;The rescuer also needs to empathize with the delicate mental state of the people stranded and starving on an unpredictable island. Below are some aspects of their mental state, not a comprehensive list:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Those people are distracted by the slightest of stimuli and bewildered by the tiniest of tasks;&lt;/li&gt;
+  &lt;li&gt;The marooned are distracted by the slightest of stimuli and bewildered by the tiniest of tasks;&lt;/li&gt;
   &lt;li&gt;they are forgetful and barely able to think;&lt;/li&gt;
   &lt;li&gt;they feel a constant urgency towards being  liberated (“Are we there yet? How far did the trek bring us? Where on earth are we now? Weren’t we here exactly two hours ago?”);&lt;/li&gt;
   &lt;li&gt;they experience a severe dissonance: every instruction from the rescuer appears to those poor souls as a meaningless form of torture: climb a slippery mountain, pet a snake, read a meandering, line-breaked equation. Why is a self-proclaimed savior making them endure bizarre sufferrings?  Is there not a rosier path to salvation? This friction generates caution and skepticism.&lt;/li&gt;
@@ -447,7 +447,7 @@ or&lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Wed, 17 Jun 2026 00:00:00 +0900</pubDate>
+        <pubDate>Wed, 17 Jun 2026 00:00:00 -0700</pubDate>
         <link>http://localhost:4000/blog/technical-communication/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/technical-communication/</guid>
       </item>
@@ -566,7 +566,7 @@ Can a person who was born blind and can &lt;em&gt;feel&lt;/em&gt; the shapes of 
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Mon, 30 Mar 2026 00:00:00 +0900</pubDate>
+        <pubDate>Mon, 30 Mar 2026 00:00:00 -0700</pubDate>
         <link>http://localhost:4000/blog/what-llms-see/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/what-llms-see/</guid>
       </item>
@@ -678,7 +678,7 @@ A third argument is about &lt;em&gt;attention&lt;/em&gt;. Without a scientist’
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Wed, 18 Mar 2026 00:00:00 +0900</pubDate>
+        <pubDate>Wed, 18 Mar 2026 00:00:00 -0700</pubDate>
         <link>http://localhost:4000/blog/emotions-in-science/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/emotions-in-science/</guid>
       </item>
@@ -783,7 +783,7 @@ purely due to poor learning, causing under-confidence on its next-token predicti
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Fri, 27 Feb 2026 00:00:00 +0900</pubDate>
+        <pubDate>Fri, 27 Feb 2026 00:00:00 -0800</pubDate>
         <link>http://localhost:4000/blog/joint-or-conditional/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/joint-or-conditional/</guid>
       </item>
@@ -890,7 +890,7 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Tue, 16 Dec 2025 00:00:00 +0900</pubDate>
+        <pubDate>Tue, 16 Dec 2025 00:00:00 -0800</pubDate>
         <link>http://localhost:4000/blog/high-dimensional-diff/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/high-dimensional-diff/</guid>
       </item>
@@ -944,7 +944,7 @@ In this universe, you can also “see” how knowing where $\mathbf{A}$ is, give
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Fri, 05 Dec 2025 00:00:00 +0900</pubDate>
+        <pubDate>Fri, 05 Dec 2025 00:00:00 -0800</pubDate>
         <link>http://localhost:4000/blog/research-philosophy/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/research-philosophy/</guid>
       </item>
@@ -1073,7 +1073,7 @@ Also, controversies between scientists has always been the norm. “Big and prou
   &lt;/ol&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Tue, 29 Apr 2025 00:00:00 +0900</pubDate>
+        <pubDate>Tue, 29 Apr 2025 00:00:00 -0700</pubDate>
         <link>http://localhost:4000/blog/history-of-science/</link>
         <guid isPermaLink="true">http://localhost:4000/blog/history-of-science/</guid>
       </item>
