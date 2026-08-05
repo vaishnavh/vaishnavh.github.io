@@ -877,13 +877,12 @@ section.post em strong, section > p em strong {
 /* 🏛️ Subsection (e.g., Conference Papers vs Workshops) */
 .subsubheading {
   font-family: "IM Fell Great Primer", Georgia, serif !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
   font-weight: 700 !important;
-  font-style: italic !important;
-  letter-spacing: -0.02em !important;
+  letter-spacing: 0.1em !important;
   color: var(--heading-color) !important;
   margin-top: 2rem !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: -1rem !important;
   display: block;
 }
 
@@ -950,17 +949,37 @@ section.post em strong, section > p em strong {
 .navigation .logo { /* Parent of the logo link */
     /* Flatting SCSS-like nesting */
 }
-.navigation .logo a { /* Logo link itself */
-  position: absolute; /* Keep absolute for desktop left alignment */
+
+
+
+
+.navigation .logo a { 
+  position: absolute; 
   top: 0;
   left: 0;
-  font-size: 30px;
-  font-weight: 700;
-  padding: 7px;
-  font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
+  
+  /* --- Minimal Aesthetic --- */
+    /*font-family: "IM Fell Great Primer SC", Georgia, serif;*/
+
+    font-family: "Futura", "Helvetica Neue", sans-serif;
+  font-size: 20px; /* Slightly smaller than 20px to sit perfectly inline with the nav menu */
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  
+  /* --- Standard Link Properties --- */
+  padding: 20px 0; /* Matches the padding of your other nav links for vertical alignment */
   color: var(--logo-color);
   text-decoration: none;
+  opacity: 0.9;
+  transition: color 0.2s ease, opacity 0.2s ease;
 }
+
+.navigation .logo a:hover {
+  color: var(--highlight-color);
+  opacity: 1;
+}
+
 
 .navigation-item { /* Style for each navigation link */
   padding: 0px;
