@@ -380,6 +380,22 @@
   });
 </script>
 <script src="/assets/js/footnotes.js"></script>
+
+<!-- Floating Mobile TOC (Sections) -->
+<div class="mobile-toc-wrapper">
+  <button id="mobile-toc-btn" class="mobile-toc-btn">
+    <!-- A minimalist menu icon -->
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 1px;"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    Sections
+  </button>
+  <div id="mobile-toc-dropdown" class="mobile-toc-dropdown">
+    <div class="mobile-toc-dropdown-inner">
+      
+    </div>
+  </div>
+</div>
+
+
   <!-- Floating Mobile Font Controls -->
 <div class="mobile-font-controls">
   <button id="font-decrease">A-</button>
@@ -388,28 +404,53 @@
 </div>
 
 <!-- Font Sizing Logic -->
+<!-- Interactive Logic -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    /* --- Font Sizing Logic --- */
     const btnDecrease = document.getElementById('font-decrease');
     const btnIncrease = document.getElementById('font-increase');
     const root = document.documentElement;
 
     if (btnDecrease && btnIncrease) {
       let currentSize = parseInt(localStorage.getItem('mobileFontSize')) || 17;
-
       const updateFontSize = (size) => {
         root.style.setProperty('--dynamic-font-size', size + 'px');
         localStorage.setItem('mobileFontSize', size);
       };
-
       btnDecrease.addEventListener('click', () => {
-        currentSize = Math.max(13, currentSize - 1); /* Stops shrinking at 13px */
+        currentSize = Math.max(13, currentSize - 1);
         updateFontSize(currentSize);
       });
-      
       btnIncrease.addEventListener('click', () => {
-        currentSize = Math.min(24, currentSize + 1); /* Stops growing at 24px */
+        currentSize = Math.min(24, currentSize + 1);
         updateFontSize(currentSize);
+      });
+    }
+
+    /* --- Mobile Sections Dropdown Logic --- */
+    const tocBtn = document.getElementById('mobile-toc-btn');
+    const tocDropdown = document.getElementById('mobile-toc-dropdown');
+
+    if (tocBtn && tocDropdown) {
+      // Toggle menu open/close
+      tocBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Stops document listener from immediately closing it
+        tocDropdown.classList.toggle('show');
+      });
+
+      // Automatically close menu when a section link is tapped
+      tocDropdown.addEventListener('click', (e) => {
+        if(e.target.tagName.toLowerCase() === 'a') {
+          tocDropdown.classList.remove('show');
+        }
+      });
+
+      // Close menu when tapping anywhere else on the screen
+      document.addEventListener('click', (e) => {
+        if (!tocBtn.contains(e.target) && !tocDropdown.contains(e.target)) {
+          tocDropdown.classList.remove('show');
+        }
       });
     }
   });

@@ -1362,7 +1362,7 @@ ul.posts .series-parts-list li a:hover {
         box-shadow: none !important;
         transition: color 0.2s, background-color 0.2s;
       }
-      
+
       /* Adds a sleek highlight effect when tapped */
       .mobile-font-controls button:hover, 
       .mobile-font-controls button:active {
@@ -2207,5 +2207,118 @@ display: none !important;
     font-size: 16px !important;
     width: auto !important; 
     display: block !important;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE FLOATING TABLE OF CONTENTS (Center Dropdown)
+   ========================================================================== */
+
+/* Keep hidden on desktop */
+.mobile-toc-wrapper {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-toc-wrapper {
+    display: block !important;
+    position: fixed !important;
+    bottom: 20px !important;
+    
+    /* Anchor to the bottom-left */
+    left: 20px !important; 
+    transform: none !important; /* Removes the centering math */
+    z-index: 1000000 !important;
+  }
+
+  /* The 'Sections' Pill */
+  .mobile-toc-btn {
+    background-color: var(--background-color) !important;
+    border: 1px solid var(--nav-border-color) !important;
+    color: var(--nav-text-color) !important;
+    border-radius: 42px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    height: 42px !important;
+    padding: 0 20px !important;
+    font-family: 'Futura', 'Helvetica Neue', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 300 !important; 
+    cursor: pointer;
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    outline: none !important;
+    transition: color 0.2s, background-color 0.2s;
+  }
+
+  .mobile-toc-btn:active {
+    background-color: rgba(184, 106, 80, 0.1) !important;
+    color: var(--highlight-color) !important;
+  }
+
+  /* The Pop-up Menu Box */
+  .mobile-toc-dropdown {
+    position: absolute !important;
+    bottom: calc(100% + 15px) !important; 
+    
+    /* Align the popup box with the left edge of the button */
+    left: 0 !important; 
+    
+    transform: translateY(10px) !important; /* Starts slightly shifted down for animation */
+    background-color: var(--background-color) !important;
+    border: 1px solid var(--nav-border-color) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+    width: 260px !important;
+    max-height: 50vh !important; 
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease !important;
+  }
+
+  /* When the 'show' class is added via JavaScript */
+  .mobile-toc-dropdown.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important; /* Slides up smoothly without horizontal shifting */
+  }
+
+  /* Styling the academic links inside the menu */
+  .mobile-toc-dropdown-inner {
+    padding: 20px !important;
+    font-family: "IM Fell Great Primer", serif !important;
+    text-align: left !important;
+  }
+
+  .mobile-toc-dropdown-inner ul {
+    list-style: none !important;
+    padding-left: 15px !important; /* Clean indents for sub-sections */
+    margin: 0 !important;
+  }
+
+  .mobile-toc-dropdown-inner > ul {
+    padding-left: 0 !important; /* Top level is flush left */
+  }
+
+  .mobile-toc-dropdown-inner li {
+    margin-bottom: 12px !important;
+    padding: 0 !important;
+  }
+
+  .mobile-toc-dropdown-inner a {
+    color: var(--text-color) !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    display: block !important;
+  }
+
+  .mobile-toc-dropdown-inner a:hover,
+  .mobile-toc-dropdown-inner a:active {
+    color: var(--highlight-color) !important;
   }
 }
