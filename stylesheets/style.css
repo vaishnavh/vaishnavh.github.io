@@ -1305,6 +1305,10 @@ ul.posts .series-parts-list li a:hover {
    ========================================================================== */
 
 @media (max-width: 768px) {
+  /* Resets the -40px global margin so the page doesn't bleed off the screen */
+  body {
+    margin: 0 !important; 
+  }
   /* Responsive widths for main content and blog posts */
   #container, section.post {
     max-width: 95%; /* Make content take more width on small screens */
@@ -1336,6 +1340,7 @@ ul.posts .series-parts-list li a:hover {
     padding: 0;
   }
   .navigation .logo a {
+    position: static; /* Forces the logo to obey normal flow and padding */
     border-right: none;
     padding: 10px 0;
     display: block;
