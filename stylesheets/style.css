@@ -577,7 +577,7 @@ section.post em strong, section > p em strong {
    ========================================================================== */
 
 .blog-post { /* TARGETS YOUR BLOG POSTS */
-  max-width: 600px; /* Your desired narrower width for blog posts */
+  max-width: 500px; /* Your desired narrower width for blog posts */
   margin: 0 auto;   /* Centers the blog content within its parent */
   text-align: left; /* Ensure text alignment for blog posts */
 
@@ -912,19 +912,18 @@ section.post em strong, section > p em strong {
 .blogtitle {
   color: var(--blogtitle-color);
   font-family: "IM Fell Great Primer", "OfflineAcademic", serif;
-  font-weight: 100;
-  font-size: 50;
+  font-weight: normal;
+  font-size: 50px !important;
   font-style:italic;
   line-height: 1em;
   margin-bottom: 60px;
   color: var(--highlight-color);
-  letter-spacing: 0.0em
+  letter-spacing: 0.0em;
   display: inline-block; /* Ensures the border only spans the width of the text */
   padding-bottom: 10px; /* Space between text and the line */
   border-bottom: 4px double var(--nav-border-color, #ccc); /* The classic double line */
   padding-top: 10px; /* Space between text and the line */
   border-top: 4px double var(--nav-border-color, #ccc); /* The classic double line */
-  
 }
 
 
@@ -1300,6 +1299,91 @@ ul.posts .series-parts-list li a:hover {
   color: var(--link-hover-color, #1d5884);
 }
 
+
+/* Force your blog text to obey the new variable */
+.blogbody li, .blogbody p, .blogbody blockquote p {
+  font-size: var(--dynamic-font-size) !important;
+  transition: font-size 0.2s ease;
+}
+
+/* --- DYNAMIC FONT SIZING (Mobile Only) --- */
+:root {
+  --dynamic-font-size: 17px;
+}
+
+/* Force your blog text to obey the new variable */
+.blogbody li, .blogbody p, .blogbody blockquote p {
+  font-size: var(--dynamic-font-size) !important;
+  transition: font-size 0.2s ease;
+}
+
+/* Hide the floating pill on desktop */
+.mobile-font-controls {
+  display: none; 
+}
+
+/* Show and position the pill on mobile */
+@media (max-width: 768px) {
+  .mobile-font-controls {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 20px !important;
+        
+        /* Shifting it to the right, sitting just beside the theme toggle */
+        right: 75px !important; 
+        left: auto !important; /* Clears the previous left positioning */
+        
+        z-index: 1000000 !important; 
+        background-color: var(--background-color) !important;
+        border: 1px solid var(--nav-border-color) !important;
+        border-radius: 42px !important; 
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+        height: 42px !important; 
+        align-items: center;
+        padding: 0 !important; 
+        overflow: hidden; 
+      }
+
+      .mobile-font-controls button {
+        background: transparent !important;
+        border: none !important; 
+        color: var(--nav-text-color) !important;
+        padding: 0 16px !important; 
+        height: 100% !important; 
+        margin: 0 !important;
+        font-family: 'Futura', 'Helvetica Neue', sans-serif !important;
+        font-size: 14px !important;
+        
+        /* Changed to light-weight */
+        font-weight: 300 !important; 
+        
+        cursor: pointer;
+        outline: none !important;
+        box-shadow: none !important;
+        transition: color 0.2s, background-color 0.2s;
+      }
+      
+      /* Adds a sleek highlight effect when tapped */
+      .mobile-font-controls button:hover, 
+      .mobile-font-controls button:active {
+        color: var(--highlight-color) !important;
+        background-color: rgba(184, 106, 80, 0.1) !important; 
+      }
+
+      /* A subtle line between the two buttons */
+      .font-divider {
+        width: 1px !important;
+        height: 20px !important;
+        background-color: var(--nav-border-color) !important;
+        opacity: 0.3 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+    }
+}
+
+
+
 /* ==========================================================================
    13. Media Queries (Mobile Overrides)
    ========================================================================== */
@@ -1309,62 +1393,53 @@ ul.posts .series-parts-list li a:hover {
   body {
     margin: 0 !important; 
   }
-  /* Responsive widths for main content and blog posts */
-  #container, section.post {
-    max-width: 95%; /* Make content take more width on small screens */
-    margin: 10px auto; /* Center on mobile */
+
+/* --- 1. Restores the padding so text doesn't hit the screen edges --- */
+  #container, section.post, .blog-post {
+    max-width: 95% !important; /* Pulls it away from the absolute edge */
+    margin: 10px auto !important; 
   }
 
-  .content { /* Ensure .content's padding doesn't create excessive inner margins */
-    padding: 15px; /* Reduced overall padding for mobile */
+  .content { 
+    padding: 15px !important; 
   }
 
-  .blog-post, section.post { /* Apply consistent mobile padding within these */
-      padding: 0 15px; /* Example: inner padding for mobile blog/main page section content */
+.blog-post, section.post { 
+    padding: 0 15px !important; 
   }
 
-  /* Navigation mobile rules */
+  /* --- 2. Fixes the Header Overlap --- */
   .navigation {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    padding: 10px 0;
+    padding: 15px; 
     margin: 0;
-    padding-left: 15px; /* Adjust this value as needed for desired space */
   }
+  
   .navigation .logo {
     position: static;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Creates space between your name and the menu */
     width: 100%;
     display: block;
-    padding: 0;
   }
+  
   .navigation .logo a {
-    position: static; /* Forces the logo to obey normal flow and padding */
-    border-right: none;
-    padding: 10px 0;
+    position: static; 
     display: block;
-    margin: 0;
-    width: auto;
+    font-size: 16px; /* Shrinks the text so your full name fits */
+    letter-spacing: 0.1em; /* Reduces the extreme letter spacing on mobile */
+    line-height: 1.4;
+    white-space: normal; /* Allows your name to wrap to a new line if needed */
+    padding: 0;
+    border: none;
   }
 
   .menu {
     flex-direction: column;
-    align-items: flex-end; /* This aligns menu items to right on mobile */
-    justify-content: flex-start;
-    gap: 0;
-    padding: 0;
-    margin: 10px 0 0 0;
+    align-items: flex-start; /* Aligns menu items to the left neatly under the logo */
     width: 100%;
   }
-
-  /* General Menu Container */
-.menu { /* This block was duplicated; keeping one here */
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
 
 
   .menu a {
@@ -2068,4 +2143,69 @@ display: none !important;
   transform-origin: center center;
   margin-top: 1.5em !important;
   margin-bottom: 1.5em !important;
+}
+
+
+/* ==========================================================================
+   DEFINITIVE MOBILE HEADER & LAYOUT FIX (PERFECTLY CENTERED)
+   ========================================================================== */
+
+@media screen and (max-width: 768px) {
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important; 
+  }
+
+  .navigation {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 30px 0 20px 0 !important; /* Removed side padding so it anchors to true center */
+    width: 100% !important;
+  }
+
+  .navigation .logo {
+    position: static !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    padding: 0 !important;
+  }
+
+  .navigation .logo a {
+    position: static !important;
+    display: inline-block !important; /* Changed to inline-block for precise centering */
+    font-size: 18px !important; 
+    letter-spacing: 0.15em !important;
+    
+    /* Neutralizes the invisible space at the end of the word! */
+    margin-right: -0.15em !important; 
+    
+    white-space: normal !important;
+    padding: 0 !important;
+  }
+
+  .menu {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+    
+    /* Strips out the browser's invisible list padding */
+    padding: 0 !important; 
+    margin: 0 !important;
+  }
+
+  .menu a, .navigation-item {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 16px !important;
+    width: auto !important; 
+    display: block !important;
+  }
 }

@@ -1,12 +1,16 @@
 <html>
   <head>
       <script>
-    // Set theme immediately to prevent flashing and provide data for Disqus
-    (function() {
-      const savedTheme = localStorage.getItem('theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    })();
-  </script>
+  // Set theme immediately to prevent flashing and provide data for Disqus
+  (function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    // Also load the saved font size immediately
+    const savedFontSize = localStorage.getItem('mobileFontSize') || '17';
+    document.documentElement.style.setProperty('--dynamic-font-size', savedFontSize + 'px');
+  })();
+</script>
 
     
     <script type="text/x-mathjax-config">
@@ -308,9 +312,6 @@
 
     </div>
 
-
-
-
     <footer>
 
   <br />
@@ -427,5 +428,39 @@
   });
 </script>
 <script src="/assets/js/footnotes.js"></script>
+  <!-- Floating Mobile Font Controls -->
+<div class="mobile-font-controls">
+  <button id="font-decrease">A-</button>
+  <div class="font-divider"></div>
+  <button id="font-increase">A+</button>
+</div>
+
+<!-- Font Sizing Logic -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const btnDecrease = document.getElementById('font-decrease');
+    const btnIncrease = document.getElementById('font-increase');
+    const root = document.documentElement;
+
+    if (btnDecrease && btnIncrease) {
+      let currentSize = parseInt(localStorage.getItem('mobileFontSize')) || 17;
+
+      const updateFontSize = (size) => {
+        root.style.setProperty('--dynamic-font-size', size + 'px');
+        localStorage.setItem('mobileFontSize', size);
+      };
+
+      btnDecrease.addEventListener('click', () => {
+        currentSize = Math.max(13, currentSize - 1); /* Stops shrinking at 13px */
+        updateFontSize(currentSize);
+      });
+      
+      btnIncrease.addEventListener('click', () => {
+        currentSize = Math.min(24, currentSize + 1); /* Stops growing at 24px */
+        updateFontSize(currentSize);
+      });
+    }
+  });
+</script>
   </body>
 </html>
