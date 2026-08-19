@@ -1317,71 +1317,55 @@ ul.posts .series-parts-list li a:hover {
   transition: font-size 0.2s ease;
 }
 
-/* Hide the floating pill on desktop */
+/* ==========================================================================
+   FLOATING FONT SIZING CONTROLS (Desktop & Mobile)
+   ========================================================================== */
 .mobile-font-controls {
-  display: none; 
+  display: flex !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 75px !important; /* Perfect distance from your 42px toggle */
+  z-index: 1000000 !important; 
+  background-color: var(--background-color) !important;
+  border: 1px solid var(--nav-border-color) !important;
+  border-radius: 42px !important; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  height: 42px !important; 
+  align-items: center;
+  padding: 0 !important; 
+  overflow: hidden; 
 }
 
-/* Show and position the pill on mobile */
-@media (max-width: 768px) {
-  .mobile-font-controls {
-        display: flex !important;
-        position: fixed !important;
-        bottom: 20px !important;
-        
-        /* Shifting it to the right, sitting just beside the theme toggle */
-        right: 75px !important; 
-        left: auto !important; /* Clears the previous left positioning */
-        
-        z-index: 1000000 !important; 
-        background-color: var(--background-color) !important;
-        border: 1px solid var(--nav-border-color) !important;
-        border-radius: 42px !important; 
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-        height: 42px !important; 
-        align-items: center;
-        padding: 0 !important; 
-        overflow: hidden; 
-      }
-
-      .mobile-font-controls button {
-        background: transparent !important;
-        border: none !important; 
-        color: var(--nav-text-color) !important;
-        padding: 0 16px !important; 
-        height: 100% !important; 
-        margin: 0 !important;
-        font-family: 'Futura', 'Helvetica Neue', sans-serif !important;
-        font-size: 14px !important;
-        
-        /* Changed to light-weight */
-        font-weight: 300 !important; 
-        
-        cursor: pointer;
-        outline: none !important;
-        box-shadow: none !important;
-        transition: color 0.2s, background-color 0.2s;
-      }
-
-      /* Adds a sleek highlight effect when tapped */
-      .mobile-font-controls button:hover, 
-      .mobile-font-controls button:active {
-        color: var(--highlight-color) !important;
-        background-color: rgba(184, 106, 80, 0.1) !important; 
-      }
-
-      /* A subtle line between the two buttons */
-      .font-divider {
-        width: 1px !important;
-        height: 20px !important;
-        background-color: var(--nav-border-color) !important;
-        opacity: 0.3 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-    }
+.mobile-font-controls button {
+  background: transparent !important;
+  border: none !important; 
+  color: var(--nav-text-color) !important;
+  padding: 0 16px !important; 
+  height: 100% !important; 
+  margin: 0 !important;
+  font-family: 'Futura', 'Helvetica Neue', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 300 !important; 
+  cursor: pointer;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: color 0.2s, background-color 0.2s;
 }
 
+.mobile-font-controls button:hover, 
+.mobile-font-controls button:active {
+  color: var(--highlight-color) !important;
+  background-color: rgba(184, 106, 80, 0.1) !important; 
+}
+
+.font-divider {
+  width: 1px !important;
+  height: 20px !important;
+  background-color: var(--nav-border-color) !important;
+  opacity: 0.3 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 
 /* ==========================================================================
